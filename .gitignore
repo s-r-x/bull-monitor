@@ -5,4 +5,4 @@ packages/koa/dist
 packages/hapi/dist
 packages/ui/build
 packages/ui/.snowpack
-./demo/build-manifest.json
+./docs/build-manifest.json

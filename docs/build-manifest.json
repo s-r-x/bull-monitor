@@ -1584,9 +1584,23 @@
         }
       ]
     },
+    "dist/config/env.js": {
+      "bytes": 212,
+      "imports": [
+        {
+          "path": "_snowpack/env.js",
+          "kind": "import-statement"
+        }
+      ]
+    },
     "dist/config/gql.js": {
-      "bytes": 75,
-      "imports": []
+      "bytes": 316,
+      "imports": [
+        {
+          "path": "dist/config/env.js",
+          "kind": "import-statement"
+        }
+      ]
     },
     "_snowpack/pkg/graphql-request.js": {
       "bytes": 64154,
@@ -2316,15 +2330,6 @@
         },
         {
           "path": "_snowpack/pkg/graphql-request.js",
-          "kind": "import-statement"
-        }
-      ]
-    },
-    "dist/config/env.js": {
-      "bytes": 160,
-      "imports": [
-        {
-          "path": "_snowpack/env.js",
           "kind": "import-statement"
         }
       ]
@@ -8381,8 +8386,11 @@
         "_snowpack/pkg/@material-ui/core/Badge.js": {
           "bytesInOutput": 3480
         },
+        "dist/config/env.js": {
+          "bytesInOutput": 53
+        },
         "dist/config/gql.js": {
-          "bytesInOutput": 49
+          "bytesInOutput": 143
         },
         "_snowpack/pkg/graphql-request.js": {
           "bytesInOutput": 27564
@@ -8563,9 +8571,6 @@
         },
         "dist/network/mutations/clean-queue.js": {
           "bytesInOutput": 164
-        },
-        "dist/config/env.js": {
-          "bytesInOutput": 30
         },
         "dist/providers/network/value.js": {
           "bytesInOutput": 560
@@ -9054,7 +9059,7 @@
           "bytesInOutput": 122
         }
       },
-      "bytes": 884326
+      "bytes": 884443
     },
     "../packages/ui/~~bundle~~/dist/index.css": {
       "imports": [],

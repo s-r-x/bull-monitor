@@ -6,6 +6,6 @@ module.exports = {
     minify: true,
   },
   buildOptions: {
-    out: '../../demo',
+    out: '../../docs',
   },
 };
