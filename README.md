@@ -41,6 +41,7 @@ import Koa from 'koa';
   await monitor.init();
   app.use(monitor.router.routes());
   app.listen(3000)
+})()
 ```
 
 ## Usage with Hapi
