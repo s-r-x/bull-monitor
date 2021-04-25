@@ -24,8 +24,10 @@ import Queue from 'bull';
 
 ## Usage with Koa
 
+@bull-monitor koa has a peer dependency of koa-router
+
 ```sh
-npm i @bull-monitor/koa koa
+npm i @bull-monitor/koa koa koa-router
 ```
 
 ```typescript
