@@ -1,0 +1,8 @@
+node_modules
+packages/root/dist
+packages/express/dist
+packages/koa/dist
+packages/hapi/dist
+packages/ui/build
+packages/ui/.snowpack
+./demo/build-manifest.json

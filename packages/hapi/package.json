@@ -1,0 +1,36 @@
+{
+  "name": "@bull-monitor/hapi",
+  "version": "0.1.0",
+  "description": "bull-monitor for hapi",
+  "keywords": [
+    "bull"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/s-r-x/bull-monitor.git",
+    "directory": "packages/hapi"
+  },
+  "author": "Ilya Strus <strax1990@gmail.com>",
+  "license": "MIT",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "npm run clean && npm run compile",
+    "clean": "rm -rf ./dist",
+    "compile": "tsc -p tsconfig.build.json",
+    "dev": "tsc -p tsconfig.build.json --watch"
+  },
+  "main": "dist/index.js",
+  "dependencies": {
+    "@bull-monitor/root": "^0.1.0",
+    "apollo-server-hapi": "^2.23.0"
+  },
+  "peerDependencies": {
+    "@hapi/hapi": "20.x"
+  },
+  "devDependencies": {
+    "@hapi/hapi": "^20.1.2",
+    "@types/hapi__hapi": "^20.0.7",
+    "typescript": "^4.2.4"
+  },
+  "gitHead": "d3b22c6604f7081bfb5b40d3e46d8a1ea58e830a"
+}

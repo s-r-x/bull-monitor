@@ -1,0 +1,18 @@
+{
+  "compilerOptions": {
+    "baseUrl": "./",
+    "declaration": false,
+    "strictNullChecks": true,
+    "esModuleInterop": true,
+    "target": "es6",
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "sourceMap": false,
+    "lib": ["ESNext"],
+    "paths": {
+      "@bull-monitor/root": ["../../packages/root/src"],
+      "@bull-monitor/fastify": ["../../packages/fastify/src"]
+    }
+  },
+  "exclude": ["node_modules"]
+}

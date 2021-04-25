@@ -1,0 +1,22 @@
+{
+  "name": "example-koa",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "ts-node-dev -r tsconfig-paths/register --project tsconfig.json index.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "koa": "^2.13.1",
+    "koa-router": "^10.0.0"
+  },
+  "devDependencies": {
+    "@types/koa": "^2.13.1",
+    "@types/koa-router": "^7.4.2",
+    "ts-node-dev": "^1.1.6",
+    "tsconfig-paths": "^3.9.0"
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "name": "@bull-monitor/express",
+  "version": "0.1.0",
+  "description": "bull-monitor for express",
+  "keywords": [
+    "bull"
+  ],
+  "author": "Ilya Strus <strax1990@gmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/s-r-x/bull-monitor.git",
+    "directory": "packages/express"
+  },
+  "license": "MIT",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "npm run clean && npm run compile",
+    "clean": "rm -rf ./dist",
+    "compile": "tsc -p tsconfig.build.json",
+    "dev": "tsc -p tsconfig.build.json --watch"
+  },
+  "main": "dist/index.js",
+  "dependencies": {
+    "@bull-monitor/root": "^0.1.0",
+    "apollo-server-express": "^2.22.2"
+  },
+  "peerDependencies": {
+    "express": "4.x"
+  },
+  "devDependencies": {
+    "express": "^4.17.1",
+    "@types/express": "^4.17.11",
+    "typescript": "^4.2.4"
+  },
+  "gitHead": "d3b22c6604f7081bfb5b40d3e46d8a1ea58e830a"
+}

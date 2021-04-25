@@ -1,0 +1,22 @@
+version: '3'
+services:
+  redis:
+    image: 'redis:5.0.4-alpine'
+    restart: unless-stopped
+    logging:
+      driver: none
+  server:
+    restart: unless-stopped
+    build:
+      context: ./server
+    ports:
+      - '${PORT}:${PORT}'
+    environment:
+      - PORT
+      - REDIS_URI=redis://redis:6379
+    depends_on:
+      - redis
+    volumes:
+      - ./server:/app
+      - ../../packages/root:/packages/root
+      - ../../packages/express:/packages/express

@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "declaration": false,
+    "strictNullChecks": true,
+    "esModuleInterop": true,
+    "moduleResolution": "node",
+    "allowJs": true,
+    "target": "ES2017",
+    "sourceMap": false,
+    "lib": ["ESNext"],
+    "paths": {
+      "@bull-monitor/root": ["/packages/root/src"],
+      "@bull-monitor/express": ["/packages/express/src"]
+    }
+  },
+  "exclude": ["node_modules"]
+}

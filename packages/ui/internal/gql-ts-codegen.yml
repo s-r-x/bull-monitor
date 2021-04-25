@@ -1,0 +1,13 @@
+overwrite: true
+schema: 'http://localhost:3000/graphql'
+documents:
+  - '../src/network/queries/*.ts'
+  - '../src/network/fragments/*.ts'
+  - '../src/network/mutations/*.ts'
+generates:
+  ../src/typings/gql.ts:
+    plugins:
+      - 'typescript'
+      - 'typescript-operations'
+    config:
+      skipTypename: true

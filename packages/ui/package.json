@@ -1,0 +1,67 @@
+{
+  "name": "@bull-monitor/ui",
+  "version": "0.1.1",
+  "license": "MIT",
+  "author": "Ilya Strus <strax1990@gmail.com>",
+  "description": "bull-monitor ui",
+  "keywords": [
+    "bull"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/s-r-x/bull-monitor.git",
+    "directory": "packages/ui"
+  },
+  "scripts": {
+    "serve": "NODE_ENV=development snowpack dev",
+    "serve-with-mocks": "NODE_ENV=development SNOWPACK_PUBLIC_ENABLE_MOCKS=true snowpack dev",
+    "dev": "NODE_ENV=development snowpack build",
+    "build": "NODE_ENV=production snowpack build",
+    "build-demo": "SNOWPACK_PUBLIC_ENABLE_MOCKS=true NODE_ENV=production snowpack build --config ./snowpack.config.demo.js",
+    "test": "web-test-runner \"src/**/*.test.tsx\""
+  },
+  "dependencies": {
+    "@material-ui/core": "^4.11.3",
+    "@material-ui/icons": "^4.11.2",
+    "@material-ui/lab": "^4.0.0-alpha.57",
+    "@types/codemirror": "0.0.108",
+    "@types/lodash": "^4.14.168",
+    "codemirror": "^5.60.0",
+    "dayjs": "^1.10.4",
+    "graphql": "^15.5.0",
+    "graphql-request": "^3.4.0",
+    "jshint": "^2.12.0",
+    "jsonlint-mod": "^1.7.6",
+    "lodash": "^4.17.21",
+    "material-ui-confirm": "^2.1.2",
+    "ms": "^2.1.3",
+    "notistack": "^1.0.5",
+    "react": "^17.0.0",
+    "react-codemirror2": "^7.2.1",
+    "react-dom": "^17.0.0",
+    "react-query": "^3.13.3",
+    "react-textarea-autosize": "^8.3.2",
+    "snowpack": "3.0.13",
+    "zustand": "^3.3.3"
+  },
+  "devDependencies": {
+    "@graphql-codegen/cli": "^1.21.3",
+    "@graphql-codegen/typescript": "^1.21.1",
+    "@graphql-codegen/typescript-operations": "^1.17.15",
+    "@snowpack/plugin-dotenv": "^2.0.5",
+    "@snowpack/plugin-react-refresh": "^2.4.0",
+    "@snowpack/plugin-typescript": "^1.2.0",
+    "@snowpack/web-test-runner-plugin": "^0.2.0",
+    "@testing-library/react": "^11.0.0",
+    "@types/chai": "^4.2.13",
+    "@types/mocha": "^8.2.0",
+    "@types/ms": "^0.7.31",
+    "@types/react": "^17.0.0",
+    "@types/react-dom": "^17.0.0",
+    "@types/snowpack-env": "^2.3.2",
+    "@web/test-runner": "^0.12.0",
+    "chai": "^4.2.0",
+    "typescript": "^4.0.0"
+  },
+  "gitHead": "d3b22c6604f7081bfb5b40d3e46d8a1ea58e830a"
+}

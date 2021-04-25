@@ -1,0 +1,12 @@
+.MuiDialogContent-root {
+  width: 500px !important;
+}
+@media (max-width: 550px) {
+  .MuiDialogContent-root {
+    width: calc(100vw - 30px) !important;
+  }
+  .MuiDialog-paper {
+    margin-left: 15px !important;
+    margin-right: 15px !important;
+  }
+}
