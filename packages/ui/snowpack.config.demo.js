@@ -6,6 +6,7 @@ module.exports = {
     minify: true,
   },
   buildOptions: {
+    baseUrl: "/bull-monitor",
     out: '../../docs',
   },
 };
