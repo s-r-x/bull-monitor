@@ -6,16 +6,37 @@ import FormControl from '@material-ui/core/FormControl';
 import { usePreferencesStore } from '@/stores/preferences';
 
 export default function Preferences() {
-  const [expandRows, toggleExpandRows] = usePreferencesStore(
-    (state) => [state.expandRows, state.toggleExpandRows],
+  const [
+    expandRows,
+    toggleExpandRows,
+    confirmDangerousActions,
+    toggleConfirmDangerousActions,
+  ] = usePreferencesStore(
+    (state) => [
+      state.expandRows,
+      state.toggleExpandRows,
+      state.confirmDangerousActions,
+      state.toggleConfirmDangerousActions,
+    ],
     shallow,
   );
   return (
     <div>
-      <FormControl margin="normal">
+      <FormControl margin="dense">
         <FormControlLabel
           control={<Switch checked={expandRows} onChange={toggleExpandRows} />}
           label="Expand rows by default"
+        />
+      </FormControl>
+      <FormControl margin="dense">
+        <FormControlLabel
+          control={
+            <Switch
+              checked={confirmDangerousActions}
+              onChange={toggleConfirmDangerousActions}
+            />
+          }
+          label="Confirm dangerous actions"
         />
       </FormControl>
     </div>

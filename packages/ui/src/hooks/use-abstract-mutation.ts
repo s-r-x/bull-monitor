@@ -4,6 +4,7 @@ import { useConfirm, ConfirmError } from '@/hooks/use-confirm';
 import type { ConfirmOptions } from 'material-ui-confirm';
 import { useQueryClient } from 'react-query';
 import { QueryKeysConfig } from '@/config/query-keys';
+import { usePreferencesStore } from '@/stores/preferences';
 
 export function useAbstractMutation<
   TData = unknown,
@@ -15,6 +16,9 @@ export function useAbstractMutation<
   toast?: string;
   invalidateSharedQueries?: boolean;
 }) {
+  const confirmDangerousActions = usePreferencesStore(
+    (state) => state.confirmDangerousActions,
+  );
   const confirm = useConfirm();
   const toast = useToast();
   const queryClient = useQueryClient();
@@ -36,7 +40,7 @@ export function useAbstractMutation<
       }
     },
     async onMutate() {
-      if (props.confirm) {
+      if (confirmDangerousActions && props.confirm) {
         return await confirm(props.confirm);
       }
     },
