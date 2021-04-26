@@ -51,5 +51,7 @@ example.koa-with-basic-auth:
 	npm --prefix ./examples/koa run with-basic-auth
 example.hapi:
 	npm --prefix ./examples/hapi start
+example.hapi-with-basic-auth:
+	npm --prefix ./examples/hapi run with-basic-auth
 example.fastify:
 	npm --prefix ./examples/fastify start

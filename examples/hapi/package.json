@@ -4,17 +4,20 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "ts-node-dev -r tsconfig-paths/register --project tsconfig.json index.ts"
+    "start": "ts-node-dev -r tsconfig-paths/register index.ts",
+    "with-basic-auth": "ts-node-dev -r tsconfig-paths/register with-basic-auth.ts"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@types/hapi__basic": "^5.1.2",
     "@types/hapi__hapi": "^20.0.7",
     "ts-node-dev": "^1.1.6",
     "tsconfig-paths": "^3.9.0"
   },
   "dependencies": {
+    "@hapi/basic": "^6.0.0",
     "@hapi/hapi": "^20.1.2"
   }
 }
