@@ -34,7 +34,7 @@ export const mutationsTypeDef = gql`
       grace: Int = 1000
       status: JobStatusClean!
       limit: Int
-    ): [Int]!
+    ): [ID]!
     """
     https://github.com/OptimalBits/bull/blob/develop/REFERENCE.md#queueempty
     """
