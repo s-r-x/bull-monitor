@@ -1,5 +1,4 @@
-import gql from 'graphql-tag';
-
+import { gql } from 'apollo-server-core';
 
 export const jobTypeDef = gql`
   enum JobStatus {
