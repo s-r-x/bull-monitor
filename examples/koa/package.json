@@ -4,17 +4,20 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "ts-node-dev -r tsconfig-paths/register --project tsconfig.json index.ts"
+    "start": "ts-node-dev -r tsconfig-paths/register index.ts",
+    "with-basic-auth": "ts-node-dev -r tsconfig-paths/register with-basic-auth.ts"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "koa": "^2.13.1",
+    "koa-basic-auth": "^4.0.0",
     "koa-router": "^10.0.0"
   },
   "devDependencies": {
     "@types/koa": "^2.13.1",
+    "@types/koa-basic-auth": "^2.0.3",
     "@types/koa-router": "^7.4.2",
     "ts-node-dev": "^1.1.6",
     "tsconfig-paths": "^3.9.0"
