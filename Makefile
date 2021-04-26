@@ -55,3 +55,5 @@ example.hapi-with-basic-auth:
 	npm --prefix ./examples/hapi run with-basic-auth
 example.fastify:
 	npm --prefix ./examples/fastify start
+example.fastify-with-basic-auth:
+	npm --prefix ./examples/fastify run with-basic-auth
