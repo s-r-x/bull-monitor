@@ -13,7 +13,7 @@ import Express from 'express';
 import Queue from 'bull';
 
 (async () => {
-  const queues = [new Queue('1'), new Queue('2')];
+  const queues = [new Queue('1', 'REDIS_URI')];
   const app = Express();
   const monitor = new BullMonitorExpress({ queues });
   await monitor.init();
