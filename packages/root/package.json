@@ -21,16 +21,17 @@
   },
   "main": "dist/index.js",
   "dependencies": {
+    "graphql": "^15.5.0",
     "graphql-scalars": "^1.9.0",
     "redis-info": "^3.0.8"
   },
   "devDependencies": {
-    "apollo-server-core": "^2.23.0",
     "@graphql-codegen/cli": "^1.21.3",
     "@graphql-codegen/typescript": "^1.21.1",
     "@graphql-codegen/typescript-operations": "^1.17.15",
     "@types/bull": "^3.15.0",
     "@types/redis-info": "^3.0.0",
+    "apollo-server-core": "^2.23.0",
     "typescript": "^4.2.4"
   },
   "gitHead": "d3b22c6604f7081bfb5b40d3e46d8a1ea58e830a"
