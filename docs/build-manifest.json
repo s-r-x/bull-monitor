@@ -4709,7 +4709,7 @@
       ]
     },
     "dist/stores/preferences.js": {
-      "bytes": 449,
+      "bytes": 700,
       "imports": [
         {
           "path": "_snowpack/pkg/zustand.js",
@@ -4726,7 +4726,7 @@
       ]
     },
     "dist/components/Settings/Preferences/index.js": {
-      "bytes": 980,
+      "bytes": 1474,
       "imports": [
         {
           "path": "_snowpack/pkg/react.js",
@@ -6111,7 +6111,7 @@
       ]
     },
     "dist/hooks/use-abstract-mutation.js": {
-      "bytes": 1314,
+      "bytes": 1500,
       "imports": [
         {
           "path": "_snowpack/pkg/react-query.js",
@@ -6131,6 +6131,10 @@
         },
         {
           "path": "dist/config/query-keys.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "dist/stores/preferences.js",
           "kind": "import-statement"
         }
       ]
@@ -8774,10 +8778,10 @@
           "bytesInOutput": 0
         },
         "dist/stores/preferences.js": {
-          "bytesInOutput": 160
+          "bytesInOutput": 346
         },
         "dist/components/Settings/Preferences/index.js": {
-          "bytesInOutput": 244
+          "bytesInOutput": 449
         },
         "dist/stores/code-editor.js": {
           "bytesInOutput": 192
@@ -8879,7 +8883,7 @@
           "bytesInOutput": 105
         },
         "dist/hooks/use-abstract-mutation.js": {
-          "bytesInOutput": 469
+          "bytesInOutput": 507
         },
         "_snowpack/pkg/@material-ui/icons/KeyboardArrowDown.js": {
           "bytesInOutput": 264
@@ -9059,7 +9063,7 @@
           "bytesInOutput": 122
         }
       },
-      "bytes": 884443
+      "bytes": 884872
     },
     "../packages/ui/~~bundle~~/dist/index.css": {
       "imports": [],
