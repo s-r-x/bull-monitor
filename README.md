@@ -1,6 +1,6 @@
 # bull-monitor
 
-Modern UI for [Bull](https://github.com/OptimalBits/bull) made with ❤️, material-ui and graphql.
+Modern UI for [Bull](https://github.com/OptimalBits/bull).
 
 ## Usage with Express
 ```sh
