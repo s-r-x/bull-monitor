@@ -43,6 +43,8 @@ lerna.bootstrap:
 	npx lerna bootstrap
 example.express:
 	npm --prefix ./examples/express start
+example.express-with-basic-auth:
+	npm --prefix ./examples/express run with-basic-auth
 example.koa:
 	npm --prefix ./examples/koa start
 example.koa-with-basic-auth:

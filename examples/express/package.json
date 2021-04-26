@@ -4,13 +4,15 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "ts-node-dev -r tsconfig-paths/register --project tsconfig.json index.ts"
+    "start": "ts-node-dev -r tsconfig-paths/register index.ts",
+    "with-basic-auth": "ts-node-dev -r tsconfig-paths/register with-basic-auth.ts"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "express-basic-auth": "^1.2.0"
   },
   "devDependencies": {
     "@types/express": "^4.17.11",
