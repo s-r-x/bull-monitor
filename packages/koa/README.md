@@ -3,7 +3,9 @@
 [Koa](https://github.com/koajs/koa) adapter for [bull-monitor](https://github.com/s-r-x/bull-monitor)
 
 ## Usage
+
 @bull-monitor/koa has a peer dependency of koa-router
+
 ```sh
 npm i koa @bull-monitor/koa bull koa-router
 ```
@@ -18,12 +20,18 @@ import Queue from 'bull';
   const app = new Koa();
   const monitor = new BullMonitorKoa({
     queues,
-    baseUrl: "/my/url",
+    baseUrl: '/my/url',
     // enables graphql playground at /my/url/graphql. true by default
-    gqlPlayground: true, 
-    queues
+    gqlPlayground: true,
+    queues,
   });
-  await monitor.init();
+  await monitor.init({
+    // optional middleware that will run before the bull-monitor router
+    middleware: async (_ctx, next) => {
+      console.log('do something');
+      await next();
+    },
+  });
   app.use(monitor.router.routes());
   app.listen(3000);
 })();

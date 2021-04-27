@@ -1,6 +1,6 @@
 {
   "name": "@bull-monitor/koa",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "description": "bull-monitor for koa",
   "repository": {
     "type": "git",
