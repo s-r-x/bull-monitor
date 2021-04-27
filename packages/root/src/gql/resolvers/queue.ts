@@ -6,6 +6,24 @@ export const queueResolver: TResolvers = {
     async count(parent: BullQueue, _, { dataSources: { bull } }) {
       return await bull.getQueueWaitingOrDelayedJobsCount(parent.name);
     },
+    async failedCount(parent: BullQueue, _, { dataSources: { bull } }) {
+      return await bull.getQueueFailedCount(parent.name);
+    },
+    async completedCount(parent: BullQueue, _, { dataSources: { bull } }) {
+      return await bull.getQueueCompletedCount(parent.name);
+    },
+    async delayedCount(parent: BullQueue, _, { dataSources: { bull } }) {
+      return await bull.getQueueDelayedCount(parent.name);
+    },
+    async activeCount(parent: BullQueue, _, { dataSources: { bull } }) {
+      return await bull.getQueueActiveCount(parent.name);
+    },
+    async waitingCount(parent: BullQueue, _, { dataSources: { bull } }) {
+      return await bull.getQueueWaitingCount(parent.name);
+    },
+    async pausedCount(parent: BullQueue, _, { dataSources: { bull } }) {
+      return await bull.getQueueWaitingCount(parent.name);
+    },
     async jobsCounts(parent: BullQueue, _, { dataSources: { bull } }) {
       return await bull.getQueueJobsCounts(parent.name);
     },

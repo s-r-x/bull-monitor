@@ -159,6 +159,30 @@ export class BullDataSource extends DataSource {
     await queue?.resume();
     return queue;
   }
+  async getQueueFailedCount(name: string): Promise<Maybe<number>> {
+    const queue = this.getQueueByName(name);
+    return await queue?.getFailedCount();
+  }
+  async getQueueCompletedCount(name: string): Promise<Maybe<number>> {
+    const queue = this.getQueueByName(name);
+    return await queue?.getCompletedCount();
+  }
+  async getQueueDelayedCount(name: string): Promise<Maybe<number>> {
+    const queue = this.getQueueByName(name);
+    return await queue?.getDelayedCount();
+  }
+  async getQueueActiveCount(name: string): Promise<Maybe<number>> {
+    const queue = this.getQueueByName(name);
+    return await queue?.getActiveCount();
+  }
+  async getQueueWaitingCount(name: string): Promise<Maybe<number>> {
+    const queue = this.getQueueByName(name);
+    return await queue?.getWaitingCount();
+  }
+  async getQueuePausedCount(name: string): Promise<Maybe<number>> {
+    const queue = this.getQueueByName(name);
+    return await queue?.getPausedCount();
+  }
   async getQueueWaitingOrDelayedJobsCount(
     name: string
   ): Promise<Maybe<number>> {
