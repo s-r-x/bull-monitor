@@ -12,7 +12,7 @@ export const queueTypeDef = gql`
   }
   type Queue {
     name: String!
-    waitingOrDelayedJobsCount: Int!
+    count: Int!
     jobsCounts: QueueJobsCounts!
     jobs: [Job]!
     isPaused: Boolean!

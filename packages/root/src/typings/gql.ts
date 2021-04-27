@@ -77,7 +77,7 @@ export type Mutation = {
   /** https://github.com/OptimalBits/bull/blob/develop/REFERENCE.md#queueclose */
   closeQueue?: Maybe<Queue>;
   /** https://github.com/OptimalBits/bull/blob/develop/REFERENCE.md#queueclean */
-  cleanQueue: Array<Maybe<Scalars['Int']>>;
+  cleanQueue: Array<Maybe<Scalars['ID']>>;
   /** https://github.com/OptimalBits/bull/blob/develop/REFERENCE.md#queueempty */
   emptyQueue?: Maybe<Queue>;
   /** https://github.com/OptimalBits/bull/blob/develop/REFERENCE.md#jobremove */
@@ -227,7 +227,7 @@ export type QueryJobArgs = {
 
 export type Queue = {
   name: Scalars['String'];
-  waitingOrDelayedJobsCount: Scalars['Int'];
+  count: Scalars['Int'];
   jobsCounts: QueueJobsCounts;
   jobs: Array<Maybe<Job>>;
   isPaused: Scalars['Boolean'];
@@ -265,5 +265,6 @@ export type RedisInfo = {
   uptime_in_seconds: Scalars['String'];
   uptime_in_days: Scalars['String'];
   used_cpu_sys: Scalars['String'];
+  tcp_port: Scalars['String'];
 };
 

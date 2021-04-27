@@ -3,11 +3,7 @@ import type { TResolvers } from './typings';
 
 export const queueResolver: TResolvers = {
   Queue: {
-    async waitingOrDelayedJobsCount(
-      parent: BullQueue,
-      _,
-      { dataSources: { bull } }
-    ) {
+    async count(parent: BullQueue, _, { dataSources: { bull } }) {
       return await bull.getQueueWaitingOrDelayedJobsCount(parent.name);
     },
     async jobsCounts(parent: BullQueue, _, { dataSources: { bull } }) {
