@@ -81,7 +81,7 @@ export default function Drawer() {
       </div>
       <NetworkRequest status={status} refetch={refetch}>
         <List>
-          {data?.queues?.map((queue: any) => (
+          {data?.queues?.map((queue) => (
             <ListItem
               onClick={() => {
                 changeActiveQueue(queue.name);
@@ -95,7 +95,7 @@ export default function Drawer() {
             >
               <ListItemIcon>
                 <Badge
-                  badgeContent={queue.waitingOrDelayedJobsCount}
+                  badgeContent={queue.count}
                   color="primary"
                   max={Infinity}
                   showZero

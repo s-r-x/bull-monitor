@@ -5,7 +5,7 @@ export const getQueuesForDrawerMock = (): Promise<GetQueuesForDrawerQuery> =>
   Promise.resolve({
     queues: networkMockData.queues.map(({ name }) => ({
       name,
-      waitingOrDelayedJobsCount: networkMockData.jobs.filter(
+      count: networkMockData.jobs.filter(
         (job) =>
           job.queue === name &&
           (job.status === JobStatus.Waiting ||

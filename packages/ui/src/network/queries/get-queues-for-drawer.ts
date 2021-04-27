@@ -8,7 +8,7 @@ export const getQueuesForDrawer = (): Promise<GetQueuesForDrawerQuery> =>
       query GetQueuesForDrawer {
         queues {
           name
-          waitingOrDelayedJobsCount
+          count
         }
       }
     `,

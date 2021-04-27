@@ -77,7 +77,7 @@ export type Mutation = {
   /** https://github.com/OptimalBits/bull/blob/develop/REFERENCE.md#queueclose */
   closeQueue?: Maybe<Queue>;
   /** https://github.com/OptimalBits/bull/blob/develop/REFERENCE.md#queueclean */
-  cleanQueue: Array<Maybe<Scalars['Int']>>;
+  cleanQueue: Array<Maybe<Scalars['ID']>>;
   /** https://github.com/OptimalBits/bull/blob/develop/REFERENCE.md#queueempty */
   emptyQueue?: Maybe<Queue>;
   /** https://github.com/OptimalBits/bull/blob/develop/REFERENCE.md#jobremove */
@@ -197,7 +197,7 @@ export enum OrderEnum {
 }
 
 export type Query = {
-  queues?: Maybe<Array<Maybe<Queue>>>;
+  queues?: Maybe<Array<Queue>>;
   queue?: Maybe<Queue>;
   jobs: Array<Job>;
   job?: Maybe<Job>;
@@ -227,8 +227,22 @@ export type QueryJobArgs = {
 
 export type Queue = {
   name: Scalars['String'];
-  waitingOrDelayedJobsCount: Scalars['Int'];
+  /** https://github.com/OptimalBits/bull/blob/develop/REFERENCE.md#queuecount */
+  count: Scalars['Int'];
+  /** https://github.com/OptimalBits/bull/blob/develop/REFERENCE.md#queuegetjobcounts */
   jobsCounts: QueueJobsCounts;
+  /** https://github.com/OptimalBits/bull/blob/develop/REFERENCE.md#queuegetcompletedcount */
+  completedCount: Scalars['Int'];
+  /** https://github.com/OptimalBits/bull/blob/develop/REFERENCE.md#queuegetfailedcount */
+  failedCount: Scalars['Int'];
+  /** https://github.com/OptimalBits/bull/blob/develop/REFERENCE.md#queuegetdelayedcount */
+  delayedCount: Scalars['Int'];
+  /** https://github.com/OptimalBits/bull/blob/develop/REFERENCE.md#queuegetactivecount */
+  activeCount: Scalars['Int'];
+  /** https://github.com/OptimalBits/bull/blob/develop/REFERENCE.md#queuegetwaitingcount */
+  waitingCount: Scalars['Int'];
+  /** https://github.com/OptimalBits/bull/blob/develop/REFERENCE.md#queuegetpausedcount */
+  pausedCount: Scalars['Int'];
   jobs: Array<Maybe<Job>>;
   isPaused: Scalars['Boolean'];
 };
@@ -441,7 +455,7 @@ export type GetQueueCountsQuery = { queue?: Maybe<{ jobsCounts: Pick<QueueJobsCo
 export type GetQueuesForDrawerQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type GetQueuesForDrawerQuery = { queues?: Maybe<Array<Maybe<Pick<Queue, 'name' | 'waitingOrDelayedJobsCount'>>>> };
+export type GetQueuesForDrawerQuery = { queues?: Maybe<Array<Pick<Queue, 'name' | 'count'>>> };
 
 export type GetRedisInfoQueryVariables = Exact<{ [key: string]: never; }>;
 
