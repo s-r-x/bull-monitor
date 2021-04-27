@@ -15,7 +15,11 @@ import Queue from 'bull';
 (async () => {
   const queues = [new Queue('1', 'REDIS_URI')];
   const app = Express();
-  const monitor = new BullMonitorExpress({ queues });
+  const monitor = new BullMonitorExpress({ 
+    // enables graphql playground at /my/url/graphql. true by default
+    gqlPlayground: true, 
+    queues
+  });
   await monitor.init();
   app.use('/my/url', monitor.router);
   app.listen(3000);
