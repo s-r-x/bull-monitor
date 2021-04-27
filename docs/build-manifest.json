@@ -1886,7 +1886,7 @@
       ]
     },
     "dist/network/queries/get-queues-for-drawer.js": {
-      "bytes": 297,
+      "bytes": 277,
       "imports": [
         {
           "path": "dist/network/gql-client.js",
@@ -1899,7 +1899,7 @@
       ]
     },
     "dist/demoMocks/network/queries/get-queues-for-drawer.js": {
-      "bytes": 398,
+      "bytes": 378,
       "imports": [
         {
           "path": "dist/typings/gql.js",
@@ -2863,7 +2863,7 @@
       ]
     },
     "dist/components/Drawer/index.js": {
-      "bytes": 4531,
+      "bytes": 4511,
       "imports": [
         {
           "path": "_snowpack/pkg/react.js",
@@ -8463,10 +8463,10 @@
           "bytesInOutput": 171
         },
         "dist/network/queries/get-queues-for-drawer.js": {
-          "bytesInOutput": 152
+          "bytesInOutput": 132
         },
         "dist/demoMocks/network/queries/get-queues-for-drawer.js": {
-          "bytesInOutput": 187
+          "bytesInOutput": 167
         },
         "dist/demoMocks/network/queries/get-is-queue-paused.js": {
           "bytesInOutput": 73
@@ -8622,7 +8622,7 @@
           "bytesInOutput": 175
         },
         "dist/components/Drawer/index.js": {
-          "bytesInOutput": 1449
+          "bytesInOutput": 1429
         },
         "_snowpack/pkg/@material-ui/core/AppBar.js": {
           "bytesInOutput": 1270
@@ -9063,7 +9063,7 @@
           "bytesInOutput": 122
         }
       },
-      "bytes": 884872
+      "bytes": 884812
     },
     "../packages/ui/~~bundle~~/dist/index.css": {
       "imports": [],
