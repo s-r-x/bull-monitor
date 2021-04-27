@@ -20,6 +20,8 @@ const jobs = range(JOBS_AMOUNT).map((n) => {
     status,
     progress: 0,
     attemptsMade: 0,
+    returnValue: status === JobStatus.Completed ? 'some return value' : null,
+    failedReason: status === JobStatus.Failed ? 'some failed reason' : null,
     delay,
     timestamp,
     name: '__default__',
