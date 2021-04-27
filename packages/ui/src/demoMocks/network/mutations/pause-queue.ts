@@ -1,4 +1,5 @@
-import type {
+import {
+  JobStatus,
   PauseQueueMutation,
   PauseQueueMutationVariables,
 } from '@/typings/gql';
@@ -11,5 +12,20 @@ export const pauseQueueMock = (
   if (queue) {
     queue.isPaused = true;
   }
+  networkMockData.jobs = networkMockData.jobs.map((job) => {
+    if (job.queue === args.queue) {
+      if (
+        [JobStatus.Active, JobStatus.Waiting, JobStatus.Delayed].includes(
+          job.status,
+        )
+      ) {
+        return {
+          ...job,
+          status: JobStatus.Paused,
+        };
+      }
+    }
+    return job;
+  });
   return Promise.resolve({ pauseQueue: queue });
 };
