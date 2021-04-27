@@ -14,6 +14,10 @@ const jobs = range(JOBS_AMOUNT).map((n) => {
   const status = sample(Object.values(JobStatus)) as JobStatus;
   const delay = status === JobStatus.Delayed ? 100000 : 0;
   const timestamp = new Date().getTime();
+  const isFailedOrCompleted =
+    status === JobStatus.Completed || status === JobStatus.Failed;
+  const isFailedOrCompletedOrActive =
+    isFailedOrCompleted || status === JobStatus.Active;
   return {
     id: String(random(0, 1000000)),
     queue: sample(queues)?.name,
@@ -22,6 +26,8 @@ const jobs = range(JOBS_AMOUNT).map((n) => {
     attemptsMade: 0,
     returnValue: status === JobStatus.Completed ? 'some return value' : null,
     failedReason: status === JobStatus.Failed ? 'some failed reason' : null,
+    processedOn: isFailedOrCompletedOrActive ? timestamp : null,
+    finishedOn: isFailedOrCompleted ? timestamp : null,
     delay,
     timestamp,
     name: '__default__',
@@ -37,7 +43,7 @@ const jobs = range(JOBS_AMOUNT).map((n) => {
     data: `{"key": "value-${n}"}`,
     logs: {
       count: 0,
-      logs: [] as string[],
+      logs: ['some log'] as string[],
     },
   };
 });
