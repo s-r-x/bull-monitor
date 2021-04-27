@@ -1756,7 +1756,7 @@
       ]
     },
     "dist/demoMocks/network/data.js": {
-      "bytes": 1062,
+      "bytes": 1736,
       "imports": [
         {
           "path": "dist/typings/gql.js",
@@ -1851,7 +1851,7 @@
       ]
     },
     "dist/demoMocks/network/queries/get-jobs.js": {
-      "bytes": 413,
+      "bytes": 594,
       "imports": [
         {
           "path": "dist/demoMocks/network/data.js",
@@ -2208,8 +2208,12 @@
       ]
     },
     "dist/demoMocks/network/mutations/pause-queue.js": {
-      "bytes": 237,
+      "bytes": 597,
       "imports": [
+        {
+          "path": "dist/typings/gql.js",
+          "kind": "import-statement"
+        },
         {
           "path": "dist/demoMocks/network/data.js",
           "kind": "import-statement"
@@ -2309,7 +2313,7 @@
       ]
     },
     "dist/demoMocks/network/mutations/clean-queue.js": {
-      "bytes": 385,
+      "bytes": 436,
       "imports": [
         {
           "path": "dist/typings/gql.js",
@@ -8433,7 +8437,7 @@
           "bytesInOutput": 402
         },
         "dist/demoMocks/network/data.js": {
-          "bytesInOutput": 489
+          "bytesInOutput": 791
         },
         "dist/demoMocks/network/queries/get-job-data.js": {
           "bytesInOutput": 81
@@ -8454,7 +8458,7 @@
           "bytesInOutput": 1774
         },
         "dist/demoMocks/network/queries/get-jobs.js": {
-          "bytesInOutput": 174
+          "bytesInOutput": 270
         },
         "dist/network/queries/get-queue-counts.js": {
           "bytesInOutput": 280
@@ -8544,7 +8548,7 @@
           "bytesInOutput": 148
         },
         "dist/demoMocks/network/mutations/pause-queue.js": {
-          "bytesInOutput": 98
+          "bytesInOutput": 220
         },
         "dist/demoMocks/network/mutations/resume-queue.js": {
           "bytesInOutput": 99
@@ -8571,7 +8575,7 @@
           "bytesInOutput": 177
         },
         "dist/demoMocks/network/mutations/clean-queue.js": {
-          "bytesInOutput": 143
+          "bytesInOutput": 145
         },
         "dist/network/mutations/clean-queue.js": {
           "bytesInOutput": 164
@@ -9063,7 +9067,7 @@
           "bytesInOutput": 122
         }
       },
-      "bytes": 884812
+      "bytes": 885334
     },
     "../packages/ui/~~bundle~~/dist/index.css": {
       "imports": [],
