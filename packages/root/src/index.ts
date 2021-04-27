@@ -10,7 +10,6 @@ import { UI } from './ui';
 
 export type Config = {
   queues: Queue[];
-  auth?: Record<string, string>;
   gqlPlayground?: boolean;
   baseUrl?: string;
 };
