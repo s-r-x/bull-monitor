@@ -1,6 +1,6 @@
 {
   "name": "@bull-monitor/hapi",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "bull-monitor for hapi",
   "keywords": [
     "bull"
