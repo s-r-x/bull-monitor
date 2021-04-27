@@ -2,7 +2,7 @@ import { gql } from 'apollo-server-core';
 
 export const rootQueryTypeDef = gql`
   type Query {
-    queues: [Queue]
+    queues: [Queue!]
     queue(name: String!): Queue
     jobs(
       queue: String!
