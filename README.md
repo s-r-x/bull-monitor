@@ -17,7 +17,7 @@ import Queue from 'bull';
   const app = Express();
   const monitor = new BullMonitorExpress({ queues });
   await monitor.init();
-  app.use('/some/nested/url', monitor.router);
+  app.use('/my/url', monitor.router);
   app.listen(3000);
 })();
 ```
@@ -38,7 +38,7 @@ import Koa from 'koa';
   const app = new Koa();
   const monitor = new BullMonitorKoa({
     queues: [],
-    baseUrl: "/some/nested/url",
+    baseUrl: "/my/url",
   });
   await monitor.init();
   app.use(monitor.router.routes());
@@ -64,7 +64,7 @@ import Hapi from '@hapi/hapi';
   await server.start();
   const monitor = new BullMonitorHapi({
     queues: [],
-    baseUrl: "/some/nested/url",
+    baseUrl: "/my/url",
   });
   await monitor.init();
   await server.register(monitor.plugin);
@@ -85,7 +85,7 @@ import { BullMonitorFastify } from '@bull-monitor/fastify';
   const app = Fastify();
   const monitor = new BullMonitorFastify({
     queues: [],
-    baseUrl: "/some/nested/url",
+    baseUrl: "/my/url",
   });
   await monitor.init();
   await app.register(monitor.plugin);
