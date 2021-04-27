@@ -10,22 +10,35 @@ const queues = range(QUEUES_AMOUNT).map((n) => ({
   name: `queue:${n}`,
   isPaused: false,
 }));
-const jobs = range(JOBS_AMOUNT).map((n) => ({
-  id: String(random(0, 1000000)),
-  queue: sample(queues)?.name,
-  status: sample(Object.values(JobStatus)) as JobStatus,
-  progress: 0,
-  attemptsMade: 0,
-  timestamp: new Date().getTime(),
-  name: '__default__',
-  opts: '',
-  stacktrace: [],
-  data: `{"key": "value-${n}"}`,
-  logs: {
-    count: 0,
-    logs: [] as string[],
-  },
-}));
+const jobs = range(JOBS_AMOUNT).map((n) => {
+  const status = sample(Object.values(JobStatus)) as JobStatus;
+  const delay = status === JobStatus.Delayed ? 100000 : 0;
+  const timestamp = new Date().getTime();
+  return {
+    id: String(random(0, 1000000)),
+    queue: sample(queues)?.name,
+    status,
+    progress: 0,
+    attemptsMade: 0,
+    delay,
+    timestamp,
+    name: '__default__',
+    opts: JSON.stringify(
+      {
+        timestamp,
+        delay,
+      },
+      null,
+      2,
+    ),
+    stacktrace: [],
+    data: `{"key": "value-${n}"}`,
+    logs: {
+      count: 0,
+      logs: [] as string[],
+    },
+  };
+});
 
 class NetworkMockData {
   public queues: typeof queues;
