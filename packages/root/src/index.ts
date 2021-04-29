@@ -11,6 +11,7 @@ import { UI } from './ui';
 export type Config = {
   queues: Queue[];
   gqlPlayground?: boolean;
+  gqlIntrospection?: boolean;
   baseUrl?: string;
 };
 export abstract class BullMonitor<TServer extends ApolloServerBase> {
@@ -20,6 +21,7 @@ export abstract class BullMonitor<TServer extends ApolloServerBase> {
   private _defaultConfig: Config = {
     queues: [],
     baseUrl: '',
+    gqlIntrospection: true,
     gqlPlayground: true,
   };
   protected gqlBasePath = '/graphql';
@@ -38,6 +40,7 @@ export abstract class BullMonitor<TServer extends ApolloServerBase> {
       // @ts-ignore
       resolvers,
       playground: this.config.gqlPlayground,
+      introspection: this.config.gqlIntrospection,
       dataSources: () => ({
         bull: new BullDataSource(this.config.queues),
       }),
