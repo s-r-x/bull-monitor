@@ -1,7 +1,7 @@
 import { BullDataSource } from './gql/data-sources';
 import { typeDefs } from './gql/type-defs';
 import { resolvers } from './gql/resolvers';
-import { Queue } from 'bull';
+import type { Queue } from 'bull';
 import type {
   ApolloServerBase,
   Config as ApolloConfig,
