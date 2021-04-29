@@ -18,9 +18,19 @@ import {
   MutationUpdateJobDataArgs,
   OrderEnum,
 } from '../../typings/gql';
+import { Maybe } from '../../typings/utils';
 import redisInfo from 'redis-info';
 
-type Maybe<T> = T | undefined;
+export class BullMonitorError extends Error {
+  constructor(msg: any) {
+    super(msg);
+    this.name = 'BullMonitorError';
+  }
+}
+export enum ErrorEnum {
+  QUEUE_NOT_FOUND = 'QUEUE_NOT_FOUND',
+  JOB_NOT_FOUND = 'JOB_NOT_FOUND',
+}
 export class BullDataSource extends DataSource {
   private _queuesMap: Map<string, BullQueue> = new Map();
   constructor(private _queues: BullQueue[]) {
@@ -32,24 +42,26 @@ export class BullDataSource extends DataSource {
       this._queuesMap.set(queue.name, queue);
     });
   }
-  getQueueByName(name: string) {
-    return this._queuesMap.get(name);
+  private _throwInternalError(e: ErrorEnum) {
+    throw new BullMonitorError(e);
+  }
+  private _throwQueueNotFound() {
+    this._throwInternalError(ErrorEnum.QUEUE_NOT_FOUND);
+  }
+  private _throwJobNotFound() {
+    this._throwInternalError(ErrorEnum.JOB_NOT_FOUND);
+  }
+
+  // queries
+  getQueueByName(name: string, throwIfNotFound?: boolean) {
+    const queue = this._queuesMap.get(name);
+    if (!queue && throwIfNotFound) {
+      this._throwQueueNotFound();
+    }
+    return queue;
   }
   getQueues(): BullQueue[] {
     return this._queues;
-  }
-  async createJob({
-    queue: queueName,
-    name = null,
-    data = {},
-    options = {},
-  }: CreateJobInput) {
-    const queue = this._queuesMap.get(queueName);
-    return await queue?.add(
-      name as string,
-      JsonService.maybeParse(data),
-      JsonService.maybeParse(options)
-    );
   }
   async getQueueJobs({
     queue,
@@ -66,7 +78,7 @@ export class BullDataSource extends DataSource {
     order?: OrderEnum;
     id?: JobId;
   }) {
-    const bullQueue = this.getQueueByName(queue);
+    const bullQueue = this.getQueueByName(queue, true);
     if (id) {
       const job = await bullQueue?.getJob(id);
       return job ? [job] : [];
@@ -78,86 +90,21 @@ export class BullDataSource extends DataSource {
       order === OrderEnum.Asc
     );
   }
-  async getJob(queueName: string, id: JobId) {
-    const queue = this.getQueueByName(queueName);
-    return queue?.getJob(id);
+  async getJob(queueName: string, id: JobId, throwIfNotFound?: boolean) {
+    const queue = this.getQueueByName(queueName, true);
+    const job = queue?.getJob(id);
+    if (!job && throwIfNotFound) {
+      this._throwJobNotFound();
+    }
+    return job;
   }
   async getJobLogs(queueName: string, id: number) {
-    const queue = this.getQueueByName(queueName);
+    const queue = this.getQueueByName(queueName, true);
     return await queue?.getJobLogs(id);
-  }
-  async createJobLog(args: MutationLogArgs) {
-    const job = await this.getJob(args.queue, args.id);
-    await job?.log(args.row);
-    return job;
-  }
-  async retryJob(args: MutationRetryJobArgs) {
-    const job = await this.getJob(args.queue, args.id);
-    await job?.retry();
-    return job;
-  }
-  async removeJobById(args: MutationRemoveJobArgs) {
-    const job = await this.getJob(args.queue, args.id);
-    await job?.remove();
-    return job;
-  }
-  async moveJobToCompleted(args: MutationMoveJobToCompletedArgs) {
-    const job = await this.getJob(args.queue, args.id);
-    await job?.moveToCompleted();
-    return job;
-  }
-  async moveJobToFailed(args: MutationMoveJobToFailedArgs) {
-    const job = await this.getJob(args.queue, args.id);
-    await job?.moveToFailed({
-      message: '',
-    });
-    return job;
-  }
-  async promoteJob(args: MutationPromoteJobArgs) {
-    const job = await this.getJob(args.queue, args.id);
-    await job?.promote();
-    return job;
-  }
-  async discardJob(args: MutationDiscardJobArgs) {
-    const job = await this.getJob(args.queue, args.id);
-    await job?.discard();
-    return job;
-  }
-  async updateJobData(args: MutationUpdateJobDataArgs) {
-    const job = await this.getJob(args.queue, args.id);
-    await job?.update(JsonService.maybeParse(args.data));
-    return job;
   }
   async getQueueJobsCounts(name: string): Promise<Maybe<JobCounts>> {
     const queue = this.getQueueByName(name);
     return await queue?.getJobCounts();
-  }
-  async pauseQueue(name: string) {
-    const queue = this.getQueueByName(name);
-    await queue?.pause();
-    return queue;
-  }
-  async cleanQueue(args: MutationCleanQueueArgs) {
-    const queue = this.getQueueByName(args.queue);
-    return await queue?.clean(
-      args.grace as NonNullable<typeof args.grace>,
-      args.status
-    );
-  }
-  async emptyQueue(args: MutationEmptyQueueArgs) {
-    const queue = this.getQueueByName(args.queue);
-    await queue?.empty();
-    return queue;
-  }
-  async closeQueue(args: MutationCloseQueueArgs) {
-    const queue = this.getQueueByName(args.queue);
-    await queue?.close();
-    return queue;
-  }
-  async resumeQueue(args: MutationResumeQueueArgs) {
-    const queue = this.getQueueByName(args.queue);
-    await queue?.resume();
-    return queue;
   }
   async getQueueFailedCount(name: string): Promise<Maybe<number>> {
     const queue = this.getQueueByName(name);
@@ -189,11 +136,6 @@ export class BullDataSource extends DataSource {
     const queue = this.getQueueByName(name);
     return await queue?.count();
   }
-  async removeJobsByPattern(args: MutationRemoveJobsByPatternArgs) {
-    const queue = this.getQueueByName(args.queue);
-    await queue?.removeJobs(args.pattern);
-    return true;
-  }
   async getRedisInfo() {
     if (this._queuesMap.size > 0) {
       const firstQueue = this._queues[0];
@@ -201,5 +143,94 @@ export class BullDataSource extends DataSource {
       return redisInfo.parse(rawInfo);
     }
     return null;
+  }
+
+  // mutations
+  async createJob({
+    queue: queueName,
+    name = null,
+    data = {},
+    options = {},
+  }: CreateJobInput) {
+    const queue = this.getQueueByName(queueName, true);
+    return await queue?.add(
+      name as string,
+      JsonService.maybeParse(data),
+      JsonService.maybeParse(options)
+    );
+  }
+  async removeJobsByPattern(args: MutationRemoveJobsByPatternArgs) {
+    const queue = this.getQueueByName(args.queue, true);
+    await queue?.removeJobs(args.pattern);
+    return true;
+  }
+  async pauseQueue(name: string) {
+    const queue = this.getQueueByName(name, true);
+    await queue?.pause();
+    return queue;
+  }
+  async cleanQueue(args: MutationCleanQueueArgs) {
+    const queue = this.getQueueByName(args.queue, true);
+    return await queue?.clean(
+      args.grace as NonNullable<typeof args.grace>,
+      args.status
+    );
+  }
+  async emptyQueue(args: MutationEmptyQueueArgs) {
+    const queue = this.getQueueByName(args.queue, true);
+    await queue?.empty();
+    return queue;
+  }
+  async closeQueue(args: MutationCloseQueueArgs) {
+    const queue = this.getQueueByName(args.queue, true);
+    await queue?.close();
+    return queue;
+  }
+  async resumeQueue(args: MutationResumeQueueArgs) {
+    const queue = this.getQueueByName(args.queue, true);
+    await queue?.resume();
+    return queue;
+  }
+  async promoteJob(args: MutationPromoteJobArgs) {
+    const job = await this.getJob(args.queue, args.id, true);
+    await job?.promote();
+    return job;
+  }
+  async discardJob(args: MutationDiscardJobArgs) {
+    const job = await this.getJob(args.queue, args.id, true);
+    await job?.discard();
+    return job;
+  }
+  async updateJobData(args: MutationUpdateJobDataArgs) {
+    const job = await this.getJob(args.queue, args.id, true);
+    await job?.update(JsonService.maybeParse(args.data));
+    return job;
+  }
+  async createJobLog(args: MutationLogArgs) {
+    const job = await this.getJob(args.queue, args.id, true);
+    await job?.log(args.row);
+    return job;
+  }
+  async retryJob(args: MutationRetryJobArgs) {
+    const job = await this.getJob(args.queue, args.id, true);
+    await job?.retry();
+    return job;
+  }
+  async removeJobById(args: MutationRemoveJobArgs) {
+    const job = await this.getJob(args.queue, args.id, true);
+    await job?.remove();
+    return job;
+  }
+  async moveJobToCompleted(args: MutationMoveJobToCompletedArgs) {
+    const job = await this.getJob(args.queue, args.id, true);
+    await job?.moveToCompleted();
+    return job;
+  }
+  async moveJobToFailed(args: MutationMoveJobToFailedArgs) {
+    const job = await this.getJob(args.queue, args.id, true);
+    await job?.moveToFailed({
+      message: '',
+    });
+    return job;
   }
 }
