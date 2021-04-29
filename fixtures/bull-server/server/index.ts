@@ -13,13 +13,14 @@ const queues = Array.from(new Array(QUEUES_AMOUNT)).map(
 queues[0].process('success', async job => {
   await job.moveToCompleted('some return value here');
 });
-queues[0].process('fail', job => {
-  throw new Error('!'.repeat(1000));
+queues[0].process('fail', () => {
+  throw new Error('some error here');
 });
 
 const monitor = new BullMonitorExpress({
   queues,
   gqlPlayground: true,
+  gqlIntrospection: true,
 });
 
 monitor.init().then(() => {
