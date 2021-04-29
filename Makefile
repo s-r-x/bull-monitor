@@ -1,6 +1,5 @@
 ui_npm_prefix = npm --prefix ./packages/ui
 core_npm_prefix = npm --prefix ./packages/core
-abstract_adapter_npm_prefix = npm --prefix ./packages/framework-adapter-abstract
 fixtures_dir = fixtures
 
 fixture.bull-server:
@@ -27,12 +26,14 @@ ui.test:
 	$(ui_npm_prefix) run test
 ui.gen-ts-types:
 	cd packages/ui/internal && npx graphql-codegen --config ./gql-ts-codegen.yml
-abstract-adapter.dev:
-	$(abstract_adapter_npm_prefix) run dev
 root.build:
 	$(core_npm_prefix) run build
 root.dev:
 	$(core_npm_prefix) run dev
+root.test:
+	npx jest ./packages/root
+root.test.watch:
+	npx jest --watch ./packages/root
 root.gen-ts-types:
 	cd packages/root/internal && npx graphql-codegen --config ./gql-ts-codegen.yml
 lerna.link:

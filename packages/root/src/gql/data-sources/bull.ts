@@ -24,6 +24,7 @@ import redisInfo from 'redis-info';
 export class BullMonitorError extends Error {
   constructor(msg: any) {
     super(msg);
+    this.message = msg;
     this.name = 'BullMonitorError';
   }
 }
@@ -92,7 +93,7 @@ export class BullDataSource extends DataSource {
   }
   async getJob(queueName: string, id: JobId, throwIfNotFound?: boolean) {
     const queue = this.getQueueByName(queueName, true);
-    const job = queue?.getJob(id);
+    const job = await queue?.getJob(id);
     if (!job && throwIfNotFound) {
       this._throwJobNotFound();
     }
