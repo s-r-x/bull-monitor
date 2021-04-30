@@ -33,7 +33,6 @@ export const queueResolver: TResolvers = {
     async jobs(parent: BullQueue, _, { dataSources: { bull } }) {
       return await bull.getQueueJobs({
         queue: parent.name,
-        status: [],
       });
     },
   },

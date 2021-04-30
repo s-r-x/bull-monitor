@@ -72,7 +72,7 @@ export class BullDataSource extends DataSource {
     id,
     order = OrderEnum.Desc,
   }: {
-    status: JobStatus;
+    status?: JobStatus;
     queue: string;
     limit?: number;
     offset?: number;
