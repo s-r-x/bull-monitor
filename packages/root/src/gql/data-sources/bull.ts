@@ -68,11 +68,11 @@ export class BullDataSource extends DataSource {
     queue,
     limit = 20,
     offset = 0,
-    status = [],
+    status,
     id,
     order = OrderEnum.Desc,
   }: {
-    status: JobStatus[];
+    status: JobStatus;
     queue: string;
     limit?: number;
     offset?: number;
@@ -83,13 +83,16 @@ export class BullDataSource extends DataSource {
     if (id) {
       const job = await bullQueue?.getJob(id);
       return job ? [job] : [];
+    } else if (status) {
+      return await bullQueue?.getJobs(
+        [status],
+        offset,
+        offset + limit - 1,
+        order === OrderEnum.Asc
+      );
+    } else {
+      return [];
     }
-    return bullQueue?.getJobs(
-      status,
-      offset,
-      offset + limit - 1,
-      order === OrderEnum.Asc
-    );
   }
   async getJob(queueName: string, id: JobId, throwIfNotFound?: boolean) {
     const queue = this.getQueueByName(queueName, true);

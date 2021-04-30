@@ -8,7 +8,7 @@ export const rootQueryTypeDef = gql`
       queue: String!
       offset: Int
       limit: Int
-      status: [JobStatus]
+      status: JobStatus
       order: OrderEnum
       id: ID
     ): [Job!]!

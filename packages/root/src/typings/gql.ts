@@ -197,7 +197,7 @@ export enum OrderEnum {
 }
 
 export type Query = {
-  queues?: Maybe<Array<Maybe<Queue>>>;
+  queues?: Maybe<Array<Queue>>;
   queue?: Maybe<Queue>;
   jobs: Array<Job>;
   job?: Maybe<Job>;
@@ -214,7 +214,7 @@ export type QueryJobsArgs = {
   queue: Scalars['String'];
   offset?: Maybe<Scalars['Int']>;
   limit?: Maybe<Scalars['Int']>;
-  status?: Maybe<Array<Maybe<JobStatus>>>;
+  status?: Maybe<JobStatus>;
   order?: Maybe<OrderEnum>;
   id?: Maybe<Scalars['ID']>;
 };
@@ -227,8 +227,22 @@ export type QueryJobArgs = {
 
 export type Queue = {
   name: Scalars['String'];
+  /** https://github.com/OptimalBits/bull/blob/develop/REFERENCE.md#queuecount */
   count: Scalars['Int'];
+  /** https://github.com/OptimalBits/bull/blob/develop/REFERENCE.md#queuegetjobcounts */
   jobsCounts: QueueJobsCounts;
+  /** https://github.com/OptimalBits/bull/blob/develop/REFERENCE.md#queuegetcompletedcount */
+  completedCount: Scalars['Int'];
+  /** https://github.com/OptimalBits/bull/blob/develop/REFERENCE.md#queuegetfailedcount */
+  failedCount: Scalars['Int'];
+  /** https://github.com/OptimalBits/bull/blob/develop/REFERENCE.md#queuegetdelayedcount */
+  delayedCount: Scalars['Int'];
+  /** https://github.com/OptimalBits/bull/blob/develop/REFERENCE.md#queuegetactivecount */
+  activeCount: Scalars['Int'];
+  /** https://github.com/OptimalBits/bull/blob/develop/REFERENCE.md#queuegetwaitingcount */
+  waitingCount: Scalars['Int'];
+  /** https://github.com/OptimalBits/bull/blob/develop/REFERENCE.md#queuegetpausedcount */
+  pausedCount: Scalars['Int'];
   jobs: Array<Maybe<Job>>;
   isPaused: Scalars['Boolean'];
 };
