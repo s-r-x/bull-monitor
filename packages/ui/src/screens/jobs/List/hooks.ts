@@ -16,8 +16,8 @@ export const useJobsQuery = () => {
     (state) => [state.page, state.perPage],
     shallow,
   );
-  const [statuses, order, jobId] = useFiltersStore(
-    (state) => [state.statuses, state.order, state.jobId],
+  const [status, order, jobId] = useFiltersStore(
+    (state) => [state.status, state.order, state.jobId],
     shallow,
   );
   const isFetchLocked = useRefetchJobsLockStore((state) => state.isLocked);
@@ -30,7 +30,7 @@ export const useJobsQuery = () => {
         queue,
         perPage,
         page,
-        statuses,
+        status,
         order,
         id: jobId,
       },
@@ -40,7 +40,7 @@ export const useJobsQuery = () => {
         queue,
         limit: perPage,
         offset: page * perPage,
-        statuses,
+        status,
         order,
         id: jobId,
       }),

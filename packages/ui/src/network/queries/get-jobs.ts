@@ -11,7 +11,7 @@ export const getJobs = (args: GetJobsQueryVariables): Promise<GetJobsQuery> =>
         $queue: String!
         $offset: Int
         $limit: Int
-        $statuses: [JobStatus] = []
+        $status: JobStatus
         $order: OrderEnum
         $id: ID
       ) {
@@ -19,7 +19,7 @@ export const getJobs = (args: GetJobsQueryVariables): Promise<GetJobsQuery> =>
           queue: $queue
           offset: $offset
           limit: $limit
-          status: $statuses
+          status: $status
           order: $order
           id: $id
         ) {

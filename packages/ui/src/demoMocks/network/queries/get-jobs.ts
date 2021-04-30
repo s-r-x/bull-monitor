@@ -1,10 +1,9 @@
 import type { GetJobsQuery, GetJobsQueryVariables } from '@/typings/gql';
 import { networkMockData } from '../data';
-import isEmpty from 'lodash/isEmpty';
 
 export const getJobsMock = ({
   queue,
-  statuses,
+  status,
   offset = 0,
   limit = 20,
   id,
@@ -18,11 +17,7 @@ export const getJobsMock = ({
     });
   }
   const jobs = networkMockData.jobs
-    .filter(
-      (job) =>
-        job.queue === queue &&
-        (isEmpty(statuses) ? true : statuses?.includes(job.status)),
-    )
+    .filter((job) => job.queue === queue && status === job.status)
     // @ts-ignore
     .slice(offset, offset + limit - 1);
   return Promise.resolve({

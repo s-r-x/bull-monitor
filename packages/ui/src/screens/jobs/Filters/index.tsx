@@ -8,7 +8,6 @@ import shallow from 'zustand/shallow';
 import MenuItem from '@material-ui/core/MenuItem';
 import { useFiltersStore } from '@/stores/filters';
 import { OrderEnum } from '@/typings/gql';
-import CloseableTip from '@/components/CloseableTip';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -57,11 +56,6 @@ export default function JobsFilters() {
 
   return (
     <Paper className={cls.root}>
-      <CloseableTip
-        className={cls.statusesTip}
-        tip="Hold shift to select/deselect multiple statuses"
-        persistKey="select-statuses-special-key"
-      />
       <div className={cls.statuses}>
         {counts.map(({ value, label, isActive, onClick }, idx) => (
           <Chip

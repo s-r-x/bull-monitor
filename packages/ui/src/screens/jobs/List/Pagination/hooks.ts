@@ -2,13 +2,11 @@ import { useMemo } from 'react';
 import { QueryKeysConfig } from '@/config/query-keys';
 import { useQuery } from 'react-query';
 import { useActiveQueueStore } from '@/stores/active-queue';
-import isEmpty from 'lodash/isEmpty';
-import type { JobStatus } from '@/typings/gql';
 import { useNetwork } from '@/hooks/use-network';
 import { useFiltersStore } from '@/stores/filters';
 
 export const useCount = (): number => {
-  const statuses = useFiltersStore((state) => state.statuses);
+  const status = useFiltersStore((state) => state.status);
   const activeQueue = useActiveQueueStore((state) => state.active);
   const {
     queries: { getQueueCounts },
@@ -25,15 +23,9 @@ export const useCount = (): number => {
     if (!data?.queue?.jobsCounts) {
       return 0;
     }
-    return Object.entries(data.queue.jobsCounts).reduce(
-      (acc, [queue, count]) => {
-        if (isEmpty(statuses)) {
-          return acc + count;
-        } else {
-          return statuses.includes(queue as JobStatus) ? acc + count : acc;
-        }
-      },
-      0,
-    );
-  }, [data, statuses]);
+    if (status in data.queue.jobsCounts) {
+      return data.queue.jobsCounts[status];
+    }
+    return 0;
+  }, [data, status]);
 };

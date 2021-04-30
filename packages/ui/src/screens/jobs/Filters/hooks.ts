@@ -6,7 +6,6 @@ import { QueryKeysConfig } from '@/config/query-keys';
 import { useQuery } from 'react-query';
 import { useActiveQueueStore } from '@/stores/active-queue';
 import { useNetwork } from '@/hooks/use-network';
-import { useIsKeyPressedRef } from '@/hooks/use-is-key-pressed-ref';
 
 const JOB_STATUSES = [
   JobStatus.Active,
@@ -19,7 +18,6 @@ const JOB_STATUSES = [
 
 export const useQueueCounts = () => {
   const activeQueue = useActiveQueueStore((state) => state.active as string);
-  const isPressedRef = useIsKeyPressedRef({ key: 'Shift' });
   const {
     queries: { getQueueCounts },
   } = useNetwork();
@@ -30,20 +28,18 @@ export const useQueueCounts = () => {
       select: (data) => data?.queue?.jobsCounts,
     },
   );
-  const [statuses, replaceStatus, toggleStatus] = useFiltersStore(
-    (state) => [state.statuses, state.replaceStatus, state.toggleStatus],
+  const [activeStatus, changeStatus] = useFiltersStore(
+    (state) => [state.status, state.changeStatus],
     shallow,
   );
   return useMemo(() => {
     return JOB_STATUSES.map((status) => {
-      const onClick = () =>
-        isPressedRef.current ? toggleStatus(status) : replaceStatus(status);
       return {
         label: status,
         value: counts?.[status] ?? 0,
-        isActive: statuses.includes(status),
-        onClick,
+        isActive: status === activeStatus,
+        onClick: () => changeStatus(status),
       };
     });
-  }, [counts, statuses]);
+  }, [counts, activeStatus]);
 };

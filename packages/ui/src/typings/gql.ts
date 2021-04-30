@@ -214,7 +214,7 @@ export type QueryJobsArgs = {
   queue: Scalars['String'];
   offset?: Maybe<Scalars['Int']>;
   limit?: Maybe<Scalars['Int']>;
-  status?: Maybe<Array<Maybe<JobStatus>>>;
+  status?: Maybe<JobStatus>;
   order?: Maybe<OrderEnum>;
   id?: Maybe<Scalars['ID']>;
 };
@@ -437,7 +437,7 @@ export type GetJobsQueryVariables = Exact<{
   queue: Scalars['String'];
   offset?: Maybe<Scalars['Int']>;
   limit?: Maybe<Scalars['Int']>;
-  statuses?: Maybe<Array<Maybe<JobStatus>> | Maybe<JobStatus>>;
+  status?: Maybe<JobStatus>;
   order?: Maybe<OrderEnum>;
   id?: Maybe<Scalars['ID']>;
 }>;
