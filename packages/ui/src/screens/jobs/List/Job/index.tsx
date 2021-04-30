@@ -17,10 +17,6 @@ const useRowStyles = makeStyles({
       borderBottom: 'unset',
     },
   },
-  cellId: {
-    position: 'sticky',
-    left: 0,
-  },
   cellCollapse: {
     paddingBottom: 0,
     paddingTop: 0,
@@ -48,7 +44,7 @@ const Job = ({ job, queue }: TJobProps) => {
             queue={queue}
           />
         </TableCell>
-        <TableCell className={classes.cellId}>{job.id}</TableCell>
+        <TableCell>{job.id}</TableCell>
         <TableCell>
           <Chip
             style={{
