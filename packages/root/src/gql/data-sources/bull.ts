@@ -177,7 +177,8 @@ export class BullDataSource extends DataSource {
     const queue = this.getQueueByName(args.queue, true);
     return await queue?.clean(
       args.grace as NonNullable<typeof args.grace>,
-      args.status
+      args.status,
+      args.limit || undefined
     );
   }
   async emptyQueue(args: MutationEmptyQueueArgs) {
