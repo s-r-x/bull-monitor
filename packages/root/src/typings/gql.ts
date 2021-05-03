@@ -164,7 +164,7 @@ export type MutationPromoteJobArgs = {
 export type MutationUpdateJobDataArgs = {
   queue: Scalars['String'];
   id: Scalars['ID'];
-  data?: Maybe<Scalars['String']>;
+  data?: Maybe<Scalars['JSON']>;
 };
 
 

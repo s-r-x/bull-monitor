@@ -191,7 +191,7 @@ describe('bull data source', () => {
       });
     });
   });
-  describe.only('Mutations', () => {
+  describe('Mutations', () => {
     it('should create job', async () => {
       const data = { k: 'v' };
       const options = { jobId: 'id' };
@@ -380,6 +380,15 @@ describe('bull data source', () => {
         })
       ).resolves.toEqual(mockJob);
       expect(mockJob.update).toHaveBeenCalledWith(data);
+      jest.clearAllMocks();
+      await expect(
+        createDataSrc().updateJobData({
+          queue: mockQueueName,
+          id: mockJobId,
+          data,
+        })
+      ).resolves.toEqual(mockJob);
+      expect(mockJob.update).toHaveBeenCalledWith(data);
 
       await expect(
         createDataSrc().updateJobData({
@@ -501,7 +510,7 @@ describe('bull data source', () => {
         })
       ).resolves.toEqual(mockJob);
       expect(mockJob.moveToFailed).toHaveBeenCalledWith({
-        message: ''
+        message: '',
       });
 
       await expect(

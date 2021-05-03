@@ -62,7 +62,7 @@ export const mutationsTypeDef = gql`
     """
     https://github.com/OptimalBits/bull/blob/develop/REFERENCE.md#jobupdate
     """
-    updateJobData(queue: String!, id: ID!, data: String): Job
+    updateJobData(queue: String!, id: ID!, data: JSON): Job
     """
     https://github.com/OptimalBits/bull/blob/develop/REFERENCE.md#jobretry
     """
