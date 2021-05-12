@@ -10,6 +10,7 @@ const useStyles = makeStyles((theme) => ({
     position: 'sticky',
     bottom: 0,
     backgroundColor: theme.palette.background.paper,
+    zIndex: 2,
     borderTop: `1px solid ${
       theme.palette.type === 'dark' ? '#515151' : '#e0e0e0'
     }`,
