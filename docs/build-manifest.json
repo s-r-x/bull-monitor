@@ -18,7 +18,7 @@
       ]
     },
     "_snowpack/pkg/react.js": {
-      "bytes": 336,
+      "bytes": 365,
       "imports": [
         {
           "path": "_snowpack/pkg/common/index-f40123f8.js",
@@ -6865,7 +6865,7 @@
       ]
     },
     "dist/screens/jobs/List/Job/index.js": {
-      "bytes": 2620,
+      "bytes": 2661,
       "imports": [
         {
           "path": "_snowpack/pkg/react.js",
@@ -7309,7 +7309,7 @@
       ]
     },
     "dist/screens/jobs/List/Pagination/index.js": {
-      "bytes": 879,
+      "bytes": 1308,
       "imports": [
         {
           "path": "_snowpack/pkg/react.js",
@@ -7329,6 +7329,10 @@
         },
         {
           "path": "dist/config/pagination.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/@material-ui/core/styles.js",
           "kind": "import-statement"
         }
       ]
@@ -8131,7 +8135,7 @@
           "bytesInOutput": 7090
         },
         "_snowpack/pkg/react.js": {
-          "bytesInOutput": 58
+          "bytesInOutput": 68
         },
         "_snowpack/pkg/common/index-2dfecd50.js": {
           "bytesInOutput": 124438
@@ -8872,7 +8876,7 @@
           "bytesInOutput": 163
         },
         "dist/screens/jobs/List/Job/index.js": {
-          "bytesInOutput": 905
+          "bytesInOutput": 934
         },
         "_snowpack/pkg/@material-ui/core/Table.js": {
           "bytesInOutput": 819
@@ -8899,7 +8903,7 @@
           "bytesInOutput": 270
         },
         "dist/screens/jobs/List/Pagination/index.js": {
-          "bytesInOutput": 325
+          "bytesInOutput": 552
         },
         "dist/screens/jobs/List/DataEditor/index.js": {
           "bytesInOutput": 770
@@ -8956,7 +8960,7 @@
           "bytesInOutput": 122
         }
       },
-      "bytes": 882607
+      "bytes": 882873
     },
     "../packages/ui/~~bundle~~/dist/index.css": {
       "imports": [],
