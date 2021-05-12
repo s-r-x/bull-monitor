@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import TablePagination from '@material-ui/core/TablePagination';
 import { usePaginationStore } from '@/stores/pagination';
 import { useCount } from './hooks';
@@ -18,7 +18,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function Pagination() {
+const Pagination = () => {
   const cls = useStyles();
   const { page, perPage, changePage, changePerPage } = usePaginationStore();
   const count = useCount();
@@ -36,3 +36,4 @@ export default function Pagination() {
     />
   );
 }
+export default memo(Pagination);
