@@ -48,6 +48,7 @@ const CodeEditor = (props: TProps) => {
           // @ts-ignore
           autoCloseBrackets: true,
           matchBrackets: true,
+          lineWrapping: true,
           readOnly: props.readOnly,
           theme,
           tabSize,
