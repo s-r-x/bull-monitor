@@ -3,6 +3,7 @@
   "version": "independent",
   "command": {
     "version": {
+      "allowBranch": "main",
       "ignoreChanges": ["**/__tests__/**", "**/*.md", "**/*.spec.*"],
       "message": "Release"
     }
