@@ -7,14 +7,10 @@ import { usePreferencesStore } from '@/stores/preferences';
 
 export default function Preferences() {
   const [
-    expandRows,
-    toggleExpandRows,
     confirmDangerousActions,
     toggleConfirmDangerousActions,
   ] = usePreferencesStore(
     (state) => [
-      state.expandRows,
-      state.toggleExpandRows,
       state.confirmDangerousActions,
       state.toggleConfirmDangerousActions,
     ],
@@ -22,12 +18,6 @@ export default function Preferences() {
   );
   return (
     <div>
-      <FormControl margin="dense">
-        <FormControlLabel
-          control={<Switch checked={expandRows} onChange={toggleExpandRows} />}
-          label="Expand rows by default"
-        />
-      </FormControl>
       <FormControl margin="dense">
         <FormControlLabel
           control={
