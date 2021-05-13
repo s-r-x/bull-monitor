@@ -12,6 +12,8 @@ ui.dev-server-with-mocks:
 	$(ui_npm_prefix) run serve-with-mocks
 add-dep:
 	npx lerna add $(dep) --scope=@bull-monitor/$(pkg)
+version:
+	npx lerna version $(ver)
 publish:
 	npx lerna publish from-package --yes
 add-dev-dep:

@@ -1,6 +1,10 @@
 {
-  "packages": [
-    "packages/*"
-  ],
-  "version": "independent"
+  "packages": ["packages/*"],
+  "version": "independent",
+  "command": {
+    "version": {
+      "ignoreChanges": ["**/__tests__/**", "**/*.md", "**/*.spec.*"],
+      "message": "Release"
+    }
+  }
 }
