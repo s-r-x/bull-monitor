@@ -1,5 +1,7 @@
+import pkg from '../package.json';
+
 export class UI {
-  private uiVersion = '0.6.0';
+  private uiVersion = pkg.version;
   private pkgName = '@bull-monitor/ui';
   private cdnRoot = `https://cdn.jsdelivr.net/npm/${this.pkgName}@${this.uiVersion}`;
   private resourcesRoot = this.cdnRoot + '/build/dist';

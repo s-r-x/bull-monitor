@@ -8,7 +8,8 @@
     "moduleResolution": "node",
     "sourceMap": true,
     "lib": ["ESNext", "dom"],
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "resolveJsonModule": true
   },
   "exclude": ["node_modules", "dist"]
 }
