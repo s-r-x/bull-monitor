@@ -12,17 +12,13 @@ import { useJobLogsStore } from '@/stores/job-logs';
 import { useAbstractMutation } from '@/hooks/use-abstract-mutation';
 import { useNetwork } from '@/hooks/use-network';
 import type { TJobProps } from './typings';
-import KeyboardArrowDownIcon from '@material-ui/icons/KeyboardArrowDown';
-import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp';
 import ScheduleIcon from '@material-ui/icons/Schedule';
 import Popover from '@material-ui/core/Popover';
+import SettingsIcon from '@material-ui/icons/Settings';
 import Timeline from './Timeline';
+import Options from './Options';
 
-type TProps = TJobProps & {
-  expanded: boolean;
-  toggleExpanded: () => void;
-};
-const JobActions = ({ job, queue, expanded, toggleExpanded }: TProps) => {
+const JobActions = ({ job, queue }: TJobProps) => {
   const { mutations } = useNetwork();
   const openDataEditor = useDataEditorStore((state) => state.open);
   const openJobLogs = useJobLogsStore((state) => state.open);
@@ -30,6 +26,10 @@ const JobActions = ({ job, queue, expanded, toggleExpanded }: TProps) => {
   const [tlAnchorEl, setTlAnchorEl] = React.useState<HTMLButtonElement | null>(
     null,
   );
+  const [
+    optsAnchorEl,
+    setOptsAnchorEl,
+  ] = React.useState<HTMLButtonElement | null>(null);
 
   const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
     setAnchorEl(event.currentTarget);
@@ -42,6 +42,12 @@ const JobActions = ({ job, queue, expanded, toggleExpanded }: TProps) => {
   };
   const handleTlClose = () => {
     setTlAnchorEl(null);
+  };
+  const handleOptsClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+    setOptsAnchorEl(event.currentTarget);
+  };
+  const handleOptsClose = () => {
+    setOptsAnchorEl(null);
   };
 
   const removeMutation = useAbstractMutation({
@@ -86,9 +92,6 @@ const JobActions = ({ job, queue, expanded, toggleExpanded }: TProps) => {
   const retry = () => retryMutation.mutate(sharedMutationArg);
   return (
     <>
-      <IconButton aria-label="expand row" size="small" onClick={toggleExpanded}>
-        {expanded ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
-      </IconButton>
       <Tooltip title="Data">
         <IconButton
           size="small"
@@ -103,9 +106,11 @@ const JobActions = ({ job, queue, expanded, toggleExpanded }: TProps) => {
           <DeleteIcon />
         </IconButton>
       </Tooltip>
-      <IconButton onClick={handleTlClick} size="small">
-        <ScheduleIcon />
-      </IconButton>
+      <Tooltip title="Timeline">
+        <IconButton onClick={handleTlClick} size="small">
+          <ScheduleIcon />
+        </IconButton>
+      </Tooltip>
       <Popover
         open={Boolean(tlAnchorEl)}
         anchorEl={tlAnchorEl}
@@ -119,7 +124,28 @@ const JobActions = ({ job, queue, expanded, toggleExpanded }: TProps) => {
           horizontal: 'center',
         }}
       >
-        <Timeline job={job}/>
+        <Timeline job={job} />
+      </Popover>
+
+      <Tooltip title="Options">
+        <IconButton onClick={handleOptsClick} size="small">
+          <SettingsIcon />
+        </IconButton>
+      </Tooltip>
+      <Popover
+        open={Boolean(optsAnchorEl)}
+        anchorEl={optsAnchorEl}
+        onClose={handleOptsClose}
+        anchorOrigin={{
+          vertical: 'bottom',
+          horizontal: 'center',
+        }}
+        transformOrigin={{
+          vertical: 'top',
+          horizontal: 'center',
+        }}
+      >
+        <Options options={job.opts} />
       </Popover>
       <Tooltip title="More">
         <IconButton size="small" onClick={handleClick}>
