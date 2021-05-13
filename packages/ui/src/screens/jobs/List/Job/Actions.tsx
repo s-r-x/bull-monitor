@@ -14,6 +14,9 @@ import { useNetwork } from '@/hooks/use-network';
 import type { TJobProps } from './typings';
 import KeyboardArrowDownIcon from '@material-ui/icons/KeyboardArrowDown';
 import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp';
+import ScheduleIcon from '@material-ui/icons/Schedule';
+import Popover from '@material-ui/core/Popover';
+import Timeline from './Timeline';
 
 type TProps = TJobProps & {
   expanded: boolean;
@@ -24,11 +27,21 @@ const JobActions = ({ job, queue, expanded, toggleExpanded }: TProps) => {
   const openDataEditor = useDataEditorStore((state) => state.open);
   const openJobLogs = useJobLogsStore((state) => state.open);
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
+  const [tlAnchorEl, setTlAnchorEl] = React.useState<HTMLButtonElement | null>(
+    null,
+  );
+
   const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
     setAnchorEl(event.currentTarget);
   };
   const handleClose = () => {
     setAnchorEl(null);
+  };
+  const handleTlClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+    setTlAnchorEl(event.currentTarget);
+  };
+  const handleTlClose = () => {
+    setTlAnchorEl(null);
   };
 
   const removeMutation = useAbstractMutation({
@@ -90,6 +103,24 @@ const JobActions = ({ job, queue, expanded, toggleExpanded }: TProps) => {
           <DeleteIcon />
         </IconButton>
       </Tooltip>
+      <IconButton onClick={handleTlClick} size="small">
+        <ScheduleIcon />
+      </IconButton>
+      <Popover
+        open={Boolean(tlAnchorEl)}
+        anchorEl={tlAnchorEl}
+        onClose={handleTlClose}
+        anchorOrigin={{
+          vertical: 'bottom',
+          horizontal: 'center',
+        }}
+        transformOrigin={{
+          vertical: 'top',
+          horizontal: 'center',
+        }}
+      >
+        <Timeline job={job}/>
+      </Popover>
       <Tooltip title="More">
         <IconButton size="small" onClick={handleClick}>
           <MoreIcon />

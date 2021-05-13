@@ -26,9 +26,9 @@ export default function Jobs() {
               <TableRow>
                 <TableCell
                   style={{
-                    minWidth: '165px',
+                    minWidth: '190px',
                   }}
-                  width="165"
+                  width="190"
                 >
                   Actions
                 </TableCell>
