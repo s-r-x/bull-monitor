@@ -1,4 +1,4 @@
-import pkg from '../package.json';
+const pkg = require('../package.json');
 
 export class UI {
   private uiVersion = pkg.version;

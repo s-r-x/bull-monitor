@@ -7,8 +7,7 @@
     "module": "commonjs",
     "moduleResolution": "node",
     "sourceMap": true,
-    "lib": ["ESNext"],
-    "resolveJsonModule": true
+    "lib": ["ESNext"]
   },
   "exclude": ["node_modules", "dist"]
 }
