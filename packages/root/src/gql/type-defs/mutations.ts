@@ -72,6 +72,10 @@ export const mutationsTypeDef = gql`
     """
     retryJob(queue: String!, id: ID!): Job
     """
+    calls https://github.com/OptimalBits/bull/blob/develop/REFERENCE.md#jobretry on every passed job
+    """
+    retryJobs(queue: String!, jobs: [ID!]!): [Job]!
+    """
     https://github.com/OptimalBits/bull/blob/develop/REFERENCE.md#joblog
     """
     log(queue: String!, id: ID!, row: String!): Job

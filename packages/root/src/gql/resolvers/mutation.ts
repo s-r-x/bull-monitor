@@ -14,6 +14,7 @@ import {
   MutationRemoveJobsByPatternArgs,
   MutationResumeQueueArgs,
   MutationRetryJobArgs,
+  MutationRetryJobsArgs,
   MutationUpdateJobDataArgs,
 } from '../../typings/gql';
 import type { TResolvers } from './typings';
@@ -86,6 +87,9 @@ export const mutationResolver: TResolvers = {
     },
     retryJob(_, args: MutationRetryJobArgs, { dataSources: { bull } }) {
       return bull.retryJob(args);
+    },
+    retryJobs(_, args: MutationRetryJobsArgs, { dataSources: { bull } }) {
+      return bull.retryJobs(args);
     },
     removeJobsByPattern(
       _,

@@ -96,6 +96,8 @@ export type Mutation = {
   updateJobData?: Maybe<Job>;
   /** https://github.com/OptimalBits/bull/blob/develop/REFERENCE.md#jobretry */
   retryJob?: Maybe<Job>;
+  /** calls https://github.com/OptimalBits/bull/blob/develop/REFERENCE.md#jobretry on every passed job */
+  retryJobs: Array<Maybe<Job>>;
   /** https://github.com/OptimalBits/bull/blob/develop/REFERENCE.md#joblog */
   log?: Maybe<Job>;
   /** https://github.com/OptimalBits/bull/blob/develop/REFERENCE.md#queueadd */
@@ -179,6 +181,12 @@ export type MutationUpdateJobDataArgs = {
 export type MutationRetryJobArgs = {
   queue: Scalars['String'];
   id: Scalars['ID'];
+};
+
+
+export type MutationRetryJobsArgs = {
+  queue: Scalars['String'];
+  jobs: Array<Scalars['ID']>;
 };
 
 

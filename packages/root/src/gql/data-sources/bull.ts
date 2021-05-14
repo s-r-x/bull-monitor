@@ -16,6 +16,7 @@ import {
   MutationRemoveJobsByPatternArgs,
   MutationResumeQueueArgs,
   MutationRetryJobArgs,
+  MutationRetryJobsArgs,
   MutationUpdateJobDataArgs,
   OrderEnum,
 } from '../../typings/gql';
@@ -222,6 +223,13 @@ export class BullDataSource extends DataSource {
     await job?.retry();
     return job;
   }
+  async retryJobs(args: MutationRetryJobsArgs) {
+    const jobs = await Promise.all(
+      args.jobs.map(jobId => this.getJob(args.queue, jobId, true))
+    );
+    await Promise.all(jobs.map(job => job?.retry()));
+    return jobs;
+  }
   async removeJobById(args: MutationRemoveJobArgs) {
     const job = await this.getJob(args.queue, args.id, true);
     await job?.remove();
@@ -231,7 +239,7 @@ export class BullDataSource extends DataSource {
     const jobs = await Promise.all(
       args.jobs.map(jobId => this.getJob(args.queue, jobId, true))
     );
-    await Promise.all(jobs.map(job => job?.retry()));
+    await Promise.all(jobs.map(job => job?.remove()));
     return jobs;
   }
   async moveJobToCompleted(args: MutationMoveJobToCompletedArgs) {
