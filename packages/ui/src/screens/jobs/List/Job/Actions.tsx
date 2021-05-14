@@ -18,7 +18,8 @@ import SettingsIcon from '@material-ui/icons/Settings';
 import Timeline from './Timeline';
 import Options from './Options';
 
-const JobActions = ({ job, queue }: TJobProps) => {
+type TProps = Pick<TJobProps, 'job' | 'queue'>;
+const JobActions = ({ job, queue }: TProps) => {
   const { mutations } = useNetwork();
   const openDataEditor = useDataEditorStore((state) => state.open);
   const openJobLogs = useJobLogsStore((state) => state.open);

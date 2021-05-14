@@ -2,11 +2,43 @@ import React from 'react';
 import TableCell from '@material-ui/core/TableCell';
 import MuiTableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
+import Checkbox from '@material-ui/core/Checkbox';
+import { useSelectedJobsStore } from '@/stores/selected-jobs';
+import shallow from 'zustand/shallow';
+import type { GetJobsQuery } from '@/typings/gql';
+import isempty from 'lodash/isEmpty';
 
-export default function TableHead() {
+type TProps = {
+  jobs?: GetJobsQuery['jobs'];
+};
+export default function TableHead({ jobs }: TProps) {
+  const [selected, clearSelected, setSelected] = useSelectedJobsStore(
+    (state) => [state.selected, state.clear, state.setJobs],
+    shallow,
+  );
+  const hasJobs = !isempty(jobs);
+  const jobsLength = jobs?.length ?? 0;
+  const isIndeterminate = selected.size > 0 && selected.size !== jobsLength;
+  const isChecked = hasJobs && selected.size === jobsLength;
+  const onChange = (_e: any, checked: boolean) => {
+    if (checked) {
+      if (jobs && hasJobs) {
+        setSelected(jobs?.map((job) => job.id));
+      }
+    } else {
+      clearSelected();
+    }
+  };
   return (
     <MuiTableHead>
       <TableRow>
+        <TableCell padding="checkbox">
+          <Checkbox
+            indeterminate={isIndeterminate}
+            checked={isChecked}
+            onChange={onChange}
+          />
+        </TableCell>
         <TableCell
           style={{
             minWidth: '190px',
