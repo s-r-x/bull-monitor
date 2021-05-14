@@ -12,6 +12,7 @@ import {
   MutationMoveJobToFailedArgs,
   MutationPromoteJobArgs,
   MutationRemoveJobArgs,
+  MutationRemoveJobsArgs,
   MutationRemoveJobsByPatternArgs,
   MutationResumeQueueArgs,
   MutationRetryJobArgs,
@@ -225,6 +226,13 @@ export class BullDataSource extends DataSource {
     const job = await this.getJob(args.queue, args.id, true);
     await job?.remove();
     return job;
+  }
+  async removeJobs(args: MutationRemoveJobsArgs) {
+    const jobs = await Promise.all(
+      args.jobs.map(jobId => this.getJob(args.queue, jobId, true))
+    );
+    await Promise.all(jobs.map(job => job?.retry()));
+    return jobs;
   }
   async moveJobToCompleted(args: MutationMoveJobToCompletedArgs) {
     const job = await this.getJob(args.queue, args.id, true);

@@ -44,6 +44,10 @@ export const mutationsTypeDef = gql`
     """
     removeJob(queue: String!, id: ID!): Job
     """
+    calls https://github.com/OptimalBits/bull/blob/develop/REFERENCE.md#jobremove on every passed job
+    """
+    removeJobs(queue: String!, jobs: [ID!]!): [Job]!
+    """
     https://github.com/OptimalBits/bull/blob/develop/REFERENCE.md#jobmovetocompleted
     """
     moveJobToCompleted(queue: String!, id: ID!): Job

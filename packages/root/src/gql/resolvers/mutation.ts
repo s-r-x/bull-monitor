@@ -10,6 +10,7 @@ import {
   MutationPauseQueueArgs,
   MutationPromoteJobArgs,
   MutationRemoveJobArgs,
+  MutationRemoveJobsArgs,
   MutationRemoveJobsByPatternArgs,
   MutationResumeQueueArgs,
   MutationRetryJobArgs,
@@ -79,6 +80,9 @@ export const mutationResolver: TResolvers = {
     },
     removeJob(_, args: MutationRemoveJobArgs, { dataSources: { bull } }) {
       return bull.removeJobById(args);
+    },
+    removeJobs(_, args: MutationRemoveJobsArgs, { dataSources: { bull } }) {
+      return bull.removeJobs(args);
     },
     retryJob(_, args: MutationRetryJobArgs, { dataSources: { bull } }) {
       return bull.retryJob(args);

@@ -82,6 +82,8 @@ export type Mutation = {
   emptyQueue?: Maybe<Queue>;
   /** https://github.com/OptimalBits/bull/blob/develop/REFERENCE.md#jobremove */
   removeJob?: Maybe<Job>;
+  /** calls https://github.com/OptimalBits/bull/blob/develop/REFERENCE.md#jobremove on every passed job */
+  removeJobs: Array<Maybe<Job>>;
   /** https://github.com/OptimalBits/bull/blob/develop/REFERENCE.md#jobmovetocompleted */
   moveJobToCompleted?: Maybe<Job>;
   /** https://github.com/OptimalBits/bull/blob/develop/REFERENCE.md#jobmovetofailed */
@@ -134,6 +136,12 @@ export type MutationEmptyQueueArgs = {
 export type MutationRemoveJobArgs = {
   queue: Scalars['String'];
   id: Scalars['ID'];
+};
+
+
+export type MutationRemoveJobsArgs = {
+  queue: Scalars['String'];
+  jobs: Array<Scalars['ID']>;
 };
 
 
