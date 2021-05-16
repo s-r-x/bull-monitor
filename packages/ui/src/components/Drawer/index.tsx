@@ -1,27 +1,24 @@
 import React from 'react';
 import BaseDrawer from '@material-ui/core/Drawer';
-import Hidden from '@material-ui/core/Hidden';
-import InboxIcon from '@material-ui/icons/MoveToInbox';
-import List from '@material-ui/core/List';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
-import ListItemText from '@material-ui/core/ListItemText';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import IconButton from '@material-ui/core/IconButton';
-import { makeStyles, useTheme, Theme } from '@material-ui/core/styles';
+import { makeStyles, useTheme } from '@material-ui/core/styles';
 import { useDrawerState } from '@/stores/drawer';
 import { useActiveQueueStore } from '@/stores/active-queue';
 import shallow from 'zustand/shallow';
 import { useQuery } from 'react-query';
-import Badge from '@material-ui/core/Badge';
 import { useNetwork } from '@/hooks/use-network';
 import { QueryKeysConfig } from '@/config/query-keys';
 import NetworkRequest from '@/components/NetworkRequest';
 import { LayoutConfig } from '@/config/layouts';
 import { getPollingInterval } from '@/stores/network-settings';
+import { useFilteredQueues } from './hooks';
+import QueuesList from './Queues';
+import QueuesFilter from './Filter';
+import useMediaQuery from '@material-ui/core/useMediaQuery';
 
-const useStyles = makeStyles((theme: Theme) => ({
+const useStyles = makeStyles((theme) => ({
   drawer: {
     [theme.breakpoints.up('md')]: {
       width: LayoutConfig.drawerWidth,
@@ -35,6 +32,11 @@ const useStyles = makeStyles((theme: Theme) => ({
   },
   drawerPaper: {
     width: LayoutConfig.drawerWidth,
+  },
+  filter: {
+    marginTop: theme.spacing(1),
+    marginLeft: theme.spacing(0.5),
+    marginRight: theme.spacing(0.5),
   },
 }));
 
@@ -62,85 +64,41 @@ export default function Drawer() {
       refetchInterval,
     },
   );
-  const classes = useStyles();
+  const cls = useStyles();
   const theme = useTheme();
-  const [isOpen, toggle] = useDrawerState(
-    (state) => [state.isOpen, state.toggle],
+  const isDesktop = useMediaQuery(theme.breakpoints.up('md'));
+  const [isOpen, closeDrawer] = useDrawerState(
+    (state) => [state.isOpen, state.close],
     shallow,
   );
-  const drawer = (
-    <>
-      <div className={classes.toolbar}>
-        <IconButton onClick={toggle}>
-          {theme.direction === 'ltr' ? (
-            <ChevronLeftIcon />
-          ) : (
-            <ChevronRightIcon />
-          )}
-        </IconButton>
-      </div>
-      <NetworkRequest status={status} refetch={refetch}>
-        <List>
-          {data?.queues?.map((queue) => (
-            <ListItem
-              onClick={() => {
-                changeActiveQueue(queue.name);
-                if (isOpen) {
-                  toggle();
-                }
-              }}
-              selected={queue.name === activeQueue}
-              key={queue.name}
-              button
-            >
-              <ListItemIcon>
-                <Badge
-                  badgeContent={queue.count}
-                  color="primary"
-                  max={Infinity}
-                  showZero
-                >
-                  <InboxIcon />
-                </Badge>
-              </ListItemIcon>
-              <ListItemText primary={queue.name} />
-            </ListItem>
-          ))}
-        </List>
-      </NetworkRequest>
-    </>
-  );
+  const queues = useFilteredQueues(data?.queues);
 
   return (
-    <nav className={classes.drawer}>
-      <Hidden mdUp implementation="css">
-        <BaseDrawer
-          container={window.document.body}
-          variant="temporary"
-          anchor={theme.direction === 'rtl' ? 'right' : 'left'}
-          open={isOpen}
-          onClose={toggle}
-          classes={{
-            paper: classes.drawerPaper,
-          }}
-          ModalProps={{
-            keepMounted: false,
-          }}
-        >
-          {drawer}
-        </BaseDrawer>
-      </Hidden>
-      <Hidden smDown implementation="css">
-        <BaseDrawer
-          classes={{
-            paper: classes.drawerPaper,
-          }}
-          variant="permanent"
-          open
-        >
-          {drawer}
-        </BaseDrawer>
-      </Hidden>
+    <nav className={cls.drawer}>
+      <BaseDrawer
+        open={isDesktop || isOpen}
+        container={isDesktop ? undefined : window.document.body}
+        variant={isDesktop ? 'permanent' : 'temporary'}
+        onClose={closeDrawer}
+        anchor={theme.direction === 'rtl' ? 'right' : 'left'}
+        classes={{
+          paper: cls.drawerPaper,
+        }}
+      >
+        <div className={cls.toolbar}>
+          <IconButton onClick={closeDrawer}>
+            {theme.direction === 'ltr' ? (
+              <ChevronLeftIcon />
+            ) : (
+              <ChevronRightIcon />
+            )}
+          </IconButton>
+        </div>
+        <NetworkRequest status={status} refetch={refetch}>
+          <QueuesFilter className={cls.filter} />
+          <QueuesList queues={queues} />
+        </NetworkRequest>
+      </BaseDrawer>
     </nav>
   );
 }

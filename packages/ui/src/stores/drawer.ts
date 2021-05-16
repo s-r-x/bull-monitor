@@ -9,7 +9,6 @@ type TState = {
 };
 
 export const useDrawerState = createStore<TState>((set) => ({
-  section: null,
   isOpen: false,
 
   toggle: () => set(({ isOpen }) => ({ isOpen: !isOpen })),

@@ -10,6 +10,7 @@ import { NetworkProvider } from './providers/network';
 import { useRunStoreSideEffects } from './stores/side-effects';
 import { usePreferencesStore } from './stores/preferences';
 import { useNetworkSettingsStore } from './stores/network-settings';
+import { useQueuesFilterStore } from './stores/queues-filter';
 
 const queryClient = new QueryClient();
 
@@ -17,6 +18,7 @@ export default function App() {
   const muiTheme = getMuiTheme();
   useRunStoreSideEffects();
   usePreferencesStore();
+  useQueuesFilterStore();
   useNetworkSettingsStore();
   useThemeStore();
   return (
