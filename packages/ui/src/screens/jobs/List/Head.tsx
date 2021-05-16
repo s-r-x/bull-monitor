@@ -8,6 +8,7 @@ import shallow from 'zustand/shallow';
 import type { GetJobsQuery } from '@/typings/gql';
 import isempty from 'lodash/isEmpty';
 
+const actionsWidth = '190';
 type TProps = {
   jobs?: GetJobsQuery['jobs'];
 };
@@ -41,9 +42,9 @@ export default function TableHead({ jobs }: TProps) {
         </TableCell>
         <TableCell
           style={{
-            minWidth: '190px',
+            minWidth: `${actionsWidth}px`,
           }}
-          width="190"
+          width={actionsWidth}
         >
           Actions
         </TableCell>

@@ -82,6 +82,8 @@ export type Mutation = {
   emptyQueue?: Maybe<Queue>;
   /** https://github.com/OptimalBits/bull/blob/develop/REFERENCE.md#jobremove */
   removeJob?: Maybe<Job>;
+  /** calls https://github.com/OptimalBits/bull/blob/develop/REFERENCE.md#jobremove on every passed job */
+  removeJobs: Array<Maybe<Job>>;
   /** https://github.com/OptimalBits/bull/blob/develop/REFERENCE.md#jobmovetocompleted */
   moveJobToCompleted?: Maybe<Job>;
   /** https://github.com/OptimalBits/bull/blob/develop/REFERENCE.md#jobmovetofailed */
@@ -94,6 +96,8 @@ export type Mutation = {
   updateJobData?: Maybe<Job>;
   /** https://github.com/OptimalBits/bull/blob/develop/REFERENCE.md#jobretry */
   retryJob?: Maybe<Job>;
+  /** calls https://github.com/OptimalBits/bull/blob/develop/REFERENCE.md#jobretry on every passed job */
+  retryJobs: Array<Maybe<Job>>;
   /** https://github.com/OptimalBits/bull/blob/develop/REFERENCE.md#joblog */
   log?: Maybe<Job>;
   /** https://github.com/OptimalBits/bull/blob/develop/REFERENCE.md#queueadd */
@@ -137,6 +141,12 @@ export type MutationRemoveJobArgs = {
 };
 
 
+export type MutationRemoveJobsArgs = {
+  queue: Scalars['String'];
+  jobs: Array<Scalars['ID']>;
+};
+
+
 export type MutationMoveJobToCompletedArgs = {
   queue: Scalars['String'];
   id: Scalars['ID'];
@@ -164,13 +174,19 @@ export type MutationPromoteJobArgs = {
 export type MutationUpdateJobDataArgs = {
   queue: Scalars['String'];
   id: Scalars['ID'];
-  data?: Maybe<Scalars['String']>;
+  data?: Maybe<Scalars['JSON']>;
 };
 
 
 export type MutationRetryJobArgs = {
   queue: Scalars['String'];
   id: Scalars['ID'];
+};
+
+
+export type MutationRetryJobsArgs = {
+  queue: Scalars['String'];
+  jobs: Array<Scalars['ID']>;
 };
 
 
@@ -378,6 +394,14 @@ export type RemoveJobsByPatternMutationVariables = Exact<{
 
 export type RemoveJobsByPatternMutation = Pick<Mutation, 'removeJobsByPattern'>;
 
+export type RemoveJobsMutationVariables = Exact<{
+  queue: Scalars['String'];
+  jobs: Array<Scalars['ID']> | Scalars['ID'];
+}>;
+
+
+export type RemoveJobsMutation = { removeJobs: Array<Maybe<Pick<Job, 'id'>>> };
+
 export type ResumeQueueMutationVariables = Exact<{
   queue: Scalars['String'];
 }>;
@@ -393,10 +417,18 @@ export type RetryJobMutationVariables = Exact<{
 
 export type RetryJobMutation = { retryJob?: Maybe<Pick<Job, 'id'>> };
 
+export type RetryJobsMutationVariables = Exact<{
+  queue: Scalars['String'];
+  jobs: Array<Scalars['ID']> | Scalars['ID'];
+}>;
+
+
+export type RetryJobsMutation = { retryJobs: Array<Maybe<Pick<Job, 'id'>>> };
+
 export type UpdateJobDataMutationVariables = Exact<{
   queue: Scalars['String'];
   id: Scalars['ID'];
-  data?: Maybe<Scalars['String']>;
+  data?: Maybe<Scalars['JSON']>;
 }>;
 
 

@@ -15,5 +15,7 @@ export const removeJobMock = (
     }
     return !Boolean(target);
   });
-  return found;
+  return Promise.resolve({
+    removeJob: found,
+  });
 };

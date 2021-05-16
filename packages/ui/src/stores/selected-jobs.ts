@@ -1,4 +1,9 @@
+import { useEffect } from 'react';
 import createStore from 'zustand';
+import { useActiveQueueStore } from './active-queue';
+import { useFiltersStore } from './filters';
+import shallow from 'zustand/shallow';
+import { usePaginationStore } from './pagination';
 
 type TState = {
   selected: Set<string>;
@@ -43,3 +48,28 @@ export const useSelectedJobsStore = createStore<TState>((set, get) => ({
     }
   },
 }));
+
+export const useRunSelectedJobsSideEffects = () => {
+  const clear = useSelectedJobsStore((state) => state.clear);
+  useEffect(() => {
+    const effect = clear;
+    const unsubActiveQueue = useActiveQueueStore.subscribe(
+      effect,
+      (state) => state.active,
+    );
+    const unsubFilters = useFiltersStore.subscribe(
+      effect,
+      (state) => [state.order, state.status, state.jobId],
+      shallow,
+    );
+    const unsubPagination = usePaginationStore.subscribe(
+      effect,
+      (state) => state.page,
+    );
+    return () => {
+      unsubActiveQueue();
+      unsubFilters();
+      unsubPagination();
+    };
+  }, []);
+};

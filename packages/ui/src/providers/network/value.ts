@@ -45,8 +45,12 @@ import { removeJobsByPatternMock } from '@/demoMocks/network/mutations/remove-jo
 import { removeJobsByPattern } from '@/network/mutations/remove-jobs-by-pattern';
 import { cleanQueueMock } from '@/demoMocks/network/mutations/clean-queue';
 import { cleanQueue } from '@/network/mutations/clean-queue';
+import { retryJobs } from '@/network/mutations/retry-jobs';
+import { removeJobs } from '@/network/mutations/remove-jobs';
+import { removeJobsMock } from '@/demoMocks/network/mutations/remove-jobs';
 
 import { EnvConfig } from '@/config/env';
+import { retryJobsMock } from '@/demoMocks/network/mutations/retry-jobs';
 
 const { useMocks: m } = EnvConfig;
 
@@ -76,6 +80,8 @@ const mutations = {
   closeQueue: m ? closeQueueMock : closeQueue,
   removeJobsByPattern: m ? removeJobsByPatternMock : removeJobsByPattern,
   cleanQueue: m ? cleanQueueMock : cleanQueue,
+  retryJobs: m ? retryJobsMock : retryJobs,
+  removeJobs: m ? removeJobsMock : removeJobs,
 };
 
 export const networkContextValue = { mutations, queries };

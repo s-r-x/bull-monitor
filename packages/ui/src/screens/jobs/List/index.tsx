@@ -11,6 +11,7 @@ import JobLogsModal from './Logs';
 import { useJobsQuery } from './hooks';
 import NetworkRequest from '@/components/NetworkRequest';
 import TableHead from './Head';
+import TableToolbar from './Toolbar';
 import { useSelectedJobsStore } from '@/stores/selected-jobs';
 import shallow from 'zustand/shallow';
 
@@ -24,6 +25,7 @@ export default function Jobs() {
   return (
     <Paper>
       <NetworkRequest status={status} refetch={refetch}>
+        <TableToolbar />
         <TableContainer>
           <Table size="medium">
             <TableHead jobs={data?.jobs} />
