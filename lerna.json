@@ -11,7 +11,7 @@
         "**/*.md",
         "**/*.spec.*"
       ],
-      "message": "Release"
+      "message": "Release %s"
     }
   }
 }
