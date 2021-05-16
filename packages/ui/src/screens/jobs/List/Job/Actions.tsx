@@ -75,7 +75,7 @@ const JobActions = ({ job, queue }: TProps) => {
   });
   const moveToFailedMutation = useAbstractMutation({
     mutation: mutations.moveJobToFailed,
-    toast: 'Moved to completed',
+    toast: 'Moved to failed',
     invalidateSharedQueries: true,
   });
   const retryMutation = useAbstractMutation({
