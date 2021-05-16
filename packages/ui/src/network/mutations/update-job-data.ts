@@ -10,7 +10,7 @@ export const updateJobData = (
 ): Promise<UpdateJobDataMutation> =>
   gqlClient.request(
     gql`
-      mutation UpdateJobData($queue: String!, $id: ID!, $data: String) {
+      mutation UpdateJobData($queue: String!, $id: ID!, $data: JSON) {
         updateJobData(queue: $queue, id: $id, data: $data) {
           id
         }
