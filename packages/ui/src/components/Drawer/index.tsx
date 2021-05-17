@@ -5,11 +5,10 @@ import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import IconButton from '@material-ui/core/IconButton';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import { useDrawerState } from '@/stores/drawer';
-import { useActiveQueueStore } from '@/stores/active-queue';
 import shallow from 'zustand/shallow';
 import NetworkRequest from '@/components/NetworkRequest';
 import { LayoutConfig } from '@/config/layouts';
-import { useFilteredQueues } from './hooks';
+import { useFilteredQueues, useSetActiveQueueOnFirstLoad } from './hooks';
 import QueuesList from './Queues';
 import QueuesFilter from './Filter';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
@@ -38,22 +37,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function Drawer() {
-  const [activeQueue, changeActiveQueue] = useActiveQueueStore(
-    (state) => [state.active, state.changeActive],
-    shallow,
-  );
   const { data, status, refetch } = useQueuesQuery();
-  //{
-  //  onSuccess(data) {
-  //    if (!activeQueue) {
-  //      const firstQueue = data?.queues?.[0];
-  //      if (firstQueue) {
-  //        changeActiveQueue(firstQueue.name);
-  //      }
-  //    }
-  //  },
-  //  refetchInterval,
-  //},
   const cls = useStyles();
   const theme = useTheme();
   const isDesktop = useMediaQuery(theme.breakpoints.up('md'));
@@ -61,7 +45,9 @@ export default function Drawer() {
     (state) => [state.isOpen, state.close],
     shallow,
   );
-  const queues = useFilteredQueues(data?.queues);
+  const queues = data?.queues;
+  useSetActiveQueueOnFirstLoad(queues);
+  const filteredQueues = useFilteredQueues(queues);
 
   return (
     <nav className={cls.drawer}>
@@ -86,7 +72,7 @@ export default function Drawer() {
         </div>
         <NetworkRequest status={status} refetch={refetch}>
           <QueuesFilter className={cls.filter} />
-          <QueuesList queues={queues} />
+          <QueuesList queues={filteredQueues} />
         </NetworkRequest>
       </BaseDrawer>
     </nav>
