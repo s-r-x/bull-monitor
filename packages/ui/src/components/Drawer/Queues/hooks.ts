@@ -1,5 +1,7 @@
 import type { JobStatus, QueueJobsCounts } from '@/typings/gql';
-import { useMemo } from 'react';
+import { useEffect, useMemo } from 'react';
+import { useToggle } from '@/hooks/use-toggle';
+import { eventEmitter } from '@/services/event-emitter';
 
 export const useJobsCountArray = (count: QueueJobsCounts) => {
   return useMemo(() => {
@@ -11,4 +13,19 @@ export const useJobsCountArray = (count: QueueJobsCounts) => {
 };
 export const useAliveJobsCount = (count: QueueJobsCounts) => {
   return count.active + count.delayed + count.waiting;
+};
+
+export const useCollapseState = () => {
+  const state = useToggle();
+  useEffect(() => {
+    const collapseCb = () => state[2](false);
+    const expandCb = () => state[2](true);
+    eventEmitter.on('drawer/collapseCounts', collapseCb);
+    eventEmitter.on('drawer/expandCounts', expandCb);
+    return () => {
+      eventEmitter.off('drawer/collapseCounts', collapseCb);
+      eventEmitter.off('drawer/expandCounts', expandCb);
+    };
+  }, []);
+  return state;
 };

@@ -13,6 +13,7 @@ import QueuesList from './Queues';
 import QueuesFilter from './Filter';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 import { useQueuesQuery } from '@/hooks/use-queues-query';
+import Footer from './Footer';
 
 const useStyles = makeStyles((theme) => ({
   drawer: {
@@ -33,6 +34,11 @@ const useStyles = makeStyles((theme) => ({
     marginTop: theme.spacing(1),
     marginLeft: theme.spacing(0.5),
     marginRight: theme.spacing(0.5),
+  },
+  footer: {
+    position: 'sticky',
+    bottom: 0,
+    zIndex: 2,
   },
 }));
 
@@ -74,6 +80,7 @@ export default function Drawer() {
           <QueuesFilter className={cls.filter} />
           <QueuesList queues={filteredQueues} />
         </NetworkRequest>
+        <Footer className={cls.footer} />
       </BaseDrawer>
     </nav>
   );

@@ -11,10 +11,9 @@ import { makeStyles } from '@material-ui/core/styles';
 import ExpandLessIcon from '@material-ui/icons/ExpandLess';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import IconButton from '@material-ui/core/IconButton';
-import { useToggle } from '@/hooks/use-toggle';
 import Collapse from '@material-ui/core/Collapse';
 import Badge from '@material-ui/core/Badge';
-import { useAliveJobsCount } from './hooks';
+import { useAliveJobsCount, useCollapseState } from './hooks';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -40,7 +39,7 @@ type TProps = {
 };
 export default function DrawerQueue(props: TProps) {
   const cls = useStyles();
-  const [isOpen, toggleIsOpen] = useToggle();
+  const [isOpen, toggleIsOpen] = useCollapseState();
   const onSelect = useCallback(() => {
     props.onSelect(props.queue.name);
   }, [props.queue.name]);
