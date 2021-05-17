@@ -1,4 +1,4 @@
 export const LayoutConfig = {
-  drawerWidth: 240,
+  drawerWidth: 260,
   modalWidth: 500,
 };
