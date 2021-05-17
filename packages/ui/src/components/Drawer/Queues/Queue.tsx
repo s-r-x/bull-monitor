@@ -6,6 +6,7 @@ import ListItemText from '@material-ui/core/ListItemText';
 import JobsCount from './JobsCount';
 import ListItemSecondaryAction from '@material-ui/core/ListItemSecondaryAction';
 import InboxIcon from '@material-ui/icons/MoveToInbox';
+import PauseIcon from '@material-ui/icons/Pause';
 
 import { makeStyles } from '@material-ui/core/styles';
 import ExpandLessIcon from '@material-ui/icons/ExpandLess';
@@ -59,7 +60,7 @@ export default function DrawerQueue(props: TProps) {
             max={9999}
             showZero
           >
-            <InboxIcon />
+            {props.queue.isPaused ? <PauseIcon /> : <InboxIcon />}
           </Badge>
         </ListItemIcon>
         <ListItemText
