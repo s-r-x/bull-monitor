@@ -43,6 +43,7 @@ import { cleanQueue } from '@/network/mutations/clean-queue';
 import { retryJobs } from '@/network/mutations/retry-jobs';
 import { removeJobs } from '@/network/mutations/remove-jobs';
 import { removeJobsMock } from '@/demo-mocks/network/mutations/remove-jobs';
+import { getQueuesMock } from '@/demo-mocks/network/queries/get-queues';
 
 import { EnvConfig } from '@/config/env';
 import { retryJobsMock } from '@/demo-mocks/network/mutations/retry-jobs';
@@ -55,8 +56,7 @@ const queries = {
   getJobLogs: m ? getJobLogsMock : getJobLogs,
   getJobs: m ? getJobsMock : getJobs,
   getJobById: m ? getJobByIdMock : getJobById,
-  // TODO:: demo mock
-  getQueues,
+  getQueues: m ? getQueuesMock : getQueues,
 };
 const mutations = {
   createJob: m ? createJobMock : createJob,
