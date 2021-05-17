@@ -718,7 +718,7 @@
         }
       ]
     },
-    "_snowpack/pkg/common/createSvgIcon-e83719ed.js": {
+    "_snowpack/pkg/common/createSvgIcon-2b5f4ce1.js": {
       "bytes": 4566,
       "imports": [
         {
@@ -783,7 +783,7 @@
           "kind": "import-statement"
         },
         {
-          "path": "_snowpack/pkg/common/createSvgIcon-e83719ed.js",
+          "path": "_snowpack/pkg/common/createSvgIcon-2b5f4ce1.js",
           "kind": "import-statement"
         },
         {
@@ -888,7 +888,7 @@
           "kind": "import-statement"
         },
         {
-          "path": "_snowpack/pkg/common/createSvgIcon-e83719ed.js",
+          "path": "_snowpack/pkg/common/createSvgIcon-2b5f4ce1.js",
           "kind": "import-statement"
         },
         {
@@ -1183,15 +1183,6 @@
         }
       ]
     },
-    "dist/stores/active-queue.js": {
-      "bytes": 222,
-      "imports": [
-        {
-          "path": "_snowpack/pkg/zustand.js",
-          "kind": "import-statement"
-        }
-      ]
-    },
     "_snowpack/pkg/zustand/shallow.js": {
       "bytes": 952,
       "imports": [
@@ -1200,1038 +1191,6 @@
           "kind": "import-statement"
         }
       ]
-    },
-    "_snowpack/pkg/react-query.js": {
-      "bytes": 84255,
-      "imports": [
-        {
-          "path": "_snowpack/pkg/common/extends-7477639a.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/inheritsLoose-a99a548f.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/index-f40123f8.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/_commonjsHelpers-37fa8da4.js",
-          "kind": "import-statement"
-        }
-      ]
-    },
-    "dist/config/env.js": {
-      "bytes": 212,
-      "imports": [
-        {
-          "path": "_snowpack/env.js",
-          "kind": "import-statement"
-        }
-      ]
-    },
-    "dist/config/gql.js": {
-      "bytes": 316,
-      "imports": [
-        {
-          "path": "dist/config/env.js",
-          "kind": "import-statement"
-        }
-      ]
-    },
-    "_snowpack/pkg/graphql-request.js": {
-      "bytes": 64154,
-      "imports": [
-        {
-          "path": "_snowpack/pkg/common/_commonjsHelpers-37fa8da4.js",
-          "kind": "import-statement"
-        }
-      ]
-    },
-    "dist/network/gql-client.js": {
-      "bytes": 178,
-      "imports": [
-        {
-          "path": "dist/config/gql.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/graphql-request.js",
-          "kind": "import-statement"
-        }
-      ]
-    },
-    "dist/network/queries/get-job-data.js": {
-      "bytes": 303,
-      "imports": [
-        {
-          "path": "dist/network/gql-client.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/graphql-request.js",
-          "kind": "import-statement"
-        }
-      ]
-    },
-    "dist/typings/gql.js": {
-      "bytes": 988,
-      "imports": []
-    },
-    "_snowpack/pkg/common/isArrayLike-2346aad9.js": {
-      "bytes": 6968,
-      "imports": [
-        {
-          "path": "_snowpack/pkg/common/_commonjsHelpers-37fa8da4.js",
-          "kind": "import-statement"
-        }
-      ]
-    },
-    "_snowpack/pkg/common/_isIndex-6a000f67.js": {
-      "bytes": 784,
-      "imports": []
-    },
-    "_snowpack/pkg/common/toFinite-574fd344.js": {
-      "bytes": 5517,
-      "imports": [
-        {
-          "path": "_snowpack/pkg/common/isArrayLike-2346aad9.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/_isIndex-6a000f67.js",
-          "kind": "import-statement"
-        }
-      ]
-    },
-    "_snowpack/pkg/lodash/range.js": {
-      "bytes": 2946,
-      "imports": [
-        {
-          "path": "_snowpack/pkg/common/toFinite-574fd344.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/isArrayLike-2346aad9.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/_commonjsHelpers-37fa8da4.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/_isIndex-6a000f67.js",
-          "kind": "import-statement"
-        }
-      ]
-    },
-    "_snowpack/pkg/common/_baseRandom-24cc2903.js": {
-      "bytes": 572,
-      "imports": []
-    },
-    "_snowpack/pkg/common/isTypedArray-beca1c78.js": {
-      "bytes": 9255,
-      "imports": [
-        {
-          "path": "_snowpack/pkg/common/isArrayLike-2346aad9.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/_commonjsHelpers-37fa8da4.js",
-          "kind": "import-statement"
-        }
-      ]
-    },
-    "_snowpack/pkg/lodash/sample.js": {
-      "bytes": 5981,
-      "imports": [
-        {
-          "path": "_snowpack/pkg/common/_baseRandom-24cc2903.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/isTypedArray-beca1c78.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/_isIndex-6a000f67.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/isArrayLike-2346aad9.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/_commonjsHelpers-37fa8da4.js",
-          "kind": "import-statement"
-        }
-      ]
-    },
-    "_snowpack/pkg/lodash/random.js": {
-      "bytes": 2561,
-      "imports": [
-        {
-          "path": "_snowpack/pkg/common/_baseRandom-24cc2903.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/toFinite-574fd344.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/isArrayLike-2346aad9.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/_commonjsHelpers-37fa8da4.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/_isIndex-6a000f67.js",
-          "kind": "import-statement"
-        }
-      ]
-    },
-    "dist/demo-mocks/network/data.js": {
-      "bytes": 1736,
-      "imports": [
-        {
-          "path": "dist/typings/gql.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/lodash/range.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/lodash/sample.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/lodash/random.js",
-          "kind": "import-statement"
-        }
-      ]
-    },
-    "dist/demo-mocks/network/queries/get-job-data.js": {
-      "bytes": 196,
-      "imports": [
-        {
-          "path": "dist/demo-mocks/network/data.js",
-          "kind": "import-statement"
-        }
-      ]
-    },
-    "dist/network/queries/get-job-logs.js": {
-      "bytes": 352,
-      "imports": [
-        {
-          "path": "dist/network/gql-client.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/graphql-request.js",
-          "kind": "import-statement"
-        }
-      ]
-    },
-    "dist/demo-mocks/network/queries/get-job-logs.js": {
-      "bytes": 196,
-      "imports": [
-        {
-          "path": "dist/demo-mocks/network/data.js",
-          "kind": "import-statement"
-        }
-      ]
-    },
-    "dist/network/fragments/common-page-fields.js": {
-      "bytes": 318,
-      "imports": [
-        {
-          "path": "_snowpack/pkg/graphql-request.js",
-          "kind": "import-statement"
-        }
-      ]
-    },
-    "dist/network/queries/get-jobs.js": {
-      "bytes": 664,
-      "imports": [
-        {
-          "path": "dist/network/gql-client.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/graphql-request.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "dist/network/fragments/common-page-fields.js",
-          "kind": "import-statement"
-        }
-      ]
-    },
-    "dist/demo-mocks/network/queries/get-jobs.js": {
-      "bytes": 487,
-      "imports": [
-        {
-          "path": "dist/demo-mocks/network/data.js",
-          "kind": "import-statement"
-        }
-      ]
-    },
-    "dist/network/queries/get-queue-counts.js": {
-      "bytes": 430,
-      "imports": [
-        {
-          "path": "dist/network/gql-client.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/graphql-request.js",
-          "kind": "import-statement"
-        }
-      ]
-    },
-    "dist/demo-mocks/network/queries/get-queue-counts.js": {
-      "bytes": 400,
-      "imports": [
-        {
-          "path": "dist/demo-mocks/network/data.js",
-          "kind": "import-statement"
-        }
-      ]
-    },
-    "dist/network/queries/get-queues-for-drawer.js": {
-      "bytes": 277,
-      "imports": [
-        {
-          "path": "dist/network/gql-client.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/graphql-request.js",
-          "kind": "import-statement"
-        }
-      ]
-    },
-    "dist/demo-mocks/network/queries/get-queues-for-drawer.js": {
-      "bytes": 378,
-      "imports": [
-        {
-          "path": "dist/typings/gql.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "dist/demo-mocks/network/data.js",
-          "kind": "import-statement"
-        }
-      ]
-    },
-    "dist/demo-mocks/network/queries/get-is-queue-paused.js": {
-      "bytes": 184,
-      "imports": [
-        {
-          "path": "dist/demo-mocks/network/data.js",
-          "kind": "import-statement"
-        }
-      ]
-    },
-    "dist/network/queries/get-is-queue-paused.js": {
-      "bytes": 299,
-      "imports": [
-        {
-          "path": "dist/network/gql-client.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/graphql-request.js",
-          "kind": "import-statement"
-        }
-      ]
-    },
-    "dist/network/queries/get-job-by-id.js": {
-      "bytes": 424,
-      "imports": [
-        {
-          "path": "dist/network/gql-client.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/graphql-request.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "dist/network/fragments/common-page-fields.js",
-          "kind": "import-statement"
-        }
-      ]
-    },
-    "dist/demo-mocks/network/queries/get-job-by-id.js": {
-      "bytes": 223,
-      "imports": [
-        {
-          "path": "dist/demo-mocks/network/data.js",
-          "kind": "import-statement"
-        }
-      ]
-    },
-    "dist/network/queries/get-redis-info.js": {
-      "bytes": 550,
-      "imports": [
-        {
-          "path": "dist/network/gql-client.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/graphql-request.js",
-          "kind": "import-statement"
-        }
-      ]
-    },
-    "dist/demo-mocks/network/queries/get-redis-info.js": {
-      "bytes": 503,
-      "imports": []
-    },
-    "dist/network/mutations/create-job-log.js": {
-      "bytes": 334,
-      "imports": [
-        {
-          "path": "dist/network/gql-client.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/graphql-request.js",
-          "kind": "import-statement"
-        }
-      ]
-    },
-    "dist/demo-mocks/network/mutations/create-job-log.js": {
-      "bytes": 265,
-      "imports": [
-        {
-          "path": "dist/demo-mocks/network/data.js",
-          "kind": "import-statement"
-        }
-      ]
-    },
-    "dist/network/mutations/discard-job.js": {
-      "bytes": 311,
-      "imports": [
-        {
-          "path": "dist/network/gql-client.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/graphql-request.js",
-          "kind": "import-statement"
-        }
-      ]
-    },
-    "dist/demo-mocks/network/mutations/discard-job.js": {
-      "bytes": 183,
-      "imports": [
-        {
-          "path": "dist/demo-mocks/network/data.js",
-          "kind": "import-statement"
-        }
-      ]
-    },
-    "dist/network/mutations/move-job-to-completed.js": {
-      "bytes": 335,
-      "imports": [
-        {
-          "path": "dist/network/gql-client.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/graphql-request.js",
-          "kind": "import-statement"
-        }
-      ]
-    },
-    "dist/demo-mocks/network/mutations/move-job-to-completed.js": {
-      "bytes": 320,
-      "imports": [
-        {
-          "path": "dist/typings/gql.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "dist/demo-mocks/network/data.js",
-          "kind": "import-statement"
-        }
-      ]
-    },
-    "dist/network/mutations/move-job-to-failed.js": {
-      "bytes": 326,
-      "imports": [
-        {
-          "path": "dist/network/gql-client.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/graphql-request.js",
-          "kind": "import-statement"
-        }
-      ]
-    },
-    "dist/demo-mocks/network/mutations/move-job-to-failed.js": {
-      "bytes": 311,
-      "imports": [
-        {
-          "path": "dist/typings/gql.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "dist/demo-mocks/network/data.js",
-          "kind": "import-statement"
-        }
-      ]
-    },
-    "dist/network/mutations/promote-job.js": {
-      "bytes": 311,
-      "imports": [
-        {
-          "path": "dist/network/gql-client.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/graphql-request.js",
-          "kind": "import-statement"
-        }
-      ]
-    },
-    "dist/demo-mocks/network/mutations/promote-job.js": {
-      "bytes": 302,
-      "imports": [
-        {
-          "path": "dist/typings/gql.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "dist/demo-mocks/network/data.js",
-          "kind": "import-statement"
-        }
-      ]
-    },
-    "dist/network/mutations/retry-job.js": {
-      "bytes": 305,
-      "imports": [
-        {
-          "path": "dist/network/gql-client.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/graphql-request.js",
-          "kind": "import-statement"
-        }
-      ]
-    },
-    "dist/demo-mocks/network/mutations/retry-job.js": {
-      "bytes": 179,
-      "imports": [
-        {
-          "path": "dist/demo-mocks/network/data.js",
-          "kind": "import-statement"
-        }
-      ]
-    },
-    "dist/network/mutations/update-job-data.js": {
-      "bytes": 346,
-      "imports": [
-        {
-          "path": "dist/network/gql-client.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/graphql-request.js",
-          "kind": "import-statement"
-        }
-      ]
-    },
-    "dist/demo-mocks/network/mutations/update-job-data.js": {
-      "bytes": 251,
-      "imports": [
-        {
-          "path": "dist/demo-mocks/network/data.js",
-          "kind": "import-statement"
-        }
-      ]
-    },
-    "dist/network/mutations/remove-job.js": {
-      "bytes": 308,
-      "imports": [
-        {
-          "path": "dist/network/gql-client.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/graphql-request.js",
-          "kind": "import-statement"
-        }
-      ]
-    },
-    "dist/demo-mocks/network/mutations/remove-job.js": {
-      "bytes": 367,
-      "imports": [
-        {
-          "path": "dist/demo-mocks/network/data.js",
-          "kind": "import-statement"
-        }
-      ]
-    },
-    "dist/network/mutations/create-job.js": {
-      "bytes": 297,
-      "imports": [
-        {
-          "path": "dist/network/gql-client.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/graphql-request.js",
-          "kind": "import-statement"
-        }
-      ]
-    },
-    "dist/demo-mocks/network/mutations/create-job.js": {
-      "bytes": 600,
-      "imports": [
-        {
-          "path": "_snowpack/pkg/lodash/random.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "dist/typings/gql.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "dist/demo-mocks/network/data.js",
-          "kind": "import-statement"
-        }
-      ]
-    },
-    "dist/network/mutations/pause-queue.js": {
-      "bytes": 294,
-      "imports": [
-        {
-          "path": "dist/network/gql-client.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/graphql-request.js",
-          "kind": "import-statement"
-        }
-      ]
-    },
-    "dist/demo-mocks/network/mutations/pause-queue.js": {
-      "bytes": 597,
-      "imports": [
-        {
-          "path": "dist/typings/gql.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "dist/demo-mocks/network/data.js",
-          "kind": "import-statement"
-        }
-      ]
-    },
-    "dist/demo-mocks/network/mutations/resume-queue.js": {
-      "bytes": 240,
-      "imports": [
-        {
-          "path": "dist/demo-mocks/network/data.js",
-          "kind": "import-statement"
-        }
-      ]
-    },
-    "dist/network/mutations/resume-queue.js": {
-      "bytes": 297,
-      "imports": [
-        {
-          "path": "dist/network/gql-client.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/graphql-request.js",
-          "kind": "import-statement"
-        }
-      ]
-    },
-    "dist/network/mutations/empty-queue.js": {
-      "bytes": 294,
-      "imports": [
-        {
-          "path": "dist/network/gql-client.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/graphql-request.js",
-          "kind": "import-statement"
-        }
-      ]
-    },
-    "dist/demo-mocks/network/mutations/empty-queue.js": {
-      "bytes": 407,
-      "imports": [
-        {
-          "path": "dist/typings/gql.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "dist/demo-mocks/network/data.js",
-          "kind": "import-statement"
-        }
-      ]
-    },
-    "dist/demo-mocks/network/mutations/close-queue.js": {
-      "bytes": 191,
-      "imports": [
-        {
-          "path": "dist/demo-mocks/network/data.js",
-          "kind": "import-statement"
-        }
-      ]
-    },
-    "dist/network/mutations/close-queue.js": {
-      "bytes": 294,
-      "imports": [
-        {
-          "path": "dist/network/gql-client.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/graphql-request.js",
-          "kind": "import-statement"
-        }
-      ]
-    },
-    "dist/demo-mocks/network/mutations/remove-jobs-by-pattern.js": {
-      "bytes": 341,
-      "imports": [
-        {
-          "path": "dist/demo-mocks/network/data.js",
-          "kind": "import-statement"
-        }
-      ]
-    },
-    "dist/network/mutations/remove-jobs-by-pattern.js": {
-      "bytes": 332,
-      "imports": [
-        {
-          "path": "dist/network/gql-client.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/graphql-request.js",
-          "kind": "import-statement"
-        }
-      ]
-    },
-    "dist/demo-mocks/network/mutations/clean-queue.js": {
-      "bytes": 436,
-      "imports": [
-        {
-          "path": "dist/typings/gql.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "dist/demo-mocks/network/data.js",
-          "kind": "import-statement"
-        }
-      ]
-    },
-    "dist/network/mutations/clean-queue.js": {
-      "bytes": 310,
-      "imports": [
-        {
-          "path": "dist/network/gql-client.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/graphql-request.js",
-          "kind": "import-statement"
-        }
-      ]
-    },
-    "dist/network/mutations/retry-jobs.js": {
-      "bytes": 317,
-      "imports": [
-        {
-          "path": "dist/network/gql-client.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/graphql-request.js",
-          "kind": "import-statement"
-        }
-      ]
-    },
-    "dist/network/mutations/remove-jobs.js": {
-      "bytes": 320,
-      "imports": [
-        {
-          "path": "dist/network/gql-client.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/graphql-request.js",
-          "kind": "import-statement"
-        }
-      ]
-    },
-    "dist/demo-mocks/network/mutations/remove-jobs.js": {
-      "bytes": 388,
-      "imports": [
-        {
-          "path": "dist/demo-mocks/network/data.js",
-          "kind": "import-statement"
-        }
-      ]
-    },
-    "dist/demo-mocks/network/mutations/retry-jobs.js": {
-      "bytes": 96,
-      "imports": []
-    },
-    "dist/providers/network/value.js": {
-      "bytes": 5363,
-      "imports": [
-        {
-          "path": "dist/network/queries/get-job-data.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "dist/demo-mocks/network/queries/get-job-data.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "dist/network/queries/get-job-logs.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "dist/demo-mocks/network/queries/get-job-logs.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "dist/network/queries/get-jobs.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "dist/demo-mocks/network/queries/get-jobs.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "dist/network/queries/get-queue-counts.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "dist/demo-mocks/network/queries/get-queue-counts.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "dist/network/queries/get-queues-for-drawer.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "dist/demo-mocks/network/queries/get-queues-for-drawer.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "dist/demo-mocks/network/queries/get-is-queue-paused.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "dist/network/queries/get-is-queue-paused.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "dist/network/queries/get-job-by-id.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "dist/demo-mocks/network/queries/get-job-by-id.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "dist/network/queries/get-redis-info.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "dist/demo-mocks/network/queries/get-redis-info.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "dist/network/mutations/create-job-log.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "dist/demo-mocks/network/mutations/create-job-log.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "dist/network/mutations/discard-job.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "dist/demo-mocks/network/mutations/discard-job.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "dist/network/mutations/move-job-to-completed.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "dist/demo-mocks/network/mutations/move-job-to-completed.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "dist/network/mutations/move-job-to-failed.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "dist/demo-mocks/network/mutations/move-job-to-failed.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "dist/network/mutations/promote-job.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "dist/demo-mocks/network/mutations/promote-job.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "dist/network/mutations/retry-job.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "dist/demo-mocks/network/mutations/retry-job.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "dist/network/mutations/update-job-data.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "dist/demo-mocks/network/mutations/update-job-data.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "dist/network/mutations/remove-job.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "dist/demo-mocks/network/mutations/remove-job.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "dist/network/mutations/create-job.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "dist/demo-mocks/network/mutations/create-job.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "dist/network/mutations/pause-queue.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "dist/demo-mocks/network/mutations/pause-queue.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "dist/demo-mocks/network/mutations/resume-queue.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "dist/network/mutations/resume-queue.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "dist/network/mutations/empty-queue.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "dist/demo-mocks/network/mutations/empty-queue.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "dist/demo-mocks/network/mutations/close-queue.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "dist/network/mutations/close-queue.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "dist/demo-mocks/network/mutations/remove-jobs-by-pattern.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "dist/network/mutations/remove-jobs-by-pattern.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "dist/demo-mocks/network/mutations/clean-queue.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "dist/network/mutations/clean-queue.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "dist/network/mutations/retry-jobs.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "dist/network/mutations/remove-jobs.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "dist/demo-mocks/network/mutations/remove-jobs.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "dist/config/env.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "dist/demo-mocks/network/mutations/retry-jobs.js",
-          "kind": "import-statement"
-        }
-      ]
-    },
-    "dist/providers/network/index.js": {
-      "bytes": 345,
-      "imports": [
-        {
-          "path": "_snowpack/pkg/react.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "dist/providers/network/value.js",
-          "kind": "import-statement"
-        }
-      ]
-    },
-    "dist/hooks/use-network.js": {
-      "bytes": 178,
-      "imports": [
-        {
-          "path": "dist/providers/network/index.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/react.js",
-          "kind": "import-statement"
-        }
-      ]
-    },
-    "dist/config/query-keys.js": {
-      "bytes": 257,
-      "imports": []
     },
     "_snowpack/pkg/@material-ui/core/CircularProgress.js": {
       "bytes": 6257,
@@ -2557,23 +1516,6 @@
       "bytes": 131,
       "imports": []
     },
-    "dist/stores/network-settings.js": {
-      "bytes": 557,
-      "imports": [
-        {
-          "path": "_snowpack/pkg/zustand.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/zustand/middleware.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "dist/config/storage.js",
-          "kind": "import-statement"
-        }
-      ]
-    },
     "dist/stores/queues-filter.js": {
       "bytes": 354,
       "imports": [
@@ -2591,8 +1533,17 @@
         }
       ]
     },
+    "dist/stores/active-queue.js": {
+      "bytes": 222,
+      "imports": [
+        {
+          "path": "_snowpack/pkg/zustand.js",
+          "kind": "import-statement"
+        }
+      ]
+    },
     "dist/components/Drawer/hooks.js": {
-      "bytes": 485,
+      "bytes": 1009,
       "imports": [
         {
           "path": "_snowpack/pkg/react.js",
@@ -2601,110 +1552,13 @@
         {
           "path": "dist/stores/queues-filter.js",
           "kind": "import-statement"
-        }
-      ]
-    },
-    "_snowpack/pkg/@material-ui/icons/MoveToInbox.js": {
-      "bytes": 2120,
-      "imports": [
+        },
         {
-          "path": "_snowpack/pkg/common/_commonjsHelpers-37fa8da4.js",
+          "path": "dist/stores/active-queue.js",
           "kind": "import-statement"
         },
         {
-          "path": "_snowpack/pkg/common/createSvgIcon-e83719ed.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/index-f40123f8.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/capitalize-2e75b6c5.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/defaultTheme-b715d1ca.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/extends-7477639a.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/inheritsLoose-a99a548f.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/useTheme-a3b44081.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/createChainedFunction-005a4b16.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/createSvgIcon-be20dc9a.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/SvgIcon-9d5097f0.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/clsx.m-114f790f.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/withStyles-bda8ba9f.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/hoist-non-react-statics.cjs-fec7e822.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/getThemeProps-6712df0a.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/debounce-44d9042c.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/isMuiElement-ec5ad0f5.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/ownerDocument-d79106b5.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/ownerWindow-517ea49b.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/useForkRef-b95f5996.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/useControlled-e8c67358.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/useEventCallback-9d3397aa.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/unstable_useId-2b7de0f5.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/useIsFocusVisible-6467c713.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/index-2dfecd50.js",
+          "path": "_snowpack/pkg/zustand/shallow.js",
           "kind": "import-statement"
         }
       ]
@@ -3069,6 +1923,841 @@
         }
       ]
     },
+    "_snowpack/pkg/@material-ui/core/ListItemSecondaryAction.js": {
+      "bytes": 1491,
+      "imports": [
+        {
+          "path": "_snowpack/pkg/common/extends-7477639a.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/defaultTheme-b715d1ca.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/index-f40123f8.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/clsx.m-114f790f.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/withStyles-bda8ba9f.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/inheritsLoose-a99a548f.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/useTheme-a3b44081.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/_commonjsHelpers-37fa8da4.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/hoist-non-react-statics.cjs-fec7e822.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/getThemeProps-6712df0a.js",
+          "kind": "import-statement"
+        }
+      ]
+    },
+    "_snowpack/pkg/@material-ui/core/Chip.js": {
+      "bytes": 15223,
+      "imports": [
+        {
+          "path": "_snowpack/pkg/common/extends-7477639a.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/defaultTheme-b715d1ca.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/index-f40123f8.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/clsx.m-114f790f.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/createSvgIcon-be20dc9a.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/withStyles-bda8ba9f.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/useForkRef-b95f5996.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/capitalize-2e75b6c5.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/ButtonBase-121de65f.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/inheritsLoose-a99a548f.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/useTheme-a3b44081.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/_commonjsHelpers-37fa8da4.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/SvgIcon-9d5097f0.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/hoist-non-react-statics.cjs-fec7e822.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/getThemeProps-6712df0a.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/index-2dfecd50.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/useEventCallback-9d3397aa.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/useIsFocusVisible-6467c713.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/TransitionGroupContext-e794c09b.js",
+          "kind": "import-statement"
+        }
+      ]
+    },
+    "_snowpack/pkg/lodash/isUndefined.js": {
+      "bytes": 450,
+      "imports": []
+    },
+    "dist/typings/gql.js": {
+      "bytes": 988,
+      "imports": []
+    },
+    "_snowpack/pkg/@material-ui/core/colors/deepPurple.js": {
+      "bytes": 781,
+      "imports": [
+        {
+          "path": "_snowpack/pkg/common/_commonjsHelpers-37fa8da4.js",
+          "kind": "import-statement"
+        }
+      ]
+    },
+    "_snowpack/pkg/@material-ui/core/colors/grey.js": {
+      "bytes": 757,
+      "imports": [
+        {
+          "path": "_snowpack/pkg/common/_commonjsHelpers-37fa8da4.js",
+          "kind": "import-statement"
+        }
+      ]
+    },
+    "_snowpack/pkg/@material-ui/core/colors/cyan.js": {
+      "bytes": 757,
+      "imports": [
+        {
+          "path": "_snowpack/pkg/common/_commonjsHelpers-37fa8da4.js",
+          "kind": "import-statement"
+        }
+      ]
+    },
+    "dist/components/JobStatusChip/hooks.js": {
+      "bytes": 884,
+      "imports": [
+        {
+          "path": "dist/typings/gql.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/@material-ui/core/styles.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/@material-ui/core/colors/deepPurple.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/@material-ui/core/colors/grey.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/@material-ui/core/colors/cyan.js",
+          "kind": "import-statement"
+        }
+      ]
+    },
+    "dist/components/JobStatusChip/index.js": {
+      "bytes": 589,
+      "imports": [
+        {
+          "path": "_snowpack/pkg/react.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/@material-ui/core/Chip.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/lodash/isUndefined.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "dist/components/JobStatusChip/hooks.js",
+          "kind": "import-statement"
+        }
+      ]
+    },
+    "dist/hooks/use-toggle.js": {
+      "bytes": 284,
+      "imports": [
+        {
+          "path": "_snowpack/pkg/react.js",
+          "kind": "import-statement"
+        }
+      ]
+    },
+    "_snowpack/pkg/eventemitter3.js": {
+      "bytes": 9272,
+      "imports": [
+        {
+          "path": "_snowpack/pkg/common/_commonjsHelpers-37fa8da4.js",
+          "kind": "import-statement"
+        }
+      ]
+    },
+    "dist/services/event-emitter/index.js": {
+      "bytes": 116,
+      "imports": [
+        {
+          "path": "_snowpack/pkg/eventemitter3.js",
+          "kind": "import-statement"
+        }
+      ]
+    },
+    "dist/stores/preferences.js": {
+      "bytes": 743,
+      "imports": [
+        {
+          "path": "_snowpack/pkg/zustand.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/zustand/middleware.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "dist/config/storage.js",
+          "kind": "import-statement"
+        }
+      ]
+    },
+    "dist/components/Drawer/Queues/hooks.js": {
+      "bytes": 1125,
+      "imports": [
+        {
+          "path": "_snowpack/pkg/react.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "dist/hooks/use-toggle.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "dist/services/event-emitter/index.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "dist/stores/preferences.js",
+          "kind": "import-statement"
+        }
+      ]
+    },
+    "dist/components/Drawer/Queues/JobsCount.js": {
+      "bytes": 1098,
+      "imports": [
+        {
+          "path": "_snowpack/pkg/react.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/@material-ui/core/ListItem.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/@material-ui/core/ListItemText.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/@material-ui/core/ListItemSecondaryAction.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "dist/components/JobStatusChip/index.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/@material-ui/core/List.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "dist/components/Drawer/Queues/hooks.js",
+          "kind": "import-statement"
+        }
+      ]
+    },
+    "_snowpack/pkg/@material-ui/icons/MoveToInbox.js": {
+      "bytes": 2120,
+      "imports": [
+        {
+          "path": "_snowpack/pkg/common/_commonjsHelpers-37fa8da4.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/createSvgIcon-2b5f4ce1.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/index-f40123f8.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/capitalize-2e75b6c5.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/defaultTheme-b715d1ca.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/extends-7477639a.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/inheritsLoose-a99a548f.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/useTheme-a3b44081.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/createChainedFunction-005a4b16.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/createSvgIcon-be20dc9a.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/SvgIcon-9d5097f0.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/clsx.m-114f790f.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/withStyles-bda8ba9f.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/hoist-non-react-statics.cjs-fec7e822.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/getThemeProps-6712df0a.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/debounce-44d9042c.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/isMuiElement-ec5ad0f5.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/ownerDocument-d79106b5.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/ownerWindow-517ea49b.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/useForkRef-b95f5996.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/useControlled-e8c67358.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/useEventCallback-9d3397aa.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/unstable_useId-2b7de0f5.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/useIsFocusVisible-6467c713.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/index-2dfecd50.js",
+          "kind": "import-statement"
+        }
+      ]
+    },
+    "_snowpack/pkg/@material-ui/icons/Pause.js": {
+      "bytes": 1964,
+      "imports": [
+        {
+          "path": "_snowpack/pkg/common/_commonjsHelpers-37fa8da4.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/createSvgIcon-2b5f4ce1.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/index-f40123f8.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/capitalize-2e75b6c5.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/defaultTheme-b715d1ca.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/extends-7477639a.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/inheritsLoose-a99a548f.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/useTheme-a3b44081.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/createChainedFunction-005a4b16.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/createSvgIcon-be20dc9a.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/SvgIcon-9d5097f0.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/clsx.m-114f790f.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/withStyles-bda8ba9f.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/hoist-non-react-statics.cjs-fec7e822.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/getThemeProps-6712df0a.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/debounce-44d9042c.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/isMuiElement-ec5ad0f5.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/ownerDocument-d79106b5.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/ownerWindow-517ea49b.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/useForkRef-b95f5996.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/useControlled-e8c67358.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/useEventCallback-9d3397aa.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/unstable_useId-2b7de0f5.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/useIsFocusVisible-6467c713.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/index-2dfecd50.js",
+          "kind": "import-statement"
+        }
+      ]
+    },
+    "_snowpack/pkg/@material-ui/icons/ExpandLess.js": {
+      "bytes": 1994,
+      "imports": [
+        {
+          "path": "_snowpack/pkg/common/_commonjsHelpers-37fa8da4.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/createSvgIcon-2b5f4ce1.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/index-f40123f8.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/capitalize-2e75b6c5.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/defaultTheme-b715d1ca.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/extends-7477639a.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/inheritsLoose-a99a548f.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/useTheme-a3b44081.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/createChainedFunction-005a4b16.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/createSvgIcon-be20dc9a.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/SvgIcon-9d5097f0.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/clsx.m-114f790f.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/withStyles-bda8ba9f.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/hoist-non-react-statics.cjs-fec7e822.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/getThemeProps-6712df0a.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/debounce-44d9042c.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/isMuiElement-ec5ad0f5.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/ownerDocument-d79106b5.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/ownerWindow-517ea49b.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/useForkRef-b95f5996.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/useControlled-e8c67358.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/useEventCallback-9d3397aa.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/unstable_useId-2b7de0f5.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/useIsFocusVisible-6467c713.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/index-2dfecd50.js",
+          "kind": "import-statement"
+        }
+      ]
+    },
+    "_snowpack/pkg/@material-ui/icons/ExpandMore.js": {
+      "bytes": 1992,
+      "imports": [
+        {
+          "path": "_snowpack/pkg/common/_commonjsHelpers-37fa8da4.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/createSvgIcon-2b5f4ce1.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/index-f40123f8.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/capitalize-2e75b6c5.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/defaultTheme-b715d1ca.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/extends-7477639a.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/inheritsLoose-a99a548f.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/useTheme-a3b44081.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/createChainedFunction-005a4b16.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/createSvgIcon-be20dc9a.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/SvgIcon-9d5097f0.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/clsx.m-114f790f.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/withStyles-bda8ba9f.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/hoist-non-react-statics.cjs-fec7e822.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/getThemeProps-6712df0a.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/debounce-44d9042c.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/isMuiElement-ec5ad0f5.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/ownerDocument-d79106b5.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/ownerWindow-517ea49b.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/useForkRef-b95f5996.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/useControlled-e8c67358.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/useEventCallback-9d3397aa.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/unstable_useId-2b7de0f5.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/useIsFocusVisible-6467c713.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/index-2dfecd50.js",
+          "kind": "import-statement"
+        }
+      ]
+    },
+    "_snowpack/pkg/common/Collapse-6525dac9.js": {
+      "bytes": 7987,
+      "imports": [
+        {
+          "path": "_snowpack/pkg/common/extends-7477639a.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/defaultTheme-b715d1ca.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/index-f40123f8.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/clsx.m-114f790f.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/withStyles-bda8ba9f.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/utils-b007d4c7.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/useTheme-a4b26285.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/useForkRef-b95f5996.js",
+          "kind": "import-statement"
+        }
+      ]
+    },
+    "_snowpack/pkg/@material-ui/core/Collapse.js": {
+      "bytes": 840,
+      "imports": [
+        {
+          "path": "_snowpack/pkg/common/Collapse-6525dac9.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/Collapse-6525dac9.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/extends-7477639a.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/defaultTheme-b715d1ca.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/index-f40123f8.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/_commonjsHelpers-37fa8da4.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/inheritsLoose-a99a548f.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/useTheme-a3b44081.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/clsx.m-114f790f.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/withStyles-bda8ba9f.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/hoist-non-react-statics.cjs-fec7e822.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/getThemeProps-6712df0a.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/utils-b007d4c7.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/index-2dfecd50.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/TransitionGroupContext-e794c09b.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/useTheme-a4b26285.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/useForkRef-b95f5996.js",
+          "kind": "import-statement"
+        }
+      ]
+    },
     "_snowpack/pkg/@material-ui/core/Badge.js": {
       "bytes": 8046,
       "imports": [
@@ -3118,19 +2807,11 @@
         }
       ]
     },
-    "dist/components/Drawer/Queues/index.js": {
-      "bytes": 1612,
+    "dist/components/Drawer/Queues/Queue.js": {
+      "bytes": 3137,
       "imports": [
         {
           "path": "_snowpack/pkg/react.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/@material-ui/icons/MoveToInbox.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/@material-ui/core/List.js",
           "kind": "import-statement"
         },
         {
@@ -3146,6 +2827,63 @@
           "kind": "import-statement"
         },
         {
+          "path": "dist/components/Drawer/Queues/JobsCount.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/@material-ui/core/ListItemSecondaryAction.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/@material-ui/icons/MoveToInbox.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/@material-ui/icons/Pause.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/@material-ui/core/styles.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/@material-ui/icons/ExpandLess.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/@material-ui/icons/ExpandMore.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/@material-ui/core/IconButton.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/@material-ui/core/Collapse.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/@material-ui/core/Badge.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "dist/components/Drawer/Queues/hooks.js",
+          "kind": "import-statement"
+        }
+      ]
+    },
+    "dist/components/Drawer/Queues/index.js": {
+      "bytes": 932,
+      "imports": [
+        {
+          "path": "_snowpack/pkg/react.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/@material-ui/core/List.js",
+          "kind": "import-statement"
+        },
+        {
           "path": "dist/stores/drawer.js",
           "kind": "import-statement"
         },
@@ -3158,7 +2896,7 @@
           "kind": "import-statement"
         },
         {
-          "path": "_snowpack/pkg/@material-ui/core/Badge.js",
+          "path": "dist/components/Drawer/Queues/Queue.js",
           "kind": "import-statement"
         }
       ]
@@ -3711,8 +3449,1133 @@
         }
       ]
     },
+    "dist/config/query-keys.js": {
+      "bytes": 177,
+      "imports": []
+    },
+    "dist/config/env.js": {
+      "bytes": 212,
+      "imports": [
+        {
+          "path": "_snowpack/env.js",
+          "kind": "import-statement"
+        }
+      ]
+    },
+    "dist/config/gql.js": {
+      "bytes": 316,
+      "imports": [
+        {
+          "path": "dist/config/env.js",
+          "kind": "import-statement"
+        }
+      ]
+    },
+    "_snowpack/pkg/graphql-request.js": {
+      "bytes": 64154,
+      "imports": [
+        {
+          "path": "_snowpack/pkg/common/_commonjsHelpers-37fa8da4.js",
+          "kind": "import-statement"
+        }
+      ]
+    },
+    "dist/network/gql-client.js": {
+      "bytes": 178,
+      "imports": [
+        {
+          "path": "dist/config/gql.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/graphql-request.js",
+          "kind": "import-statement"
+        }
+      ]
+    },
+    "dist/network/queries/get-job-data.js": {
+      "bytes": 303,
+      "imports": [
+        {
+          "path": "dist/network/gql-client.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/graphql-request.js",
+          "kind": "import-statement"
+        }
+      ]
+    },
+    "_snowpack/pkg/common/isArrayLike-2346aad9.js": {
+      "bytes": 6968,
+      "imports": [
+        {
+          "path": "_snowpack/pkg/common/_commonjsHelpers-37fa8da4.js",
+          "kind": "import-statement"
+        }
+      ]
+    },
+    "_snowpack/pkg/common/_isIndex-6a000f67.js": {
+      "bytes": 784,
+      "imports": []
+    },
+    "_snowpack/pkg/common/toFinite-574fd344.js": {
+      "bytes": 5517,
+      "imports": [
+        {
+          "path": "_snowpack/pkg/common/isArrayLike-2346aad9.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/_isIndex-6a000f67.js",
+          "kind": "import-statement"
+        }
+      ]
+    },
+    "_snowpack/pkg/lodash/range.js": {
+      "bytes": 2946,
+      "imports": [
+        {
+          "path": "_snowpack/pkg/common/toFinite-574fd344.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/isArrayLike-2346aad9.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/_commonjsHelpers-37fa8da4.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/_isIndex-6a000f67.js",
+          "kind": "import-statement"
+        }
+      ]
+    },
+    "_snowpack/pkg/common/_baseRandom-24cc2903.js": {
+      "bytes": 572,
+      "imports": []
+    },
+    "_snowpack/pkg/common/isTypedArray-beca1c78.js": {
+      "bytes": 9255,
+      "imports": [
+        {
+          "path": "_snowpack/pkg/common/isArrayLike-2346aad9.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/_commonjsHelpers-37fa8da4.js",
+          "kind": "import-statement"
+        }
+      ]
+    },
+    "_snowpack/pkg/lodash/sample.js": {
+      "bytes": 5981,
+      "imports": [
+        {
+          "path": "_snowpack/pkg/common/_baseRandom-24cc2903.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/isTypedArray-beca1c78.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/_isIndex-6a000f67.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/isArrayLike-2346aad9.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/_commonjsHelpers-37fa8da4.js",
+          "kind": "import-statement"
+        }
+      ]
+    },
+    "_snowpack/pkg/lodash/random.js": {
+      "bytes": 2561,
+      "imports": [
+        {
+          "path": "_snowpack/pkg/common/_baseRandom-24cc2903.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/toFinite-574fd344.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/isArrayLike-2346aad9.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/_commonjsHelpers-37fa8da4.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/_isIndex-6a000f67.js",
+          "kind": "import-statement"
+        }
+      ]
+    },
+    "dist/demo-mocks/network/data.js": {
+      "bytes": 1736,
+      "imports": [
+        {
+          "path": "dist/typings/gql.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/lodash/range.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/lodash/sample.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/lodash/random.js",
+          "kind": "import-statement"
+        }
+      ]
+    },
+    "dist/demo-mocks/network/queries/get-job-data.js": {
+      "bytes": 196,
+      "imports": [
+        {
+          "path": "dist/demo-mocks/network/data.js",
+          "kind": "import-statement"
+        }
+      ]
+    },
+    "dist/network/queries/get-job-logs.js": {
+      "bytes": 352,
+      "imports": [
+        {
+          "path": "dist/network/gql-client.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/graphql-request.js",
+          "kind": "import-statement"
+        }
+      ]
+    },
+    "dist/demo-mocks/network/queries/get-job-logs.js": {
+      "bytes": 196,
+      "imports": [
+        {
+          "path": "dist/demo-mocks/network/data.js",
+          "kind": "import-statement"
+        }
+      ]
+    },
+    "dist/network/fragments/common-page-fields.js": {
+      "bytes": 318,
+      "imports": [
+        {
+          "path": "_snowpack/pkg/graphql-request.js",
+          "kind": "import-statement"
+        }
+      ]
+    },
+    "dist/network/queries/get-jobs.js": {
+      "bytes": 664,
+      "imports": [
+        {
+          "path": "dist/network/gql-client.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/graphql-request.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "dist/network/fragments/common-page-fields.js",
+          "kind": "import-statement"
+        }
+      ]
+    },
+    "dist/demo-mocks/network/queries/get-jobs.js": {
+      "bytes": 487,
+      "imports": [
+        {
+          "path": "dist/demo-mocks/network/data.js",
+          "kind": "import-statement"
+        }
+      ]
+    },
+    "dist/network/queries/get-job-by-id.js": {
+      "bytes": 424,
+      "imports": [
+        {
+          "path": "dist/network/gql-client.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/graphql-request.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "dist/network/fragments/common-page-fields.js",
+          "kind": "import-statement"
+        }
+      ]
+    },
+    "dist/demo-mocks/network/queries/get-job-by-id.js": {
+      "bytes": 223,
+      "imports": [
+        {
+          "path": "dist/demo-mocks/network/data.js",
+          "kind": "import-statement"
+        }
+      ]
+    },
+    "dist/network/queries/get-redis-info.js": {
+      "bytes": 550,
+      "imports": [
+        {
+          "path": "dist/network/gql-client.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/graphql-request.js",
+          "kind": "import-statement"
+        }
+      ]
+    },
+    "dist/demo-mocks/network/queries/get-redis-info.js": {
+      "bytes": 503,
+      "imports": []
+    },
+    "dist/network/queries/get-queues.js": {
+      "bytes": 416,
+      "imports": [
+        {
+          "path": "dist/network/gql-client.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/graphql-request.js",
+          "kind": "import-statement"
+        }
+      ]
+    },
+    "dist/network/mutations/create-job-log.js": {
+      "bytes": 334,
+      "imports": [
+        {
+          "path": "dist/network/gql-client.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/graphql-request.js",
+          "kind": "import-statement"
+        }
+      ]
+    },
+    "dist/demo-mocks/network/mutations/create-job-log.js": {
+      "bytes": 265,
+      "imports": [
+        {
+          "path": "dist/demo-mocks/network/data.js",
+          "kind": "import-statement"
+        }
+      ]
+    },
+    "dist/network/mutations/discard-job.js": {
+      "bytes": 311,
+      "imports": [
+        {
+          "path": "dist/network/gql-client.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/graphql-request.js",
+          "kind": "import-statement"
+        }
+      ]
+    },
+    "dist/demo-mocks/network/mutations/discard-job.js": {
+      "bytes": 183,
+      "imports": [
+        {
+          "path": "dist/demo-mocks/network/data.js",
+          "kind": "import-statement"
+        }
+      ]
+    },
+    "dist/network/mutations/move-job-to-completed.js": {
+      "bytes": 335,
+      "imports": [
+        {
+          "path": "dist/network/gql-client.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/graphql-request.js",
+          "kind": "import-statement"
+        }
+      ]
+    },
+    "dist/demo-mocks/network/mutations/move-job-to-completed.js": {
+      "bytes": 320,
+      "imports": [
+        {
+          "path": "dist/typings/gql.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "dist/demo-mocks/network/data.js",
+          "kind": "import-statement"
+        }
+      ]
+    },
+    "dist/network/mutations/move-job-to-failed.js": {
+      "bytes": 326,
+      "imports": [
+        {
+          "path": "dist/network/gql-client.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/graphql-request.js",
+          "kind": "import-statement"
+        }
+      ]
+    },
+    "dist/demo-mocks/network/mutations/move-job-to-failed.js": {
+      "bytes": 311,
+      "imports": [
+        {
+          "path": "dist/typings/gql.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "dist/demo-mocks/network/data.js",
+          "kind": "import-statement"
+        }
+      ]
+    },
+    "dist/network/mutations/promote-job.js": {
+      "bytes": 311,
+      "imports": [
+        {
+          "path": "dist/network/gql-client.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/graphql-request.js",
+          "kind": "import-statement"
+        }
+      ]
+    },
+    "dist/demo-mocks/network/mutations/promote-job.js": {
+      "bytes": 302,
+      "imports": [
+        {
+          "path": "dist/typings/gql.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "dist/demo-mocks/network/data.js",
+          "kind": "import-statement"
+        }
+      ]
+    },
+    "dist/network/mutations/retry-job.js": {
+      "bytes": 305,
+      "imports": [
+        {
+          "path": "dist/network/gql-client.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/graphql-request.js",
+          "kind": "import-statement"
+        }
+      ]
+    },
+    "dist/demo-mocks/network/mutations/retry-job.js": {
+      "bytes": 179,
+      "imports": [
+        {
+          "path": "dist/demo-mocks/network/data.js",
+          "kind": "import-statement"
+        }
+      ]
+    },
+    "dist/network/mutations/update-job-data.js": {
+      "bytes": 346,
+      "imports": [
+        {
+          "path": "dist/network/gql-client.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/graphql-request.js",
+          "kind": "import-statement"
+        }
+      ]
+    },
+    "dist/demo-mocks/network/mutations/update-job-data.js": {
+      "bytes": 251,
+      "imports": [
+        {
+          "path": "dist/demo-mocks/network/data.js",
+          "kind": "import-statement"
+        }
+      ]
+    },
+    "dist/network/mutations/remove-job.js": {
+      "bytes": 308,
+      "imports": [
+        {
+          "path": "dist/network/gql-client.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/graphql-request.js",
+          "kind": "import-statement"
+        }
+      ]
+    },
+    "dist/demo-mocks/network/mutations/remove-job.js": {
+      "bytes": 367,
+      "imports": [
+        {
+          "path": "dist/demo-mocks/network/data.js",
+          "kind": "import-statement"
+        }
+      ]
+    },
+    "dist/network/mutations/create-job.js": {
+      "bytes": 297,
+      "imports": [
+        {
+          "path": "dist/network/gql-client.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/graphql-request.js",
+          "kind": "import-statement"
+        }
+      ]
+    },
+    "dist/demo-mocks/network/mutations/create-job.js": {
+      "bytes": 600,
+      "imports": [
+        {
+          "path": "_snowpack/pkg/lodash/random.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "dist/typings/gql.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "dist/demo-mocks/network/data.js",
+          "kind": "import-statement"
+        }
+      ]
+    },
+    "dist/network/mutations/pause-queue.js": {
+      "bytes": 294,
+      "imports": [
+        {
+          "path": "dist/network/gql-client.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/graphql-request.js",
+          "kind": "import-statement"
+        }
+      ]
+    },
+    "dist/demo-mocks/network/mutations/pause-queue.js": {
+      "bytes": 597,
+      "imports": [
+        {
+          "path": "dist/typings/gql.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "dist/demo-mocks/network/data.js",
+          "kind": "import-statement"
+        }
+      ]
+    },
+    "dist/demo-mocks/network/mutations/resume-queue.js": {
+      "bytes": 240,
+      "imports": [
+        {
+          "path": "dist/demo-mocks/network/data.js",
+          "kind": "import-statement"
+        }
+      ]
+    },
+    "dist/network/mutations/resume-queue.js": {
+      "bytes": 297,
+      "imports": [
+        {
+          "path": "dist/network/gql-client.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/graphql-request.js",
+          "kind": "import-statement"
+        }
+      ]
+    },
+    "dist/network/mutations/empty-queue.js": {
+      "bytes": 294,
+      "imports": [
+        {
+          "path": "dist/network/gql-client.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/graphql-request.js",
+          "kind": "import-statement"
+        }
+      ]
+    },
+    "dist/demo-mocks/network/mutations/empty-queue.js": {
+      "bytes": 407,
+      "imports": [
+        {
+          "path": "dist/typings/gql.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "dist/demo-mocks/network/data.js",
+          "kind": "import-statement"
+        }
+      ]
+    },
+    "dist/demo-mocks/network/mutations/close-queue.js": {
+      "bytes": 191,
+      "imports": [
+        {
+          "path": "dist/demo-mocks/network/data.js",
+          "kind": "import-statement"
+        }
+      ]
+    },
+    "dist/network/mutations/close-queue.js": {
+      "bytes": 294,
+      "imports": [
+        {
+          "path": "dist/network/gql-client.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/graphql-request.js",
+          "kind": "import-statement"
+        }
+      ]
+    },
+    "dist/demo-mocks/network/mutations/remove-jobs-by-pattern.js": {
+      "bytes": 341,
+      "imports": [
+        {
+          "path": "dist/demo-mocks/network/data.js",
+          "kind": "import-statement"
+        }
+      ]
+    },
+    "dist/network/mutations/remove-jobs-by-pattern.js": {
+      "bytes": 332,
+      "imports": [
+        {
+          "path": "dist/network/gql-client.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/graphql-request.js",
+          "kind": "import-statement"
+        }
+      ]
+    },
+    "dist/demo-mocks/network/mutations/clean-queue.js": {
+      "bytes": 436,
+      "imports": [
+        {
+          "path": "dist/typings/gql.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "dist/demo-mocks/network/data.js",
+          "kind": "import-statement"
+        }
+      ]
+    },
+    "dist/network/mutations/clean-queue.js": {
+      "bytes": 310,
+      "imports": [
+        {
+          "path": "dist/network/gql-client.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/graphql-request.js",
+          "kind": "import-statement"
+        }
+      ]
+    },
+    "dist/network/mutations/retry-jobs.js": {
+      "bytes": 317,
+      "imports": [
+        {
+          "path": "dist/network/gql-client.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/graphql-request.js",
+          "kind": "import-statement"
+        }
+      ]
+    },
+    "dist/network/mutations/remove-jobs.js": {
+      "bytes": 320,
+      "imports": [
+        {
+          "path": "dist/network/gql-client.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/graphql-request.js",
+          "kind": "import-statement"
+        }
+      ]
+    },
+    "dist/demo-mocks/network/mutations/remove-jobs.js": {
+      "bytes": 388,
+      "imports": [
+        {
+          "path": "dist/demo-mocks/network/data.js",
+          "kind": "import-statement"
+        }
+      ]
+    },
+    "dist/demo-mocks/network/queries/get-queues.js": {
+      "bytes": 536,
+      "imports": [
+        {
+          "path": "dist/demo-mocks/network/data.js",
+          "kind": "import-statement"
+        }
+      ]
+    },
+    "dist/demo-mocks/network/mutations/retry-jobs.js": {
+      "bytes": 96,
+      "imports": []
+    },
+    "dist/providers/network/value.js": {
+      "bytes": 4836,
+      "imports": [
+        {
+          "path": "dist/network/queries/get-job-data.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "dist/demo-mocks/network/queries/get-job-data.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "dist/network/queries/get-job-logs.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "dist/demo-mocks/network/queries/get-job-logs.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "dist/network/queries/get-jobs.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "dist/demo-mocks/network/queries/get-jobs.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "dist/network/queries/get-job-by-id.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "dist/demo-mocks/network/queries/get-job-by-id.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "dist/network/queries/get-redis-info.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "dist/demo-mocks/network/queries/get-redis-info.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "dist/network/queries/get-queues.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "dist/network/mutations/create-job-log.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "dist/demo-mocks/network/mutations/create-job-log.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "dist/network/mutations/discard-job.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "dist/demo-mocks/network/mutations/discard-job.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "dist/network/mutations/move-job-to-completed.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "dist/demo-mocks/network/mutations/move-job-to-completed.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "dist/network/mutations/move-job-to-failed.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "dist/demo-mocks/network/mutations/move-job-to-failed.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "dist/network/mutations/promote-job.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "dist/demo-mocks/network/mutations/promote-job.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "dist/network/mutations/retry-job.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "dist/demo-mocks/network/mutations/retry-job.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "dist/network/mutations/update-job-data.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "dist/demo-mocks/network/mutations/update-job-data.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "dist/network/mutations/remove-job.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "dist/demo-mocks/network/mutations/remove-job.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "dist/network/mutations/create-job.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "dist/demo-mocks/network/mutations/create-job.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "dist/network/mutations/pause-queue.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "dist/demo-mocks/network/mutations/pause-queue.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "dist/demo-mocks/network/mutations/resume-queue.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "dist/network/mutations/resume-queue.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "dist/network/mutations/empty-queue.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "dist/demo-mocks/network/mutations/empty-queue.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "dist/demo-mocks/network/mutations/close-queue.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "dist/network/mutations/close-queue.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "dist/demo-mocks/network/mutations/remove-jobs-by-pattern.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "dist/network/mutations/remove-jobs-by-pattern.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "dist/demo-mocks/network/mutations/clean-queue.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "dist/network/mutations/clean-queue.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "dist/network/mutations/retry-jobs.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "dist/network/mutations/remove-jobs.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "dist/demo-mocks/network/mutations/remove-jobs.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "dist/demo-mocks/network/queries/get-queues.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "dist/config/env.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "dist/demo-mocks/network/mutations/retry-jobs.js",
+          "kind": "import-statement"
+        }
+      ]
+    },
+    "dist/providers/network/index.js": {
+      "bytes": 345,
+      "imports": [
+        {
+          "path": "_snowpack/pkg/react.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "dist/providers/network/value.js",
+          "kind": "import-statement"
+        }
+      ]
+    },
+    "dist/hooks/use-network.js": {
+      "bytes": 178,
+      "imports": [
+        {
+          "path": "dist/providers/network/index.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/react.js",
+          "kind": "import-statement"
+        }
+      ]
+    },
+    "_snowpack/pkg/react-query.js": {
+      "bytes": 84255,
+      "imports": [
+        {
+          "path": "_snowpack/pkg/common/extends-7477639a.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/inheritsLoose-a99a548f.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/index-f40123f8.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/_commonjsHelpers-37fa8da4.js",
+          "kind": "import-statement"
+        }
+      ]
+    },
+    "dist/stores/network-settings.js": {
+      "bytes": 557,
+      "imports": [
+        {
+          "path": "_snowpack/pkg/zustand.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/zustand/middleware.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "dist/config/storage.js",
+          "kind": "import-statement"
+        }
+      ]
+    },
+    "dist/providers/queues-query/index.js": {
+      "bytes": 699,
+      "imports": [
+        {
+          "path": "dist/config/query-keys.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "dist/hooks/use-network.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/react.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/react-query.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "dist/stores/network-settings.js",
+          "kind": "import-statement"
+        }
+      ]
+    },
+    "dist/hooks/use-queues-query.js": {
+      "bytes": 195,
+      "imports": [
+        {
+          "path": "_snowpack/pkg/react.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "dist/providers/queues-query/index.js",
+          "kind": "import-statement"
+        }
+      ]
+    },
+    "_snowpack/pkg/@material-ui/core/ButtonGroup.js": {
+      "bytes": 9175,
+      "imports": [
+        {
+          "path": "_snowpack/pkg/common/extends-7477639a.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/defaultTheme-b715d1ca.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/index-f40123f8.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/index-92c9a971.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/clsx.m-114f790f.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/capitalize-2e75b6c5.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/withStyles-bda8ba9f.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/Button-26fe45d7.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/inheritsLoose-a99a548f.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/useTheme-a3b44081.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/_commonjsHelpers-37fa8da4.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/hoist-non-react-statics.cjs-fec7e822.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/getThemeProps-6712df0a.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/ButtonBase-121de65f.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/index-2dfecd50.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/useForkRef-b95f5996.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/useEventCallback-9d3397aa.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/useIsFocusVisible-6467c713.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/TransitionGroupContext-e794c09b.js",
+          "kind": "import-statement"
+        }
+      ]
+    },
+    "dist/components/Drawer/Footer.js": {
+      "bytes": 1080,
+      "imports": [
+        {
+          "path": "_snowpack/pkg/react.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/@material-ui/core/Button.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/@material-ui/core/ButtonGroup.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "dist/services/event-emitter/index.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/@material-ui/core/styles.js",
+          "kind": "import-statement"
+        }
+      ]
+    },
     "dist/components/Drawer/index.js": {
-      "bytes": 3487,
+      "bytes": 3044,
       "imports": [
         {
           "path": "_snowpack/pkg/react.js",
@@ -3743,23 +4606,7 @@
           "kind": "import-statement"
         },
         {
-          "path": "dist/stores/active-queue.js",
-          "kind": "import-statement"
-        },
-        {
           "path": "_snowpack/pkg/zustand/shallow.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/react-query.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "dist/hooks/use-network.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "dist/config/query-keys.js",
           "kind": "import-statement"
         },
         {
@@ -3768,10 +4615,6 @@
         },
         {
           "path": "dist/config/layouts.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "dist/stores/network-settings.js",
           "kind": "import-statement"
         },
         {
@@ -3788,6 +4631,14 @@
         },
         {
           "path": "_snowpack/pkg/@material-ui/core/useMediaQuery.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "dist/hooks/use-queues-query.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "dist/components/Drawer/Footer.js",
           "kind": "import-statement"
         }
       ]
@@ -3853,7 +4704,7 @@
           "kind": "import-statement"
         },
         {
-          "path": "_snowpack/pkg/common/createSvgIcon-e83719ed.js",
+          "path": "_snowpack/pkg/common/createSvgIcon-2b5f4ce1.js",
           "kind": "import-statement"
         },
         {
@@ -4036,7 +4887,7 @@
           "kind": "import-statement"
         },
         {
-          "path": "_snowpack/pkg/common/createSvgIcon-e83719ed.js",
+          "path": "_snowpack/pkg/common/createSvgIcon-2b5f4ce1.js",
           "kind": "import-statement"
         },
         {
@@ -4666,15 +5517,6 @@
         }
       ]
     },
-    "_snowpack/pkg/@material-ui/core/colors/deepPurple.js": {
-      "bytes": 781,
-      "imports": [
-        {
-          "path": "_snowpack/pkg/common/_commonjsHelpers-37fa8da4.js",
-          "kind": "import-statement"
-        }
-      ]
-    },
     "_snowpack/pkg/@material-ui/core/colors/deepOrange.js": {
       "bytes": 781,
       "imports": [
@@ -4774,26 +5616,8 @@
         }
       ]
     },
-    "_snowpack/pkg/@material-ui/core/colors/cyan.js": {
-      "bytes": 757,
-      "imports": [
-        {
-          "path": "_snowpack/pkg/common/_commonjsHelpers-37fa8da4.js",
-          "kind": "import-statement"
-        }
-      ]
-    },
     "_snowpack/pkg/@material-ui/core/colors/yellow.js": {
       "bytes": 765,
-      "imports": [
-        {
-          "path": "_snowpack/pkg/common/_commonjsHelpers-37fa8da4.js",
-          "kind": "import-statement"
-        }
-      ]
-    },
-    "_snowpack/pkg/@material-ui/core/colors/grey.js": {
-      "bytes": 757,
       "imports": [
         {
           "path": "_snowpack/pkg/common/_commonjsHelpers-37fa8da4.js",
@@ -5289,25 +6113,8 @@
         }
       ]
     },
-    "dist/stores/preferences.js": {
-      "bytes": 547,
-      "imports": [
-        {
-          "path": "_snowpack/pkg/zustand.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/zustand/middleware.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "dist/config/storage.js",
-          "kind": "import-statement"
-        }
-      ]
-    },
     "dist/components/Settings/Preferences/index.js": {
-      "bytes": 1084,
+      "bytes": 1433,
       "imports": [
         {
           "path": "_snowpack/pkg/react.js",
@@ -5691,87 +6498,6 @@
         }
       ]
     },
-    "_snowpack/pkg/@material-ui/core/Chip.js": {
-      "bytes": 15223,
-      "imports": [
-        {
-          "path": "_snowpack/pkg/common/extends-7477639a.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/defaultTheme-b715d1ca.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/index-f40123f8.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/clsx.m-114f790f.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/createSvgIcon-be20dc9a.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/withStyles-bda8ba9f.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/useForkRef-b95f5996.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/capitalize-2e75b6c5.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/ButtonBase-121de65f.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/inheritsLoose-a99a548f.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/useTheme-a3b44081.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/_commonjsHelpers-37fa8da4.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/SvgIcon-9d5097f0.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/hoist-non-react-statics.cjs-fec7e822.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/getThemeProps-6712df0a.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/index-2dfecd50.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/useEventCallback-9d3397aa.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/useIsFocusVisible-6467c713.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/TransitionGroupContext-e794c09b.js",
-          "kind": "import-statement"
-        }
-      ]
-    },
     "dist/stores/filters.js": {
       "bytes": 400,
       "imports": [
@@ -5785,8 +6511,21 @@
         }
       ]
     },
+    "dist/hooks/use-queue-data.js": {
+      "bytes": 289,
+      "imports": [
+        {
+          "path": "dist/hooks/use-queues-query.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/react.js",
+          "kind": "import-statement"
+        }
+      ]
+    },
     "dist/screens/jobs/Filters/hooks.js": {
-      "bytes": 1379,
+      "bytes": 1084,
       "imports": [
         {
           "path": "_snowpack/pkg/react.js",
@@ -5805,19 +6544,11 @@
           "kind": "import-statement"
         },
         {
-          "path": "dist/config/query-keys.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/react-query.js",
-          "kind": "import-statement"
-        },
-        {
           "path": "dist/stores/active-queue.js",
           "kind": "import-statement"
         },
         {
-          "path": "dist/hooks/use-network.js",
+          "path": "dist/hooks/use-queue-data.js",
           "kind": "import-statement"
         }
       ]
@@ -6062,7 +6793,7 @@
           "kind": "import-statement"
         },
         {
-          "path": "_snowpack/pkg/common/createSvgIcon-e83719ed.js",
+          "path": "_snowpack/pkg/common/createSvgIcon-2b5f4ce1.js",
           "kind": "import-statement"
         },
         {
@@ -6167,7 +6898,7 @@
           "kind": "import-statement"
         },
         {
-          "path": "_snowpack/pkg/common/createSvgIcon-e83719ed.js",
+          "path": "_snowpack/pkg/common/createSvgIcon-2b5f4ce1.js",
           "kind": "import-statement"
         },
         {
@@ -6272,7 +7003,7 @@
           "kind": "import-statement"
         },
         {
-          "path": "_snowpack/pkg/common/createSvgIcon-e83719ed.js",
+          "path": "_snowpack/pkg/common/createSvgIcon-2b5f4ce1.js",
           "kind": "import-statement"
         },
         {
@@ -6513,7 +7244,7 @@
       ]
     },
     "_snowpack/pkg/notistack.js": {
-      "bytes": 46201,
+      "bytes": 38652,
       "imports": [
         {
           "path": "_snowpack/pkg/common/index-f40123f8.js",
@@ -6544,23 +7275,15 @@
           "kind": "import-statement"
         },
         {
-          "path": "_snowpack/pkg/common/extends-7477639a.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/utils-b007d4c7.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/useTheme-a4b26285.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/useForkRef-b95f5996.js",
+          "path": "_snowpack/pkg/common/Collapse-6525dac9.js",
           "kind": "import-statement"
         },
         {
           "path": "_snowpack/pkg/common/ownerDocument-d79106b5.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/useForkRef-b95f5996.js",
           "kind": "import-statement"
         },
         {
@@ -6580,6 +7303,10 @@
           "kind": "import-statement"
         },
         {
+          "path": "_snowpack/pkg/common/extends-7477639a.js",
+          "kind": "import-statement"
+        },
+        {
           "path": "_snowpack/pkg/common/useTheme-a3b44081.js",
           "kind": "import-statement"
         },
@@ -6589,6 +7316,14 @@
         },
         {
           "path": "_snowpack/pkg/common/debounce-44d9042c.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/useTheme-a4b26285.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/utils-b007d4c7.js",
           "kind": "import-statement"
         },
         {
@@ -6753,7 +7488,7 @@
       ]
     },
     "dist/hooks/use-abstract-mutation.js": {
-      "bytes": 1500,
+      "bytes": 1426,
       "imports": [
         {
           "path": "_snowpack/pkg/react-query.js",
@@ -6789,7 +7524,7 @@
           "kind": "import-statement"
         },
         {
-          "path": "_snowpack/pkg/common/createSvgIcon-e83719ed.js",
+          "path": "_snowpack/pkg/common/createSvgIcon-2b5f4ce1.js",
           "kind": "import-statement"
         },
         {
@@ -7587,19 +8322,6 @@
         }
       ]
     },
-    "dist/screens/jobs/List/Job/hooks.js": {
-      "bytes": 510,
-      "imports": [
-        {
-          "path": "dist/typings/gql.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/@material-ui/core/styles.js",
-          "kind": "import-statement"
-        }
-      ]
-    },
     "_snowpack/pkg/@material-ui/core/Checkbox.js": {
       "bytes": 6014,
       "imports": [
@@ -7702,7 +8424,7 @@
       ]
     },
     "dist/screens/jobs/List/Job/index.js": {
-      "bytes": 1808,
+      "bytes": 1643,
       "imports": [
         {
           "path": "_snowpack/pkg/react.js",
@@ -7725,15 +8447,11 @@
           "kind": "import-statement"
         },
         {
-          "path": "_snowpack/pkg/@material-ui/core/Chip.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "dist/screens/jobs/List/Job/hooks.js",
-          "kind": "import-statement"
-        },
-        {
           "path": "_snowpack/pkg/@material-ui/core/Checkbox.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "dist/components/JobStatusChip/index.js",
           "kind": "import-statement"
         }
       ]
@@ -8120,30 +8838,18 @@
       ]
     },
     "dist/screens/jobs/List/Pagination/hooks.js": {
-      "bytes": 1009,
+      "bytes": 539,
       "imports": [
-        {
-          "path": "_snowpack/pkg/react.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "dist/config/query-keys.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/react-query.js",
-          "kind": "import-statement"
-        },
         {
           "path": "dist/stores/active-queue.js",
           "kind": "import-statement"
         },
         {
-          "path": "dist/hooks/use-network.js",
+          "path": "dist/stores/filters.js",
           "kind": "import-statement"
         },
         {
-          "path": "dist/stores/filters.js",
+          "path": "dist/hooks/use-queue-data.js",
           "kind": "import-statement"
         }
       ]
@@ -8513,7 +9219,7 @@
           "kind": "import-statement"
         },
         {
-          "path": "_snowpack/pkg/common/createSvgIcon-e83719ed.js",
+          "path": "_snowpack/pkg/common/createSvgIcon-2b5f4ce1.js",
           "kind": "import-statement"
         },
         {
@@ -8891,7 +9597,7 @@
           "kind": "import-statement"
         },
         {
-          "path": "_snowpack/pkg/common/createSvgIcon-e83719ed.js",
+          "path": "_snowpack/pkg/common/createSvgIcon-2b5f4ce1.js",
           "kind": "import-statement"
         },
         {
@@ -8998,24 +9704,16 @@
       ]
     },
     "dist/screens/jobs/QueueActions/hooks.js": {
-      "bytes": 463,
+      "bytes": 180,
       "imports": [
         {
-          "path": "dist/config/query-keys.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "dist/hooks/use-network.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/react-query.js",
+          "path": "dist/hooks/use-queue-data.js",
           "kind": "import-statement"
         }
       ]
     },
     "dist/screens/jobs/QueueActions/index.js": {
-      "bytes": 6618,
+      "bytes": 6073,
       "imports": [
         {
           "path": "_snowpack/pkg/react.js",
@@ -9062,15 +9760,7 @@
           "kind": "import-statement"
         },
         {
-          "path": "_snowpack/pkg/react-query.js",
-          "kind": "import-statement"
-        },
-        {
           "path": "dist/typings/gql.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "dist/config/query-keys.js",
           "kind": "import-statement"
         },
         {
@@ -9207,7 +9897,7 @@
       ]
     },
     "dist/App.js": {
-      "bytes": 1545,
+      "bytes": 1371,
       "imports": [
         {
           "path": "_snowpack/pkg/react.js",
@@ -9250,15 +9940,7 @@
           "kind": "import-statement"
         },
         {
-          "path": "dist/stores/preferences.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "dist/stores/network-settings.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "dist/stores/queues-filter.js",
+          "path": "dist/providers/queues-query/index.js",
           "kind": "import-statement"
         }
       ]
@@ -9416,8 +10098,8 @@
         "_snowpack/pkg/common/useIsFocusVisible-6467c713.js": {
           "bytesInOutput": 973
         },
-        "_snowpack/pkg/common/createSvgIcon-e83719ed.js": {
-          "bytesInOutput": 1819
+        "_snowpack/pkg/common/createSvgIcon-2b5f4ce1.js": {
+          "bytesInOutput": 1815
         },
         "_snowpack/pkg/@material-ui/icons/ChevronLeft.js": {
           "bytesInOutput": 248
@@ -9443,14 +10125,188 @@
         "dist/stores/drawer.js": {
           "bytesInOutput": 119
         },
-        "dist/stores/active-queue.js": {
-          "bytesInOutput": 93
-        },
         "_snowpack/pkg/zustand/shallow.js": {
           "bytesInOutput": 406
         },
-        "_snowpack/pkg/react-query.js": {
-          "bytesInOutput": 38044
+        "_snowpack/pkg/@material-ui/core/CircularProgress.js": {
+          "bytesInOutput": 2256
+        },
+        "dist/components/Spin/index.js": {
+          "bytesInOutput": 182
+        },
+        "_snowpack/pkg/@material-ui/lab/Alert.js": {
+          "bytesInOutput": 4068
+        },
+        "_snowpack/pkg/common/Button-26fe45d7.js": {
+          "bytesInOutput": 5207
+        },
+        "_snowpack/pkg/@material-ui/core/Button.js": {
+          "bytesInOutput": 0
+        },
+        "dist/components/NetworkError/index.js": {
+          "bytesInOutput": 214
+        },
+        "dist/components/NetworkRequest/index.js": {
+          "bytesInOutput": 243
+        },
+        "dist/config/layouts.js": {
+          "bytesInOutput": 40
+        },
+        "_snowpack/pkg/zustand/middleware.js": {
+          "bytesInOutput": 3996
+        },
+        "dist/config/storage.js": {
+          "bytesInOutput": 86
+        },
+        "dist/stores/queues-filter.js": {
+          "bytesInOutput": 94
+        },
+        "dist/stores/active-queue.js": {
+          "bytesInOutput": 93
+        },
+        "dist/components/Drawer/hooks.js": {
+          "bytesInOutput": 257
+        },
+        "_snowpack/pkg/common/ListContext-e5a8245b.js": {
+          "bytesInOutput": 27
+        },
+        "_snowpack/pkg/common/List-62f0a3aa.js": {
+          "bytesInOutput": 647
+        },
+        "_snowpack/pkg/@material-ui/core/List.js": {
+          "bytesInOutput": 0
+        },
+        "_snowpack/pkg/common/ListItem-a7533cb6.js": {
+          "bytesInOutput": 2630
+        },
+        "_snowpack/pkg/@material-ui/core/ListItem.js": {
+          "bytesInOutput": 0
+        },
+        "_snowpack/pkg/@material-ui/core/ListItemIcon.js": {
+          "bytesInOutput": 422
+        },
+        "_snowpack/pkg/common/Typography-207c512d.js": {
+          "bytesInOutput": 1923
+        },
+        "_snowpack/pkg/@material-ui/core/ListItemText.js": {
+          "bytesInOutput": 1010
+        },
+        "_snowpack/pkg/@material-ui/core/ListItemSecondaryAction.js": {
+          "bytesInOutput": 342
+        },
+        "_snowpack/pkg/@material-ui/core/Chip.js": {
+          "bytesInOutput": 6296
+        },
+        "_snowpack/pkg/lodash/isUndefined.js": {
+          "bytesInOutput": 49
+        },
+        "dist/typings/gql.js": {
+          "bytesInOutput": 434
+        },
+        "_snowpack/pkg/@material-ui/core/colors/deepPurple.js": {
+          "bytesInOutput": 331
+        },
+        "_snowpack/pkg/@material-ui/core/colors/grey.js": {
+          "bytesInOutput": 331
+        },
+        "_snowpack/pkg/@material-ui/core/colors/cyan.js": {
+          "bytesInOutput": 331
+        },
+        "dist/components/JobStatusChip/hooks.js": {
+          "bytesInOutput": 297
+        },
+        "dist/components/JobStatusChip/index.js": {
+          "bytesInOutput": 171
+        },
+        "dist/hooks/use-toggle.js": {
+          "bytesInOutput": 70
+        },
+        "_snowpack/pkg/eventemitter3.js": {
+          "bytesInOutput": 2759
+        },
+        "dist/services/event-emitter/index.js": {
+          "bytesInOutput": 14
+        },
+        "dist/stores/preferences.js": {
+          "bytesInOutput": 376
+        },
+        "dist/components/Drawer/Queues/hooks.js": {
+          "bytesInOutput": 357
+        },
+        "dist/components/Drawer/Queues/JobsCount.js": {
+          "bytesInOutput": 273
+        },
+        "_snowpack/pkg/@material-ui/icons/MoveToInbox.js": {
+          "bytesInOutput": 372
+        },
+        "_snowpack/pkg/@material-ui/icons/Pause.js": {
+          "bytesInOutput": 228
+        },
+        "_snowpack/pkg/@material-ui/icons/ExpandLess.js": {
+          "bytesInOutput": 248
+        },
+        "_snowpack/pkg/@material-ui/icons/ExpandMore.js": {
+          "bytesInOutput": 246
+        },
+        "_snowpack/pkg/common/Collapse-6525dac9.js": {
+          "bytesInOutput": 2708
+        },
+        "_snowpack/pkg/@material-ui/core/Collapse.js": {
+          "bytesInOutput": 0
+        },
+        "_snowpack/pkg/@material-ui/core/Badge.js": {
+          "bytesInOutput": 3480
+        },
+        "dist/components/Drawer/Queues/Queue.js": {
+          "bytesInOutput": 977
+        },
+        "dist/components/Drawer/Queues/index.js": {
+          "bytesInOutput": 226
+        },
+        "_snowpack/pkg/common/utils-cc6bb9d1.js": {
+          "bytesInOutput": 265
+        },
+        "_snowpack/pkg/common/FormControlContext-fd8e0148.js": {
+          "bytesInOutput": 63
+        },
+        "_snowpack/pkg/common/FormControl-f14b7e5a.js": {
+          "bytesInOutput": 1759
+        },
+        "_snowpack/pkg/common/formControlState-fd33aaf1.js": {
+          "bytesInOutput": 154
+        },
+        "_snowpack/pkg/common/useFormControl-fee4fd0d.js": {
+          "bytesInOutput": 38
+        },
+        "_snowpack/pkg/common/FormLabel-98de2b0c.js": {
+          "bytesInOutput": 1158
+        },
+        "_snowpack/pkg/common/index-92c9a971.js": {
+          "bytesInOutput": 2191
+        },
+        "_snowpack/pkg/common/Grow-6d6fd997.js": {
+          "bytesInOutput": 2107
+        },
+        "_snowpack/pkg/common/Popover-6d3629fc.js": {
+          "bytesInOutput": 4006
+        },
+        "_snowpack/pkg/common/Menu-dd8eb856.js": {
+          "bytesInOutput": 4366
+        },
+        "_snowpack/pkg/common/Select-2ab3b7fd.js": {
+          "bytesInOutput": 23224
+        },
+        "_snowpack/pkg/@material-ui/core/TextField.js": {
+          "bytesInOutput": 4875
+        },
+        "dist/components/Drawer/Filter.js": {
+          "bytesInOutput": 218
+        },
+        "_snowpack/pkg/@material-ui/core/useMediaQuery.js": {
+          "bytesInOutput": 697
+        },
+        "dist/config/query-keys.js": {
+          "bytesInOutput": 127
         },
         "dist/config/env.js": {
           "bytesInOutput": 53
@@ -9466,9 +10322,6 @@
         },
         "dist/network/queries/get-job-data.js": {
           "bytesInOutput": 157
-        },
-        "dist/typings/gql.js": {
-          "bytesInOutput": 434
         },
         "_snowpack/pkg/common/isArrayLike-2346aad9.js": {
           "bytesInOutput": 1139
@@ -9515,24 +10368,6 @@
         "dist/demo-mocks/network/queries/get-jobs.js": {
           "bytesInOutput": 248
         },
-        "dist/network/queries/get-queue-counts.js": {
-          "bytesInOutput": 280
-        },
-        "dist/demo-mocks/network/queries/get-queue-counts.js": {
-          "bytesInOutput": 171
-        },
-        "dist/network/queries/get-queues-for-drawer.js": {
-          "bytesInOutput": 132
-        },
-        "dist/demo-mocks/network/queries/get-queues-for-drawer.js": {
-          "bytesInOutput": 167
-        },
-        "dist/demo-mocks/network/queries/get-is-queue-paused.js": {
-          "bytesInOutput": 73
-        },
-        "dist/network/queries/get-is-queue-paused.js": {
-          "bytesInOutput": 147
-        },
         "dist/network/queries/get-job-by-id.js": {
           "bytesInOutput": 183
         },
@@ -9544,6 +10379,9 @@
         },
         "dist/demo-mocks/network/queries/get-redis-info.js": {
           "bytesInOutput": 351
+        },
+        "dist/network/queries/get-queues.js": {
+          "bytesInOutput": 280
         },
         "dist/network/mutations/create-job-log.js": {
           "bytesInOutput": 186
@@ -9644,11 +10482,14 @@
         "dist/demo-mocks/network/mutations/remove-jobs.js": {
           "bytesInOutput": 168
         },
+        "dist/demo-mocks/network/queries/get-queues.js": {
+          "bytesInOutput": 225
+        },
         "dist/demo-mocks/network/mutations/retry-jobs.js": {
           "bytesInOutput": 42
         },
         "dist/providers/network/value.js": {
-          "bytesInOutput": 599
+          "bytesInOutput": 540
         },
         "dist/providers/network/index.js": {
           "bytesInOutput": 84
@@ -9656,125 +10497,26 @@
         "dist/hooks/use-network.js": {
           "bytesInOutput": 28
         },
-        "dist/config/query-keys.js": {
-          "bytesInOutput": 199
-        },
-        "_snowpack/pkg/@material-ui/core/CircularProgress.js": {
-          "bytesInOutput": 2256
-        },
-        "dist/components/Spin/index.js": {
-          "bytesInOutput": 182
-        },
-        "_snowpack/pkg/@material-ui/lab/Alert.js": {
-          "bytesInOutput": 4068
-        },
-        "_snowpack/pkg/common/Button-26fe45d7.js": {
-          "bytesInOutput": 5207
-        },
-        "_snowpack/pkg/@material-ui/core/Button.js": {
-          "bytesInOutput": 0
-        },
-        "dist/components/NetworkError/index.js": {
-          "bytesInOutput": 214
-        },
-        "dist/components/NetworkRequest/index.js": {
-          "bytesInOutput": 243
-        },
-        "dist/config/layouts.js": {
-          "bytesInOutput": 40
-        },
-        "_snowpack/pkg/zustand/middleware.js": {
-          "bytesInOutput": 3996
-        },
-        "dist/config/storage.js": {
-          "bytesInOutput": 86
+        "_snowpack/pkg/react-query.js": {
+          "bytesInOutput": 38044
         },
         "dist/stores/network-settings.js": {
           "bytesInOutput": 175
         },
-        "dist/stores/queues-filter.js": {
-          "bytesInOutput": 94
+        "dist/providers/queues-query/index.js": {
+          "bytesInOutput": 169
         },
-        "dist/components/Drawer/hooks.js": {
-          "bytesInOutput": 153
+        "dist/hooks/use-queues-query.js": {
+          "bytesInOutput": 28
         },
-        "_snowpack/pkg/@material-ui/icons/MoveToInbox.js": {
-          "bytesInOutput": 372
+        "_snowpack/pkg/@material-ui/core/ButtonGroup.js": {
+          "bytesInOutput": 3379
         },
-        "_snowpack/pkg/common/ListContext-e5a8245b.js": {
-          "bytesInOutput": 27
-        },
-        "_snowpack/pkg/common/List-62f0a3aa.js": {
-          "bytesInOutput": 647
-        },
-        "_snowpack/pkg/@material-ui/core/List.js": {
-          "bytesInOutput": 0
-        },
-        "_snowpack/pkg/common/ListItem-a7533cb6.js": {
-          "bytesInOutput": 2630
-        },
-        "_snowpack/pkg/@material-ui/core/ListItem.js": {
-          "bytesInOutput": 0
-        },
-        "_snowpack/pkg/@material-ui/core/ListItemIcon.js": {
-          "bytesInOutput": 422
-        },
-        "_snowpack/pkg/common/Typography-207c512d.js": {
-          "bytesInOutput": 1923
-        },
-        "_snowpack/pkg/@material-ui/core/ListItemText.js": {
-          "bytesInOutput": 1010
-        },
-        "_snowpack/pkg/@material-ui/core/Badge.js": {
-          "bytesInOutput": 3480
-        },
-        "dist/components/Drawer/Queues/index.js": {
-          "bytesInOutput": 391
-        },
-        "_snowpack/pkg/common/utils-cc6bb9d1.js": {
-          "bytesInOutput": 265
-        },
-        "_snowpack/pkg/common/FormControlContext-fd8e0148.js": {
-          "bytesInOutput": 63
-        },
-        "_snowpack/pkg/common/FormControl-f14b7e5a.js": {
-          "bytesInOutput": 1759
-        },
-        "_snowpack/pkg/common/formControlState-fd33aaf1.js": {
-          "bytesInOutput": 154
-        },
-        "_snowpack/pkg/common/useFormControl-fee4fd0d.js": {
-          "bytesInOutput": 38
-        },
-        "_snowpack/pkg/common/FormLabel-98de2b0c.js": {
-          "bytesInOutput": 1158
-        },
-        "_snowpack/pkg/common/index-92c9a971.js": {
-          "bytesInOutput": 2191
-        },
-        "_snowpack/pkg/common/Grow-6d6fd997.js": {
-          "bytesInOutput": 2107
-        },
-        "_snowpack/pkg/common/Popover-6d3629fc.js": {
-          "bytesInOutput": 4006
-        },
-        "_snowpack/pkg/common/Menu-dd8eb856.js": {
-          "bytesInOutput": 4366
-        },
-        "_snowpack/pkg/common/Select-2ab3b7fd.js": {
-          "bytesInOutput": 23224
-        },
-        "_snowpack/pkg/@material-ui/core/TextField.js": {
-          "bytesInOutput": 4875
-        },
-        "dist/components/Drawer/Filter.js": {
-          "bytesInOutput": 218
-        },
-        "_snowpack/pkg/@material-ui/core/useMediaQuery.js": {
-          "bytesInOutput": 697
+        "dist/components/Drawer/Footer.js": {
+          "bytesInOutput": 394
         },
         "dist/components/Drawer/index.js": {
-          "bytesInOutput": 1094
+          "bytesInOutput": 1014
         },
         "_snowpack/pkg/@material-ui/core/AppBar.js": {
           "bytesInOutput": 1270
@@ -9830,9 +10572,6 @@
         "_snowpack/pkg/@material-ui/core/DialogContent.js": {
           "bytesInOutput": 0
         },
-        "_snowpack/pkg/@material-ui/core/colors/deepPurple.js": {
-          "bytesInOutput": 331
-        },
         "_snowpack/pkg/@material-ui/core/colors/deepOrange.js": {
           "bytesInOutput": 331
         },
@@ -9866,13 +10605,7 @@
         "_snowpack/pkg/@material-ui/core/colors/brown.js": {
           "bytesInOutput": 331
         },
-        "_snowpack/pkg/@material-ui/core/colors/cyan.js": {
-          "bytesInOutput": 331
-        },
         "_snowpack/pkg/@material-ui/core/colors/yellow.js": {
-          "bytesInOutput": 331
-        },
-        "_snowpack/pkg/@material-ui/core/colors/grey.js": {
           "bytesInOutput": 331
         },
         "dist/stores/theme.js": {
@@ -9899,11 +10632,8 @@
         "_snowpack/pkg/@material-ui/core/FormControl.js": {
           "bytesInOutput": 0
         },
-        "dist/stores/preferences.js": {
-          "bytesInOutput": 238
-        },
         "dist/components/Settings/Preferences/index.js": {
-          "bytesInOutput": 272
+          "bytesInOutput": 428
         },
         "dist/stores/code-editor.js": {
           "bytesInOutput": 192
@@ -9932,14 +10662,14 @@
         "_snowpack/pkg/@material-ui/core/Paper.js": {
           "bytesInOutput": 0
         },
-        "_snowpack/pkg/@material-ui/core/Chip.js": {
-          "bytesInOutput": 6296
-        },
         "dist/stores/filters.js": {
           "bytesInOutput": 173
         },
+        "dist/hooks/use-queue-data.js": {
+          "bytesInOutput": 81
+        },
         "dist/screens/jobs/Filters/hooks.js": {
-          "bytesInOutput": 354
+          "bytesInOutput": 259
         },
         "dist/screens/jobs/Filters/index.js": {
           "bytesInOutput": 1321
@@ -9984,7 +10714,7 @@
           "bytesInOutput": 107
         },
         "_snowpack/pkg/notistack.js": {
-          "bytesInOutput": 18567
+          "bytesInOutput": 15859
         },
         "dist/hooks/use-toast.js": {
           "bytesInOutput": 50
@@ -9996,7 +10726,7 @@
           "bytesInOutput": 105
         },
         "dist/hooks/use-abstract-mutation.js": {
-          "bytesInOutput": 507
+          "bytesInOutput": 465
         },
         "_snowpack/pkg/@material-ui/icons/Schedule.js": {
           "bytesInOutput": 447
@@ -10082,14 +10812,11 @@
         "dist/screens/jobs/List/Job/Actions.js": {
           "bytesInOutput": 2347
         },
-        "dist/screens/jobs/List/Job/hooks.js": {
-          "bytesInOutput": 163
-        },
         "_snowpack/pkg/@material-ui/core/Checkbox.js": {
           "bytesInOutput": 1952
         },
         "dist/screens/jobs/List/Job/index.js": {
-          "bytesInOutput": 628
+          "bytesInOutput": 575
         },
         "_snowpack/pkg/@material-ui/core/Table.js": {
           "bytesInOutput": 819
@@ -10110,7 +10837,7 @@
           "bytesInOutput": 276
         },
         "dist/screens/jobs/List/Pagination/hooks.js": {
-          "bytesInOutput": 270
+          "bytesInOutput": 97
         },
         "dist/screens/jobs/List/Pagination/index.js": {
           "bytesInOutput": 552
@@ -10164,10 +10891,10 @@
           "bytesInOutput": 77
         },
         "dist/screens/jobs/QueueActions/hooks.js": {
-          "bytesInOutput": 141
+          "bytesInOutput": 26
         },
         "dist/screens/jobs/QueueActions/index.js": {
-          "bytesInOutput": 2305
+          "bytesInOutput": 2154
         },
         "dist/screens/jobs/RemoveJobs/index.js": {
           "bytesInOutput": 969
@@ -10179,7 +10906,7 @@
           "bytesInOutput": 28
         },
         "dist/App.js": {
-          "bytesInOutput": 266
+          "bytesInOutput": 271
         },
         "dist/styles/index.css": {
           "bytesInOutput": 0
@@ -10188,7 +10915,7 @@
           "bytesInOutput": 122
         }
       },
-      "bytes": 886791
+      "bytes": 895639
     },
     "../packages/ui/~~bundle~~/dist/index.css": {
       "imports": [],
