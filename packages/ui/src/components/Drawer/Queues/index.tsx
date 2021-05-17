@@ -1,14 +1,10 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import type { GetQueuesQuery } from '@/typings/gql';
-import InboxIcon from '@material-ui/icons/MoveToInbox';
 import List from '@material-ui/core/List';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
-import ListItemText from '@material-ui/core/ListItemText';
 import { useDrawerState } from '@/stores/drawer';
 import { useActiveQueueStore } from '@/stores/active-queue';
 import shallow from 'zustand/shallow';
-import Badge from '@material-ui/core/Badge';
+import Queue from './Queue';
 
 type TProps = {
   queues?: GetQueuesQuery['queues'];
@@ -19,25 +15,19 @@ export default function DrawerQueuesList({ queues }: TProps) {
     shallow,
   );
   const closeDrawer = useDrawerState((state) => state.close);
+  const onSelect = useCallback((queue: string) => {
+    changeActiveQueue(queue);
+    closeDrawer();
+  }, []);
   return (
     <List>
       {queues?.map((queue) => (
-        <ListItem
-          onClick={() => {
-            changeActiveQueue(queue.name);
-            closeDrawer();
-          }}
-          selected={queue.name === activeQueue}
+        <Queue
+          onSelect={onSelect}
+          isSelected={activeQueue === queue.name}
           key={queue.name}
-          button
-        >
-          <ListItemIcon>
-            <Badge badgeContent={0} color="primary" max={Infinity} showZero>
-              <InboxIcon />
-            </Badge>
-          </ListItemIcon>
-          <ListItemText primary={queue.name} />
-        </ListItem>
+          queue={queue}
+        />
       ))}
     </List>
   );

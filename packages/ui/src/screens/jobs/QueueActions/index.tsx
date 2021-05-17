@@ -9,7 +9,6 @@ import AddIcon from '@material-ui/icons/Add';
 import { useAbstractMutation } from '@/hooks/use-abstract-mutation';
 import { useRemoveJobsModalStore } from '@/stores/remove-jobs-modal';
 import { useIsQueuePaused } from './hooks';
-import { useQueryClient } from 'react-query';
 import { JobStatusClean } from '@/typings/gql';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
@@ -60,7 +59,6 @@ export default function QueueActions() {
   };
 
   const queue = useActiveQueueStore((state) => state.active as string);
-  const queryClient = useQueryClient();
   const {
     mutations: { pauseQueue, resumeQueue, emptyQueue, cleanQueue },
   } = useNetwork();
