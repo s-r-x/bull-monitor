@@ -4,17 +4,14 @@ import TableRow from '@material-ui/core/TableRow';
 import TableCell from '@material-ui/core/TableCell';
 import Actions from './Actions';
 import type { TJobProps } from './typings';
-import Chip from '@material-ui/core/Chip';
-import { useJobStatusColor } from './hooks';
 import Checkbox from '@material-ui/core/Checkbox';
+import JobStatusChip from '@/components/JobStatusChip';
 
 const Job = ({ job, queue, isSelected, toggleSelected }: TJobProps) => {
   const date = useFormatDateTime(job.timestamp);
   const delayDate = useFormatDateTime(
     job.delay ? job.timestamp + job.delay : null,
   );
-  const statusColor = useJobStatusColor(job.status);
-
   return (
     <TableRow>
       <TableCell padding="checkbox">
@@ -28,13 +25,7 @@ const Job = ({ job, queue, isSelected, toggleSelected }: TJobProps) => {
       </TableCell>
       <TableCell>{job.id}</TableCell>
       <TableCell>
-        <Chip
-          style={{
-            backgroundColor: statusColor,
-            color: '#fff',
-          }}
-          label={job.status}
-        />
+        <JobStatusChip status={job.status} />
       </TableCell>
       <TableCell>{job.name}</TableCell>
       <TableCell>{date}</TableCell>

@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react';
+import React, { memo, useCallback } from 'react';
 import type { GetQueuesQuery } from '@/typings/gql';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
@@ -38,7 +38,7 @@ type TProps = {
   isSelected: boolean;
   onSelect: (queue: string) => void;
 };
-export default function DrawerQueue(props: TProps) {
+const DrawerQueue = (props: TProps) => {
   const cls = useStyles();
   const [isOpen, toggleIsOpen] = useCollapseState();
   const onSelect = useCallback(() => {
@@ -56,7 +56,7 @@ export default function DrawerQueue(props: TProps) {
         <ListItemIcon>
           <Badge
             badgeContent={aliveJobsCount}
-            color="primary"
+            color="secondary"
             max={9999}
             showZero
           >
@@ -87,4 +87,6 @@ export default function DrawerQueue(props: TProps) {
       </Collapse>
     </li>
   );
-}
+};
+
+export default memo(DrawerQueue);
