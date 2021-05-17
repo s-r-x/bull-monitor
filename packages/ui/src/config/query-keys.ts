@@ -1,7 +1,5 @@
 export const QueryKeysConfig = {
-  drawerQueues: 'drawer-queues',
-  queueCounts: 'queue-counts',
-  isQueuePaused: 'is-queue-paused',
+  queues: 'queues',
   jobData: 'job-data',
   jobLogs: 'job-logs',
   jobsList: 'jobs-list',

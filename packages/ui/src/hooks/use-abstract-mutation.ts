@@ -32,8 +32,7 @@ export function useAbstractMutation<
       }
       if (props.invalidateSharedQueries) {
         queryClient.invalidateQueries(QueryKeysConfig.jobsList);
-        queryClient.invalidateQueries(QueryKeysConfig.drawerQueues);
-        queryClient.invalidateQueries(QueryKeysConfig.queueCounts);
+        queryClient.invalidateQueries(QueryKeysConfig.queues);
       }
       if (props.onSuccess) {
         props.onSuccess(data, vars);

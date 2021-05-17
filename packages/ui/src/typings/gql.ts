@@ -484,10 +484,13 @@ export type GetQueueCountsQueryVariables = Exact<{
 
 export type GetQueueCountsQuery = { queue?: Maybe<{ jobsCounts: Pick<QueueJobsCounts, 'waiting' | 'active' | 'completed' | 'failed' | 'delayed' | 'paused'> }> };
 
-export type GetQueuesForDrawerQueryVariables = Exact<{ [key: string]: never; }>;
+export type GetQueuesQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type GetQueuesForDrawerQuery = { queues?: Maybe<Array<Pick<Queue, 'name' | 'count'>>> };
+export type GetQueuesQuery = { queues?: Maybe<Array<(
+    Pick<Queue, 'name' | 'isPaused'>
+    & { jobsCounts: Pick<QueueJobsCounts, 'waiting' | 'active' | 'completed' | 'failed' | 'delayed' | 'paused'> }
+  )>> };
 
 export type GetRedisInfoQueryVariables = Exact<{ [key: string]: never; }>;
 

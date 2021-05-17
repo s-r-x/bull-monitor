@@ -4,16 +4,11 @@ import { getJobLogs } from '@/network/queries/get-job-logs';
 import { getJobLogsMock } from '@/demo-mocks/network/queries/get-job-logs';
 import { getJobs } from '@/network/queries/get-jobs';
 import { getJobsMock } from '@/demo-mocks/network/queries/get-jobs';
-import { getQueueCounts } from '@/network/queries/get-queue-counts';
-import { getQueueCountsMock } from '@/demo-mocks/network/queries/get-queue-counts';
-import { getQueuesForDrawer } from '@/network/queries/get-queues-for-drawer';
-import { getQueuesForDrawerMock } from '@/demo-mocks/network/queries/get-queues-for-drawer';
-import { getIsQueuePausedMock } from '@/demo-mocks/network/queries/get-is-queue-paused';
-import { getIsQueuePaused } from '@/network/queries/get-is-queue-paused';
 import { getJobById } from '@/network/queries/get-job-by-id';
 import { getJobByIdMock } from '@/demo-mocks/network/queries/get-job-by-id';
 import { getRedisInfo } from '@/network/queries/get-redis-info';
 import { getRedisInfoMock } from '@/demo-mocks/network/queries/get-redis-info';
+import { getQueues } from '@/network/queries/get-queues';
 
 import { createJobLog } from '@/network/mutations/create-job-log';
 import { createJobLogMock } from '@/demo-mocks/network/mutations/create-job-log';
@@ -59,10 +54,9 @@ const queries = {
   getJobData: m ? getJobDataMock : getJobData,
   getJobLogs: m ? getJobLogsMock : getJobLogs,
   getJobs: m ? getJobsMock : getJobs,
-  getQueuesForDrawer: m ? getQueuesForDrawerMock : getQueuesForDrawer,
-  getQueueCounts: m ? getQueueCountsMock : getQueueCounts,
-  getIsQueuePaused: m ? getIsQueuePausedMock : getIsQueuePaused,
   getJobById: m ? getJobByIdMock : getJobById,
+  // TODO:: demo mock
+  getQueues,
 };
 const mutations = {
   createJob: m ? createJobMock : createJob,

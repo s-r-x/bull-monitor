@@ -1,17 +1,14 @@
 import { gqlClient } from '@/network/gql-client';
+import type { GetQueuesQuery } from '@/typings/gql';
 import { gql } from 'graphql-request';
-import type {
-  GetQueueCountsQuery,
-  GetQueueCountsQueryVariables,
-} from '@/typings/gql';
 
-export const getQueueCounts = (
-  args: GetQueueCountsQueryVariables,
-): Promise<GetQueueCountsQuery> =>
+export const getQueues = (): Promise<GetQueuesQuery> =>
   gqlClient.request(
     gql`
-      query GetQueueCounts($name: String!) {
-        queue(name: $name) {
+      query GetQueues {
+        queues {
+          name
+          isPaused
           jobsCounts {
             waiting
             active
@@ -23,5 +20,4 @@ export const getQueueCounts = (
         }
       }
     `,
-    args,
   );

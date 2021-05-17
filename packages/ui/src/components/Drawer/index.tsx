@@ -7,16 +7,13 @@ import { makeStyles, useTheme } from '@material-ui/core/styles';
 import { useDrawerState } from '@/stores/drawer';
 import { useActiveQueueStore } from '@/stores/active-queue';
 import shallow from 'zustand/shallow';
-import { useQuery } from 'react-query';
-import { useNetwork } from '@/hooks/use-network';
-import { QueryKeysConfig } from '@/config/query-keys';
 import NetworkRequest from '@/components/NetworkRequest';
 import { LayoutConfig } from '@/config/layouts';
-import { getPollingInterval } from '@/stores/network-settings';
 import { useFilteredQueues } from './hooks';
 import QueuesList from './Queues';
 import QueuesFilter from './Filter';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
+import { useQueuesQuery } from '@/hooks/use-queues-query';
 
 const useStyles = makeStyles((theme) => ({
   drawer: {
@@ -41,29 +38,22 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function Drawer() {
-  const {
-    queries: { getQueuesForDrawer },
-  } = useNetwork();
   const [activeQueue, changeActiveQueue] = useActiveQueueStore(
     (state) => [state.active, state.changeActive],
     shallow,
   );
-  const refetchInterval = getPollingInterval();
-  const { data, status, refetch } = useQuery(
-    QueryKeysConfig.drawerQueues,
-    getQueuesForDrawer,
-    {
-      onSuccess(data) {
-        if (!activeQueue) {
-          const firstQueue = data?.queues?.[0];
-          if (firstQueue) {
-            changeActiveQueue(firstQueue.name);
-          }
-        }
-      },
-      refetchInterval,
-    },
-  );
+  const { data, status, refetch } = useQueuesQuery();
+  //{
+  //  onSuccess(data) {
+  //    if (!activeQueue) {
+  //      const firstQueue = data?.queues?.[0];
+  //      if (firstQueue) {
+  //        changeActiveQueue(firstQueue.name);
+  //      }
+  //    }
+  //  },
+  //  refetchInterval,
+  //},
   const cls = useStyles();
   const theme = useTheme();
   const isDesktop = useMediaQuery(theme.breakpoints.up('md'));

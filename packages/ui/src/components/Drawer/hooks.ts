@@ -1,10 +1,8 @@
 import { useMemo } from 'react';
 import { useQueuesFilterStore } from '@/stores/queues-filter';
-import type { GetQueuesForDrawerQuery } from '@/typings/gql';
+import type { GetQueuesQuery } from '@/typings/gql';
 
-export const useFilteredQueues = (
-  queues?: GetQueuesForDrawerQuery['queues'],
-) => {
+export const useFilteredQueues = (queues?: GetQueuesQuery['queues']) => {
   const filterName = useQueuesFilterStore((state) => state.name);
   return useMemo(() => {
     if (!queues || !filterName) {

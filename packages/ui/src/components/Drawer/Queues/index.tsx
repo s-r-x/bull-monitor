@@ -1,5 +1,5 @@
 import React from 'react';
-import type { GetQueuesForDrawerQuery } from '@/typings/gql';
+import type { GetQueuesQuery } from '@/typings/gql';
 import InboxIcon from '@material-ui/icons/MoveToInbox';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
@@ -11,7 +11,7 @@ import shallow from 'zustand/shallow';
 import Badge from '@material-ui/core/Badge';
 
 type TProps = {
-  queues?: GetQueuesForDrawerQuery['queues'];
+  queues?: GetQueuesQuery['queues'];
 };
 export default function DrawerQueuesList({ queues }: TProps) {
   const [activeQueue, changeActiveQueue] = useActiveQueueStore(
@@ -32,12 +32,7 @@ export default function DrawerQueuesList({ queues }: TProps) {
           button
         >
           <ListItemIcon>
-            <Badge
-              badgeContent={queue.count}
-              color="primary"
-              max={Infinity}
-              showZero
-            >
+            <Badge badgeContent={0} color="primary" max={Infinity} showZero>
               <InboxIcon />
             </Badge>
           </ListItemIcon>

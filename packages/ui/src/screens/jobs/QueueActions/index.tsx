@@ -10,8 +10,7 @@ import { useAbstractMutation } from '@/hooks/use-abstract-mutation';
 import { useRemoveJobsModalStore } from '@/stores/remove-jobs-modal';
 import { useIsQueuePaused } from './hooks';
 import { useQueryClient } from 'react-query';
-import { GetIsQueuePausedQuery, JobStatusClean } from '@/typings/gql';
-import { QueryKeysConfig } from '@/config/query-keys';
+import { JobStatusClean } from '@/typings/gql';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 import IconButton from '@material-ui/core/IconButton';
@@ -74,15 +73,7 @@ export default function QueueActions() {
     confirm: {
       description: 'Pause queue',
     },
-    onSuccess() {
-      const newData: GetIsQueuePausedQuery = {
-        queue: {
-          isPaused: true,
-        },
-      };
-      queryClient.setQueryData([QueryKeysConfig.isQueuePaused, queue], newData);
-      handleCloseMore();
-    },
+    onSuccess: handleCloseMore,
   });
   const emptyMutation = useAbstractMutation({
     mutation: emptyQueue,
@@ -97,15 +88,7 @@ export default function QueueActions() {
     mutation: resumeQueue,
     invalidateSharedQueries: true,
     toast: 'Queue has been resumed',
-    onSuccess() {
-      const newData: GetIsQueuePausedQuery = {
-        queue: {
-          isPaused: false,
-        },
-      };
-      queryClient.setQueryData([QueryKeysConfig.isQueuePaused, queue], newData);
-      handleCloseMore();
-    },
+    onSuccess: handleCloseMore,
   });
   const cleanMutation = useAbstractMutation({
     mutation: cleanQueue,
