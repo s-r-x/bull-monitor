@@ -28,6 +28,7 @@
     "@types/lodash": "^4.14.168",
     "codemirror": "^5.60.0",
     "dayjs": "^1.10.4",
+    "eventemitter3": "^4.0.7",
     "graphql": "^15.5.0",
     "graphql-request": "^3.4.0",
     "jshint": "^2.12.0",
