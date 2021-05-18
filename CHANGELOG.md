@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.18.0](https://github.com/s-r-x/bull-monitor/compare/v0.17.0...v0.18.0) (2021-05-18)
+
+
+### Bug Fixes
+
+* **ui:** expand/collapse buttons in drawer is always at the bottom now ([f7ba70f](https://github.com/s-r-x/bull-monitor/commit/f7ba70fe7908b08747a64febff180e5a856eb6de))
+* **ui:** Rename enable polling/disable polling to enable jobs polling/disable jobs polling ([50ac80d](https://github.com/s-r-x/bull-monitor/commit/50ac80d694c21b0c24285318d91b7297c03bdb84))
+
+
+### Features
+
+* **ui:** remove "Expand jobs count by default" preference. Instead collapsed/expanded state of every queue in drawer is now persisted to localstorage ([f18b535](https://github.com/s-r-x/bull-monitor/commit/f18b5359b5ccdd080d6d1e4dec931412109adeb2))
+
+
+
+
+
 # [0.17.0](https://github.com/s-r-x/bull-monitor/compare/v0.16.0...v0.17.0) (2021-05-18)
 
 
