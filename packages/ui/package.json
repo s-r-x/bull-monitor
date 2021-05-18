@@ -56,6 +56,7 @@
     "@snowpack/web-test-runner-plugin": "^0.2.0",
     "@testing-library/react": "^11.0.0",
     "@types/chai": "^4.2.13",
+    "@types/file-saver": "^2.0.2",
     "@types/mocha": "^8.2.0",
     "@types/ms": "^0.7.31",
     "@types/react": "^17.0.0",
