@@ -2130,67 +2130,11 @@
         }
       ]
     },
-    "dist/hooks/use-toggle.js": {
-      "bytes": 284,
-      "imports": [
-        {
-          "path": "_snowpack/pkg/react.js",
-          "kind": "import-statement"
-        }
-      ]
-    },
-    "_snowpack/pkg/eventemitter3.js": {
-      "bytes": 9272,
-      "imports": [
-        {
-          "path": "_snowpack/pkg/common/_commonjsHelpers-37fa8da4.js",
-          "kind": "import-statement"
-        }
-      ]
-    },
-    "dist/services/event-emitter/index.js": {
-      "bytes": 116,
-      "imports": [
-        {
-          "path": "_snowpack/pkg/eventemitter3.js",
-          "kind": "import-statement"
-        }
-      ]
-    },
-    "dist/stores/preferences.js": {
-      "bytes": 743,
-      "imports": [
-        {
-          "path": "_snowpack/pkg/zustand.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/zustand/middleware.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "dist/config/storage.js",
-          "kind": "import-statement"
-        }
-      ]
-    },
     "dist/components/Drawer/Queues/hooks.js": {
-      "bytes": 1125,
+      "bytes": 358,
       "imports": [
         {
           "path": "_snowpack/pkg/react.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "dist/hooks/use-toggle.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "dist/services/event-emitter/index.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "dist/stores/preferences.js",
           "kind": "import-statement"
         }
       ]
@@ -2808,7 +2752,7 @@
       ]
     },
     "dist/components/Drawer/Queues/Queue.js": {
-      "bytes": 3137,
+      "bytes": 3207,
       "imports": [
         {
           "path": "_snowpack/pkg/react.js",
@@ -2872,8 +2816,25 @@
         }
       ]
     },
+    "dist/stores/queues-collapse.js": {
+      "bytes": 884,
+      "imports": [
+        {
+          "path": "_snowpack/pkg/zustand.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/zustand/middleware.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "dist/config/storage.js",
+          "kind": "import-statement"
+        }
+      ]
+    },
     "dist/components/Drawer/Queues/index.js": {
-      "bytes": 932,
+      "bytes": 1191,
       "imports": [
         {
           "path": "_snowpack/pkg/react.js",
@@ -2897,6 +2858,10 @@
         },
         {
           "path": "dist/components/Drawer/Queues/Queue.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "dist/stores/queues-collapse.js",
           "kind": "import-statement"
         }
       ]
@@ -4580,7 +4545,7 @@
       ]
     },
     "dist/components/Drawer/Footer.js": {
-      "bytes": 1080,
+      "bytes": 1262,
       "imports": [
         {
           "path": "_snowpack/pkg/react.js",
@@ -4595,17 +4560,21 @@
           "kind": "import-statement"
         },
         {
-          "path": "dist/services/event-emitter/index.js",
+          "path": "_snowpack/pkg/@material-ui/core/styles.js",
           "kind": "import-statement"
         },
         {
-          "path": "_snowpack/pkg/@material-ui/core/styles.js",
+          "path": "dist/stores/queues-collapse.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/zustand/shallow.js",
           "kind": "import-statement"
         }
       ]
     },
     "dist/components/Drawer/index.js": {
-      "bytes": 3044,
+      "bytes": 3089,
       "imports": [
         {
           "path": "_snowpack/pkg/react.js",
@@ -6143,8 +6112,25 @@
         }
       ]
     },
+    "dist/stores/preferences.js": {
+      "bytes": 547,
+      "imports": [
+        {
+          "path": "_snowpack/pkg/zustand.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/zustand/middleware.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "dist/config/storage.js",
+          "kind": "import-statement"
+        }
+      ]
+    },
     "dist/components/Settings/Preferences/index.js": {
-      "bytes": 1433,
+      "bytes": 1084,
       "imports": [
         {
           "path": "_snowpack/pkg/react.js",
@@ -9894,7 +9880,7 @@
       ]
     },
     "dist/screens/jobs/QueueActions/index.js": {
-      "bytes": 6073,
+      "bytes": 6083,
       "imports": [
         {
           "path": "_snowpack/pkg/react.js",
@@ -10399,20 +10385,8 @@
         "dist/components/JobStatusChip/index.js": {
           "bytesInOutput": 171
         },
-        "dist/hooks/use-toggle.js": {
-          "bytesInOutput": 70
-        },
-        "_snowpack/pkg/eventemitter3.js": {
-          "bytesInOutput": 2759
-        },
-        "dist/services/event-emitter/index.js": {
-          "bytesInOutput": 14
-        },
-        "dist/stores/preferences.js": {
-          "bytesInOutput": 376
-        },
         "dist/components/Drawer/Queues/hooks.js": {
-          "bytesInOutput": 357
+          "bytesInOutput": 110
         },
         "dist/components/Drawer/Queues/JobsCount.js": {
           "bytesInOutput": 273
@@ -10439,10 +10413,13 @@
           "bytesInOutput": 3480
         },
         "dist/components/Drawer/Queues/Queue.js": {
-          "bytesInOutput": 977
+          "bytesInOutput": 1046
+        },
+        "dist/stores/queues-collapse.js": {
+          "bytesInOutput": 303
         },
         "dist/components/Drawer/Queues/index.js": {
-          "bytesInOutput": 226
+          "bytesInOutput": 309
         },
         "_snowpack/pkg/common/utils-cc6bb9d1.js": {
           "bytesInOutput": 265
@@ -10700,10 +10677,10 @@
           "bytesInOutput": 3379
         },
         "dist/components/Drawer/Footer.js": {
-          "bytesInOutput": 394
+          "bytesInOutput": 426
         },
         "dist/components/Drawer/index.js": {
-          "bytesInOutput": 1014
+          "bytesInOutput": 1043
         },
         "_snowpack/pkg/@material-ui/core/AppBar.js": {
           "bytesInOutput": 1270
@@ -10819,8 +10796,11 @@
         "_snowpack/pkg/@material-ui/core/FormControl.js": {
           "bytesInOutput": 0
         },
+        "dist/stores/preferences.js": {
+          "bytesInOutput": 238
+        },
         "dist/components/Settings/Preferences/index.js": {
-          "bytesInOutput": 428
+          "bytesInOutput": 272
         },
         "dist/stores/code-editor.js": {
           "bytesInOutput": 192
@@ -11093,7 +11073,7 @@
           "bytesInOutput": 26
         },
         "dist/screens/jobs/QueueActions/index.js": {
-          "bytesInOutput": 2154
+          "bytesInOutput": 2164
         },
         "dist/screens/jobs/RemoveJobs/index.js": {
           "bytesInOutput": 969
@@ -11114,7 +11094,7 @@
           "bytesInOutput": 122
         }
       },
-      "bytes": 899792
+      "bytes": 896934
     },
     "../packages/ui/~~bundle~~/dist/index.css": {
       "imports": [],
