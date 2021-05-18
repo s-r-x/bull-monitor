@@ -72,17 +72,22 @@ export class BullDataSource extends DataSource {
     offset = 0,
     status,
     id,
+    ids,
     order = OrderEnum.Desc,
   }: {
     status?: JobStatus;
     queue: string;
     limit?: number;
     offset?: number;
-    order?: OrderEnum;
     id?: JobId;
+    ids?: JobId[];
+    order?: OrderEnum;
   }) {
     const bullQueue = this.getQueueByName(queue, true);
-    if (id) {
+    if (ids) {
+      const jobs = await Promise.all(ids.map(id => bullQueue?.getJob(id)));
+      return jobs;
+    } else if (id) {
       const job = await bullQueue?.getJob(id);
       return job ? [job] : [];
     } else if (status) {

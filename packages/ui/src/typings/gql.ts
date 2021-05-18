@@ -233,6 +233,7 @@ export type QueryJobsArgs = {
   status?: Maybe<JobStatus>;
   order?: Maybe<OrderEnum>;
   id?: Maybe<Scalars['ID']>;
+  ids?: Maybe<Array<Maybe<Scalars['ID']>>>;
 };
 
 
@@ -434,13 +435,6 @@ export type UpdateJobDataMutationVariables = Exact<{
 
 export type UpdateJobDataMutation = { updateJobData?: Maybe<Pick<Job, 'id'>> };
 
-export type GetIsQueuePausedQueryVariables = Exact<{
-  name: Scalars['String'];
-}>;
-
-
-export type GetIsQueuePausedQuery = { queue?: Maybe<Pick<Queue, 'isPaused'>> };
-
 export type GetJobByIdQueryVariables = Exact<{
   queue: Scalars['String'];
   id: Scalars['ID'];
@@ -476,13 +470,6 @@ export type GetJobsQueryVariables = Exact<{
 
 
 export type GetJobsQuery = { jobs: Array<CommonJobFieldsFragment> };
-
-export type GetQueueCountsQueryVariables = Exact<{
-  name: Scalars['String'];
-}>;
-
-
-export type GetQueueCountsQuery = { queue?: Maybe<{ jobsCounts: Pick<QueueJobsCounts, 'waiting' | 'active' | 'completed' | 'failed' | 'delayed' | 'paused'> }> };
 
 export type GetQueuesQueryVariables = Exact<{ [key: string]: never; }>;
 

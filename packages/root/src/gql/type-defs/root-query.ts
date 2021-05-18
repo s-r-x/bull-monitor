@@ -11,6 +11,7 @@ export const rootQueryTypeDef = gql`
       status: JobStatus
       order: OrderEnum
       id: ID
+      ids: [ID]
     ): [Job!]!
     job(queue: String!, id: ID!): Job
     redisInfo: RedisInfo

@@ -233,6 +233,7 @@ export type QueryJobsArgs = {
   status?: Maybe<JobStatus>;
   order?: Maybe<OrderEnum>;
   id?: Maybe<Scalars['ID']>;
+  ids?: Maybe<Array<Maybe<Scalars['ID']>>>;
 };
 
 
