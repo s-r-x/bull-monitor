@@ -36,6 +36,7 @@ const useStyles = makeStyles((theme) => ({
     marginRight: theme.spacing(0.5),
   },
   footer: {
+    marginTop: 'auto',
     position: 'sticky',
     bottom: 0,
     zIndex: 2,
