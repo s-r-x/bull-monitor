@@ -155,7 +155,7 @@ export default function QueueActions() {
       >
         {pollingInterval && (
           <MenuItem onClick={handleToggleRefetch}>
-            {isRefetchLocked ? 'Enable polling' : 'Disable polling'}
+            {isRefetchLocked ? 'Enable jobs polling' : 'Disable jobs polling'}
           </MenuItem>
         )}
         <MenuItem onClick={openRemoveJobsModal}>
