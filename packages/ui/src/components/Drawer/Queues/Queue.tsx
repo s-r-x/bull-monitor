@@ -14,7 +14,7 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import IconButton from '@material-ui/core/IconButton';
 import Collapse from '@material-ui/core/Collapse';
 import Badge from '@material-ui/core/Badge';
-import { useAliveJobsCount, useCollapseState } from './hooks';
+import { useAliveJobsCount } from './hooks';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -36,13 +36,18 @@ const useStyles = makeStyles((theme) => ({
 type TProps = {
   queue: NonNullable<GetQueuesQuery['queues']>[0];
   isSelected: boolean;
+  isExpanded: boolean;
+
   onSelect: (queue: string) => void;
+  toggleCollapse: (queue: string) => void;
 };
 const DrawerQueue = (props: TProps) => {
   const cls = useStyles();
-  const [isOpen, toggleIsOpen] = useCollapseState();
   const onSelect = useCallback(() => {
     props.onSelect(props.queue.name);
+  }, [props.queue.name]);
+  const onToggleCollapse = useCallback(() => {
+    props.toggleCollapse(props.queue.name);
   }, [props.queue.name]);
   const aliveJobsCount = useAliveJobsCount(props.queue.jobsCounts);
   return (
@@ -76,13 +81,13 @@ const DrawerQueue = (props: TProps) => {
         <ListItemSecondaryAction />
       </ListItem>
       <IconButton
-        onClick={toggleIsOpen}
+        onClick={onToggleCollapse}
         size="small"
         className={cls.collapseBtn}
       >
-        {isOpen ? <ExpandLessIcon /> : <ExpandMoreIcon />}
+        {props.isExpanded ? <ExpandLessIcon /> : <ExpandMoreIcon />}
       </IconButton>
-      <Collapse in={isOpen} timeout="auto" unmountOnExit>
+      <Collapse in={props.isExpanded} timeout="auto" unmountOnExit>
         <JobsCount jobsCounts={props.queue.jobsCounts} />
       </Collapse>
     </li>

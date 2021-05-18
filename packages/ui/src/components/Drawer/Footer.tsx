@@ -1,8 +1,10 @@
-import React, { memo } from 'react';
+import React from 'react';
 import Button from '@material-ui/core/Button';
 import ButtonGroup from '@material-ui/core/ButtonGroup';
-import { eventEmitter } from '@/services/event-emitter';
 import { makeStyles } from '@material-ui/core/styles';
+import type { GetQueuesQuery } from '@/typings/gql';
+import { useQueuesCollapseStore } from '@/stores/queues-collapse';
+import shallow from 'zustand/shallow';
 
 const useStyles = makeStyles((theme) => ({
   group: {
@@ -15,16 +17,23 @@ const useStyles = makeStyles((theme) => ({
 }));
 type TProps = {
   className?: string;
+  queues: NonNullable<GetQueuesQuery['queues']>;
 };
 const DrawerFooter = (props: TProps) => {
   const cls = useStyles();
+  const [expand, collapse] = useQueuesCollapseStore(
+    (state) => [state.expandMany, state.collapseMany],
+    shallow,
+  );
   return (
     <div className={props.className}>
       <ButtonGroup className={cls.group} variant="text">
-        <Button onClick={() => eventEmitter.emit('drawer/expandCounts')}>
+        <Button onClick={() => expand(props.queues.map((queue) => queue.name))}>
           Expand
         </Button>
-        <Button onClick={() => eventEmitter.emit('drawer/collapseCounts')}>
+        <Button
+          onClick={() => collapse(props.queues.map((queue) => queue.name))}
+        >
           Collapse
         </Button>
       </ButtonGroup>
@@ -32,4 +41,4 @@ const DrawerFooter = (props: TProps) => {
   );
 };
 
-export default memo(DrawerFooter);
+export default DrawerFooter;

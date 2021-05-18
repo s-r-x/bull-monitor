@@ -80,7 +80,7 @@ export default function Drawer() {
           <QueuesFilter className={cls.filter} />
           <QueuesList queues={filteredQueues} />
         </NetworkRequest>
-        <Footer className={cls.footer} />
+        {queues && <Footer queues={queues} className={cls.footer} />}
       </BaseDrawer>
     </nav>
   );

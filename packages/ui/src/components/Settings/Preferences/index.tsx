@@ -9,14 +9,10 @@ export default function Preferences() {
   const [
     confirmDangerousActions,
     toggleConfirmDangerousActions,
-    expandJobsCount,
-    toggleExpandJobsCount,
   ] = usePreferencesStore(
     (state) => [
       state.confirmDangerousActions,
       state.toggleConfirmDangerousActions,
-      state.expandJobsCount,
-      state.toggleExpandJobsCount,
     ],
     shallow,
   );
@@ -31,15 +27,6 @@ export default function Preferences() {
             />
           }
           label="Confirm dangerous actions"
-        />
-        <FormControlLabel
-          control={
-            <Switch
-              checked={expandJobsCount}
-              onChange={toggleExpandJobsCount}
-            />
-          }
-          label="Expand jobs count by default"
         />
       </FormControl>
     </div>
