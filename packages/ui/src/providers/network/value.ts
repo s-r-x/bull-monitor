@@ -41,19 +41,19 @@ import { removeJobsByPattern } from '@/network/mutations/remove-jobs-by-pattern'
 import { cleanQueueMock } from '@/demo-mocks/network/mutations/clean-queue';
 import { cleanQueue } from '@/network/mutations/clean-queue';
 import { retryJobs } from '@/network/mutations/retry-jobs';
+import { retryJobsMock } from '@/demo-mocks/network/mutations/retry-jobs';
 import { removeJobs } from '@/network/mutations/remove-jobs';
 import { removeJobsMock } from '@/demo-mocks/network/mutations/remove-jobs';
 import { getQueuesMock } from '@/demo-mocks/network/queries/get-queues';
 import { getJobsForExport } from '@/network/queries/get-jobs-for-export';
+import { getJobsForExportMock } from '@/demo-mocks/network/queries/get-jobs-for-export';
 
 import { EnvConfig } from '@/config/env';
-import { retryJobsMock } from '@/demo-mocks/network/mutations/retry-jobs';
 
 const { useMocks: m } = EnvConfig;
 
 const queries = {
-  // TODO:: demo mock
-  getJobsForExport,
+  getJobsForExport: m ? getJobsForExportMock : getJobsForExport,
   getRedisInfo: m ? getRedisInfoMock : getRedisInfo,
   getJobData: m ? getJobDataMock : getJobData,
   getJobLogs: m ? getJobLogsMock : getJobLogs,
