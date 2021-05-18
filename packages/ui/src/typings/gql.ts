@@ -459,6 +459,17 @@ export type GetJobLogsQueryVariables = Exact<{
 
 export type GetJobLogsQuery = { job?: Maybe<{ logs?: Maybe<Pick<JobLogs, 'logs' | 'count'>> }> };
 
+export type GetJobsForExportQueryVariables = Exact<{
+  queue: Scalars['String'];
+  ids: Array<Maybe<Scalars['ID']>> | Maybe<Scalars['ID']>;
+}>;
+
+
+export type GetJobsForExportQuery = { jobs: Array<(
+    Pick<Job, 'id' | 'progress' | 'attemptsMade' | 'failedReason' | 'status' | 'stacktrace' | 'timestamp' | 'returnValue' | 'finishedOn' | 'processedOn' | 'name' | 'opts' | 'data'>
+    & { logs?: Maybe<Pick<JobLogs, 'count' | 'logs'>> }
+  )> };
+
 export type GetJobsQueryVariables = Exact<{
   queue: Scalars['String'];
   offset?: Maybe<Scalars['Int']>;

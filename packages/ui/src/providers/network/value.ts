@@ -44,6 +44,7 @@ import { retryJobs } from '@/network/mutations/retry-jobs';
 import { removeJobs } from '@/network/mutations/remove-jobs';
 import { removeJobsMock } from '@/demo-mocks/network/mutations/remove-jobs';
 import { getQueuesMock } from '@/demo-mocks/network/queries/get-queues';
+import { getJobsForExport } from '@/network/queries/get-jobs-for-export';
 
 import { EnvConfig } from '@/config/env';
 import { retryJobsMock } from '@/demo-mocks/network/mutations/retry-jobs';
@@ -51,6 +52,8 @@ import { retryJobsMock } from '@/demo-mocks/network/mutations/retry-jobs';
 const { useMocks: m } = EnvConfig;
 
 const queries = {
+  // TODO:: demo mock
+  getJobsForExport,
   getRedisInfo: m ? getRedisInfoMock : getRedisInfo,
   getJobData: m ? getJobDataMock : getJobData,
   getJobLogs: m ? getJobLogsMock : getJobLogs,

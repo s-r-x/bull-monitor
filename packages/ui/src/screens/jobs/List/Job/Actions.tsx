@@ -17,6 +17,7 @@ import Popover from '@material-ui/core/Popover';
 import SettingsIcon from '@material-ui/icons/Settings';
 import Timeline from './Timeline';
 import Options from './Options';
+import { useExportJobsMutation } from '@/hooks/use-export-jobs-mutation';
 
 type TProps = Pick<TJobProps, 'job' | 'queue'>;
 const JobActions = ({ job, queue }: TProps) => {
@@ -64,6 +65,7 @@ const JobActions = ({ job, queue }: TProps) => {
     toast: 'Moved to completed',
     invalidateSharedQueries: true,
   });
+  const exportMutation = useExportJobsMutation();
   const promoteMutation = useAbstractMutation({
     mutation: mutations.promoteJob,
     toast: 'Promoted',
@@ -84,13 +86,6 @@ const JobActions = ({ job, queue }: TProps) => {
     invalidateSharedQueries: true,
   });
   const sharedMutationArg = { queue, id: job.id };
-  const moveToCompleted = () =>
-    moveToCompletedMutation.mutate(sharedMutationArg);
-  const moveToFailed = () => moveToFailedMutation.mutate(sharedMutationArg);
-  const remove = () => removeMutation.mutate(sharedMutationArg);
-  const discard = () => discardMutation.mutate(sharedMutationArg);
-  const promote = () => promoteMutation.mutate(sharedMutationArg);
-  const retry = () => retryMutation.mutate(sharedMutationArg);
   return (
     <>
       <Tooltip title="Data">
@@ -103,7 +98,11 @@ const JobActions = ({ job, queue }: TProps) => {
         </IconButton>
       </Tooltip>
       <Tooltip title="Delete job">
-        <IconButton size="small" onClick={remove} color="secondary">
+        <IconButton
+          size="small"
+          onClick={() => removeMutation.mutate(sharedMutationArg)}
+          color="secondary"
+        >
           <DeleteIcon />
         </IconButton>
       </Tooltip>
@@ -161,18 +160,42 @@ const JobActions = ({ job, queue }: TProps) => {
       >
         <MenuItem onClick={() => openJobLogs(sharedMutationArg)}>Logs</MenuItem>
         {job.status === JobStatus.Failed && (
-          <MenuItem onClick={retry}>Retry</MenuItem>
+          <MenuItem onClick={() => retryMutation.mutate(sharedMutationArg)}>
+            Retry
+          </MenuItem>
         )}
         {job.status === JobStatus.Waiting && (
-          <MenuItem onClick={moveToCompleted}>Move to completed</MenuItem>
+          <MenuItem
+            onClick={() => moveToCompletedMutation.mutate(sharedMutationArg)}
+          >
+            Move to completed
+          </MenuItem>
         )}
         {job.status === JobStatus.Waiting && (
-          <MenuItem onClick={moveToFailed}>Move to failed</MenuItem>
+          <MenuItem
+            onClick={() => moveToFailedMutation.mutate(sharedMutationArg)}
+          >
+            Move to failed
+          </MenuItem>
         )}
         {job.status === JobStatus.Delayed && (
-          <MenuItem onClick={promote}>Promote</MenuItem>
+          <MenuItem onClick={() => promoteMutation.mutate(sharedMutationArg)}>
+            Promote
+          </MenuItem>
         )}
-        <MenuItem onClick={discard}>Discard</MenuItem>
+        <MenuItem onClick={() => discardMutation.mutate(sharedMutationArg)}>
+          Discard
+        </MenuItem>
+        <MenuItem
+          onClick={() =>
+            exportMutation.mutate({
+              queue,
+              ids: [job.id],
+            })
+          }
+        >
+          Save as JSON
+        </MenuItem>
       </Menu>
     </>
   );

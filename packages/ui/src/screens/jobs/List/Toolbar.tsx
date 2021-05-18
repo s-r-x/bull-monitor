@@ -6,12 +6,14 @@ import { useSelectedJobsStore } from '@/stores/selected-jobs';
 import ReplayIcon from '@material-ui/icons/Replay';
 import DeleteIcon from '@material-ui/icons/Delete';
 import IconButton from '@material-ui/core/IconButton';
+import SaveIcon from '@material-ui/icons/Save';
 import Tooltip from '@material-ui/core/Tooltip';
 import { useFiltersStore } from '@/stores/filters';
 import { JobStatus } from '@/typings/gql';
 import { useNetwork } from '@/hooks/use-network';
 import { useAbstractMutation } from '@/hooks/use-abstract-mutation';
 import { useActiveQueueStore } from '@/stores/active-queue';
+import { useExportJobsMutation } from '@/hooks/use-export-jobs-mutation';
 
 const useStyles = makeStyles((theme) => ({
   title: {
@@ -28,6 +30,7 @@ export default function TableToolbar() {
     state.selected,
     state.clear,
   ]);
+  const exportMutation = useExportJobsMutation();
   const selectedCount = selectedJobs.size;
   const removeMutation = useAbstractMutation({
     mutation: mutations.removeJobs,
@@ -84,6 +87,18 @@ export default function TableToolbar() {
               color="secondary"
             >
               <DeleteIcon />
+            </IconButton>
+          </Tooltip>
+          <Tooltip title="Save as JSON">
+            <IconButton
+              onClick={() =>
+                exportMutation.mutate({
+                  queue,
+                  ids: Array.from(selectedJobs),
+                })
+              }
+            >
+              <SaveIcon />
             </IconButton>
           </Tooltip>
         </>

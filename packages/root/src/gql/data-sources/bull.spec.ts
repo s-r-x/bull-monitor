@@ -52,6 +52,7 @@ afterEach(() => {
 describe('bull data source', () => {
   // TODO:: job logs
   // TODO:: redis info
+  // TODO:: new ids arg in getJobs
   describe('Queries', () => {
     test('it should get queue by name', () => {
       expect(createDataSrc().getQueueByName(mockQueueName)).toBe(mockQueue);
