@@ -1,18 +1,9 @@
 import { useMemo } from 'react';
-import { JobStatus } from '@/typings/gql';
+import type { JobStatus } from '@/typings/gql';
 import shallow from 'zustand/shallow';
 import { useFiltersStore } from '@/stores/filters';
 import { useActiveQueueStore } from '@/stores/active-queue';
 import { useQueueData } from '@/hooks/use-queue-data';
-
-const JOB_STATUSES = [
-  JobStatus.Active,
-  JobStatus.Waiting,
-  JobStatus.Completed,
-  JobStatus.Delayed,
-  JobStatus.Failed,
-  JobStatus.Paused,
-];
 
 export const useQueueCounts = () => {
   const activeQueue = useActiveQueueStore((state) => state.active as string);
@@ -22,13 +13,14 @@ export const useQueueCounts = () => {
     shallow,
   );
   return useMemo(() => {
-    return JOB_STATUSES.map((status) => {
-      return {
-        label: status,
-        value: queueData?.jobsCounts?.[status] ?? 0,
-        isActive: status === activeStatus,
-        onClick: () => changeStatus(status),
-      };
-    });
+    if (!queueData?.jobsCounts) {
+      return [];
+    }
+    return Object.entries(queueData.jobsCounts).map(([status, count]) => ({
+      label: status,
+      value: count,
+      onClick: () => changeStatus(status as JobStatus),
+      isActive: status === activeStatus,
+    }));
   }, [queueData, activeStatus]);
 };
