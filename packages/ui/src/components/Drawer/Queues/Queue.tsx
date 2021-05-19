@@ -1,5 +1,5 @@
 import React, { memo, useCallback } from 'react';
-import type { GetQueuesQuery } from '@/typings/gql';
+import type { GetQueuesQuery, JobStatus } from '@/typings/gql';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
@@ -7,7 +7,6 @@ import JobsCount from './JobsCount';
 import ListItemSecondaryAction from '@material-ui/core/ListItemSecondaryAction';
 import InboxIcon from '@material-ui/icons/MoveToInbox';
 import PauseIcon from '@material-ui/icons/Pause';
-
 import { makeStyles } from '@material-ui/core/styles';
 import ExpandLessIcon from '@material-ui/icons/ExpandLess';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
@@ -35,10 +34,12 @@ const useStyles = makeStyles((theme) => ({
 
 type TProps = {
   queue: NonNullable<GetQueuesQuery['queues']>[0];
+  activeStatus: JobStatus;
   isSelected: boolean;
   isExpanded: boolean;
 
   onSelect: (queue: string) => void;
+  onStatusSelect: (queue: string, status: JobStatus) => void;
   toggleCollapse: (queue: string) => void;
 };
 const DrawerQueue = (props: TProps) => {
@@ -46,6 +47,12 @@ const DrawerQueue = (props: TProps) => {
   const onSelect = useCallback(() => {
     props.onSelect(props.queue.name);
   }, [props.queue.name]);
+  const onStatusSelect = useCallback(
+    (status: JobStatus) => {
+      props.onStatusSelect(props.queue.name, status);
+    },
+    [props.queue.name],
+  );
   const onToggleCollapse = useCallback(() => {
     props.toggleCollapse(props.queue.name);
   }, [props.queue.name]);
@@ -88,7 +95,12 @@ const DrawerQueue = (props: TProps) => {
         {props.isExpanded ? <ExpandLessIcon /> : <ExpandMoreIcon />}
       </IconButton>
       <Collapse in={props.isExpanded} timeout="auto" unmountOnExit>
-        <JobsCount jobsCounts={props.queue.jobsCounts} />
+        <JobsCount
+          onSelect={onStatusSelect}
+          isQueueSelected={props.isSelected}
+          activeStatus={props.activeStatus}
+          jobsCounts={props.queue.jobsCounts}
+        />
       </Collapse>
     </li>
   );
