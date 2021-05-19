@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.19.0](https://github.com/s-r-x/bull-monitor/compare/v0.18.0...v0.19.0) (2021-05-19)
+
+
+### Features
+
+* **ui:** render statuses on the jobs screen in the same order as in drawer ([824da87](https://github.com/s-r-x/bull-monitor/commit/824da871ef832fa23770031b18ac565a8c50ed0f))
+* **ui:** selectable statuses in drawer ([2346724](https://github.com/s-r-x/bull-monitor/commit/2346724797ad00b32f196287b9cbb1cd792e3161))
+
+
+
+
+
 # [0.18.0](https://github.com/s-r-x/bull-monitor/compare/v0.17.0...v0.18.0) (2021-05-18)
 
 
