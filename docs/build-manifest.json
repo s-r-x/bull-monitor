@@ -2140,7 +2140,7 @@
       ]
     },
     "dist/components/Drawer/Queues/JobsCount.js": {
-      "bytes": 1098,
+      "bytes": 1229,
       "imports": [
         {
           "path": "_snowpack/pkg/react.js",
@@ -2752,7 +2752,7 @@
       ]
     },
     "dist/components/Drawer/Queues/Queue.js": {
-      "bytes": 3207,
+      "bytes": 3443,
       "imports": [
         {
           "path": "_snowpack/pkg/react.js",
@@ -2833,8 +2833,21 @@
         }
       ]
     },
+    "dist/stores/filters.js": {
+      "bytes": 400,
+      "imports": [
+        {
+          "path": "_snowpack/pkg/zustand.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "dist/typings/gql.js",
+          "kind": "import-statement"
+        }
+      ]
+    },
     "dist/components/Drawer/Queues/index.js": {
-      "bytes": 1191,
+      "bytes": 1556,
       "imports": [
         {
           "path": "_snowpack/pkg/react.js",
@@ -2862,6 +2875,10 @@
         },
         {
           "path": "dist/stores/queues-collapse.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "dist/stores/filters.js",
           "kind": "import-statement"
         }
       ]
@@ -6514,19 +6531,6 @@
         }
       ]
     },
-    "dist/stores/filters.js": {
-      "bytes": 400,
-      "imports": [
-        {
-          "path": "_snowpack/pkg/zustand.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "dist/typings/gql.js",
-          "kind": "import-statement"
-        }
-      ]
-    },
     "dist/hooks/use-queue-data.js": {
       "bytes": 289,
       "imports": [
@@ -6541,14 +6545,10 @@
       ]
     },
     "dist/screens/jobs/Filters/hooks.js": {
-      "bytes": 1084,
+      "bytes": 912,
       "imports": [
         {
           "path": "_snowpack/pkg/react.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "dist/typings/gql.js",
           "kind": "import-statement"
         },
         {
@@ -10389,7 +10389,7 @@
           "bytesInOutput": 110
         },
         "dist/components/Drawer/Queues/JobsCount.js": {
-          "bytesInOutput": 273
+          "bytesInOutput": 356
         },
         "_snowpack/pkg/@material-ui/icons/MoveToInbox.js": {
           "bytesInOutput": 372
@@ -10413,13 +10413,16 @@
           "bytesInOutput": 3480
         },
         "dist/components/Drawer/Queues/Queue.js": {
-          "bytesInOutput": 1046
+          "bytesInOutput": 1173
         },
         "dist/stores/queues-collapse.js": {
           "bytesInOutput": 303
         },
+        "dist/stores/filters.js": {
+          "bytesInOutput": 173
+        },
         "dist/components/Drawer/Queues/index.js": {
-          "bytesInOutput": 309
+          "bytesInOutput": 415
         },
         "_snowpack/pkg/common/utils-cc6bb9d1.js": {
           "bytesInOutput": 265
@@ -10829,14 +10832,11 @@
         "_snowpack/pkg/@material-ui/core/Paper.js": {
           "bytesInOutput": 0
         },
-        "dist/stores/filters.js": {
-          "bytesInOutput": 173
-        },
         "dist/hooks/use-queue-data.js": {
           "bytesInOutput": 81
         },
         "dist/screens/jobs/Filters/hooks.js": {
-          "bytesInOutput": 259
+          "bytesInOutput": 218
         },
         "dist/screens/jobs/Filters/index.js": {
           "bytesInOutput": 1321
@@ -11094,7 +11094,7 @@
           "bytesInOutput": 122
         }
       },
-      "bytes": 896934
+      "bytes": 897209
     },
     "../packages/ui/~~bundle~~/dist/index.css": {
       "imports": [],
