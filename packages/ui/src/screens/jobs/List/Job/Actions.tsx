@@ -18,39 +18,40 @@ import SettingsIcon from '@material-ui/icons/Settings';
 import Timeline from './Timeline';
 import Options from './Options';
 import { useExportJobsMutation } from '@/hooks/use-export-jobs-mutation';
+import { makeStyles } from '@material-ui/core/styles';
+import { useToggle } from '@/hooks/use-toggle';
+
+const useStyles = makeStyles((theme) => ({
+  popover: {
+    pointerEvents: 'none',
+  },
+  paper: {
+    pointerEvents: 'auto',
+    padding: theme.spacing(1),
+  },
+}));
 
 type TProps = Pick<TJobProps, 'job' | 'queue'>;
 const JobActions = ({ job, queue }: TProps) => {
+  const cls = useStyles();
   const { mutations } = useNetwork();
   const openDataEditor = useDataEditorStore((state) => state.open);
   const openJobLogs = useJobLogsStore((state) => state.open);
+  const tlPopoverId = `${job.id}-tl-popover`;
+  const optsPopoverId = `${job.id}-opts-popover`;
+  const tlPopoverAnchor = React.useRef<any>(null);
+  const optsPopoverAnchor = React.useRef<any>(null);
+  const [tlOpen, toggleTlOpen, setTlOpen] = useToggle();
+  const [optsOpen, toggleOptsOpen, setOptsOpen] = useToggle();
+  const openTlPopover = () => setTlOpen(true);
+  const closeTlPopover = () => setTlOpen(false);
+  const openOptsPopover = () => setOptsOpen(true);
+  const closeOptsPopover = () => setOptsOpen(false);
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
-  const [tlAnchorEl, setTlAnchorEl] = React.useState<HTMLButtonElement | null>(
-    null,
-  );
-  const [
-    optsAnchorEl,
-    setOptsAnchorEl,
-  ] = React.useState<HTMLButtonElement | null>(null);
 
-  const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+  const handleClickMore = (event: React.MouseEvent<HTMLButtonElement>) =>
     setAnchorEl(event.currentTarget);
-  };
-  const handleClose = () => {
-    setAnchorEl(null);
-  };
-  const handleTlClick = (event: React.MouseEvent<HTMLButtonElement>) => {
-    setTlAnchorEl(event.currentTarget);
-  };
-  const handleTlClose = () => {
-    setTlAnchorEl(null);
-  };
-  const handleOptsClick = (event: React.MouseEvent<HTMLButtonElement>) => {
-    setOptsAnchorEl(event.currentTarget);
-  };
-  const handleOptsClose = () => {
-    setOptsAnchorEl(null);
-  };
+  const handleCloseMore = () => setAnchorEl(null);
 
   const removeMutation = useAbstractMutation({
     mutation: mutations.removeJob,
@@ -106,15 +107,31 @@ const JobActions = ({ job, queue }: TProps) => {
           <DeleteIcon />
         </IconButton>
       </Tooltip>
-      <Tooltip title="Timeline">
-        <IconButton onClick={handleTlClick} size="small">
-          <ScheduleIcon />
-        </IconButton>
-      </Tooltip>
+      <IconButton
+        aria-haspopup="true"
+        aria-owns={tlPopoverId}
+        ref={tlPopoverAnchor}
+        onMouseEnter={openTlPopover}
+        onClick={toggleTlOpen}
+        onMouseLeave={closeTlPopover}
+        size="small"
+      >
+        <ScheduleIcon />
+      </IconButton>
       <Popover
-        open={Boolean(tlAnchorEl)}
-        anchorEl={tlAnchorEl}
-        onClose={handleTlClose}
+        id={tlPopoverId}
+        disableScrollLock
+        onClose={closeTlPopover}
+        className={cls.popover}
+        //classes={{
+        //  paper: cls.paper,
+        //}}
+        //PaperProps={{
+        //  onMouseEnter: openTlPopover,
+        //  onMouseLeave: closeTlPopover,
+        //}}
+        open={tlOpen}
+        anchorEl={tlPopoverAnchor.current}
         anchorOrigin={{
           vertical: 'bottom',
           horizontal: 'center',
@@ -127,15 +144,32 @@ const JobActions = ({ job, queue }: TProps) => {
         <Timeline job={job} />
       </Popover>
 
-      <Tooltip title="Options">
-        <IconButton onClick={handleOptsClick} size="small">
-          <SettingsIcon />
-        </IconButton>
-      </Tooltip>
+      <IconButton
+        aria-haspopup="true"
+        aria-owns={optsPopoverId}
+        ref={optsPopoverAnchor}
+        onMouseEnter={openOptsPopover}
+        onClick={toggleOptsOpen}
+        onMouseLeave={closeOptsPopover}
+        size="small"
+      >
+        <SettingsIcon />
+      </IconButton>
       <Popover
-        open={Boolean(optsAnchorEl)}
-        anchorEl={optsAnchorEl}
-        onClose={handleOptsClose}
+        id={optsPopoverId}
+        disableScrollLock
+        onClose={closeOptsPopover}
+        className={cls.popover}
+        // uncomment to allow mouse events on popover
+        //classes={{
+        //  paper: cls.paper,
+        //}}
+        //PaperProps={{
+        //  onMouseEnter: openOptsPopover,
+        //  onMouseLeave: closeOptsPopover,
+        //}}
+        open={optsOpen}
+        anchorEl={optsPopoverAnchor.current}
         anchorOrigin={{
           vertical: 'bottom',
           horizontal: 'center',
@@ -148,15 +182,15 @@ const JobActions = ({ job, queue }: TProps) => {
         <Options options={job.opts} />
       </Popover>
       <Tooltip title="More">
-        <IconButton size="small" onClick={handleClick}>
+        <IconButton size="small" onClick={handleClickMore}>
           <MoreIcon />
         </IconButton>
       </Tooltip>
       <Menu
         anchorEl={anchorEl}
         open={Boolean(anchorEl)}
-        onClose={handleClose}
-        onClick={handleClose}
+        onClose={handleCloseMore}
+        onClick={handleCloseMore}
       >
         <MenuItem onClick={() => openJobLogs(sharedMutationArg)}>Logs</MenuItem>
         {job.status === JobStatus.Failed && (
