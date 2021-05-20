@@ -8295,8 +8295,17 @@
         }
       ]
     },
+    "dist/hooks/use-toggle.js": {
+      "bytes": 284,
+      "imports": [
+        {
+          "path": "_snowpack/pkg/react.js",
+          "kind": "import-statement"
+        }
+      ]
+    },
     "dist/screens/jobs/List/Job/Actions.js": {
-      "bytes": 6570,
+      "bytes": 7302,
       "imports": [
         {
           "path": "_snowpack/pkg/react.js",
@@ -8372,6 +8381,14 @@
         },
         {
           "path": "dist/hooks/use-export-jobs-mutation.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/@material-ui/core/styles.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "dist/hooks/use-toggle.js",
           "kind": "import-statement"
         }
       ]
@@ -10985,8 +11002,11 @@
         "dist/hooks/use-export-jobs-mutation.js": {
           "bytesInOutput": 269
         },
+        "dist/hooks/use-toggle.js": {
+          "bytesInOutput": 70
+        },
         "dist/screens/jobs/List/Job/Actions.js": {
-          "bytesInOutput": 2410
+          "bytesInOutput": 2700
         },
         "_snowpack/pkg/@material-ui/core/Checkbox.js": {
           "bytesInOutput": 1952
@@ -11094,7 +11114,7 @@
           "bytesInOutput": 122
         }
       },
-      "bytes": 897209
+      "bytes": 897569
     },
     "../packages/ui/~~bundle~~/dist/index.css": {
       "imports": [],
