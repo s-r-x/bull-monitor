@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.20.0](https://github.com/s-r-x/bull-monitor/compare/v0.19.0...v0.20.0) (2021-05-20)
+
+
+### Features
+
+* **ui:** options/timeline popovers in jobs table now appear from mouseover event instead of click and do not block scroll ([7013bce](https://github.com/s-r-x/bull-monitor/commit/7013bce7cecfe668584b6eb9d43c80e83a30fc17))
+
+
+
+
+
 # [0.19.0](https://github.com/s-r-x/bull-monitor/compare/v0.18.0...v0.19.0) (2021-05-19)
 
 
