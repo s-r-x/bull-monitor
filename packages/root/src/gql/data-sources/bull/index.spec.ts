@@ -1,6 +1,6 @@
-import { BullDataSource, ErrorEnum } from './bull';
+import { BullDataSource, ErrorEnum } from '.';
 import type { Queue, Job } from 'bull';
-import { JobStatus, JobStatusClean, OrderEnum } from '../../typings/gql';
+import { JobStatus, JobStatusClean, OrderEnum } from '../../../typings/gql';
 
 const mockJobId = 'id';
 const mockQueueName = 'q';
