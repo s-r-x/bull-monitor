@@ -121,6 +121,7 @@ const JobActions = ({ job, queue }: TProps) => {
       <Popover
         id={tlPopoverId}
         disableScrollLock
+        disableRestoreFocus
         onClose={closeTlPopover}
         className={cls.popover}
         //classes={{
@@ -159,6 +160,7 @@ const JobActions = ({ job, queue }: TProps) => {
         id={optsPopoverId}
         disableScrollLock
         onClose={closeOptsPopover}
+        disableRestoreFocus
         className={cls.popover}
         // uncomment to allow mouse events on popover
         //classes={{
