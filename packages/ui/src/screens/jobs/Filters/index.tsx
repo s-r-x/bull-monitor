@@ -1,13 +1,14 @@
-import React from 'react';
+import React, { useMemo, useState } from 'react';
 import Paper from '@material-ui/core/Paper';
 import Chip from '@material-ui/core/Chip';
 import { makeStyles } from '@material-ui/core/styles';
 import { useQueueCounts } from './hooks';
 import TextField from '@material-ui/core/TextField';
-import shallow from 'zustand/shallow';
 import MenuItem from '@material-ui/core/MenuItem';
 import { useFiltersStore } from '@/stores/filters';
 import { OrderEnum } from '@/typings/gql';
+import CloseableTip from '@/components/CloseableTip';
+import debounce from 'lodash/debounce';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -36,23 +37,57 @@ const useStyles = makeStyles((theme) => ({
     display: 'inline-flex',
     marginBottom: theme.spacing(1),
   },
+  searchTip: {
+    marginBottom: theme.spacing(1),
+  },
   textFields: {
     display: 'flex',
     flexWrap: 'nowrap',
     alignItems: 'center',
+    marginBottom: theme.spacing(1),
     '& > *': {
       marginRight: theme.spacing(1),
+    },
+    '&:last-child': {
+      marginBottom: 0,
     },
   },
 }));
 
+const SEARCH_INPUT_DEBOUNCE = 250;
 export default function JobsFilters() {
   const cls = useStyles();
-  const [jobId, changeJobId, order, changeOrder] = useFiltersStore(
-    (state) => [state.jobId, state.changeJobId, state.order, state.changeOrder],
-    shallow,
-  );
+  const {
+    jobId,
+    changeJobId,
+    order,
+    changeOrder,
+    changeDataSearchKey,
+    changeDataSearchTerm,
+  } = useFiltersStore();
   const counts = useQueueCounts();
+  const [searchKey, setSearchKey] = useState('');
+  const [searchTerm, setSearchTerm] = useState('');
+  const onDataSearchKeyChange: React.ChangeEventHandler<HTMLInputElement> = useMemo(() => {
+    const debounced = debounce(
+      (v: string) => changeDataSearchKey(v),
+      SEARCH_INPUT_DEBOUNCE,
+    );
+    return ({ target: { value } }) => {
+      setSearchKey(value);
+      debounced(value);
+    };
+  }, []);
+  const onDataSearchTermChange: React.ChangeEventHandler<HTMLInputElement> = useMemo(() => {
+    const debounced = debounce(
+      (v: string) => changeDataSearchTerm(v),
+      SEARCH_INPUT_DEBOUNCE,
+    );
+    return ({ target: { value } }) => {
+      setSearchTerm(value);
+      debounced(value);
+    };
+  }, []);
 
   return (
     <Paper className={cls.root}>
@@ -93,6 +128,29 @@ export default function JobsFilters() {
           <MenuItem value={OrderEnum.Desc}>DESC</MenuItem>
           <MenuItem value={OrderEnum.Asc}>ASC</MenuItem>
         </TextField>
+      </div>
+      <CloseableTip
+        className={cls.searchTip}
+        persistKey="data-text-search"
+        tip="Any key supported by lodash.get. If not specified text search will be performed on the whole stringified data"
+      />
+      <div className={cls.textFields}>
+        <TextField
+          value={searchKey}
+          onChange={onDataSearchKeyChange}
+          label="Data search key"
+          variant="outlined"
+          id="jobs-filters_data-search-key"
+          size="small"
+        />
+        <TextField
+          value={searchTerm}
+          onChange={onDataSearchTermChange}
+          variant="outlined"
+          size="small"
+          label="Data search term"
+          id="jobs-filters_data-search-term"
+        />
       </div>
     </Paper>
   );

@@ -14,6 +14,7 @@ export const getJobs = (args: GetJobsQueryVariables): Promise<GetJobsQuery> =>
         $status: JobStatus
         $order: OrderEnum
         $id: ID
+        $dataSearch: JobDataSearchInput
       ) {
         jobs(
           queue: $queue
@@ -22,6 +23,7 @@ export const getJobs = (args: GetJobsQueryVariables): Promise<GetJobsQuery> =>
           status: $status
           order: $order
           id: $id
+          dataSearch: $dataSearch
         ) {
           ...CommonJobFields
         }

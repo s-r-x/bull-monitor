@@ -46,6 +46,15 @@ export type Job = {
   opts: Scalars['String'];
 };
 
+export type JobDataSearchInput = {
+  /**
+   * any key supported by https://lodash.com/docs/4.17.15#get
+   * if not specified text search will be performed on the whole stringified data
+   */
+  key?: Maybe<Scalars['String']>;
+  term: Scalars['String'];
+};
+
 export type JobLogs = {
   count: Scalars['Int'];
   logs: Array<Maybe<Scalars['String']>>;
@@ -234,6 +243,7 @@ export type QueryJobsArgs = {
   order?: Maybe<OrderEnum>;
   id?: Maybe<Scalars['ID']>;
   ids?: Maybe<Array<Maybe<Scalars['ID']>>>;
+  dataSearch?: Maybe<JobDataSearchInput>;
 };
 
 
@@ -477,6 +487,7 @@ export type GetJobsQueryVariables = Exact<{
   status?: Maybe<JobStatus>;
   order?: Maybe<OrderEnum>;
   id?: Maybe<Scalars['ID']>;
+  dataSearch?: Maybe<JobDataSearchInput>;
 }>;
 
 

@@ -16,8 +16,14 @@ export const useJobsQuery = () => {
     (state) => [state.page, state.perPage],
     shallow,
   );
-  const [status, order, jobId] = useFiltersStore(
-    (state) => [state.status, state.order, state.jobId],
+  const [status, order, jobId, searchKey, searchTerm] = useFiltersStore(
+    (state) => [
+      state.status,
+      state.order,
+      state.jobId,
+      state.dataSearchKey,
+      state.dataSearchTerm,
+    ],
     shallow,
   );
   const isFetchLocked = useRefetchJobsLockStore((state) => state.isLocked);
@@ -33,6 +39,8 @@ export const useJobsQuery = () => {
         status,
         order,
         id: jobId,
+        searchKey,
+        searchTerm,
       },
     ],
     () =>
@@ -43,6 +51,12 @@ export const useJobsQuery = () => {
         status,
         order,
         id: jobId,
+        dataSearch: searchTerm
+          ? {
+              term: searchTerm,
+              key: searchKey,
+            }
+          : null,
       }),
     {
       keepPreviousData: true,
