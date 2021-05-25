@@ -26,6 +26,7 @@
     "@material-ui/lab": "^4.0.0-alpha.57",
     "@types/codemirror": "0.0.108",
     "@types/lodash": "^4.14.168",
+    "clsx": "^1.1.1",
     "codemirror": "^5.60.0",
     "dayjs": "^1.10.4",
     "eventemitter3": "^4.0.7",
