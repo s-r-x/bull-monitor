@@ -26,7 +26,13 @@ export const useRunPaginationSideEffects = () => {
     const effect = () => changePage(0);
     const unsubFilters = useFiltersStore.subscribe(
       effect,
-      (state) => [state.order, state.status, state.jobId],
+      (state) => [
+        state.order,
+        state.status,
+        state.jobId,
+        state.changeDataSearchKey,
+        state.changeDataSearchTerm,
+      ],
       shallow,
     );
     const unsubActiveQueue = useActiveQueueStore.subscribe(
