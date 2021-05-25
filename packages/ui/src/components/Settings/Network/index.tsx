@@ -25,6 +25,8 @@ export default function NetworkSettings() {
     changePollingInterval,
     shouldFetchData,
     toggleShouldFetchData,
+    textSearchPollingDisabled,
+    toggleTextSearchPollingDisabled,
   } = useNetworkSettingsStore();
   return (
     <div>
@@ -53,6 +55,17 @@ export default function NetworkSettings() {
             />
           }
           label="Fetch and render data"
+        />
+      </FormControl>
+      <FormControl margin="dense">
+        <FormControlLabel
+          control={
+            <Switch
+              checked={textSearchPollingDisabled}
+              onChange={toggleTextSearchPollingDisabled}
+            />
+          }
+          label="Disable jobs polling while performing a text search"
         />
       </FormControl>
     </div>

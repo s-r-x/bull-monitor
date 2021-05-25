@@ -6,8 +6,10 @@ type TPollingOption = number;
 type TState = {
   pollingInterval: TPollingOption;
   shouldFetchData: boolean;
+  textSearchPollingDisabled: boolean;
 
   toggleShouldFetchData: () => void;
+  toggleTextSearchPollingDisabled: () => void;
   changePollingInterval: (pollingInterval: TPollingOption) => void;
 };
 export const useNetworkSettingsStore = createStore<TState>(
@@ -15,8 +17,13 @@ export const useNetworkSettingsStore = createStore<TState>(
     (set) => ({
       shouldFetchData: true,
       pollingInterval: 5000,
+      textSearchPollingDisabled: true,
 
       changePollingInterval: (pollingInterval) => set({ pollingInterval }),
+      toggleTextSearchPollingDisabled: () =>
+        set(({ textSearchPollingDisabled }) =>
+          set({ textSearchPollingDisabled: !textSearchPollingDisabled }),
+        ),
       toggleShouldFetchData: () =>
         set(({ shouldFetchData }) => ({ shouldFetchData: !shouldFetchData })),
     }),

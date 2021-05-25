@@ -30,8 +30,9 @@ export const useJobsQuery = () => {
     shallow,
   );
   const isFetchLocked = useRefetchJobsLockStore((state) => state.isLocked);
-  const shouldFetchData = useNetworkSettingsStore(
-    (state) => state.shouldFetchData,
+  const [shouldFetchData, textSearchPollingDisabled] = useNetworkSettingsStore(
+    (state) => [state.shouldFetchData, state.textSearchPollingDisabled],
+    shallow,
   );
   const refetchInterval = getPollingInterval();
   const queue = useActiveQueueStore((state) => state.active as string);
@@ -68,7 +69,10 @@ export const useJobsQuery = () => {
       }),
     {
       keepPreviousData: true,
-      refetchInterval: isFetchLocked ? false : refetchInterval,
+      refetchInterval:
+        isFetchLocked || (textSearchPollingDisabled && searchKey && searchTerm)
+          ? false
+          : refetchInterval,
     },
   );
 };
