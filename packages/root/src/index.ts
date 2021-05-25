@@ -7,25 +7,28 @@ import type {
   Config as ApolloConfig,
 } from 'apollo-server-core';
 import { UI } from './ui';
+import { DEFAULT_TEXT_SEARCH_SCAN_COUNT } from './gql/data-sources/bull/config';
 
 export type Config = {
   queues: Queue[];
   gqlPlayground?: boolean;
   gqlIntrospection?: boolean;
   baseUrl?: string;
+  textSearchScanCount?: number;
 };
 export abstract class BullMonitor<TServer extends ApolloServerBase> {
   public abstract init(...args: any): Promise<any>;
 
   private ui: UI;
-  private _defaultConfig: Config = {
+  private _defaultConfig: Required<Config> = {
     queues: [],
     baseUrl: '',
     gqlIntrospection: true,
     gqlPlayground: true,
+    textSearchScanCount: DEFAULT_TEXT_SEARCH_SCAN_COUNT,
   };
   protected gqlBasePath = '/graphql';
-  protected config: Config;
+  protected config: Required<Config>;
   protected server: TServer;
   constructor(config: Config) {
     this.config = {
@@ -42,7 +45,9 @@ export abstract class BullMonitor<TServer extends ApolloServerBase> {
       playground: this.config.gqlPlayground,
       introspection: this.config.gqlIntrospection,
       dataSources: () => ({
-        bull: new BullDataSource(this.config.queues),
+        bull: new BullDataSource(this.config.queues, {
+          textSearchScanCount: this.config.textSearchScanCount,
+        }),
       }),
     });
   }

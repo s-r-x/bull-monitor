@@ -44,7 +44,7 @@ const mockQueue = {
   resume: jest.fn().mockImplementation(() => Promise.resolve()),
 };
 const createDataSrc = () =>
-  new BullDataSource([(mockQueue as unknown) as Queue]);
+  new BullDataSource([(mockQueue as unknown) as Queue], {});
 
 afterEach(() => {
   jest.clearAllMocks();
@@ -53,6 +53,7 @@ describe('bull data source', () => {
   // TODO:: job logs
   // TODO:: redis info
   // TODO:: new ids arg in getJobs
+  // TODO:: text search
   describe('Queries', () => {
     test('it should get queue by name', () => {
       expect(createDataSrc().getQueueByName(mockQueueName)).toBe(mockQueue);

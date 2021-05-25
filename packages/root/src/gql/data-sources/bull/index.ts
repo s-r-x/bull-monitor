@@ -1,8 +1,9 @@
 import { DataSource } from 'apollo-datasource';
 import type { Queue as BullQueue, JobCounts, JobStatus, JobId } from 'bull';
-import { JsonService } from '../../services/json';
+import { JsonService } from '../../../services/json';
 import {
   CreateJobInput,
+  JobDataSearchInput,
   MutationCleanQueueArgs,
   MutationCloseQueueArgs,
   MutationDiscardJobArgs,
@@ -19,10 +20,14 @@ import {
   MutationRetryJobsArgs,
   MutationUpdateJobDataArgs,
   OrderEnum,
-} from '../../typings/gql';
-import { Maybe } from '../../typings/utils';
+} from '../../../typings/gql';
+import { Maybe } from '../../../typings/utils';
 import redisInfo from 'redis-info';
+import { DataTextSearcher } from './data-text-search';
 
+type Config = {
+  textSearchScanCount?: number;
+};
 export class BullMonitorError extends Error {
   constructor(msg: any) {
     super(msg);
@@ -31,12 +36,13 @@ export class BullMonitorError extends Error {
   }
 }
 export enum ErrorEnum {
-  QUEUE_NOT_FOUND = 'QUEUE_NOT_FOUND',
-  JOB_NOT_FOUND = 'JOB_NOT_FOUND',
+  QUEUE_NOT_FOUND = 'Queue not found',
+  JOB_NOT_FOUND = 'Job not found',
+  DATA_SEARCH_STATUS_REQUIRED = 'Job status is required for data search',
 }
 export class BullDataSource extends DataSource {
   private _queuesMap: Map<string, BullQueue> = new Map();
-  constructor(private _queues: BullQueue[]) {
+  constructor(private _queues: BullQueue[], private _config: Config) {
     super();
     this._convertQueuesToMap(_queues);
   }
@@ -74,30 +80,47 @@ export class BullDataSource extends DataSource {
     id,
     ids,
     order = OrderEnum.Desc,
+    dataSearch,
   }: {
-    status?: JobStatus;
-    queue: string;
     limit?: number;
     offset?: number;
-    id?: JobId;
-    ids?: JobId[];
+    dataSearch?: JobDataSearchInput;
+    id?: string;
     order?: OrderEnum;
+    ids?: string[];
+    status?: JobStatus;
+    queue: string;
   }) {
-    const bullQueue = this.getQueueByName(queue, true);
+    const bullQueue = this.getQueueByName(queue, true) as BullQueue;
     if (ids) {
-      const jobs = await Promise.all(ids.map(id => bullQueue?.getJob(id)));
+      const jobs = await Promise.all(ids.map(id => bullQueue.getJob(id)));
       return jobs;
     } else if (id) {
-      const job = await bullQueue?.getJob(id);
+      const job = await bullQueue.getJob(id);
       return job ? [job] : [];
+    } else if (dataSearch) {
+      if (status) {
+        const searcher = new DataTextSearcher(bullQueue);
+        return await searcher.search({
+          status,
+          term: dataSearch.term,
+          key: dataSearch.key as string,
+          offset: offset,
+          limit: limit,
+          scanCount: this._config.textSearchScanCount,
+        });
+      } else {
+        this._throwInternalError(ErrorEnum.DATA_SEARCH_STATUS_REQUIRED);
+      }
     } else if (status) {
-      return await bullQueue?.getJobs(
+      return await bullQueue.getJobs(
         [status],
         offset,
         offset + limit - 1,
         order === OrderEnum.Asc
       );
-    } else {
+    }
+    {
       return [];
     }
   }

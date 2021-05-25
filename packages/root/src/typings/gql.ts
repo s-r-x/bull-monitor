@@ -46,6 +46,11 @@ export type Job = {
   opts: Scalars['String'];
 };
 
+export type JobDataSearchInput = {
+  key?: Maybe<Scalars['String']>;
+  term: Scalars['String'];
+};
+
 export type JobLogs = {
   count: Scalars['Int'];
   logs: Array<Maybe<Scalars['String']>>;
@@ -234,6 +239,7 @@ export type QueryJobsArgs = {
   order?: Maybe<OrderEnum>;
   id?: Maybe<Scalars['ID']>;
   ids?: Maybe<Array<Maybe<Scalars['ID']>>>;
+  dataSearch?: Maybe<JobDataSearchInput>;
 };
 
 
