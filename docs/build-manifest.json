@@ -8604,7 +8604,7 @@
       ]
     },
     "dist/components/SimpleJsonView/index.js": {
-      "bytes": 607,
+      "bytes": 610,
       "imports": [
         {
           "path": "_snowpack/pkg/react.js",
@@ -11165,7 +11165,7 @@
           "bytesInOutput": 0
         },
         "dist/components/SimpleJsonView/index.js": {
-          "bytesInOutput": 229
+          "bytesInOutput": 232
         },
         "dist/screens/jobs/List/Job/index.js": {
           "bytesInOutput": 846
@@ -11270,7 +11270,7 @@
           "bytesInOutput": 122
         }
       },
-      "bytes": 901325
+      "bytes": 901328
     },
     "../packages/ui/~~bundle~~/dist/index.css": {
       "imports": [],
