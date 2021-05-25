@@ -141,11 +141,13 @@ export default function JobsFilters() {
           label="Data search key"
           variant="outlined"
           id="jobs-filters_data-search-key"
+          autoComplete="off"
           size="small"
         />
         <TextField
           value={searchTerm}
           onChange={onDataSearchTermChange}
+          autoComplete="off"
           variant="outlined"
           size="small"
           label="Data search term"
