@@ -1,8 +1,10 @@
 import React from 'react';
 import TextField from '@material-ui/core/TextField';
-import shallow from 'zustand/shallow';
 import MenuItem from '@material-ui/core/MenuItem';
 import { useNetworkSettingsStore } from '@/stores/network-settings';
+import Switch from '@material-ui/core/Switch';
+import FormControl from '@material-ui/core/FormControl';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
 import ms from 'ms';
 
 const minute = 60000;
@@ -18,10 +20,12 @@ const AVAILABLE_POLLING_INTERVALS = [
   minute * 30,
 ];
 export default function NetworkSettings() {
-  const [pollingInterval, changePollingInterval] = useNetworkSettingsStore(
-    (state) => [state.pollingInterval, state.changePollingInterval],
-    shallow,
-  );
+  const {
+    pollingInterval,
+    changePollingInterval,
+    shouldFetchData,
+    toggleShouldFetchData,
+  } = useNetworkSettingsStore();
   return (
     <div>
       <TextField
@@ -40,6 +44,17 @@ export default function NetworkSettings() {
           </MenuItem>
         ))}
       </TextField>
+      <FormControl margin="dense">
+        <FormControlLabel
+          control={
+            <Switch
+              checked={shouldFetchData}
+              onChange={toggleShouldFetchData}
+            />
+          }
+          label="Fetch and render data"
+        />
+      </FormControl>
     </div>
   );
 }

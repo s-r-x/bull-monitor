@@ -7,8 +7,9 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: '#282C34',
     padding: theme.spacing(1),
     color: '#fff',
-    maxHeight: '300px',
+    height: '200px',
     overflowY: 'auto',
+    margin: 0,
   },
 }));
 

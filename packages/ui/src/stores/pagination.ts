@@ -30,8 +30,8 @@ export const useRunPaginationSideEffects = () => {
         state.order,
         state.status,
         state.jobId,
-        state.changeDataSearchKey,
-        state.changeDataSearchTerm,
+        state.dataSearchKey,
+        state.dataSearchTerm,
       ],
       shallow,
     );

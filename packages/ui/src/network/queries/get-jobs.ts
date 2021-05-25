@@ -15,6 +15,7 @@ export const getJobs = (args: GetJobsQueryVariables): Promise<GetJobsQuery> =>
         $order: OrderEnum
         $id: ID
         $dataSearch: JobDataSearchInput
+        $fetchData: Boolean!
       ) {
         jobs(
           queue: $queue
@@ -26,6 +27,7 @@ export const getJobs = (args: GetJobsQueryVariables): Promise<GetJobsQuery> =>
           dataSearch: $dataSearch
         ) {
           ...CommonJobFields
+          data @include(if: $fetchData)
         }
       }
     `,

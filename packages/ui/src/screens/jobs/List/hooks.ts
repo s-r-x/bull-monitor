@@ -5,7 +5,10 @@ import { useQuery } from 'react-query';
 import { useActiveQueueStore } from '@/stores/active-queue';
 import shallow from 'zustand/shallow';
 import { usePaginationStore } from '@/stores/pagination';
-import { getPollingInterval } from '@/stores/network-settings';
+import {
+  getPollingInterval,
+  useNetworkSettingsStore,
+} from '@/stores/network-settings';
 import { useRefetchJobsLockStore } from '@/stores/refetch-jobs-lock';
 
 export const useJobsQuery = () => {
@@ -27,6 +30,9 @@ export const useJobsQuery = () => {
     shallow,
   );
   const isFetchLocked = useRefetchJobsLockStore((state) => state.isLocked);
+  const shouldFetchData = useNetworkSettingsStore(
+    (state) => state.shouldFetchData,
+  );
   const refetchInterval = getPollingInterval();
   const queue = useActiveQueueStore((state) => state.active as string);
   return useQuery(
@@ -41,6 +47,7 @@ export const useJobsQuery = () => {
         id: jobId,
         searchKey,
         searchTerm,
+        shouldFetchData,
       },
     ],
     () =>
@@ -51,6 +58,7 @@ export const useJobsQuery = () => {
         status,
         order,
         id: jobId,
+        fetchData: shouldFetchData,
         dataSearch: searchTerm
           ? {
               term: searchTerm,

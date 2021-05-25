@@ -488,10 +488,14 @@ export type GetJobsQueryVariables = Exact<{
   order?: Maybe<OrderEnum>;
   id?: Maybe<Scalars['ID']>;
   dataSearch?: Maybe<JobDataSearchInput>;
+  fetchData: Scalars['Boolean'];
 }>;
 
 
-export type GetJobsQuery = { jobs: Array<CommonJobFieldsFragment> };
+export type GetJobsQuery = { jobs: Array<(
+    MakeOptional<Pick<Job, 'data'>, 'data'>
+    & CommonJobFieldsFragment
+  )> };
 
 export type GetQueuesQueryVariables = Exact<{ [key: string]: never; }>;
 
