@@ -3,6 +3,27 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.21.0](https://github.com/s-r-x/bull-monitor/compare/v0.20.0...v0.21.0) (2021-05-25)
+
+
+### Bug Fixes
+
+* **ui:** remove autocomplete from data search inputs ([abb2af3](https://github.com/s-r-x/bull-monitor/commit/abb2af309bee84efd8fd5484c668d4f99dead4b9))
+* **ui:** reset page on data search key/term change ([e08708a](https://github.com/s-r-x/bull-monitor/commit/e08708a9ce8dae8ef9b9155f56cf6ea86a9e76ac))
+* **ui:** scroll jump after close hoverable popovers ([1d1cc44](https://github.com/s-r-x/bull-monitor/commit/1d1cc44f661ed634d8d045bf3cc1de4d3665dc29))
+
+
+### Features
+
+* **gql:** data text search ([6b64103](https://github.com/s-r-x/bull-monitor/commit/6b64103fadfb5492a6ce0e4d27f84dcc8b56b9fc))
+* **ui:** "Disable jobs polling while performing a text search" preference ([e3fd3a0](https://github.com/s-r-x/bull-monitor/commit/e3fd3a05132194fee6f0b3e1b7be2f22911b615c))
+* **ui:** data text search ([606df86](https://github.com/s-r-x/bull-monitor/commit/606df86ae0ba36a8c8a2d5072c218618f924b6cc))
+* **ui:** fetch and render data preference. when enabled it will fetch data(in addition to other fields) in jobs table query and render it below ([8d09fd6](https://github.com/s-r-x/bull-monitor/commit/8d09fd6ee044fb3f983110cd707caff63610f5ac))
+
+
+
+
+
 # [0.20.0](https://github.com/s-r-x/bull-monitor/compare/v0.19.0...v0.20.0) (2021-05-20)
 
 
