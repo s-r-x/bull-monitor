@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.21.1](https://github.com/s-r-x/bull-monitor/compare/v0.21.0...v0.21.1) (2021-05-25)
+
+
+### Bug Fixes
+
+* **ui:** SimpleJsonView. height -> maxHeight ([0dd35ce](https://github.com/s-r-x/bull-monitor/commit/0dd35ce91c2fd5663523d00b399191c7edce7dbb))
+
+
+
+
+
 # [0.21.0](https://github.com/s-r-x/bull-monitor/compare/v0.20.0...v0.21.0) (2021-05-25)
 
 
