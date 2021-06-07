@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.22.0](https://github.com/s-r-x/bull-monitor/compare/v0.21.1...v0.22.0) (2021-06-07)
+
+
+### Bug Fixes
+
+* **ui:** set body cursor style to ew-resize while resizing the drawer ([89b6d33](https://github.com/s-r-x/bull-monitor/commit/89b6d3348698699760553e1c4b5fb27cf23b6959))
+* **ui:** set body userSelect style to none while resizing the drawer ([1b50d21](https://github.com/s-r-x/bull-monitor/commit/1b50d21e1fdf56cabe2e7754f74f87ad366fc786))
+* greater z-index on Codemirror-tooltip element ([c76061c](https://github.com/s-r-x/bull-monitor/commit/c76061c0cee48e7eaf9005abba6d3b27a7d31040))
+
+
+### Features
+
+* add resizable ability to Drawer component ([defcccb](https://github.com/s-r-x/bull-monitor/commit/defcccbc3c5ca006a91c76265d426d844cbe55ae))
+
+
+
+
+
 ## [0.21.1](https://github.com/s-r-x/bull-monitor/compare/v0.21.0...v0.21.1) (2021-05-25)
 
 
