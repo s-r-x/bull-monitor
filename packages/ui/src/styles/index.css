@@ -10,3 +10,7 @@
     margin-right: 15px !important;
   }
 }
+
+.CodeMirror-lint-tooltip {
+  z-index: 1400;
+}
