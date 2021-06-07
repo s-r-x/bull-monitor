@@ -68,7 +68,7 @@ export const useDrawerWidth = () => {
       const $body = document.body;
       const changeDefaultDrawerWidthDebounced = debounce((newWidth: number) => {
         changeDefaultDrawerWidth(newWidth);
-      }, 1000);
+      }, 500);
       const handleMousemove = (e: MouseEvent) => {
         if (
           e.clientX > LayoutConfig.drawerWidth &&
