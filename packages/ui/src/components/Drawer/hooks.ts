@@ -70,11 +70,13 @@ export const useDrawerWidth = () => {
       };
       const handleMousedown = () => {
         $body.style.cursor = 'ew-resize';
+        $body.style.userSelect = 'none';
         document.addEventListener('mousemove', handleMousemove);
         document.addEventListener('mouseup', handleMouseup);
       };
       const handleMouseup = () => {
         $body.style.cursor = 'default';
+        $body.style.userSelect = 'auto';
         document.removeEventListener('mousemove', handleMousemove);
         document.removeEventListener('mouseup', handleMouseup);
       };
