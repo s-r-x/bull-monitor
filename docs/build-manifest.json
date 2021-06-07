@@ -1148,24 +1148,19 @@
         }
       ]
     },
-    "_snowpack/pkg/common/index-12feb778.js": {
-      "bytes": 24754,
-      "imports": [
-        {
-          "path": "_snowpack/pkg/common/_commonjsHelpers-37fa8da4.js",
-          "kind": "import-statement"
-        }
-      ]
+    "dist/config/layouts.js": {
+      "bytes": 94,
+      "imports": []
+    },
+    "dist/config/storage.js": {
+      "bytes": 131,
+      "imports": []
     },
     "_snowpack/pkg/zustand.js": {
-      "bytes": 5568,
+      "bytes": 30153,
       "imports": [
         {
           "path": "_snowpack/pkg/common/_commonjsHelpers-37fa8da4.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/index-12feb778.js",
           "kind": "import-statement"
         },
         {
@@ -1174,11 +1169,32 @@
         }
       ]
     },
-    "dist/stores/drawer.js": {
-      "bytes": 261,
+    "_snowpack/pkg/zustand/middleware.js": {
+      "bytes": 8653,
       "imports": [
         {
+          "path": "_snowpack/pkg/common/_commonjsHelpers-37fa8da4.js",
+          "kind": "import-statement"
+        }
+      ]
+    },
+    "dist/stores/drawer.js": {
+      "bytes": 591,
+      "imports": [
+        {
+          "path": "dist/config/layouts.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "dist/config/storage.js",
+          "kind": "import-statement"
+        },
+        {
           "path": "_snowpack/pkg/zustand.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/zustand/middleware.js",
           "kind": "import-statement"
         }
       ]
@@ -1495,27 +1511,6 @@
         }
       ]
     },
-    "dist/config/layouts.js": {
-      "bytes": 71,
-      "imports": []
-    },
-    "_snowpack/pkg/zustand/middleware.js": {
-      "bytes": 10219,
-      "imports": [
-        {
-          "path": "_snowpack/pkg/common/_commonjsHelpers-37fa8da4.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/index-12feb778.js",
-          "kind": "import-statement"
-        }
-      ]
-    },
-    "dist/config/storage.js": {
-      "bytes": 131,
-      "imports": []
-    },
     "dist/stores/queues-filter.js": {
       "bytes": 354,
       "imports": [
@@ -1542,8 +1537,43 @@
         }
       ]
     },
+    "_snowpack/pkg/common/isObjectLike-47a077c6.js": {
+      "bytes": 4435,
+      "imports": [
+        {
+          "path": "_snowpack/pkg/common/_commonjsHelpers-37fa8da4.js",
+          "kind": "import-statement"
+        }
+      ]
+    },
+    "_snowpack/pkg/common/toNumber-bb9c22a1.js": {
+      "bytes": 3050,
+      "imports": [
+        {
+          "path": "_snowpack/pkg/common/isObjectLike-47a077c6.js",
+          "kind": "import-statement"
+        }
+      ]
+    },
+    "_snowpack/pkg/lodash/debounce.js": {
+      "bytes": 6718,
+      "imports": [
+        {
+          "path": "_snowpack/pkg/common/isObjectLike-47a077c6.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/toNumber-bb9c22a1.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/_commonjsHelpers-37fa8da4.js",
+          "kind": "import-statement"
+        }
+      ]
+    },
     "dist/components/Drawer/hooks.js": {
-      "bytes": 1009,
+      "bytes": 3332,
       "imports": [
         {
           "path": "_snowpack/pkg/react.js",
@@ -1559,6 +1589,18 @@
         },
         {
           "path": "_snowpack/pkg/zustand/shallow.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "dist/config/layouts.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "dist/stores/drawer.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/lodash/debounce.js",
           "kind": "import-statement"
         }
       ]
@@ -3488,15 +3530,6 @@
         }
       ]
     },
-    "_snowpack/pkg/common/isObjectLike-47a077c6.js": {
-      "bytes": 4435,
-      "imports": [
-        {
-          "path": "_snowpack/pkg/common/_commonjsHelpers-37fa8da4.js",
-          "kind": "import-statement"
-        }
-      ]
-    },
     "_snowpack/pkg/common/isArrayLike-d3e145fd.js": {
       "bytes": 2625,
       "imports": [
@@ -3509,15 +3542,6 @@
     "_snowpack/pkg/common/_isIndex-6a000f67.js": {
       "bytes": 784,
       "imports": []
-    },
-    "_snowpack/pkg/common/toNumber-bb9c22a1.js": {
-      "bytes": 3050,
-      "imports": [
-        {
-          "path": "_snowpack/pkg/common/isObjectLike-47a077c6.js",
-          "kind": "import-statement"
-        }
-      ]
     },
     "_snowpack/pkg/common/toFinite-d1094344.js": {
       "bytes": 2661,
@@ -4641,7 +4665,7 @@
       ]
     },
     "dist/components/Drawer/index.js": {
-      "bytes": 3089,
+      "bytes": 3529,
       "imports": [
         {
           "path": "_snowpack/pkg/react.js",
@@ -6640,23 +6664,6 @@
         },
         {
           "path": "dist/config/storage.js",
-          "kind": "import-statement"
-        }
-      ]
-    },
-    "_snowpack/pkg/lodash/debounce.js": {
-      "bytes": 6718,
-      "imports": [
-        {
-          "path": "_snowpack/pkg/common/isObjectLike-47a077c6.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/toNumber-bb9c22a1.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/_commonjsHelpers-37fa8da4.js",
           "kind": "import-statement"
         }
       ]
@@ -10268,7 +10275,7 @@
       ]
     },
     "dist/styles/index.css": {
-      "bytes": 251,
+      "bytes": 297,
       "imports": []
     },
     "dist/index.js": {
@@ -10438,14 +10445,20 @@
         "_snowpack/pkg/@material-ui/core/IconButton.js": {
           "bytesInOutput": 0
         },
-        "_snowpack/pkg/common/index-12feb778.js": {
-          "bytesInOutput": 6700
+        "dist/config/layouts.js": {
+          "bytesInOutput": 59
+        },
+        "dist/config/storage.js": {
+          "bytesInOutput": 86
         },
         "_snowpack/pkg/zustand.js": {
-          "bytesInOutput": 1913
+          "bytesInOutput": 8609
+        },
+        "_snowpack/pkg/zustand/middleware.js": {
+          "bytesInOutput": 3650
         },
         "dist/stores/drawer.js": {
-          "bytesInOutput": 119
+          "bytesInOutput": 224
         },
         "_snowpack/pkg/zustand/shallow.js": {
           "bytesInOutput": 406
@@ -10471,23 +10484,23 @@
         "dist/components/NetworkRequest/index.js": {
           "bytesInOutput": 243
         },
-        "dist/config/layouts.js": {
-          "bytesInOutput": 40
-        },
-        "_snowpack/pkg/zustand/middleware.js": {
-          "bytesInOutput": 3996
-        },
-        "dist/config/storage.js": {
-          "bytesInOutput": 86
-        },
         "dist/stores/queues-filter.js": {
           "bytesInOutput": 94
         },
         "dist/stores/active-queue.js": {
           "bytesInOutput": 93
         },
+        "_snowpack/pkg/common/isObjectLike-47a077c6.js": {
+          "bytesInOutput": 788
+        },
+        "_snowpack/pkg/common/toNumber-bb9c22a1.js": {
+          "bytesInOutput": 611
+        },
+        "_snowpack/pkg/lodash/debounce.js": {
+          "bytesInOutput": 995
+        },
         "dist/components/Drawer/hooks.js": {
-          "bytesInOutput": 257
+          "bytesInOutput": 1160
         },
         "_snowpack/pkg/common/ListContext-e5a8245b.js": {
           "bytesInOutput": 27
@@ -10639,17 +10652,11 @@
         "dist/network/queries/get-job-data.js": {
           "bytesInOutput": 157
         },
-        "_snowpack/pkg/common/isObjectLike-47a077c6.js": {
-          "bytesInOutput": 788
-        },
         "_snowpack/pkg/common/isArrayLike-d3e145fd.js": {
           "bytesInOutput": 351
         },
         "_snowpack/pkg/common/_isIndex-6a000f67.js": {
           "bytesInOutput": 166
-        },
-        "_snowpack/pkg/common/toNumber-bb9c22a1.js": {
-          "bytesInOutput": 611
         },
         "_snowpack/pkg/common/toFinite-d1094344.js": {
           "bytesInOutput": 345
@@ -10844,7 +10851,7 @@
           "bytesInOutput": 426
         },
         "dist/components/Drawer/index.js": {
-          "bytesInOutput": 1043
+          "bytesInOutput": 1295
         },
         "_snowpack/pkg/@material-ui/core/AppBar.js": {
           "bytesInOutput": 1270
@@ -11001,9 +11008,6 @@
         },
         "dist/components/CloseableTip/index.js": {
           "bytesInOutput": 219
-        },
-        "_snowpack/pkg/lodash/debounce.js": {
-          "bytesInOutput": 995
         },
         "dist/screens/jobs/Filters/index.js": {
           "bytesInOutput": 2172
@@ -11270,13 +11274,13 @@
           "bytesInOutput": 122
         }
       },
-      "bytes": 901328
+      "bytes": 902257
     },
     "../packages/ui/~~bundle~~/dist/index.css": {
       "imports": [],
       "inputs": {
         "dist/styles/index.css": {
-          "bytesInOutput": 202
+          "bytesInOutput": 240
         },
         "_snowpack/pkg/codemirror/addon/lint/lint.css": {
           "bytesInOutput": 2621
@@ -11297,7 +11301,7 @@
           "bytesInOutput": 4359
         }
       },
-      "bytes": 18682
+      "bytes": 18720
     }
   }
 }
