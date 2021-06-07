@@ -9,12 +9,14 @@ import { SnackbarProvider } from 'notistack';
 import { NetworkProvider } from './providers/network';
 import { useRunStoreSideEffects } from './stores/side-effects';
 import { QueuesQueryProvider } from './providers/queues-query';
+import { useDynamicPageTitle } from './hooks/use-dynamic-page-title';
 
 const queryClient = new QueryClient();
 
 export default function App() {
   const muiTheme = getMuiTheme();
   useRunStoreSideEffects();
+  useDynamicPageTitle();
   return (
     <NetworkProvider>
       <MuiThemeProvider theme={muiTheme}>
