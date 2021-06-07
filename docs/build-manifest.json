@@ -9021,7 +9021,7 @@
       "imports": []
     },
     "dist/stores/pagination.js": {
-      "bytes": 1100,
+      "bytes": 1306,
       "imports": [
         {
           "path": "_snowpack/pkg/zustand.js",
@@ -9040,11 +9040,19 @@
           "kind": "import-statement"
         },
         {
+          "path": "_snowpack/pkg/zustand/middleware.js",
+          "kind": "import-statement"
+        },
+        {
           "path": "dist/stores/filters.js",
           "kind": "import-statement"
         },
         {
           "path": "dist/config/pagination.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "dist/config/storage.js",
           "kind": "import-statement"
         }
       ]
@@ -11207,7 +11215,7 @@
           "bytesInOutput": 38
         },
         "dist/stores/pagination.js": {
-          "bytesInOutput": 309
+          "bytesInOutput": 370
         },
         "dist/screens/jobs/List/Pagination/hooks.js": {
           "bytesInOutput": 97
@@ -11294,7 +11302,7 @@
           "bytesInOutput": 122
         }
       },
-      "bytes": 902373
+      "bytes": 902434
     },
     "../packages/ui/~~bundle~~/dist/index.css": {
       "imports": [],
