@@ -10225,8 +10225,21 @@
         }
       ]
     },
+    "dist/hooks/use-dynamic-page-title.js": {
+      "bytes": 381,
+      "imports": [
+        {
+          "path": "dist/stores/active-queue.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/react.js",
+          "kind": "import-statement"
+        }
+      ]
+    },
     "dist/App.js": {
-      "bytes": 1371,
+      "bytes": 1467,
       "imports": [
         {
           "path": "_snowpack/pkg/react.js",
@@ -10270,6 +10283,10 @@
         },
         {
           "path": "dist/providers/queues-query/index.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "dist/hooks/use-dynamic-page-title.js",
           "kind": "import-statement"
         }
       ]
@@ -11264,8 +11281,11 @@
         "dist/stores/side-effects.js": {
           "bytesInOutput": 28
         },
+        "dist/hooks/use-dynamic-page-title.js": {
+          "bytesInOutput": 111
+        },
         "dist/App.js": {
-          "bytesInOutput": 271
+          "bytesInOutput": 276
         },
         "dist/styles/index.css": {
           "bytesInOutput": 0
@@ -11274,7 +11294,7 @@
           "bytesInOutput": 122
         }
       },
-      "bytes": 902257
+      "bytes": 902373
     },
     "../packages/ui/~~bundle~~/dist/index.css": {
       "imports": [],
