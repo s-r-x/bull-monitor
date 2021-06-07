@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import BaseDrawer from '@material-ui/core/Drawer';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
@@ -41,6 +41,16 @@ const useStyles = makeStyles((theme) => ({
     bottom: 0,
     zIndex: 2,
   },
+  dragger: {
+    width: 4,
+    cursor: 'ew-resize',
+    padding: '4px 0 0',
+    position: 'absolute',
+    top: 0,
+    right: 0,
+    bottom: 0,
+    zIndex: 100,
+  },
 }));
 
 export default function Drawer() {
@@ -56,8 +66,35 @@ export default function Drawer() {
   useSetActiveQueueOnFirstLoad(queues);
   const filteredQueues = useFilteredQueues(queues);
 
+  const [isResizing, setIsResizing] = useState(false);
+  const [drawerWidth, setDrawerWidth] = useState(LayoutConfig.drawerWidth);
+
+  const handleMousedown = () => setIsResizing(true);
+  const handleMouseup = () => setIsResizing(false);
+
+  const handleMousemove = (e: MouseEvent) => {
+    if (!isResizing) return;
+
+    if (
+      e.clientX > LayoutConfig.drawerWidth &&
+      e.clientX < LayoutConfig.drawerWidth * 2
+    ) {
+      setDrawerWidth(e.clientX);
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener('mousemove', handleMousemove);
+    document.addEventListener('mouseup', handleMouseup);
+
+    return () => {
+      document.removeEventListener('mousemove', handleMousemove);
+      document.removeEventListener('mouseup', handleMouseup);
+    };
+  }, [isResizing]);
+
   return (
-    <nav className={cls.drawer}>
+    <nav className={cls.drawer} style={{ width: drawerWidth }}>
       <BaseDrawer
         open={isDesktop || isOpen}
         container={isDesktop ? undefined : window.document.body}
@@ -67,7 +104,13 @@ export default function Drawer() {
         classes={{
           paper: cls.drawerPaper,
         }}
+        PaperProps={{ style: { width: drawerWidth } }}
       >
+        <div
+          id="dragger"
+          onMouseDown={() => handleMousedown()}
+          className={cls.dragger}
+        />
         <div className={cls.toolbar}>
           <IconButton onClick={closeDrawer}>
             {theme.direction === 'ltr' ? (
