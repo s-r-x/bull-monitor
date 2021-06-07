@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import BaseDrawer from '@material-ui/core/Drawer';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
@@ -8,7 +8,11 @@ import { useDrawerState } from '@/stores/drawer';
 import shallow from 'zustand/shallow';
 import NetworkRequest from '@/components/NetworkRequest';
 import { LayoutConfig } from '@/config/layouts';
-import { useFilteredQueues, useSetActiveQueueOnFirstLoad } from './hooks';
+import {
+  useDrawerWidth,
+  useFilteredQueues,
+  useSetActiveQueueOnFirstLoad,
+} from './hooks';
 import QueuesList from './Queues';
 import QueuesFilter from './Filter';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
@@ -65,33 +69,7 @@ export default function Drawer() {
   const queues = data?.queues;
   useSetActiveQueueOnFirstLoad(queues);
   const filteredQueues = useFilteredQueues(queues);
-
-  const [isResizing, setIsResizing] = useState(false);
-  const [drawerWidth, setDrawerWidth] = useState(LayoutConfig.drawerWidth);
-
-  const handleMousedown = () => setIsResizing(true);
-  const handleMouseup = () => setIsResizing(false);
-
-  const handleMousemove = (e: MouseEvent) => {
-    if (!isResizing) return;
-
-    if (
-      e.clientX > LayoutConfig.drawerWidth &&
-      e.clientX < LayoutConfig.drawerWidth * 2
-    ) {
-      setDrawerWidth(e.clientX);
-    }
-  };
-
-  useEffect(() => {
-    document.addEventListener('mousemove', handleMousemove);
-    document.addEventListener('mouseup', handleMouseup);
-
-    return () => {
-      document.removeEventListener('mousemove', handleMousemove);
-      document.removeEventListener('mouseup', handleMouseup);
-    };
-  }, [isResizing]);
+  const { drawerWidth, handleMousedown } = useDrawerWidth();
 
   return (
     <nav className={cls.drawer} style={{ width: drawerWidth }}>
