@@ -59,6 +59,7 @@ export const useDrawerWidth = () => {
   useEffect(() => {
     if (isDraggerMounted) {
       const $dragger = draggerRef.current as HTMLDivElement;
+      const $body = document.body;
       const handleMousemove = (e: MouseEvent) => {
         if (
           e.clientX > LayoutConfig.drawerWidth &&
@@ -68,10 +69,12 @@ export const useDrawerWidth = () => {
         }
       };
       const handleMousedown = () => {
+        $body.style.cursor = 'ew-resize';
         document.addEventListener('mousemove', handleMousemove);
         document.addEventListener('mouseup', handleMouseup);
       };
       const handleMouseup = () => {
+        $body.style.cursor = 'default';
         document.removeEventListener('mousemove', handleMousemove);
         document.removeEventListener('mouseup', handleMouseup);
       };
