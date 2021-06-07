@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.23.0](https://github.com/s-r-x/bull-monitor/compare/v0.22.0...v0.23.0) (2021-06-07)
+
+
+### Features
+
+* **ui:** dynamic page title based on selected queue ([298809b](https://github.com/s-r-x/bull-monitor/commit/298809b748475960f5ddefc31c464c35ab5406ef))
+
+
+
+
+
 # [0.22.0](https://github.com/s-r-x/bull-monitor/compare/v0.21.1...v0.22.0) (2021-06-07)
 
 
