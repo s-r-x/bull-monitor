@@ -69,7 +69,7 @@ export default function Drawer() {
   const queues = data?.queues;
   useSetActiveQueueOnFirstLoad(queues);
   const filteredQueues = useFilteredQueues(queues);
-  const { drawerWidth, handleMousedown } = useDrawerWidth();
+  const { drawerWidth, draggerRef } = useDrawerWidth();
 
   return (
     <nav className={cls.drawer} style={{ width: drawerWidth }}>
@@ -84,11 +84,7 @@ export default function Drawer() {
         }}
         PaperProps={{ style: { width: drawerWidth } }}
       >
-        <div
-          id="dragger"
-          onMouseDown={() => handleMousedown()}
-          className={cls.dragger}
-        />
+        <div id="dragger" ref={draggerRef} className={cls.dragger} />
         <div className={cls.toolbar}>
           <IconButton onClick={closeDrawer}>
             {theme.direction === 'ltr' ? (
