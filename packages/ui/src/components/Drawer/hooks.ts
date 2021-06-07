@@ -5,6 +5,8 @@ import { useActiveQueueStore } from '@/stores/active-queue';
 import shallow from 'zustand/shallow';
 import { LayoutConfig } from '@/config/layouts';
 import type { Maybe } from '@/typings/utils';
+import { useDrawerState } from '@/stores/drawer';
+import debounce from 'lodash/debounce';
 
 type TQueues = GetQueuesQuery['queues'];
 export const useFilteredQueues = (queues?: TQueues) => {
@@ -52,20 +54,28 @@ const useWaitForDraggerToMount = (
   return isMounted;
 };
 export const useDrawerWidth = () => {
+  const [
+    defaultDrawerWidth,
+    changeDefaultDrawerWidth,
+  ] = useDrawerState((state) => [state.defaultWidth, state.changeDefaultWidth]);
   const draggerRef = useRef<HTMLDivElement>(null);
-  const [drawerWidth, setDrawerWidth] = useState(LayoutConfig.drawerWidth);
+  const [drawerWidth, setDrawerWidth] = useState(defaultDrawerWidth);
   const isDraggerMounted = useWaitForDraggerToMount(draggerRef);
 
   useEffect(() => {
     if (isDraggerMounted) {
       const $dragger = draggerRef.current as HTMLDivElement;
       const $body = document.body;
+      const changeDefaultDrawerWidthDebounced = debounce((newWidth: number) => {
+        changeDefaultDrawerWidth(newWidth);
+      }, 1000);
       const handleMousemove = (e: MouseEvent) => {
         if (
           e.clientX > LayoutConfig.drawerWidth &&
           e.clientX < LayoutConfig.maxDrawerWidth
         ) {
           setDrawerWidth(e.clientX);
+          changeDefaultDrawerWidthDebounced(e.clientX);
         }
       };
       const handleMousedown = () => {
