@@ -45,7 +45,7 @@
     "react-query": "^3.13.3",
     "react-textarea-autosize": "^8.3.2",
     "snowpack": "3.0.13",
-    "zustand": "^3.3.3"
+    "zustand": "^3.5.2"
   },
   "devDependencies": {
     "@graphql-codegen/cli": "^1.21.3",
