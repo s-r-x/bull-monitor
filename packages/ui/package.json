@@ -45,6 +45,7 @@
     "react-query": "^3.13.3",
     "react-textarea-autosize": "^8.3.2",
     "snowpack": "3.0.13",
+    "uuid": "^8.3.2",
     "zustand": "^3.5.2"
   },
   "devDependencies": {
