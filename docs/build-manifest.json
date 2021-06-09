@@ -9487,7 +9487,7 @@
       "imports": []
     },
     "dist/stores/pagination.js": {
-      "bytes": 525,
+      "bytes": 477,
       "imports": [
         {
           "path": "_snowpack/pkg/zustand.js",
@@ -9525,7 +9525,7 @@
       ]
     },
     "dist/screens/jobs/List/Pagination/index.js": {
-      "bytes": 1308,
+      "bytes": 1471,
       "imports": [
         {
           "path": "_snowpack/pkg/react.js",
@@ -9549,6 +9549,14 @@
         },
         {
           "path": "_snowpack/pkg/@material-ui/core/styles.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/jotai.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "dist/atoms/workspaces.js",
           "kind": "import-statement"
         }
       ]
@@ -9709,7 +9717,7 @@
       ]
     },
     "dist/screens/jobs/List/hooks.js": {
-      "bytes": 2122,
+      "bytes": 2154,
       "imports": [
         {
           "path": "dist/hooks/use-network.js",
@@ -11137,7 +11145,7 @@
           "bytesInOutput": 7290
         },
         "dist/atoms/workspaces.js": {
-          "bytesInOutput": 1123
+          "bytesInOutput": 1122
         },
         "dist/components/Drawer/Queues/index.js": {
           "bytesInOutput": 357
@@ -11743,13 +11751,13 @@
           "bytesInOutput": 38
         },
         "dist/stores/pagination.js": {
-          "bytesInOutput": 173
+          "bytesInOutput": 140
         },
         "dist/screens/jobs/List/Pagination/hooks.js": {
           "bytesInOutput": 79
         },
         "dist/screens/jobs/List/Pagination/index.js": {
-          "bytesInOutput": 552
+          "bytesInOutput": 545
         },
         "dist/screens/jobs/List/DataEditor/index.js": {
           "bytesInOutput": 770
@@ -11761,7 +11769,7 @@
           "bytesInOutput": 286
         },
         "dist/screens/jobs/List/hooks.js": {
-          "bytesInOutput": 516
+          "bytesInOutput": 509
         },
         "_snowpack/pkg/@material-ui/core/TableHead.js": {
           "bytesInOutput": 387
@@ -11833,7 +11841,7 @@
           "bytesInOutput": 122
         }
       },
-      "bytes": 929223
+      "bytes": 929175
     },
     "../packages/ui/~~bundle~~/dist/index.css": {
       "imports": [],
