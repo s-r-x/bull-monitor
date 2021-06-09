@@ -8,12 +8,12 @@ import DeleteIcon from '@material-ui/icons/Delete';
 import IconButton from '@material-ui/core/IconButton';
 import SaveIcon from '@material-ui/icons/Save';
 import Tooltip from '@material-ui/core/Tooltip';
-import { useFiltersStore } from '@/stores/filters';
 import { JobStatus } from '@/typings/gql';
 import { useNetwork } from '@/hooks/use-network';
 import { useAbstractMutation } from '@/hooks/use-abstract-mutation';
-import { useActiveQueueStore } from '@/stores/active-queue';
 import { useExportJobsMutation } from '@/hooks/use-export-jobs-mutation';
+import { activeQueueAtom, activeStatusAtom } from '@/atoms/workspaces';
+import { useAtomValue } from 'jotai/utils';
 
 const useStyles = makeStyles((theme) => ({
   title: {
@@ -23,8 +23,8 @@ const useStyles = makeStyles((theme) => ({
 
 export default function TableToolbar() {
   const cls = useStyles();
-  const activeStatus = useFiltersStore((state) => state.status);
-  const queue = useActiveQueueStore((state) => state.active as string);
+  const activeStatus = useAtomValue(activeStatusAtom);
+  const queue = useAtomValue(activeQueueAtom) as string;
   const { mutations } = useNetwork();
   const [selectedJobs, clearSelectedJobs] = useSelectedJobsStore((state) => [
     state.selected,

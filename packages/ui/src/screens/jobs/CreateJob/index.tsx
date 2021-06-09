@@ -12,7 +12,8 @@ import FormControl from '@material-ui/core/FormControl';
 import TextField from '@material-ui/core/TextField';
 import { makeStyles, Theme } from '@material-ui/core/styles';
 import FormLabel from '@material-ui/core/FormLabel';
-import { useActiveQueueStore } from '@/stores/active-queue';
+import { activeQueueAtom } from '@/atoms/workspaces';
+import { useAtomValue } from 'jotai/utils';
 
 const useStyles = makeStyles((theme: Theme) => ({
   label: {
@@ -28,7 +29,7 @@ const useStyles = makeStyles((theme: Theme) => ({
 
 const CreateJob = () => {
   const classes = useStyles();
-  const queue = useActiveQueueStore((state) => state.active as string);
+  const queue = useAtomValue(activeQueueAtom) as string;
 
   const {
     mutations: { createJob },

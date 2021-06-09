@@ -8,8 +8,9 @@ import { useNetwork } from '@/hooks/use-network';
 import { useAbstractMutation } from '@/hooks/use-abstract-mutation';
 import TextField from '@material-ui/core/TextField';
 import { makeStyles, Theme } from '@material-ui/core/styles';
-import { useActiveQueueStore } from '@/stores/active-queue';
 import { useRemoveJobsModalStore } from '@/stores/remove-jobs-modal';
+import { activeQueueAtom } from '@/atoms/workspaces';
+import { useAtomValue } from 'jotai/utils';
 
 const useStyles = makeStyles((theme: Theme) => ({
   container: {
@@ -26,7 +27,7 @@ const useStyles = makeStyles((theme: Theme) => ({
 const RemoveJobs = () => {
   const [pattern, setPattern] = React.useState('');
   const classes = useStyles();
-  const queue = useActiveQueueStore((state) => state.active as string);
+  const queue = useAtomValue(activeQueueAtom) as string;
 
   const {
     mutations: { removeJobsByPattern },

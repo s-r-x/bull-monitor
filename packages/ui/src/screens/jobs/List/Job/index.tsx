@@ -8,6 +8,7 @@ import Checkbox from '@material-ui/core/Checkbox';
 import JobStatusChip from '@/components/JobStatusChip';
 import SimpleJsonView from '@/components/SimpleJsonView';
 import { makeStyles } from '@material-ui/core/styles';
+import { useRemoveJobSelectionOnUnmount } from './hooks';
 
 const useStyles = makeStyles({
   rowWithData: {
@@ -19,9 +20,16 @@ const useStyles = makeStyles({
     paddingTop: 0,
   },
 });
-const Job = ({ job, queue, isSelected, toggleSelected }: TJobProps) => {
+const Job = ({
+  job,
+  queue,
+  isSelected,
+  toggleSelected,
+  removeSelected,
+}: TJobProps) => {
   const date = useFormatDateTime(job.timestamp);
   const cls = useStyles();
+  useRemoveJobSelectionOnUnmount(job.id, isSelected, removeSelected);
   const delayDate = useFormatDateTime(
     job.delay ? job.timestamp + job.delay : null,
   );

@@ -1,5 +1,4 @@
 import React from 'react';
-import { useActiveQueueStore } from '@/stores/active-queue';
 import Job from './Job';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
@@ -14,12 +13,14 @@ import TableHead from './Head';
 import TableToolbar from './Toolbar';
 import { useSelectedJobsStore } from '@/stores/selected-jobs';
 import shallow from 'zustand/shallow';
+import { useAtomValue } from 'jotai/utils';
+import { activeQueueAtom } from '@/atoms/workspaces';
 
 export default function Jobs() {
-  const queue = useActiveQueueStore((state) => state.active as string);
+  const queue = useAtomValue(activeQueueAtom) as string;
   const { data, status, refetch } = useJobsQuery();
-  const [selectedJobs, toggleSelected] = useSelectedJobsStore(
-    (state) => [state.selected, state.toggleJob],
+  const [selectedJobs, toggleSelected, removeSelected] = useSelectedJobsStore(
+    (state) => [state.selected, state.toggleJob, state.removeJob],
     shallow,
   );
   return (
@@ -33,6 +34,7 @@ export default function Jobs() {
               {data?.jobs?.map((job) => (
                 <Job
                   toggleSelected={toggleSelected}
+                  removeSelected={removeSelected}
                   isSelected={selectedJobs.has(job.id)}
                   queue={queue}
                   key={job.id}

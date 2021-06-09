@@ -4,8 +4,8 @@ import { makeStyles, Theme } from '@material-ui/core/styles';
 import Drawer from '@/components/Drawer';
 import AppBar from '@/components/AppBar';
 import SettingsModal from '../Settings';
-import { LayoutConfig } from '@/config/layouts';
 import RedisInfoModal from '../RedisInfo';
+import { useCreateFirstWorkspace } from '@/hooks/use-create-first-workspace';
 
 const useStyles = makeStyles((theme: Theme) => ({
   root: {
@@ -16,18 +16,15 @@ const useStyles = makeStyles((theme: Theme) => ({
   content: {
     display: 'flex',
     flexDirection: 'column',
-    maxWidth: `calc(100% - ${LayoutConfig.drawerWidth}px)`,
+    maxWidth: '100%',
     flexGrow: 1,
-    padding: theme.spacing(2),
-    [theme.breakpoints.down('sm')]: {
-      maxWidth: '100%',
-      padding: theme.spacing(1),
-    },
+    padding: theme.spacing(1),
   },
 }));
 
 const Shell: React.FC = (props) => {
   const classes = useStyles();
+  useCreateFirstWorkspace();
 
   return (
     <div className={classes.root}>

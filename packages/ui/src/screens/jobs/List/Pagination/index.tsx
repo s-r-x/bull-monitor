@@ -36,5 +36,5 @@ const Pagination = () => {
       onChangeRowsPerPage={(e) => changePerPage(Number(e.target.value))}
     />
   );
-}
+};
 export default memo(Pagination);

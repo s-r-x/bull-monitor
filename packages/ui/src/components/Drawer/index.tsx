@@ -7,22 +7,18 @@ import { makeStyles, useTheme } from '@material-ui/core/styles';
 import { useDrawerState } from '@/stores/drawer';
 import shallow from 'zustand/shallow';
 import NetworkRequest from '@/components/NetworkRequest';
-import { LayoutConfig } from '@/config/layouts';
-import {
-  useDrawerWidth,
-  useFilteredQueues,
-  useSetActiveQueueOnFirstLoad,
-} from './hooks';
+import { useDrawerWidth, useFilteredQueues } from './hooks';
 import QueuesList from './Queues';
 import QueuesFilter from './Filter';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 import { useQueuesQuery } from '@/hooks/use-queues-query';
 import Footer from './Footer';
+import isempty from 'lodash/isEmpty';
+import Alert from '@material-ui/lab/Alert';
 
 const useStyles = makeStyles((theme) => ({
   drawer: {
     [theme.breakpoints.up('md')]: {
-      width: LayoutConfig.drawerWidth,
       flexShrink: 0,
     },
   },
@@ -30,9 +26,6 @@ const useStyles = makeStyles((theme) => ({
     ...theme.mixins.toolbar,
     display: 'flex',
     alignItems: 'center',
-  },
-  drawerPaper: {
-    width: LayoutConfig.drawerWidth,
   },
   filter: {
     marginTop: theme.spacing(1),
@@ -67,7 +60,6 @@ export default function Drawer() {
     shallow,
   );
   const queues = data?.queues;
-  useSetActiveQueueOnFirstLoad(queues);
   const filteredQueues = useFilteredQueues(queues);
   const { drawerWidth, draggerRef } = useDrawerWidth();
 
@@ -79,9 +71,6 @@ export default function Drawer() {
         variant={isDesktop ? 'permanent' : 'temporary'}
         onClose={closeDrawer}
         anchor={theme.direction === 'rtl' ? 'right' : 'left'}
-        classes={{
-          paper: cls.drawerPaper,
-        }}
         PaperProps={{ style: { width: drawerWidth } }}
       >
         <div id="dragger" ref={draggerRef} className={cls.dragger} />
@@ -95,10 +84,16 @@ export default function Drawer() {
           </IconButton>
         </div>
         <NetworkRequest status={status} refetch={refetch}>
-          <QueuesFilter className={cls.filter} />
-          <QueuesList queues={filteredQueues} />
+          {isempty(queues) ? (
+            <Alert severity="error">No queues</Alert>
+          ) : (
+            <>
+              <QueuesFilter className={cls.filter} />
+              <QueuesList queues={filteredQueues} />
+              {queues && <Footer queues={queues} className={cls.footer} />}
+            </>
+          )}
         </NetworkRequest>
-        {queues && <Footer queues={queues} className={cls.footer} />}
       </BaseDrawer>
     </nav>
   );

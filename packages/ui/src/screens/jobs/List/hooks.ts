@@ -1,8 +1,6 @@
 import { useNetwork } from '@/hooks/use-network';
 import { QueryKeysConfig } from '@/config/query-keys';
-import { useFiltersStore } from '@/stores/filters';
 import { useQuery } from 'react-query';
-import { useActiveQueueStore } from '@/stores/active-queue';
 import shallow from 'zustand/shallow';
 import { usePaginationStore } from '@/stores/pagination';
 import {
@@ -10,6 +8,15 @@ import {
   useNetworkSettingsStore,
 } from '@/stores/network-settings';
 import { useRefetchJobsLockStore } from '@/stores/refetch-jobs-lock';
+import { useAtomValue } from 'jotai/utils';
+import {
+  activeQueueAtom,
+  activeStatusAtom,
+  dataSearchKeyAtom,
+  dataSearchTermAtom,
+  jobIdAtom,
+  jobsOrderAtom,
+} from '@/atoms/workspaces';
 
 export const useJobsQuery = () => {
   const {
@@ -19,23 +26,18 @@ export const useJobsQuery = () => {
     (state) => [state.page, state.perPage],
     shallow,
   );
-  const [status, order, jobId, searchKey, searchTerm] = useFiltersStore(
-    (state) => [
-      state.status,
-      state.order,
-      state.jobId,
-      state.dataSearchKey,
-      state.dataSearchTerm,
-    ],
-    shallow,
-  );
+  const status = useAtomValue(activeStatusAtom);
+  const queue = useAtomValue(activeQueueAtom) as string;
+  const order = useAtomValue(jobsOrderAtom);
+  const jobId = useAtomValue(jobIdAtom);
+  const searchKey = useAtomValue(dataSearchKeyAtom);
+  const searchTerm = useAtomValue(dataSearchTermAtom);
   const isFetchLocked = useRefetchJobsLockStore((state) => state.isLocked);
   const [shouldFetchData, textSearchPollingDisabled] = useNetworkSettingsStore(
     (state) => [state.shouldFetchData, state.textSearchPollingDisabled],
     shallow,
   );
   const refetchInterval = getPollingInterval();
-  const queue = useActiveQueueStore((state) => state.active as string);
   return useQuery(
     [
       QueryKeysConfig.jobsList,
@@ -69,6 +71,7 @@ export const useJobsQuery = () => {
       }),
     {
       keepPreviousData: true,
+      enabled: Boolean(queue),
       refetchInterval:
         isFetchLocked || (textSearchPollingDisabled && searchKey && searchTerm)
           ? false

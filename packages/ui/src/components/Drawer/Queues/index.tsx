@@ -2,28 +2,22 @@ import React, { useCallback } from 'react';
 import type { GetQueuesQuery, JobStatus } from '@/typings/gql';
 import List from '@material-ui/core/List';
 import { useDrawerState } from '@/stores/drawer';
-import { useActiveQueueStore } from '@/stores/active-queue';
 import shallow from 'zustand/shallow';
 import Queue from './Queue';
 import { useQueuesCollapseStore } from '@/stores/queues-collapse';
-import { useFiltersStore } from '@/stores/filters';
+import { useAtom } from 'jotai';
+import { activeQueueAtom, activeStatusAtom } from '@/atoms/workspaces';
 
 type TProps = {
   queues?: GetQueuesQuery['queues'];
 };
 export default function DrawerQueuesList({ queues }: TProps) {
-  const [activeQueue, changeActiveQueue] = useActiveQueueStore(
-    (state) => [state.active, state.changeActive],
-    shallow,
-  );
+  const [activeQueue, changeActiveQueue] = useAtom(activeQueueAtom);
   const [collapseMap, toggleCollapse] = useQueuesCollapseStore(
     (state) => [state.queues, state.toggle],
     shallow,
   );
-  const [activeStatus, changeActiveStatus] = useFiltersStore(
-    (state) => [state.status, state.changeStatus],
-    shallow,
-  );
+  const [activeStatus, changeActiveStatus] = useAtom(activeStatusAtom);
   const closeDrawer = useDrawerState((state) => state.close);
   const onSelect = useCallback((queue: string) => {
     changeActiveQueue(queue);

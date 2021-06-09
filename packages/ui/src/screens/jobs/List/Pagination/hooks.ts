@@ -1,10 +1,10 @@
-import { useActiveQueueStore } from '@/stores/active-queue';
-import { useFiltersStore } from '@/stores/filters';
 import { useQueueData } from '@/hooks/use-queue-data';
+import { activeQueueAtom, activeStatusAtom } from '@/atoms/workspaces';
+import { useAtomValue } from 'jotai/utils';
 
 export const useCount = (): number => {
-  const status = useFiltersStore((state) => state.status);
-  const activeQueue = useActiveQueueStore((state) => state.active as string);
+  const status = useAtomValue(activeStatusAtom);
+  const activeQueue = useAtomValue(activeQueueAtom) as string;
   const jobsCounts = useQueueData(activeQueue)?.jobsCounts;
   if (!jobsCounts) {
     return 0;

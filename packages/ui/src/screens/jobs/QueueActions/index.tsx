@@ -1,7 +1,6 @@
 import React from 'react';
 import Paper from '@material-ui/core/Paper';
 import { makeStyles } from '@material-ui/core/styles';
-import { useActiveQueueStore } from '@/stores/active-queue';
 import { useCreateJobStore } from '@/stores/create-job';
 import Button from '@material-ui/core/Button';
 import { useNetwork } from '@/hooks/use-network';
@@ -17,10 +16,12 @@ import MoreIcon from '@material-ui/icons/MoreHoriz';
 import { useRefetchJobsLockStore } from '@/stores/refetch-jobs-lock';
 import shallow from 'zustand/shallow';
 import { getPollingInterval } from '@/stores/network-settings';
+import { activeQueueAtom } from '@/atoms/workspaces';
+import { useAtomValue } from 'jotai/utils';
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    marginBottom: theme.spacing(2),
+    marginBottom: theme.spacing(1),
     padding: theme.spacing(1),
     '& > *': {
       margin: theme.spacing(0.5),
@@ -58,7 +59,7 @@ export default function QueueActions() {
     handleCloseMore();
   };
 
-  const queue = useActiveQueueStore((state) => state.active as string);
+  const queue = useAtomValue(activeQueueAtom) as string;
   const {
     mutations: { pauseQueue, resumeQueue, emptyQueue, cleanQueue },
   } = useNetwork();

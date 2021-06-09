@@ -1,9 +1,5 @@
 import createStore from 'zustand';
-import { useActiveQueueStore } from './active-queue';
-import shallow from 'zustand/shallow';
-import { useEffect } from 'react';
 import { persist } from 'zustand/middleware';
-import { useFiltersStore } from './filters';
 import { PaginationConfig } from '@/config/pagination';
 import { StorageConfig } from '@/config/storage';
 
@@ -29,29 +25,3 @@ export const usePaginationStore = createStore<TState>(
     },
   ),
 );
-
-export const useRunPaginationSideEffects = () => {
-  const changePage = usePaginationStore((state) => state.changePage);
-  useEffect(() => {
-    const effect = () => changePage(0);
-    const unsubFilters = useFiltersStore.subscribe(
-      effect,
-      (state) => [
-        state.order,
-        state.status,
-        state.jobId,
-        state.dataSearchKey,
-        state.dataSearchTerm,
-      ],
-      shallow,
-    );
-    const unsubActiveQueue = useActiveQueueStore.subscribe(
-      effect,
-      (state) => state.active,
-    );
-    return () => {
-      unsubActiveQueue();
-      unsubFilters();
-    };
-  }, []);
-};

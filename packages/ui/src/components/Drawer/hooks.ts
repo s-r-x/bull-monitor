@@ -1,8 +1,6 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { useQueuesFilterStore } from '@/stores/queues-filter';
 import type { GetQueuesQuery } from '@/typings/gql';
-import { useActiveQueueStore } from '@/stores/active-queue';
-import shallow from 'zustand/shallow';
 import { LayoutConfig } from '@/config/layouts';
 import type { Maybe } from '@/typings/utils';
 import { useDrawerState } from '@/stores/drawer';
@@ -20,20 +18,6 @@ export const useFilteredQueues = (queues?: TQueues) => {
       name.toLowerCase().includes(lowerFilter),
     );
   }, [filterName, queues]);
-};
-export const useSetActiveQueueOnFirstLoad = (queues?: TQueues) => {
-  const [activeQueue, changeActiveQueue] = useActiveQueueStore(
-    (state) => [state.active, state.changeActive],
-    shallow,
-  );
-  useEffect(() => {
-    if (!activeQueue && queues) {
-      const firstQueue = queues[0];
-      if (firstQueue) {
-        changeActiveQueue(firstQueue.name);
-      }
-    }
-  }, [queues, activeQueue]);
 };
 
 const useWaitForDraggerToMount = (

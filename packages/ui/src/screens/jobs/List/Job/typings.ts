@@ -5,4 +5,5 @@ export type TJobProps = {
   queue: string;
   isSelected: boolean;
   toggleSelected: (id: string) => void;
+  removeSelected: (id: string) => void;
 };
