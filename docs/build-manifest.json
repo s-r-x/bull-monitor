@@ -11137,7 +11137,7 @@
           "bytesInOutput": 7290
         },
         "dist/atoms/workspaces.js": {
-          "bytesInOutput": 1133
+          "bytesInOutput": 1123
         },
         "dist/components/Drawer/Queues/index.js": {
           "bytesInOutput": 357
@@ -11833,7 +11833,7 @@
           "bytesInOutput": 122
         }
       },
-      "bytes": 929233
+      "bytes": 929223
     },
     "../packages/ui/~~bundle~~/dist/index.css": {
       "imports": [],
