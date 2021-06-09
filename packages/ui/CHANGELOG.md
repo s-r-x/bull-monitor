@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.25.0](https://github.com/s-r-x/bull-monitor/compare/v0.24.0...v0.25.0) (2021-06-09)
+
+
+### Features
+
+* **ui:** workspaces ([3f96170](https://github.com/s-r-x/bull-monitor/commit/3f96170d6bab03b669493b9dd3f33ece502a900f))
+
+
+
+
+
 # [0.24.0](https://github.com/s-r-x/bull-monitor/compare/v0.23.0...v0.24.0) (2021-06-07)
 
 

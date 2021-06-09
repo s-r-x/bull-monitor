@@ -1,6 +1,6 @@
 {
   "name": "@bull-monitor/koa",
-  "version": "0.24.0",
+  "version": "0.25.0",
   "description": "bull-monitor for koa",
   "repository": {
     "type": "git",
@@ -21,7 +21,7 @@
   },
   "main": "dist/index.js",
   "dependencies": {
-    "@bull-monitor/root": "^0.24.0",
+    "@bull-monitor/root": "^0.25.0",
     "apollo-server-koa": "^2.22.2"
   },
   "peerDependencies": {
