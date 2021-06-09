@@ -35,10 +35,10 @@ export const workspacesSizeAtom = selectAtom(
 );
 const specificWorkspaceAtom = atomFamily((id: Maybe<string>) =>
   atom((get) => {
+    const list = get(workspacesListAtom);
     if (!id) {
       return null;
     }
-    const list = get(workspacesListAtom);
     if (!list) {
       return null;
     }
