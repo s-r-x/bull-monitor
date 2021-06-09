@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.25.1](https://github.com/s-r-x/bull-monitor/compare/v0.25.0...v0.25.1) (2021-06-09)
+
+
+### Bug Fixes
+
+* **ui:** memoization issue on the first page visit when there are no workspaces yet ([39f37c7](https://github.com/s-r-x/bull-monitor/commit/39f37c7c05ef84e7de982d1931c0929fbbfcbc1f))
+
+
+
+
+
 # [0.25.0](https://github.com/s-r-x/bull-monitor/compare/v0.24.0...v0.25.0) (2021-06-09)
 
 

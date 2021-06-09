@@ -1,6 +1,6 @@
 {
   "name": "@bull-monitor/fastify",
-  "version": "0.25.0",
+  "version": "0.25.1",
   "description": "bull-monitor for fastify",
   "keywords": [
     "bull"
@@ -21,7 +21,7 @@
   },
   "main": "dist/index.js",
   "dependencies": {
-    "@bull-monitor/root": "^0.25.0",
+    "@bull-monitor/root": "^0.25.1",
     "apollo-server-fastify": "3.0.0-alpha.3"
   },
   "peerDependencies": {
