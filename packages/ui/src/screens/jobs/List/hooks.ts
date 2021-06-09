@@ -10,6 +10,7 @@ import {
 import { useRefetchJobsLockStore } from '@/stores/refetch-jobs-lock';
 import { useAtomValue } from 'jotai/utils';
 import {
+  activePageAtom,
   activeQueueAtom,
   activeStatusAtom,
   dataSearchKeyAtom,
@@ -22,10 +23,8 @@ export const useJobsQuery = () => {
   const {
     queries: { getJobs },
   } = useNetwork();
-  const [page, perPage] = usePaginationStore(
-    (state) => [state.page, state.perPage],
-    shallow,
-  );
+  const page = useAtomValue(activePageAtom);
+  const perPage = usePaginationStore((state) => state.perPage);
   const status = useAtomValue(activeStatusAtom);
   const queue = useAtomValue(activeQueueAtom) as string;
   const order = useAtomValue(jobsOrderAtom);

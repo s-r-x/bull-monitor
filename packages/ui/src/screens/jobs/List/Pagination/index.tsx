@@ -4,6 +4,8 @@ import { usePaginationStore } from '@/stores/pagination';
 import { useCount } from './hooks';
 import { PaginationConfig } from '@/config/pagination';
 import { makeStyles } from '@material-ui/core/styles';
+import { useAtom } from 'jotai';
+import { activePageAtom } from '@/atoms/workspaces';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -21,7 +23,8 @@ const useStyles = makeStyles((theme) => ({
 
 const Pagination = () => {
   const cls = useStyles();
-  const { page, perPage, changePage, changePerPage } = usePaginationStore();
+  const [page, changePage] = useAtom(activePageAtom);
+  const { perPage, changePerPage } = usePaginationStore();
   const count = useCount();
   return (
     <TablePagination
