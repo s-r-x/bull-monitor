@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.25.2](https://github.com/s-r-x/bull-monitor/compare/v0.25.1...v0.25.2) (2021-06-09)
+
+
+### Bug Fixes
+
+* **ui:** remove page from pagination store. use pageAtom for pagination instead ([d0b0692](https://github.com/s-r-x/bull-monitor/commit/d0b06927f35f853cb11dd4aeb79361ef67de3c87))
+
+
+
+
+
 ## [0.25.1](https://github.com/s-r-x/bull-monitor/compare/v0.25.0...v0.25.1) (2021-06-09)
 
 
