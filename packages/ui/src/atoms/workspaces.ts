@@ -7,20 +7,23 @@ import isempty from 'lodash/isEmpty';
 import pullAt from 'lodash/pullAt';
 import { storageAtom } from './utils';
 import { atomFamily, selectAtom } from 'jotai/utils';
+import { WorkspacesConfig } from '@/config/workspaces';
+import tail from 'lodash/tail';
 
-type TWorkspace = {
+export type TWorkspace = {
   id: string;
-  label: string;
   page?: number;
-  status: JobStatus;
+  status?: JobStatus;
   jobId?: string;
-  order: OrderEnum;
+  order?: OrderEnum;
   dataSearchKey?: string;
   dataSearchTerm?: string;
   queue: string;
 };
 
-type TUpdateWorkspaceDto = Partial<Omit<TWorkspace, 'id'>>;
+export type TAddWorkspaceDto = Partial<Omit<TWorkspace, 'id'>>;
+type TUpdateWorkspaceDto = TAddWorkspaceDto;
+
 export const activeWorkspaceIdAtom = storageAtom<Maybe<string>>(
   `${StorageConfig.atomsPersistNs}wsId`,
   null,
@@ -62,7 +65,7 @@ export const activeWorkspaceAtom = atom(
   },
 );
 export const activePageAtom = atom(
-  (get) => get(activeWorkspaceAtom)?.page || 0,
+  (get) => get(activeWorkspaceAtom)?.page ?? 0,
   (_get, set, page: number) => {
     set(activeWorkspaceAtom, { page });
   },
@@ -70,7 +73,7 @@ export const activePageAtom = atom(
 export const activeQueueAtom = atom(
   (get) => get(activeWorkspaceAtom)?.queue ?? null,
   (_get, set, queue: string) => {
-    set(activeWorkspaceAtom, { queue, label: queue, page: 0 });
+    set(activeWorkspaceAtom, { queue, page: 0 });
   },
 );
 export const activeStatusAtom = atom(
@@ -105,18 +108,25 @@ export const dataSearchTermAtom = atom(
 );
 
 // write only
-export const addWorkspaceAtom = atom(null, (get, set, queue: string) => {
-  const ws: TWorkspace = {
-    id: uuidv4(),
-    status: JobStatus.Active,
-    order: OrderEnum.Asc,
-    queue,
-    label: queue,
-  };
-  const list = get(workspacesListAtom);
-  set(workspacesListAtom, [...list, ws]);
-  set(activeWorkspaceIdAtom, ws.id);
-});
+
+export const addWorkspaceAtom = atom(
+  null,
+  (get, set, data: TAddWorkspaceDto) => {
+    if (!data.queue) return;
+    const ws: TWorkspace = {
+      id: uuidv4(),
+      ...data,
+      queue: data.queue,
+    };
+    const list = get(workspacesListAtom);
+    if (list.length >= WorkspacesConfig.maxWorkspaces) {
+      set(workspacesListAtom, tail(list).concat(ws));
+    } else {
+      set(workspacesListAtom, [...list, ws]);
+    }
+    set(activeWorkspaceIdAtom, ws.id);
+  },
+);
 export const clearDataSearchAtom = atom(null, (_get, set) => {
   set(activeWorkspaceAtom, { dataSearchTerm: '', dataSearchKey: '', page: 0 });
 });

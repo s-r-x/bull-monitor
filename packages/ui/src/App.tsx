@@ -10,6 +10,7 @@ import { NetworkProvider } from './providers/network';
 import { useRunStoreSideEffects } from './stores/side-effects';
 import { QueuesQueryProvider } from './providers/queues-query';
 import { useDynamicPageTitle } from './hooks/use-dynamic-page-title';
+import HydrateShareGate from './components/HydrateShareGate';
 
 const queryClient = new QueryClient();
 
@@ -18,20 +19,22 @@ export default function App() {
   useRunStoreSideEffects();
   useDynamicPageTitle();
   return (
-    <NetworkProvider>
-      <MuiThemeProvider theme={muiTheme}>
-        <ConfirmProvider>
-          <SnackbarProvider maxSnack={3}>
-            <QueryClientProvider client={queryClient}>
-              <QueuesQueryProvider>
-                <Shell>
-                  <JobsScreen />
-                </Shell>
-              </QueuesQueryProvider>
-            </QueryClientProvider>
-          </SnackbarProvider>
-        </ConfirmProvider>
-      </MuiThemeProvider>
-    </NetworkProvider>
+    <HydrateShareGate>
+      <NetworkProvider>
+        <MuiThemeProvider theme={muiTheme}>
+          <ConfirmProvider>
+            <SnackbarProvider maxSnack={3}>
+              <QueryClientProvider client={queryClient}>
+                <QueuesQueryProvider>
+                  <Shell>
+                    <JobsScreen />
+                  </Shell>
+                </QueuesQueryProvider>
+              </QueryClientProvider>
+            </SnackbarProvider>
+          </ConfirmProvider>
+        </MuiThemeProvider>
+      </NetworkProvider>
+    </HydrateShareGate>
   );
 }

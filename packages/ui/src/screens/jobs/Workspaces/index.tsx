@@ -51,7 +51,7 @@ export default function Workspaces() {
   return (
     <Paper className={cls.root}>
       <div className={cls.chips}>
-        {workspaces.map(({ id, label }) => (
+        {workspaces.map(({ id, queue }) => (
           <Chip
             color={id === activeWorkspace ? 'primary' : 'default'}
             onDelete={
@@ -59,12 +59,12 @@ export default function Workspaces() {
             }
             onClick={() => changeActiveWorkspace(id)}
             key={id}
-            label={label}
+            label={queue}
           />
         ))}
         {workspacesSize < WorkspacesConfig.maxWorkspaces && (
           <Chip
-            onClick={() => addWorkspace(queue)}
+            onClick={() => addWorkspace({ queue })}
             icon={<AddIcon />}
             label="Add workspace"
             color="secondary"
