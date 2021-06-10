@@ -20,6 +20,7 @@ import Options from './Options';
 import { useExportJobsMutation } from '@/hooks/use-export-jobs-mutation';
 import { makeStyles } from '@material-ui/core/styles';
 import { useToggle } from '@/hooks/use-toggle';
+import { useShareJob } from '@/hooks/use-share';
 
 const useStyles = makeStyles((theme) => ({
   popover: {
@@ -48,6 +49,7 @@ const JobActions = ({ job, queue }: TProps) => {
   const openOptsPopover = () => setOptsOpen(true);
   const closeOptsPopover = () => setOptsOpen(false);
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
+  const shareJob = useShareJob();
 
   const handleClickMore = (event: React.MouseEvent<HTMLButtonElement>) =>
     setAnchorEl(event.currentTarget);
@@ -194,7 +196,6 @@ const JobActions = ({ job, queue }: TProps) => {
         onClose={handleCloseMore}
         onClick={handleCloseMore}
       >
-        <MenuItem onClick={() => openJobLogs(sharedMutationArg)}>Logs</MenuItem>
         {job.status === JobStatus.Failed && (
           <MenuItem onClick={() => retryMutation.mutate(sharedMutationArg)}>
             Retry
@@ -214,14 +215,6 @@ const JobActions = ({ job, queue }: TProps) => {
             Move to failed
           </MenuItem>
         )}
-        {job.status === JobStatus.Delayed && (
-          <MenuItem onClick={() => promoteMutation.mutate(sharedMutationArg)}>
-            Promote
-          </MenuItem>
-        )}
-        <MenuItem onClick={() => discardMutation.mutate(sharedMutationArg)}>
-          Discard
-        </MenuItem>
         <MenuItem
           onClick={() =>
             exportMutation.mutate({
@@ -232,6 +225,16 @@ const JobActions = ({ job, queue }: TProps) => {
         >
           Save as JSON
         </MenuItem>
+        <MenuItem onClick={() => shareJob(job.id)}>Share</MenuItem>
+        {job.status === JobStatus.Delayed && (
+          <MenuItem onClick={() => promoteMutation.mutate(sharedMutationArg)}>
+            Promote
+          </MenuItem>
+        )}
+        <MenuItem onClick={() => discardMutation.mutate(sharedMutationArg)}>
+          Discard
+        </MenuItem>
+        <MenuItem onClick={() => openJobLogs(sharedMutationArg)}>Logs</MenuItem>
       </Menu>
     </>
   );

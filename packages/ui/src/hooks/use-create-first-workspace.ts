@@ -9,7 +9,7 @@ export const useCreateFirstWorkspace = () => {
   const firstQueueName = data?.queues?.[0]?.name;
   useEffect(() => {
     if (!workspacesSize && firstQueueName) {
-      addWorkspace(firstQueueName);
+      addWorkspace({ queue: firstQueueName });
     }
   }, [firstQueueName, workspacesSize]);
 };
