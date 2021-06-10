@@ -1,3 +1,3 @@
 export const WorkspacesConfig = {
-  maxWorkspaces: 10,
+  maxWorkspaces: 20,
 };
