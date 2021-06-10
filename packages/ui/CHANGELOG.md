@@ -3,6 +3,27 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.26.0](https://github.com/s-r-x/bull-monitor/compare/v0.25.2...v0.26.0) (2021-06-10)
+
+
+### Bug Fixes
+
+* **ui:** increase maximum workspaces size to 20 ([b1bd670](https://github.com/s-r-x/bull-monitor/commit/b1bd670f565a048cfe7b9b913b88ab4be72185d6))
+
+
+### Features
+
+* **ui:** sharing ([bc053c0](https://github.com/s-r-x/bull-monitor/commit/bc053c0491c7196c28c20223a1d5f615a5fc005d))
+
+
+### Performance Improvements
+
+* **ui:** skip mock data generation in production ([f4b6a33](https://github.com/s-r-x/bull-monitor/commit/f4b6a3304a0ad000e3eab28e9b88bd830d70182f))
+
+
+
+
+
 ## [0.25.2](https://github.com/s-r-x/bull-monitor/compare/v0.25.1...v0.25.2) (2021-06-09)
 
 
