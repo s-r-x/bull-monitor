@@ -9344,7 +9344,7 @@
       ]
     },
     "dist/screens/jobs/List/Job/index.js": {
-      "bytes": 3441,
+      "bytes": 3312,
       "imports": [
         {
           "path": "_snowpack/pkg/react.js",
@@ -9388,10 +9388,6 @@
         },
         {
           "path": "dist/screens/jobs/List/Job/hooks.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/clsx.js",
           "kind": "import-statement"
         }
       ]
@@ -12067,7 +12063,7 @@
           "bytesInOutput": 114
         },
         "dist/screens/jobs/List/Job/index.js": {
-          "bytesInOutput": 1349
+          "bytesInOutput": 1314
         },
         "_snowpack/pkg/@material-ui/core/Table.js": {
           "bytesInOutput": 819
@@ -12178,7 +12174,7 @@
           "bytesInOutput": 122
         }
       },
-      "bytes": 940168
+      "bytes": 940133
     },
     "../packages/ui/~~bundle~~/dist/index.css": {
       "imports": [],
