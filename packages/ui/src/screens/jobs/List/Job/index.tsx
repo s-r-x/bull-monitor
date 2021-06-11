@@ -7,19 +7,41 @@ import type { TJobProps } from './typings';
 import Checkbox from '@material-ui/core/Checkbox';
 import JobStatusChip from '@/components/JobStatusChip';
 import SimpleJsonView from '@/components/SimpleJsonView';
+import isempty from 'lodash/isEmpty';
 import { makeStyles } from '@material-ui/core/styles';
 import { useRemoveJobSelectionOnUnmount } from './hooks';
+import clsx from 'clsx';
 
-const useStyles = makeStyles({
-  rowWithData: {
+const useStyles = makeStyles((theme) => ({
+  rowWithExtra: {
     '& td': {
       borderBottom: 'none',
     },
   },
-  dataCell: {
+  extraCell: {
     paddingTop: 0,
   },
-});
+  extra: {
+    display: 'flex',
+    [theme.breakpoints.down('md')]: {
+      flexDirection: 'column',
+    },
+  },
+  json: {
+    flex: 1,
+    '&:nth-child(2)': {
+      marginLeft: theme.spacing(1),
+      marginTop: 0,
+      [theme.breakpoints.down('md')]: {
+        marginLeft: 0,
+        marginTop: theme.spacing(1),
+      },
+    },
+  },
+  stacktrace: {
+    backgroundColor: theme.palette.error.main,
+  },
+}));
 const Job = ({
   job,
   queue,
@@ -33,10 +55,12 @@ const Job = ({
   const delayDate = useFormatDateTime(
     job.delay ? job.timestamp + job.delay : null,
   );
-  const hasData = !!job.data;
+  const hasData = !!job.data && job.data !== '{}';
+  const hasStacktrace = !isempty(job.stacktrace);
+  const showExtra = hasData || hasStacktrace;
   return (
     <>
-      <TableRow className={hasData ? cls.rowWithData : undefined}>
+      <TableRow className={showExtra ? cls.rowWithExtra : undefined}>
         <TableCell padding="checkbox">
           <Checkbox
             onChange={() => toggleSelected(job.id)}
@@ -56,10 +80,19 @@ const Job = ({
         <TableCell>{job.attemptsMade}</TableCell>
         <TableCell>{job.progress}</TableCell>
       </TableRow>
-      {hasData && (
+      {showExtra && (
         <TableRow>
-          <TableCell className={cls.dataCell} colSpan={12}>
-            <SimpleJsonView>{job.data}</SimpleJsonView>
+          <TableCell className={cls.extraCell} colSpan={12}>
+            <div className={cls.extra}>
+              {hasData && (
+                <SimpleJsonView className={cls.json}>{job.data}</SimpleJsonView>
+              )}
+              {!isempty(job.stacktrace) && (
+                <SimpleJsonView className={clsx(cls.json, cls.stacktrace)}>
+                  {job.stacktrace.join('\n\n')}
+                </SimpleJsonView>
+              )}
+            </div>
           </TableCell>
         </TableRow>
       )}

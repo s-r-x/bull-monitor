@@ -10,8 +10,8 @@ const app = express();
 const queues = Array.from(new Array(QUEUES_AMOUNT)).map(
   (_v, idx) => new Queue(`queue:${idx}`, redisUri)
 );
-queues[0].process('success', async job => {
-  await job.moveToCompleted('some return value here');
+queues[0].process('success', () => {
+  return 'some return value';
 });
 queues[0].process('fail', () => {
   throw new Error('some error here');

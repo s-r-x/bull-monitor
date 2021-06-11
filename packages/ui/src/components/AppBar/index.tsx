@@ -55,6 +55,7 @@ export default function AppBar() {
           <Tooltip title="Share active workspace">
             <IconButton
               onClick={shareWorkspace}
+              color="inherit"
               aria-label="share active workspace"
             >
               <ShareIcon />
