@@ -10,7 +10,6 @@ import SimpleJsonView from '@/components/SimpleJsonView';
 import isempty from 'lodash/isEmpty';
 import { makeStyles } from '@material-ui/core/styles';
 import { useRemoveJobSelectionOnUnmount } from './hooks';
-import clsx from 'clsx';
 
 const useStyles = makeStyles((theme) => ({
   rowWithExtra: {
@@ -21,21 +20,16 @@ const useStyles = makeStyles((theme) => ({
   extraCell: {
     paddingTop: 0,
   },
-  extra: {
-    display: 'flex',
-    [theme.breakpoints.down('md')]: {
-      flexDirection: 'column',
-    },
+  extraOneCol: {
+    display: 'grid',
+    gridTemplateColumns: '1fr',
   },
-  json: {
-    flex: 1,
-    '&:nth-child(2)': {
-      marginLeft: theme.spacing(1),
-      marginTop: 0,
-      [theme.breakpoints.down('md')]: {
-        marginLeft: 0,
-        marginTop: theme.spacing(1),
-      },
+  extraTwoCol: {
+    display: 'grid',
+    gridTemplateColumns: '1fr 1fr',
+    gridGap: theme.spacing(1),
+    [theme.breakpoints.down('md')]: {
+      gridTemplateColumns: '1fr',
     },
   },
   stacktrace: {
@@ -83,12 +77,14 @@ const Job = ({
       {showExtra && (
         <TableRow>
           <TableCell className={cls.extraCell} colSpan={12}>
-            <div className={cls.extra}>
-              {hasData && (
-                <SimpleJsonView className={cls.json}>{job.data}</SimpleJsonView>
-              )}
-              {!isempty(job.stacktrace) && (
-                <SimpleJsonView className={clsx(cls.json, cls.stacktrace)}>
+            <div
+              className={
+                hasData && hasStacktrace ? cls.extraTwoCol : cls.extraOneCol
+              }
+            >
+              {hasData && <SimpleJsonView>{job.data}</SimpleJsonView>}
+              {hasStacktrace && (
+                <SimpleJsonView className={cls.stacktrace}>
                   {job.stacktrace.join('\n\n')}
                 </SimpleJsonView>
               )}
