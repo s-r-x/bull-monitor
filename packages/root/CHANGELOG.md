@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.27.0](https://github.com/s-r-x/bull-monitor/compare/v0.26.0...v0.27.0) (2021-06-11)
+
+
+### Bug Fixes
+
+* **gql:** jobs query. validate limit and offset args ([1a43a06](https://github.com/s-r-x/bull-monitor/commit/1a43a0654c461bad00ede1de917be73cd399dce7))
+
+
+
+
+
 # [0.26.0](https://github.com/s-r-x/bull-monitor/compare/v0.25.2...v0.26.0) (2021-06-10)
 
 **Note:** Version bump only for package @bull-monitor/root
