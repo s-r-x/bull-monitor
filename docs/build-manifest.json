@@ -5854,7 +5854,7 @@
       ]
     },
     "dist/components/AppBar/index.js": {
-      "bytes": 3097,
+      "bytes": 3119,
       "imports": [
         {
           "path": "_snowpack/pkg/react.js",
@@ -9344,7 +9344,7 @@
       ]
     },
     "dist/screens/jobs/List/Job/index.js": {
-      "bytes": 2502,
+      "bytes": 3441,
       "imports": [
         {
           "path": "_snowpack/pkg/react.js",
@@ -9379,11 +9379,19 @@
           "kind": "import-statement"
         },
         {
+          "path": "_snowpack/pkg/lodash/isEmpty.js",
+          "kind": "import-statement"
+        },
+        {
           "path": "_snowpack/pkg/@material-ui/core/styles.js",
           "kind": "import-statement"
         },
         {
           "path": "dist/screens/jobs/List/Job/hooks.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/clsx.js",
           "kind": "import-statement"
         }
       ]
@@ -11768,7 +11776,7 @@
           "bytesInOutput": 647
         },
         "dist/components/AppBar/index.js": {
-          "bytesInOutput": 1005
+          "bytesInOutput": 1021
         },
         "_snowpack/pkg/common/Dialog-d36b96df.js": {
           "bytesInOutput": 3775
@@ -12059,7 +12067,7 @@
           "bytesInOutput": 114
         },
         "dist/screens/jobs/List/Job/index.js": {
-          "bytesInOutput": 880
+          "bytesInOutput": 1349
         },
         "_snowpack/pkg/@material-ui/core/Table.js": {
           "bytesInOutput": 819
@@ -12170,7 +12178,7 @@
           "bytesInOutput": 122
         }
       },
-      "bytes": 939683
+      "bytes": 940168
     },
     "../packages/ui/~~bundle~~/dist/index.css": {
       "imports": [],
