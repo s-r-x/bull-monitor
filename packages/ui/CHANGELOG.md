@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.27.2](https://github.com/s-r-x/bull-monitor/compare/v0.27.1...v0.27.2) (2021-06-13)
+
+
+### Bug Fixes
+
+* **ui:** broken drawer resize when the queues list is overflowing the drawer container on y axis ([181aa8d](https://github.com/s-r-x/bull-monitor/commit/181aa8dafd5db300b50227ecce7a72349ea4a8dd))
+* **ui:** increase max drawer width to 50% of the screen ([0bbe7b7](https://github.com/s-r-x/bull-monitor/commit/0bbe7b7b900afd76d774abd2ad9cb85e6a41325d))
+
+
+
+
+
 ## [0.27.1](https://github.com/s-r-x/bull-monitor/compare/v0.27.0...v0.27.1) (2021-06-11)
 
 
