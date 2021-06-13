@@ -1,5 +1,5 @@
 export const LayoutConfig = {
   drawerWidth: 260,
-  maxDrawerWidth: 520,
+  maxDrawerWidth: window.innerWidth / 2,
   modalWidth: 500,
 };

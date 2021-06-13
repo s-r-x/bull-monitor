@@ -44,7 +44,7 @@ const useStyles = makeStyles((theme) => ({
     cursor: 'ew-resize',
     position: 'absolute',
     top: 0,
-    right: -2,
+    right: -4,
     bottom: 0,
     zIndex: 1201,
   },
