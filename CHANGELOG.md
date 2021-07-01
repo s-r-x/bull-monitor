@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.27.3](https://github.com/s-r-x/bull-monitor/compare/v0.27.2...v0.27.3) (2021-07-01)
+
+
+### Bug Fixes
+
+* **gql:** Cannot return null for non-nullable field Query.jobs ([e349291](https://github.com/s-r-x/bull-monitor/commit/e3492916085c83530fb38c57942f7b84d8b379f8))
+* "stuck" job status ([aa7d2f8](https://github.com/s-r-x/bull-monitor/commit/aa7d2f8006358e1346f5cc97974d3aad2a328706))
+
+
+
+
+
 ## [0.27.2](https://github.com/s-r-x/bull-monitor/compare/v0.27.1...v0.27.2) (2021-06-13)
 
 
