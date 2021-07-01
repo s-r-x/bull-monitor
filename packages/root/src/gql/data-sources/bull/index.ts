@@ -1,5 +1,11 @@
 import { DataSource } from 'apollo-datasource';
-import type { Queue as BullQueue, JobCounts, JobStatus, JobId } from 'bull';
+import type {
+  Queue as BullQueue,
+  JobCounts,
+  JobStatus,
+  JobId,
+  Job,
+} from 'bull';
 import { JsonService } from '../../../services/json';
 import {
   CreateJobInput,
@@ -102,36 +108,39 @@ export class BullDataSource extends DataSource {
     }
     const bullQueue = this.getQueueByName(queue, true) as BullQueue;
     if (ids) {
-      const jobs = await Promise.all(ids.map(id => bullQueue.getJob(id)));
-      return jobs;
+      return await Promise.all(ids.map(id => bullQueue.getJob(id))).then(
+        this._filterJobs
+      );
     } else if (id) {
       const job = await bullQueue.getJob(id);
       return job ? [job] : [];
     } else if (dataSearch) {
       if (status) {
         const searcher = new DataTextSearcher(bullQueue);
-        return await searcher.search({
-          status,
-          term: dataSearch.term,
-          key: dataSearch.key as string,
-          offset: offset,
-          limit: limit,
-          scanCount: this._config.textSearchScanCount,
-        });
+        return await searcher
+          .search({
+            status,
+            term: dataSearch.term,
+            key: dataSearch.key as string,
+            offset: offset,
+            limit: limit,
+            scanCount: this._config.textSearchScanCount,
+          })
+          .then(this._filterJobs);
       } else {
         this._throwInternalError(ErrorEnum.DATA_SEARCH_STATUS_REQUIRED);
       }
     } else if (status) {
-      return await bullQueue.getJobs(
-        [status],
-        offset,
-        offset + limit - 1,
-        order === OrderEnum.Asc
-      );
+      return await bullQueue
+        .getJobs([status], offset, offset + limit - 1, order === OrderEnum.Asc)
+        .then(this._filterJobs);
     }
     {
       return [];
     }
+  }
+  private _filterJobs(jobs: Job[]) {
+    return jobs.filter(Boolean);
   }
   async getJob(queueName: string, id: JobId, throwIfNotFound?: boolean) {
     const queue = this.getQueueByName(queueName, true);
