@@ -23,7 +23,7 @@ export const useFilteredQueues = (queues?: TQueues) => {
 const useWaitForDraggerToMount = (
   ref: React.MutableRefObject<Maybe<HTMLDivElement>>,
 ) => {
-  const [isMounted, setIsMounted] = useState(false);
+  const [isMounted, setIsMounted] = useState(Boolean(ref.current));
   useEffect(() => {
     if (!ref.current) {
       const interval = setInterval(() => {
@@ -33,6 +33,8 @@ const useWaitForDraggerToMount = (
         }
       }, 100);
       return () => clearInterval(interval);
+    } else {
+      setIsMounted(true);
     }
   }, []);
   return isMounted;

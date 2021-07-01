@@ -1149,7 +1149,7 @@
       ]
     },
     "dist/config/layouts.js": {
-      "bytes": 94,
+      "bytes": 112,
       "imports": []
     },
     "dist/config/storage.js": {
@@ -1589,7 +1589,7 @@
       ]
     },
     "dist/components/Drawer/hooks.js": {
-      "bytes": 2819,
+      "bytes": 2873,
       "imports": [
         {
           "path": "_snowpack/pkg/react.js",
@@ -4995,7 +4995,7 @@
       ]
     },
     "dist/components/Drawer/index.js": {
-      "bytes": 3547,
+      "bytes": 3532,
       "imports": [
         {
           "path": "_snowpack/pkg/react.js",
@@ -11253,7 +11253,7 @@
           "bytesInOutput": 0
         },
         "dist/config/layouts.js": {
-          "bytesInOutput": 59
+          "bytesInOutput": 75
         },
         "dist/config/storage.js": {
           "bytesInOutput": 113
@@ -11310,7 +11310,7 @@
           "bytesInOutput": 995
         },
         "dist/components/Drawer/hooks.js": {
-          "bytesInOutput": 1056
+          "bytesInOutput": 1081
         },
         "_snowpack/pkg/common/ListContext-e5a8245b.js": {
           "bytesInOutput": 27
@@ -11712,7 +11712,7 @@
           "bytesInOutput": 426
         },
         "dist/components/Drawer/index.js": {
-          "bytesInOutput": 1289
+          "bytesInOutput": 1280
         },
         "_snowpack/pkg/@material-ui/core/AppBar.js": {
           "bytesInOutput": 1270
@@ -12174,7 +12174,7 @@
           "bytesInOutput": 122
         }
       },
-      "bytes": 940133
+      "bytes": 940165
     },
     "../packages/ui/~~bundle~~/dist/index.css": {
       "imports": [],

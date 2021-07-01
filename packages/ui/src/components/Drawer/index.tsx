@@ -18,6 +18,7 @@ import Alert from '@material-ui/lab/Alert';
 
 const useStyles = makeStyles((theme) => ({
   drawer: {
+    position: 'relative',
     [theme.breakpoints.up('md')]: {
       flexShrink: 0,
     },
@@ -41,12 +42,11 @@ const useStyles = makeStyles((theme) => ({
   dragger: {
     width: 4,
     cursor: 'ew-resize',
-    padding: '4px 0 0',
     position: 'absolute',
     top: 0,
-    right: 0,
+    right: -4,
     bottom: 0,
-    zIndex: 100,
+    zIndex: 1201,
   },
 }));
 
@@ -65,6 +65,7 @@ export default function Drawer() {
 
   return (
     <nav className={cls.drawer} style={{ width: drawerWidth }}>
+      <div ref={draggerRef} className={cls.dragger} />
       <BaseDrawer
         open={isDesktop || isOpen}
         container={isDesktop ? undefined : window.document.body}
@@ -73,7 +74,6 @@ export default function Drawer() {
         anchor={theme.direction === 'rtl' ? 'right' : 'left'}
         PaperProps={{ style: { width: drawerWidth } }}
       >
-        <div id="dragger" ref={draggerRef} className={cls.dragger} />
         <div className={cls.toolbar}>
           <IconButton onClick={closeDrawer}>
             {theme.direction === 'ltr' ? (
