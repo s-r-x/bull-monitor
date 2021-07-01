@@ -3,9 +3,15 @@ import range from 'lodash/range';
 import sample from 'lodash/sample';
 import random from 'lodash/random';
 import { EnvConfig } from '@/config/env';
+import without from 'lodash/without';
 
 const QUEUES_AMOUNT = 10;
 const JOBS_AMOUNT = 100;
+
+const jobStatuses = without(
+  Object.values(JobStatus),
+  JobStatus.Stuck,
+) as JobStatus[];
 
 const generateData = () => {
   const queues = range(QUEUES_AMOUNT).map((n) => ({
@@ -13,7 +19,7 @@ const generateData = () => {
     isPaused: false,
   }));
   const jobs = range(JOBS_AMOUNT).map((n) => {
-    const status = sample(Object.values(JobStatus)) as JobStatus;
+    const status = sample(jobStatuses) as JobStatus;
     const delay = status === JobStatus.Delayed ? 100000 : 0;
     const timestamp = new Date().getTime();
     const isFailedOrCompleted =

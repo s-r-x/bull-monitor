@@ -9,6 +9,7 @@ export const getQueuesMock = (): Promise<GetQueuesQuery> => {
       jobsCounts: networkMockData.jobs.reduce(
         (acc, job) => {
           if (job.queue === queue.name) {
+            // @ts-ignore
             acc[job.status] += 1;
           }
           return acc;

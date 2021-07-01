@@ -66,7 +66,8 @@ export enum JobStatus {
   Active = 'active',
   Delayed = 'delayed',
   Failed = 'failed',
-  Paused = 'paused'
+  Paused = 'paused',
+  Stuck = 'stuck'
 }
 
 export enum JobStatusClean {
