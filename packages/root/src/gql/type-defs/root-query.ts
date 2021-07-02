@@ -12,6 +12,7 @@ export const rootQueryTypeDef = gql`
   type Query {
     queues: [Queue!]
     queue(name: String!): Queue
+    metrics(queue: String!, start: Int = 0, end: Int = -1): [QueueMetrics!]
     jobs(
       queue: String!
       offset: Int

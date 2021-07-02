@@ -51,7 +51,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function Drawer() {
-  const { data, status, refetch } = useQueuesQuery();
+  const { data, status, refetch, error } = useQueuesQuery();
   const cls = useStyles();
   const theme = useTheme();
   const isDesktop = useMediaQuery(theme.breakpoints.up('md'));
@@ -64,7 +64,10 @@ export default function Drawer() {
   const { drawerWidth, draggerRef } = useDrawerWidth();
 
   return (
-    <nav className={cls.drawer} style={{ width: drawerWidth }}>
+    <nav
+      className={cls.drawer}
+      style={{ width: isDesktop ? drawerWidth : 'auto' }}
+    >
       <div ref={draggerRef} className={cls.dragger} />
       <BaseDrawer
         open={isDesktop || isOpen}
@@ -83,7 +86,7 @@ export default function Drawer() {
             )}
           </IconButton>
         </div>
-        <NetworkRequest status={status} refetch={refetch}>
+        <NetworkRequest error={error} status={status} refetch={refetch}>
           {isempty(queues) ? (
             <Alert severity="error">No queues</Alert>
           ) : (

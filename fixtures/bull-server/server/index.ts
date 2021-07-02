@@ -21,6 +21,10 @@ const monitor = new BullMonitorExpress({
   queues,
   gqlPlayground: true,
   gqlIntrospection: true,
+  //metrics: {
+  //  collectInterval: { seconds: 30 },
+  //  maxMetrics: 10,
+  //},
 });
 
 monitor.init().then(() => {

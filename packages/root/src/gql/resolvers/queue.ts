@@ -27,13 +27,16 @@ export const queueResolver: TResolvers = {
     async jobsCounts(parent: BullQueue, _, { dataSources: { bull } }) {
       return await bull.getQueueJobsCounts(parent.name);
     },
-    async isPaused(parent: BullQueue, _, { dataSources: { bull } }) {
+    async isPaused(parent: BullQueue) {
       return await parent.isPaused();
     },
     async jobs(parent: BullQueue, _, { dataSources: { bull } }) {
       return await bull.getQueueJobs({
         queue: parent.name,
       });
+    },
+    async metrics(parent: BullQueue, _, { dataSources: { metrics } }) {
+      return await metrics.getMetrics(parent.name);
     },
   },
 };

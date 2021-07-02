@@ -1,10 +1,17 @@
-import { QueryJobArgs } from '../../typings/gql';
+import { QueryJobArgs, QueryMetricsArgs } from '../../typings/gql';
 import type { TResolvers } from './typings';
 
 export const queryResolver: TResolvers = {
   Query: {
     async redisInfo(_, __, { dataSources: { bull } }) {
       return await bull.getRedisInfo();
+    },
+    async metrics(_, args: QueryMetricsArgs, { dataSources: { metrics } }) {
+      return await metrics.getMetrics(
+        args.queue,
+        args.start as number,
+        args.end as number
+      );
     },
     queues(_, __, { dataSources: { bull } }) {
       return bull.getQueues();

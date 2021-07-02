@@ -31,17 +31,11 @@ import { Maybe } from '../../../typings/utils';
 import redisInfo from 'redis-info';
 import { DataTextSearcher } from './data-text-search';
 import isNil from 'lodash/isNil';
+import { BullMonitorError } from '../errors';
 
 type Config = {
   textSearchScanCount?: number;
 };
-export class BullMonitorError extends Error {
-  constructor(msg: any) {
-    super(msg);
-    this.message = msg;
-    this.name = 'BullMonitorError';
-  }
-}
 export enum ErrorEnum {
   QUEUE_NOT_FOUND = 'Queue not found',
   JOB_NOT_FOUND = 'Job not found',

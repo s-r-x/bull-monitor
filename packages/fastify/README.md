@@ -21,6 +21,17 @@ import Queue from 'bull';
     gqlPlayground: true,
     queues,
     baseUrl: '/my/url',
+    // enable metrics collector. false by default
+    // metrics are persisted into redis as a list
+    // with keys in format "bull_monitor::metrics::{{queue}}"
+    metrics: {
+      // collect metrics every X
+      // where X is any value supported by https://github.com/kibertoad/toad-scheduler
+      collectInterval: { hours: 1 },
+      maxMetrics: 100,
+      // disable metrics for specific queues
+      blacklist: ['1'],
+    },
   });
   await monitor.init();
   await app.register(monitor.plugin);

@@ -14,6 +14,9 @@ import { useRedisInfoModalStore } from '@/stores/redis-info-modal';
 import RedisLogo from '../RedisLogo';
 import Logo from '../Logo';
 import { useShareActiveWorkspace } from '@/hooks/use-share';
+import MetricsScreenIcon from '@material-ui/icons/Timeline';
+import JobsScreenIcon from '@material-ui/icons/ViewList';
+import { useActiveScreenStore } from '@/stores/active-screen';
 
 const useStyles = makeStyles((theme: Theme) => ({
   appBar: {
@@ -37,6 +40,7 @@ export default function AppBar() {
   const openSettings = useSettingsModalStore((state) => state.open);
   const openRedisInfo = useRedisInfoModalStore((state) => state.open);
   const shareWorkspace = useShareActiveWorkspace();
+  const { screen, toggleScreen } = useActiveScreenStore();
 
   return (
     <BaseAppBar position="fixed" className={classes.appBar}>
@@ -52,6 +56,11 @@ export default function AppBar() {
         </IconButton>
         <Logo fill="white" width="130" />
         <Box className={classes.right} marginLeft="auto">
+          <Tooltip title="Redis info">
+            <IconButton onClick={openRedisInfo} aria-label="redis info">
+              <RedisLogo width="24" />
+            </IconButton>
+          </Tooltip>
           <Tooltip title="Share active workspace">
             <IconButton
               onClick={shareWorkspace}
@@ -61,9 +70,9 @@ export default function AppBar() {
               <ShareIcon />
             </IconButton>
           </Tooltip>
-          <Tooltip title="Redis info">
-            <IconButton onClick={openRedisInfo} aria-label="redis info">
-              <RedisLogo width="24" />
+          <Tooltip title={screen === 'jobs' ? 'Metrics' : 'Jobs'}>
+            <IconButton color="inherit" onClick={toggleScreen}>
+              {screen === 'jobs' ? <MetricsScreenIcon /> : <JobsScreenIcon />}
             </IconButton>
           </Tooltip>
           <Tooltip title="Settings">

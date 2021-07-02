@@ -38,7 +38,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function Workspaces() {
+export default function WorkspacePicker() {
   const workspaces = useAtomValue(workspacesListAtom);
   const [activeWorkspace, changeActiveWorkspace] = useAtom(
     activeWorkspaceIdAtom,

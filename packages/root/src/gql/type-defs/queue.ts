@@ -45,5 +45,6 @@ export const queueTypeDef = gql`
     pausedCount: Int!
     jobs: [Job]!
     isPaused: Boolean!
+    metrics: [QueueMetrics!]
   }
 `;

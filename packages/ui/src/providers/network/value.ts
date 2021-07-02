@@ -9,7 +9,6 @@ import { getJobByIdMock } from '@/demo-mocks/network/queries/get-job-by-id';
 import { getRedisInfo } from '@/network/queries/get-redis-info';
 import { getRedisInfoMock } from '@/demo-mocks/network/queries/get-redis-info';
 import { getQueues } from '@/network/queries/get-queues';
-
 import { createJobLog } from '@/network/mutations/create-job-log';
 import { createJobLogMock } from '@/demo-mocks/network/mutations/create-job-log';
 import { discardJob } from '@/network/mutations/discard-job';
@@ -47,6 +46,12 @@ import { removeJobsMock } from '@/demo-mocks/network/mutations/remove-jobs';
 import { getQueuesMock } from '@/demo-mocks/network/queries/get-queues';
 import { getJobsForExport } from '@/network/queries/get-jobs-for-export';
 import { getJobsForExportMock } from '@/demo-mocks/network/queries/get-jobs-for-export';
+import { getQueueMetrics } from '@/network/queries/get-queue-metrics';
+import { clearMetrics } from '@/network/mutations/clear-metrics';
+import { clearAllMetrics } from '@/network/mutations/clear-all-metrics';
+import { getQueueMetricsMock } from '@/demo-mocks/network/queries/get-queue-metrics';
+import {clearAllMetricsMock} from '@/demo-mocks/network/mutations/clear-all-metrics';
+import {clearMetricsMock} from '@/demo-mocks/network/mutations/clear-metrics';
 
 import { EnvConfig } from '@/config/env';
 
@@ -60,6 +65,7 @@ const queries = {
   getJobs: m ? getJobsMock : getJobs,
   getJobById: m ? getJobByIdMock : getJobById,
   getQueues: m ? getQueuesMock : getQueues,
+  getQueueMetrics: m ? getQueueMetricsMock : getQueueMetrics,
 };
 const mutations = {
   createJob: m ? createJobMock : createJob,
@@ -79,6 +85,8 @@ const mutations = {
   cleanQueue: m ? cleanQueueMock : cleanQueue,
   retryJobs: m ? retryJobsMock : retryJobs,
   removeJobs: m ? removeJobsMock : removeJobs,
+  clearMetrics: m ?clearMetricsMock : clearMetrics,
+  clearAllMetrics: m?clearAllMetricsMock : clearAllMetrics,
 };
 
 export const networkContextValue = { mutations, queries };

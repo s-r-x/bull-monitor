@@ -87,5 +87,8 @@ export const mutationsTypeDef = gql`
     https://github.com/OptimalBits/bull/blob/develop/REFERENCE.md#queueremovejobs
     """
     removeJobsByPattern(queue: String!, pattern: String!): Boolean
+
+    clearMetrics(queue: String!): Boolean
+    clearAllMetrics: Boolean
   }
 `;

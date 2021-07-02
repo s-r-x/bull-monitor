@@ -1,5 +1,6 @@
 import {
   MutationCleanQueueArgs,
+  MutationClearMetricsArgs,
   MutationCloseQueueArgs,
   MutationCreateJobArgs,
   MutationDiscardJobArgs,
@@ -107,6 +108,16 @@ export const mutationResolver: TResolvers = {
     },
     log(_, args: MutationLogArgs, { dataSources: { bull } }) {
       return bull.createJobLog(args);
+    },
+    async clearMetrics(
+      _,
+      args: MutationClearMetricsArgs,
+      { dataSources: { metrics } }
+    ) {
+      return await metrics.clearMetrics(args.queue);
+    },
+    async clearAllMetrics(_, __, { dataSources: { metrics } }) {
+      return await metrics.clearAllMetrics();
     },
   },
 };

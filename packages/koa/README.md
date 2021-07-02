@@ -24,6 +24,17 @@ import Queue from 'bull';
     // enables graphql playground at /my/url/graphql. true by default
     gqlPlayground: true,
     queues,
+    // enable metrics collector. false by default
+    // metrics are persisted into redis as a list
+    // with keys in format "bull_monitor::metrics::{{queue}}"
+    metrics: {
+      // collect metrics every X
+      // where X is any value supported by https://github.com/kibertoad/toad-scheduler
+      collectInterval: { hours: 1 },
+      maxMetrics: 100,
+      // disable metrics for specific queues
+      blacklist: ['1'],
+    },
   });
   await monitor.init({
     // optional middleware that will run before the bull-monitor router

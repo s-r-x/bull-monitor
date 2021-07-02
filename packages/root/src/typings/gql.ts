@@ -47,6 +47,10 @@ export type Job = {
 };
 
 export type JobDataSearchInput = {
+  /**
+   * any key supported by https://lodash.com/docs/4.17.15#get
+   * if not specified text search will be performed on the whole stringified data
+   */
   key?: Maybe<Scalars['String']>;
   term: Scalars['String'];
 };
@@ -62,7 +66,8 @@ export enum JobStatus {
   Active = 'active',
   Delayed = 'delayed',
   Failed = 'failed',
-  Paused = 'paused'
+  Paused = 'paused',
+  Stuck = 'stuck'
 }
 
 export enum JobStatusClean {
@@ -109,6 +114,8 @@ export type Mutation = {
   createJob?: Maybe<Job>;
   /** https://github.com/OptimalBits/bull/blob/develop/REFERENCE.md#queueremovejobs */
   removeJobsByPattern?: Maybe<Scalars['Boolean']>;
+  clearMetrics?: Maybe<Scalars['Boolean']>;
+  clearAllMetrics?: Maybe<Scalars['Boolean']>;
 };
 
 
@@ -212,6 +219,11 @@ export type MutationRemoveJobsByPatternArgs = {
   pattern: Scalars['String'];
 };
 
+
+export type MutationClearMetricsArgs = {
+  queue: Scalars['String'];
+};
+
 export enum OrderEnum {
   Asc = 'ASC',
   Desc = 'DESC'
@@ -220,6 +232,7 @@ export enum OrderEnum {
 export type Query = {
   queues?: Maybe<Array<Queue>>;
   queue?: Maybe<Queue>;
+  metrics?: Maybe<Array<QueueMetrics>>;
   jobs: Array<Job>;
   job?: Maybe<Job>;
   redisInfo?: Maybe<RedisInfo>;
@@ -228,6 +241,13 @@ export type Query = {
 
 export type QueryQueueArgs = {
   name: Scalars['String'];
+};
+
+
+export type QueryMetricsArgs = {
+  queue: Scalars['String'];
+  start?: Maybe<Scalars['Int']>;
+  end?: Maybe<Scalars['Int']>;
 };
 
 
@@ -268,6 +288,7 @@ export type Queue = {
   pausedCount: Scalars['Int'];
   jobs: Array<Maybe<Job>>;
   isPaused: Scalars['Boolean'];
+  metrics?: Maybe<Array<QueueMetrics>>;
 };
 
 export type QueueJobsCounts = {
@@ -277,6 +298,11 @@ export type QueueJobsCounts = {
   failed: Scalars['Int'];
   delayed: Scalars['Int'];
   paused: Scalars['Int'];
+};
+
+export type QueueMetrics = {
+  timestamp: Scalars['Float'];
+  counts: QueueJobsCounts;
 };
 
 export type RedisInfo = {
