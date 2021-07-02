@@ -1,5 +1,5 @@
 ui_npm_prefix = npm --prefix ./packages/ui
-core_npm_prefix = npm --prefix ./packages/core
+root_npm_prefix = npm --prefix ./packages/root
 fixtures_dir = fixtures
 
 fixture.bull-server:
@@ -29,9 +29,9 @@ ui.test:
 ui.gen-ts-types:
 	cd packages/ui/internal && npx graphql-codegen --config ./gql-ts-codegen.yml
 root.build:
-	$(core_npm_prefix) run build
+	$(root_npm_prefix) run build
 root.dev:
-	$(core_npm_prefix) run dev
+	$(root_npm_prefix) run dev
 root.test:
 	npx jest ./packages/root
 root.test.watch:
