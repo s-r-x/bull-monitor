@@ -8,6 +8,8 @@ import { activeQueueAtom } from '@/atoms/workspaces';
 import NetworkRequest from '@/components/NetworkRequest';
 import { getPollingInterval } from '@/stores/network-settings';
 import { QueryKeysConfig } from '@/config/query-keys';
+import isempty from 'lodash/isEmpty';
+import Alert from '@material-ui/lab/Alert';
 
 const MetricsScreen = () => {
   const {
@@ -31,7 +33,11 @@ const MetricsScreen = () => {
   return (
     <NetworkRequest error={error} refetch={refetch} status={status}>
       <Actions />
-      {data && <Chart metrics={data} />}
+      {!data || isempty(data) ? (
+        <Alert severity="warning">No metrics</Alert>
+      ) : (
+        <Chart metrics={data} />
+      )}
     </NetworkRequest>
   );
 };
