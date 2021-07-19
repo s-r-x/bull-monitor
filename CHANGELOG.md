@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.28.1](https://github.com/s-r-x/bull-monitor/compare/v0.28.0...v0.28.1) (2021-07-19)
+
+
+### Bug Fixes
+
+* **ui:** show placeholder instead of line chart if metrics for selected queue is empty ([5bac414](https://github.com/s-r-x/bull-monitor/commit/5bac41466e423feff2022f87b9b6fe896f8f37ce))
+
+
+
+
+
 # [0.28.0](https://github.com/s-r-x/bull-monitor/compare/v0.27.3...v0.28.0) (2021-07-07)
 
 
