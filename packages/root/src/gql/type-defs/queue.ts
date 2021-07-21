@@ -11,6 +11,7 @@ export const queueTypeDef = gql`
   }
   type Queue {
     name: String!
+    keyPrefix: String
     """
     https://github.com/OptimalBits/bull/blob/develop/REFERENCE.md#queuecount
     """
