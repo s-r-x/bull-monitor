@@ -8,6 +8,7 @@ export const getQueues = (): Promise<GetQueuesQuery> =>
       query GetQueues {
         queues {
           name
+          keyPrefix
           isPaused
           jobsCounts {
             waiting

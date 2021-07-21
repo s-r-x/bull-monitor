@@ -270,6 +270,7 @@ export type QueryJobArgs = {
 
 export type Queue = {
   name: Scalars['String'];
+  keyPrefix?: Maybe<Scalars['String']>;
   /** https://github.com/OptimalBits/bull/blob/develop/REFERENCE.md#queuecount */
   count: Scalars['Int'];
   /** https://github.com/OptimalBits/bull/blob/develop/REFERENCE.md#queuegetjobcounts */
@@ -547,7 +548,7 @@ export type GetQueuesQueryVariables = Exact<{ [key: string]: never; }>;
 
 
 export type GetQueuesQuery = { queues?: Maybe<Array<(
-    Pick<Queue, 'name' | 'isPaused'>
+    Pick<Queue, 'name' | 'keyPrefix' | 'isPaused'>
     & { jobsCounts: Pick<QueueJobsCounts, 'waiting' | 'active' | 'completed' | 'failed' | 'delayed' | 'paused'> }
   )>> };
 

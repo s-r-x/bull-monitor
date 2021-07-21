@@ -92,7 +92,7 @@ export default function Drawer() {
           ) : (
             <>
               <QueuesFilter className={cls.filter} />
-              <QueuesList queues={filteredQueues} />
+              {filteredQueues && <QueuesList queues={filteredQueues} />}
               {queues && <Footer queues={queues} className={cls.footer} />}
             </>
           )}
