@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.29.0](https://github.com/s-r-x/bull-monitor/compare/v0.28.1...v0.29.0) (2021-07-21)
+
+
+### Features
+
+* **gql:** add keyPrefix field in Queue ([7fd7bce](https://github.com/s-r-x/bull-monitor/commit/7fd7bceb267bc080c042795f142421de3cb2ed09))
+* **ui:** group queues by prefix ([60ab12b](https://github.com/s-r-x/bull-monitor/commit/60ab12b191e19911a8083d267aad1156e77236af))
+
+
+
+
+
 ## [0.28.1](https://github.com/s-r-x/bull-monitor/compare/v0.28.0...v0.28.1) (2021-07-19)
 
 

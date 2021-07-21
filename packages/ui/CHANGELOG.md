@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.29.0](https://github.com/s-r-x/bull-monitor/compare/v0.28.1...v0.29.0) (2021-07-21)
+
+
+### Features
+
+* **ui:** group queues by prefix ([60ab12b](https://github.com/s-r-x/bull-monitor/commit/60ab12b191e19911a8083d267aad1156e77236af))
+
+
+
+
+
 ## [0.28.1](https://github.com/s-r-x/bull-monitor/compare/v0.28.0...v0.28.1) (2021-07-19)
 
 
