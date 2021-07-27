@@ -8,7 +8,7 @@ import type {
 import { UI } from './ui';
 import { DEFAULT_TEXT_SEARCH_SCAN_COUNT } from './gql/data-sources/bull/config';
 import type { Config, MetricsConfig } from './typings/config';
-import { MetricsCollector } from './services/metrics-collector';
+import { MetricsCollector } from './metrics-collector';
 
 export abstract class BullMonitor<TServer extends ApolloServerBase> {
   constructor(config: Config) {

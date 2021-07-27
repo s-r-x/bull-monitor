@@ -1,6 +1,6 @@
 import type { Queue, JobCounts } from 'bull';
-import { MetricsConfig } from '../typings/config';
-import { JsonService } from './json';
+import { MetricsConfig } from './typings/config';
+import { JsonService } from './services/json';
 import {
   ToadScheduler as Scheduler,
   SimpleIntervalJob as SchedulerJob,
