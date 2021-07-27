@@ -17,6 +17,7 @@ const generateData = () => {
   const queues = range(QUEUES_AMOUNT).map((n) => ({
     name: `queue:${n}`,
     isPaused: false,
+    keyPrefix: 'bull',
   }));
   const jobs = range(JOBS_AMOUNT).map((n) => {
     const status = sample(jobStatuses) as JobStatus;

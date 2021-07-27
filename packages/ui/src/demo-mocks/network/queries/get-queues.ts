@@ -6,6 +6,7 @@ export const getQueuesMock = (): Promise<GetQueuesQuery> => {
     queues: networkMockData.queues.map((queue) => ({
       name: queue.name,
       isPaused: queue.isPaused,
+      keyPrefix: queue.keyPrefix,
       jobsCounts: networkMockData.jobs.reduce(
         (acc, job) => {
           if (job.queue === queue.name) {
