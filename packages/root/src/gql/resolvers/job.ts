@@ -18,6 +18,9 @@ export const JobResolver: TResolvers = {
     delay({ opts }: BullJob) {
       return opts.delay;
     },
+    processingTime(job: BullJob, _vars, { dataSources: { bull } }) {
+      return bull.extractJobProcessingTime(job);
+    },
     logs(job: BullJob, _vars, { dataSources: { bull } }) {
       return bull.getJobLogs(job.queue.name, job.id as number);
     },

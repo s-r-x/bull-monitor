@@ -37,6 +37,7 @@ export const jobTypeDef = gql`
     timestamp: Float!
     finishedOn: Float
     processedOn: Float
+    processingTime: Float
     opts: String!
   }
 `;

@@ -43,6 +43,7 @@ export type Job = {
   timestamp: Scalars['Float'];
   finishedOn?: Maybe<Scalars['Float']>;
   processedOn?: Maybe<Scalars['Float']>;
+  processingTime?: Maybe<Scalars['Float']>;
   opts: Scalars['String'];
 };
 
@@ -270,6 +271,7 @@ export type QueryJobArgs = {
 
 export type Queue = {
   name: Scalars['String'];
+  keyPrefix?: Maybe<Scalars['String']>;
   /** https://github.com/OptimalBits/bull/blob/develop/REFERENCE.md#queuecount */
   count: Scalars['Int'];
   /** https://github.com/OptimalBits/bull/blob/develop/REFERENCE.md#queuegetjobcounts */

@@ -144,6 +144,10 @@ export class BullDataSource extends DataSource {
     }
     return job;
   }
+  extractJobProcessingTime(job: Job): number {
+    if (!job.processedOn || !job.finishedOn) return 0;
+    return job.finishedOn - job.processedOn;
+  }
   async getJobLogs(queueName: string, id: number) {
     const queue = this.getQueueByName(queueName, true);
     return await queue?.getJobLogs(id);
