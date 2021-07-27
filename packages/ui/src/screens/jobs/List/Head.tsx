@@ -53,6 +53,7 @@ export default function TableHead({ jobs }: TProps) {
         <TableCell>Name</TableCell>
         <TableCell>Timestamp</TableCell>
         <TableCell>Delay</TableCell>
+        <TableCell width="100">Time</TableCell>
         <TableCell width="100">Attempts</TableCell>
         <TableCell width="100">Progress</TableCell>
       </TableRow>

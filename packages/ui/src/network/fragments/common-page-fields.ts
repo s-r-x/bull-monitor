@@ -12,6 +12,7 @@ export const COMMON_JOB_FIELDS_FRAG = gql`
     returnValue
     finishedOn
     processedOn
+    processingTime
     name
     opts
     delay

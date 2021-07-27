@@ -43,6 +43,7 @@ export type Job = {
   timestamp: Scalars['Float'];
   finishedOn?: Maybe<Scalars['Float']>;
   processedOn?: Maybe<Scalars['Float']>;
+  processingTime?: Maybe<Scalars['Float']>;
   opts: Scalars['String'];
 };
 
@@ -333,7 +334,7 @@ export type RedisInfo = {
 };
 
 
-export type CommonJobFieldsFragment = Pick<Job, 'id' | 'progress' | 'attemptsMade' | 'failedReason' | 'status' | 'stacktrace' | 'timestamp' | 'returnValue' | 'finishedOn' | 'processedOn' | 'name' | 'opts' | 'delay'>;
+export type CommonJobFieldsFragment = Pick<Job, 'id' | 'progress' | 'attemptsMade' | 'failedReason' | 'status' | 'stacktrace' | 'timestamp' | 'returnValue' | 'finishedOn' | 'processedOn' | 'processingTime' | 'name' | 'opts' | 'delay'>;
 
 export type CleanQueueMutationVariables = Exact<{
   queue: Scalars['String'];

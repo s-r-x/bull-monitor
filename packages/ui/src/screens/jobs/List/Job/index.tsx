@@ -10,6 +10,7 @@ import SimpleJsonView from '@/components/SimpleJsonView';
 import isempty from 'lodash/isEmpty';
 import { makeStyles } from '@material-ui/core/styles';
 import { useRemoveJobSelectionOnUnmount } from './hooks';
+import ms from 'ms';
 
 const useStyles = makeStyles((theme) => ({
   rowWithExtra: {
@@ -71,6 +72,7 @@ const Job = ({
         <TableCell>{job.name}</TableCell>
         <TableCell>{date}</TableCell>
         <TableCell>{delayDate}</TableCell>
+        <TableCell>{job.processingTime && ms(job.processingTime)}</TableCell>
         <TableCell>{job.attemptsMade}</TableCell>
         <TableCell>{job.progress}</TableCell>
       </TableRow>
