@@ -4679,7 +4679,7 @@
       ]
     },
     "dist/demo-mocks/network/data.js": {
-      "bytes": 2160,
+      "bytes": 2183,
       "imports": [
         {
           "path": "dist/typings/gql.js",
@@ -4739,7 +4739,7 @@
       ]
     },
     "dist/network/fragments/common-page-fields.js": {
-      "bytes": 318,
+      "bytes": 337,
       "imports": [
         {
           "path": "_snowpack/pkg/graphql-request.js",
@@ -5231,7 +5231,7 @@
       ]
     },
     "dist/demo-mocks/network/queries/get-queues.js": {
-      "bytes": 536,
+      "bytes": 570,
       "imports": [
         {
           "path": "dist/demo-mocks/network/data.js",
@@ -10583,7 +10583,7 @@
       ]
     },
     "dist/screens/jobs/List/Job/index.js": {
-      "bytes": 3312,
+      "bytes": 3465,
       "imports": [
         {
           "path": "_snowpack/pkg/react.js",
@@ -10627,6 +10627,10 @@
         },
         {
           "path": "dist/screens/jobs/List/Job/hooks.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/ms.js",
           "kind": "import-statement"
         }
       ]
@@ -11312,7 +11316,7 @@
       ]
     },
     "dist/screens/jobs/List/Head.js": {
-      "bytes": 2157,
+      "bytes": 2237,
       "imports": [
         {
           "path": "_snowpack/pkg/react.js",
@@ -13056,7 +13060,7 @@
           "bytesInOutput": 446
         },
         "dist/demo-mocks/network/data.js": {
-          "bytesInOutput": 917
+          "bytesInOutput": 934
         },
         "dist/demo-mocks/network/queries/get-job-data.js": {
           "bytesInOutput": 81
@@ -13068,7 +13072,7 @@
           "bytesInOutput": 81
         },
         "dist/network/fragments/common-page-fields.js": {
-          "bytesInOutput": 222
+          "bytesInOutput": 241
         },
         "dist/network/queries/get-jobs.js": {
           "bytesInOutput": 569
@@ -13194,7 +13198,7 @@
           "bytesInOutput": 168
         },
         "dist/demo-mocks/network/queries/get-queues.js": {
-          "bytesInOutput": 225
+          "bytesInOutput": 247
         },
         "dist/network/queries/get-jobs-for-export.js": {
           "bytesInOutput": 464
@@ -13620,7 +13624,7 @@
           "bytesInOutput": 114
         },
         "dist/screens/jobs/List/Job/index.js": {
-          "bytesInOutput": 1318
+          "bytesInOutput": 1382
         },
         "_snowpack/pkg/@material-ui/core/Table.js": {
           "bytesInOutput": 825
@@ -13662,7 +13666,7 @@
           "bytesInOutput": 378
         },
         "dist/screens/jobs/List/Head.js": {
-          "bytesInOutput": 673
+          "bytesInOutput": 714
         },
         "_snowpack/pkg/@material-ui/icons/Replay.js": {
           "bytesInOutput": 303
@@ -13731,7 +13735,7 @@
           "bytesInOutput": 122
         }
       },
-      "bytes": 1415696
+      "bytes": 1415859
     },
     "../packages/ui/~~bundle~~/dist/index.css": {
       "imports": [],
