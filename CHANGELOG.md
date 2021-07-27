@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.30.0](https://github.com/s-r-x/bull-monitor/compare/v0.29.0...v0.30.0) (2021-07-27)
+
+
+### Features
+
+* **gql:** processingTime Job field ([841fb7e](https://github.com/s-r-x/bull-monitor/commit/841fb7eb29857cedff06455554ca262697b1b3a4))
+* **ui:** render jobs' processing time ([ed2af38](https://github.com/s-r-x/bull-monitor/commit/ed2af387fdb5d676bf8bb87b6d96e9a2bf571186))
+
+
+
+
+
 # [0.29.0](https://github.com/s-r-x/bull-monitor/compare/v0.28.1...v0.29.0) (2021-07-21)
 
 
