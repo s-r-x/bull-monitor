@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.31.0](https://github.com/s-r-x/bull-monitor/compare/v0.30.0...v0.31.0) (2021-07-29)
+
+
+### Features
+
+* **ui:** sort queues by jobs count ([89b881d](https://github.com/s-r-x/bull-monitor/commit/89b881dcf8c22580fa25ec8b24063e31c3dfdda8))
+
+
+
+
+
 # [0.30.0](https://github.com/s-r-x/bull-monitor/compare/v0.29.0...v0.30.0) (2021-07-27)
 
 
