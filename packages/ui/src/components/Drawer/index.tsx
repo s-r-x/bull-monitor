@@ -7,9 +7,10 @@ import { makeStyles, useTheme } from '@material-ui/core/styles';
 import { useDrawerState } from '@/stores/drawer';
 import shallow from 'zustand/shallow';
 import NetworkRequest from '@/components/NetworkRequest';
-import { useDrawerWidth, useFilteredQueues } from './hooks';
+import { useDrawerWidth, useFilteredQueues, useSortedQueues } from './hooks';
 import QueuesList from './Queues';
 import QueuesFilter from './Filter';
+import QueuesSorter from './Sorter';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 import { useQueuesQuery } from '@/hooks/use-queues-query';
 import Footer from './Footer';
@@ -28,10 +29,12 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
     alignItems: 'center',
   },
-  filter: {
+  filters: {
+    display: 'flex',
     marginTop: theme.spacing(1),
     marginLeft: theme.spacing(0.5),
     marginRight: theme.spacing(0.5),
+    alignItems: 'center',
   },
   footer: {
     marginTop: 'auto',
@@ -61,6 +64,7 @@ export default function Drawer() {
   );
   const queues = data?.queues;
   const filteredQueues = useFilteredQueues(queues);
+  const sortedQueues = useSortedQueues(filteredQueues);
   const { drawerWidth, draggerRef } = useDrawerWidth();
 
   return (
@@ -91,8 +95,11 @@ export default function Drawer() {
             <Alert severity="error">No queues</Alert>
           ) : (
             <>
-              <QueuesFilter className={cls.filter} />
-              {filteredQueues && <QueuesList queues={filteredQueues} />}
+              <div className={cls.filters}>
+                <QueuesFilter />
+                <QueuesSorter />
+              </div>
+              {sortedQueues && <QueuesList queues={sortedQueues} />}
               {queues && <Footer queues={queues} className={cls.footer} />}
             </>
           )}

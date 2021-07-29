@@ -5,6 +5,8 @@ import { LayoutConfig } from '@/config/layouts';
 import type { Maybe } from '@/typings/utils';
 import { useDrawerState } from '@/stores/drawer';
 import debounce from 'lodash/debounce';
+import { useQueuesSortStore } from '@/stores/queues-sort';
+import orderBy from 'lodash/orderBy';
 
 type TQueues = GetQueuesQuery['queues'];
 export const useFilteredQueues = (queues?: TQueues) => {
@@ -18,6 +20,13 @@ export const useFilteredQueues = (queues?: TQueues) => {
       name.toLowerCase().includes(lowerFilter),
     );
   }, [filterName, queues]);
+};
+export const useSortedQueues = (queues?: TQueues) => {
+  const field = useQueuesSortStore((state) => state.field);
+  return useMemo(() => {
+    if (!queues || !field) return queues;
+    return orderBy(queues, 'jobsCounts.' + field, 'desc');
+  }, [queues, field]);
 };
 
 const useWaitForDraggerToMount = (
@@ -40,10 +49,9 @@ const useWaitForDraggerToMount = (
   return isMounted;
 };
 export const useDrawerWidth = () => {
-  const [
-    defaultDrawerWidth,
-    changeDefaultDrawerWidth,
-  ] = useDrawerState((state) => [state.defaultWidth, state.changeDefaultWidth]);
+  const [defaultDrawerWidth, changeDefaultDrawerWidth] = useDrawerState(
+    (state) => [state.defaultWidth, state.changeDefaultWidth],
+  );
   const draggerRef = useRef<HTMLDivElement>(null);
   const [drawerWidth, setDrawerWidth] = useState(defaultDrawerWidth);
   const isDraggerMounted = useWaitForDraggerToMount(draggerRef);
