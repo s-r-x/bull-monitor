@@ -10,7 +10,7 @@ export const resumeQueue = (
 ): Promise<ResumeQueueMutation> =>
   gqlClient.request(
     gql`
-      mutation ResumeQueue($queue: String!) {
+      mutation ResumeQueue($queue: ID!) {
         resumeQueue(queue: $queue) {
           name
         }

@@ -10,7 +10,7 @@ export const getJobsForExport = (
 ): Promise<GetJobsForExportQuery> =>
   gqlClient.request(
     gql`
-      query GetJobsForExport($queue: String!, $ids: [ID]!) {
+      query GetJobsForExport($queue: ID!, $ids: [ID]!) {
         jobs(queue: $queue, ids: $ids) {
           id
           progress

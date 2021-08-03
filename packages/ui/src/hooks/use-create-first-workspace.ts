@@ -6,10 +6,11 @@ export const useCreateFirstWorkspace = () => {
   const workspacesSize = useAtomValue(workspacesSizeAtom);
   const addWorkspace = useUpdateAtom(addWorkspaceAtom);
   const { data } = useQueuesQuery();
+  const firstQueueId = data?.queues?.[0]?.id;
   const firstQueueName = data?.queues?.[0]?.name;
   useEffect(() => {
-    if (!workspacesSize && firstQueueName) {
-      addWorkspace({ queue: firstQueueName });
+    if (!workspacesSize && firstQueueId && firstQueueName) {
+      addWorkspace({ queue: firstQueueId, queueLabel: firstQueueName });
     }
-  }, [firstQueueName, workspacesSize]);
+  }, [firstQueueId, firstQueueName, workspacesSize]);
 };

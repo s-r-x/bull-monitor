@@ -10,7 +10,7 @@ export const pauseQueue = (
 ): Promise<PauseQueueMutation> =>
   gqlClient.request(
     gql`
-      mutation PauseQueue($queue: String!) {
+      mutation PauseQueue($queue: ID!) {
         pauseQueue(queue: $queue) {
           name
         }
@@ -18,4 +18,3 @@ export const pauseQueue = (
     `,
     args,
   );
-

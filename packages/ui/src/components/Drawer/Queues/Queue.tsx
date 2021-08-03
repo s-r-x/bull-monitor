@@ -13,7 +13,7 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import IconButton from '@material-ui/core/IconButton';
 import Collapse from '@material-ui/core/Collapse';
 import Badge from '@material-ui/core/Badge';
-import { useAliveJobsCount } from './hooks';
+import { useAliveJobsCount, useQueueWorkspaceLabel } from './hooks';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -38,24 +38,26 @@ type TProps = {
   isSelected: boolean;
   isExpanded: boolean;
 
-  onSelect: (queue: string) => void;
-  onStatusSelect: (queue: string, status: JobStatus) => void;
+  onSelect: (queue: string, label: string) => void;
+  onStatusSelect: (queue: string, label: string, status: JobStatus) => void;
   toggleCollapse: (queue: string) => void;
 };
 const DrawerQueue = (props: TProps) => {
   const cls = useStyles();
+  const workspaceLabel = useQueueWorkspaceLabel(props.queue);
+  const { id } = props.queue;
   const onSelect = useCallback(() => {
-    props.onSelect(props.queue.name);
-  }, [props.queue.name]);
+    props.onSelect(id, workspaceLabel);
+  }, [id, workspaceLabel]);
   const onStatusSelect = useCallback(
     (status: JobStatus) => {
-      props.onStatusSelect(props.queue.name, status);
+      props.onStatusSelect(id, workspaceLabel, status);
     },
-    [props.queue.name],
+    [id, workspaceLabel],
   );
   const onToggleCollapse = useCallback(() => {
-    props.toggleCollapse(props.queue.name);
-  }, [props.queue.name]);
+    props.toggleCollapse(id);
+  }, [id]);
   const aliveJobsCount = useAliveJobsCount(props.queue.jobsCounts);
   return (
     <li className={cls.root}>

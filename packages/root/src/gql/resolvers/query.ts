@@ -1,4 +1,8 @@
-import { QueryJobArgs, QueryMetricsArgs } from '../../typings/gql';
+import {
+  QueryJobArgs,
+  QueryMetricsArgs,
+  QueryQueueArgs,
+} from '../../typings/gql';
 import type { TResolvers } from './typings';
 
 export const queryResolver: TResolvers = {
@@ -16,8 +20,8 @@ export const queryResolver: TResolvers = {
     queues(_, __, { dataSources: { bull } }) {
       return bull.getQueues();
     },
-    queue(_, args: { name: string }, { dataSources: { bull } }) {
-      return bull.getQueueByName(args.name);
+    queue(_, args: QueryQueueArgs, { dataSources: { bull } }) {
+      return bull.getQueueById(args.id);
     },
     async jobs(_, args, { dataSources: { bull } }) {
       return await bull.getQueueJobs(args);

@@ -8,7 +8,7 @@ export const getJobs = (args: GetJobsQueryVariables): Promise<GetJobsQuery> =>
     gql`
       ${COMMON_JOB_FIELDS_FRAG}
       query GetJobs(
-        $queue: String!
+        $queue: ID!
         $offset: Int
         $limit: Int
         $status: JobStatus

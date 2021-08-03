@@ -19,17 +19,18 @@ export type TWorkspace = {
   dataSearchKey?: string;
   dataSearchTerm?: string;
   queue: string;
+  queueLabel: string;
 };
 
 export type TAddWorkspaceDto = Partial<Omit<TWorkspace, 'id'>>;
 type TUpdateWorkspaceDto = TAddWorkspaceDto;
 
 export const activeWorkspaceIdAtom = storageAtom<Maybe<string>>(
-  `${StorageConfig.atomsPersistNs}wsId`,
+  `${StorageConfig.atomsPersistNs}wsIdV2`,
   null,
 );
 export const workspacesListAtom = storageAtom<TWorkspace[]>(
-  `${StorageConfig.atomsPersistNs}wsList`,
+  `${StorageConfig.atomsPersistNs}wsListV2`,
   [],
 );
 export const workspacesSizeAtom = selectAtom(
@@ -76,6 +77,12 @@ export const activeQueueAtom = atom(
     set(activeWorkspaceAtom, { queue, page: 0 });
   },
 );
+export const activeQueueLabelAtom = atom(
+  (get) => get(activeWorkspaceAtom)?.queueLabel ?? null,
+  (_get, set, queueLabel: string) => {
+    set(activeWorkspaceAtom, { queueLabel, page: 0 });
+  },
+);
 export const activeStatusAtom = atom(
   (get) => get(activeWorkspaceAtom)?.status ?? JobStatus.Active,
   (_get, set, status: JobStatus) => {
@@ -112,11 +119,12 @@ export const dataSearchTermAtom = atom(
 export const addWorkspaceAtom = atom(
   null,
   (get, set, data: TAddWorkspaceDto) => {
-    if (!data.queue) return;
+    if (!data.queue || !data.queueLabel) return;
     const ws: TWorkspace = {
       id: uuidv4(),
       ...data,
       queue: data.queue,
+      queueLabel: data.queueLabel,
     };
     const list = get(workspacesListAtom);
     if (list.length >= WorkspacesConfig.maxWorkspaces) {

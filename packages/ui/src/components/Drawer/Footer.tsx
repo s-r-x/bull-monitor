@@ -28,12 +28,10 @@ const DrawerFooter = (props: TProps) => {
   return (
     <div className={props.className}>
       <ButtonGroup className={cls.group} variant="text">
-        <Button onClick={() => expand(props.queues.map((queue) => queue.name))}>
+        <Button onClick={() => expand(props.queues.map((queue) => queue.id))}>
           Expand
         </Button>
-        <Button
-          onClick={() => collapse(props.queues.map((queue) => queue.name))}
-        >
+        <Button onClick={() => collapse(props.queues.map((queue) => queue.id))}>
           Collapse
         </Button>
       </ButtonGroup>

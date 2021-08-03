@@ -10,7 +10,7 @@ export const clearMetrics = (
 ): Promise<ClearMetricsMutation> =>
   gqlClient.request(
     gql`
-      mutation ClearMetrics($queue: String!) {
+      mutation ClearMetrics($queue: ID!) {
         clearMetrics(queue: $queue)
       }
     `,

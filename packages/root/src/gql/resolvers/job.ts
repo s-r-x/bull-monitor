@@ -21,8 +21,8 @@ export const JobResolver: TResolvers = {
     processingTime(job: BullJob, _vars, { dataSources: { bull } }) {
       return bull.extractJobProcessingTime(job);
     },
-    logs(job: BullJob, _vars, { dataSources: { bull } }) {
-      return bull.getJobLogs(job.queue.name, job.id as number);
+    logs(job: BullJob, _vars) {
+      return job.queue.getJobLogs(job.id);
     },
     returnValue(job: BullJob) {
       return JsonService.maybeStringify(job.returnvalue);

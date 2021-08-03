@@ -7,7 +7,7 @@ export const getJobLogs = (
 ): Promise<GetJobLogsQuery> =>
   gqlClient.request(
     gql`
-      query GetJobLogs($queue: String!, $id: ID!) {
+      query GetJobLogs($queue: ID!, $id: ID!) {
         job(queue: $queue, id: $id) {
           logs {
             logs

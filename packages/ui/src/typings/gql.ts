@@ -121,22 +121,22 @@ export type Mutation = {
 
 
 export type MutationPauseQueueArgs = {
-  queue: Scalars['String'];
+  queue: Scalars['ID'];
 };
 
 
 export type MutationResumeQueueArgs = {
-  queue: Scalars['String'];
+  queue: Scalars['ID'];
 };
 
 
 export type MutationCloseQueueArgs = {
-  queue: Scalars['String'];
+  queue: Scalars['ID'];
 };
 
 
 export type MutationCleanQueueArgs = {
-  queue: Scalars['String'];
+  queue: Scalars['ID'];
   grace?: Maybe<Scalars['Int']>;
   status: JobStatusClean;
   limit?: Maybe<Scalars['Int']>;
@@ -144,67 +144,67 @@ export type MutationCleanQueueArgs = {
 
 
 export type MutationEmptyQueueArgs = {
-  queue: Scalars['String'];
+  queue: Scalars['ID'];
 };
 
 
 export type MutationRemoveJobArgs = {
-  queue: Scalars['String'];
+  queue: Scalars['ID'];
   id: Scalars['ID'];
 };
 
 
 export type MutationRemoveJobsArgs = {
-  queue: Scalars['String'];
+  queue: Scalars['ID'];
   jobs: Array<Scalars['ID']>;
 };
 
 
 export type MutationMoveJobToCompletedArgs = {
-  queue: Scalars['String'];
+  queue: Scalars['ID'];
   id: Scalars['ID'];
 };
 
 
 export type MutationMoveJobToFailedArgs = {
-  queue: Scalars['String'];
+  queue: Scalars['ID'];
   id: Scalars['ID'];
 };
 
 
 export type MutationDiscardJobArgs = {
-  queue: Scalars['String'];
+  queue: Scalars['ID'];
   id: Scalars['ID'];
 };
 
 
 export type MutationPromoteJobArgs = {
-  queue: Scalars['String'];
+  queue: Scalars['ID'];
   id: Scalars['ID'];
 };
 
 
 export type MutationUpdateJobDataArgs = {
-  queue: Scalars['String'];
+  queue: Scalars['ID'];
   id: Scalars['ID'];
   data?: Maybe<Scalars['JSON']>;
 };
 
 
 export type MutationRetryJobArgs = {
-  queue: Scalars['String'];
+  queue: Scalars['ID'];
   id: Scalars['ID'];
 };
 
 
 export type MutationRetryJobsArgs = {
-  queue: Scalars['String'];
+  queue: Scalars['ID'];
   jobs: Array<Scalars['ID']>;
 };
 
 
 export type MutationLogArgs = {
-  queue: Scalars['String'];
+  queue: Scalars['ID'];
   id: Scalars['ID'];
   row: Scalars['String'];
 };
@@ -216,13 +216,13 @@ export type MutationCreateJobArgs = {
 
 
 export type MutationRemoveJobsByPatternArgs = {
-  queue: Scalars['String'];
+  queue: Scalars['ID'];
   pattern: Scalars['String'];
 };
 
 
 export type MutationClearMetricsArgs = {
-  queue: Scalars['String'];
+  queue: Scalars['ID'];
 };
 
 export enum OrderEnum {
@@ -241,19 +241,19 @@ export type Query = {
 
 
 export type QueryQueueArgs = {
-  name: Scalars['String'];
+  id: Scalars['ID'];
 };
 
 
 export type QueryMetricsArgs = {
-  queue: Scalars['String'];
+  queue: Scalars['ID'];
   start?: Maybe<Scalars['Int']>;
   end?: Maybe<Scalars['Int']>;
 };
 
 
 export type QueryJobsArgs = {
-  queue: Scalars['String'];
+  queue: Scalars['ID'];
   offset?: Maybe<Scalars['Int']>;
   limit?: Maybe<Scalars['Int']>;
   status?: Maybe<JobStatus>;
@@ -265,11 +265,12 @@ export type QueryJobsArgs = {
 
 
 export type QueryJobArgs = {
-  queue: Scalars['String'];
+  queue: Scalars['ID'];
   id: Scalars['ID'];
 };
 
 export type Queue = {
+  id: Scalars['String'];
   name: Scalars['String'];
   keyPrefix?: Maybe<Scalars['String']>;
   /** https://github.com/OptimalBits/bull/blob/develop/REFERENCE.md#queuecount */
@@ -337,7 +338,7 @@ export type RedisInfo = {
 export type CommonJobFieldsFragment = Pick<Job, 'id' | 'progress' | 'attemptsMade' | 'failedReason' | 'status' | 'stacktrace' | 'timestamp' | 'returnValue' | 'finishedOn' | 'processedOn' | 'processingTime' | 'name' | 'opts' | 'delay'>;
 
 export type CleanQueueMutationVariables = Exact<{
-  queue: Scalars['String'];
+  queue: Scalars['ID'];
   status: JobStatusClean;
 }>;
 
@@ -350,21 +351,21 @@ export type ClearAllMetricsMutationVariables = Exact<{ [key: string]: never; }>;
 export type ClearAllMetricsMutation = Pick<Mutation, 'clearAllMetrics'>;
 
 export type ClearMetricsMutationVariables = Exact<{
-  queue: Scalars['String'];
+  queue: Scalars['ID'];
 }>;
 
 
 export type ClearMetricsMutation = Pick<Mutation, 'clearMetrics'>;
 
 export type CloseQueueMutationVariables = Exact<{
-  queue: Scalars['String'];
+  queue: Scalars['ID'];
 }>;
 
 
 export type CloseQueueMutation = { closeQueue?: Maybe<Pick<Queue, 'name'>> };
 
 export type CreateJobLogMutationVariables = Exact<{
-  queue: Scalars['String'];
+  queue: Scalars['ID'];
   id: Scalars['ID'];
   row: Scalars['String'];
 }>;
@@ -380,7 +381,7 @@ export type CreateJobMutationVariables = Exact<{
 export type CreateJobMutation = { createJob?: Maybe<Pick<Job, 'id'>> };
 
 export type DiscardJobMutationVariables = Exact<{
-  queue: Scalars['String'];
+  queue: Scalars['ID'];
   id: Scalars['ID'];
 }>;
 
@@ -388,14 +389,14 @@ export type DiscardJobMutationVariables = Exact<{
 export type DiscardJobMutation = { discardJob?: Maybe<Pick<Job, 'id'>> };
 
 export type EmptyQueueMutationVariables = Exact<{
-  queue: Scalars['String'];
+  queue: Scalars['ID'];
 }>;
 
 
 export type EmptyQueueMutation = { emptyQueue?: Maybe<Pick<Queue, 'name'>> };
 
 export type MoveJobToCompletedMutationVariables = Exact<{
-  queue: Scalars['String'];
+  queue: Scalars['ID'];
   id: Scalars['ID'];
 }>;
 
@@ -403,7 +404,7 @@ export type MoveJobToCompletedMutationVariables = Exact<{
 export type MoveJobToCompletedMutation = { moveJobToCompleted?: Maybe<Pick<Job, 'id'>> };
 
 export type MoveJobToFailedMutationVariables = Exact<{
-  queue: Scalars['String'];
+  queue: Scalars['ID'];
   id: Scalars['ID'];
 }>;
 
@@ -411,14 +412,14 @@ export type MoveJobToFailedMutationVariables = Exact<{
 export type MoveJobToFailedMutation = { moveJobToFailed?: Maybe<Pick<Job, 'id'>> };
 
 export type PauseQueueMutationVariables = Exact<{
-  queue: Scalars['String'];
+  queue: Scalars['ID'];
 }>;
 
 
 export type PauseQueueMutation = { pauseQueue?: Maybe<Pick<Queue, 'name'>> };
 
 export type PromoteJobMutationVariables = Exact<{
-  queue: Scalars['String'];
+  queue: Scalars['ID'];
   id: Scalars['ID'];
 }>;
 
@@ -426,7 +427,7 @@ export type PromoteJobMutationVariables = Exact<{
 export type PromoteJobMutation = { promoteJob?: Maybe<Pick<Job, 'id'>> };
 
 export type RemoveJobMutationVariables = Exact<{
-  queue: Scalars['String'];
+  queue: Scalars['ID'];
   id: Scalars['ID'];
 }>;
 
@@ -434,7 +435,7 @@ export type RemoveJobMutationVariables = Exact<{
 export type RemoveJobMutation = { removeJob?: Maybe<Pick<Job, 'id'>> };
 
 export type RemoveJobsByPatternMutationVariables = Exact<{
-  queue: Scalars['String'];
+  queue: Scalars['ID'];
   pattern: Scalars['String'];
 }>;
 
@@ -442,7 +443,7 @@ export type RemoveJobsByPatternMutationVariables = Exact<{
 export type RemoveJobsByPatternMutation = Pick<Mutation, 'removeJobsByPattern'>;
 
 export type RemoveJobsMutationVariables = Exact<{
-  queue: Scalars['String'];
+  queue: Scalars['ID'];
   jobs: Array<Scalars['ID']> | Scalars['ID'];
 }>;
 
@@ -450,14 +451,14 @@ export type RemoveJobsMutationVariables = Exact<{
 export type RemoveJobsMutation = { removeJobs: Array<Maybe<Pick<Job, 'id'>>> };
 
 export type ResumeQueueMutationVariables = Exact<{
-  queue: Scalars['String'];
+  queue: Scalars['ID'];
 }>;
 
 
 export type ResumeQueueMutation = { resumeQueue?: Maybe<Pick<Queue, 'name'>> };
 
 export type RetryJobMutationVariables = Exact<{
-  queue: Scalars['String'];
+  queue: Scalars['ID'];
   id: Scalars['ID'];
 }>;
 
@@ -465,7 +466,7 @@ export type RetryJobMutationVariables = Exact<{
 export type RetryJobMutation = { retryJob?: Maybe<Pick<Job, 'id'>> };
 
 export type RetryJobsMutationVariables = Exact<{
-  queue: Scalars['String'];
+  queue: Scalars['ID'];
   jobs: Array<Scalars['ID']> | Scalars['ID'];
 }>;
 
@@ -473,7 +474,7 @@ export type RetryJobsMutationVariables = Exact<{
 export type RetryJobsMutation = { retryJobs: Array<Maybe<Pick<Job, 'id'>>> };
 
 export type UpdateJobDataMutationVariables = Exact<{
-  queue: Scalars['String'];
+  queue: Scalars['ID'];
   id: Scalars['ID'];
   data?: Maybe<Scalars['JSON']>;
 }>;
@@ -482,7 +483,7 @@ export type UpdateJobDataMutationVariables = Exact<{
 export type UpdateJobDataMutation = { updateJobData?: Maybe<Pick<Job, 'id'>> };
 
 export type GetJobByIdQueryVariables = Exact<{
-  queue: Scalars['String'];
+  queue: Scalars['ID'];
   id: Scalars['ID'];
 }>;
 
@@ -490,7 +491,7 @@ export type GetJobByIdQueryVariables = Exact<{
 export type GetJobByIdQuery = { job?: Maybe<CommonJobFieldsFragment> };
 
 export type GetJobDataQueryVariables = Exact<{
-  queue: Scalars['String'];
+  queue: Scalars['ID'];
   id: Scalars['ID'];
 }>;
 
@@ -498,7 +499,7 @@ export type GetJobDataQueryVariables = Exact<{
 export type GetJobDataQuery = { job?: Maybe<Pick<Job, 'data'>> };
 
 export type GetJobLogsQueryVariables = Exact<{
-  queue: Scalars['String'];
+  queue: Scalars['ID'];
   id: Scalars['ID'];
 }>;
 
@@ -506,7 +507,7 @@ export type GetJobLogsQueryVariables = Exact<{
 export type GetJobLogsQuery = { job?: Maybe<{ logs?: Maybe<Pick<JobLogs, 'logs' | 'count'>> }> };
 
 export type GetJobsForExportQueryVariables = Exact<{
-  queue: Scalars['String'];
+  queue: Scalars['ID'];
   ids: Array<Maybe<Scalars['ID']>> | Maybe<Scalars['ID']>;
 }>;
 
@@ -517,7 +518,7 @@ export type GetJobsForExportQuery = { jobs: Array<(
   )> };
 
 export type GetJobsQueryVariables = Exact<{
-  queue: Scalars['String'];
+  queue: Scalars['ID'];
   offset?: Maybe<Scalars['Int']>;
   limit?: Maybe<Scalars['Int']>;
   status?: Maybe<JobStatus>;
@@ -534,7 +535,7 @@ export type GetJobsQuery = { jobs: Array<(
   )> };
 
 export type GetQueueMetricsQueryVariables = Exact<{
-  queue: Scalars['String'];
+  queue: Scalars['ID'];
   start?: Maybe<Scalars['Int']>;
   end?: Maybe<Scalars['Int']>;
 }>;
@@ -549,7 +550,7 @@ export type GetQueuesQueryVariables = Exact<{ [key: string]: never; }>;
 
 
 export type GetQueuesQuery = { queues?: Maybe<Array<(
-    Pick<Queue, 'name' | 'keyPrefix' | 'isPaused'>
+    Pick<Queue, 'id' | 'name' | 'keyPrefix' | 'isPaused'>
     & { jobsCounts: Pick<QueueJobsCounts, 'waiting' | 'active' | 'completed' | 'failed' | 'delayed' | 'paused'> }
   )>> };
 

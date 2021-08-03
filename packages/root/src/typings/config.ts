@@ -1,4 +1,4 @@
-import type { Queue } from 'bull';
+import { Queue } from 'bull';
 import { SimpleIntervalSchedule } from 'toad-scheduler';
 
 export type MetricsConfig = {

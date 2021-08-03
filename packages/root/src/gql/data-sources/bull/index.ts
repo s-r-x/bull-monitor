@@ -1,11 +1,5 @@
 import { DataSource } from 'apollo-datasource';
-import type {
-  Queue as BullQueue,
-  JobCounts,
-  JobStatus,
-  JobId,
-  Job,
-} from 'bull';
+import type { JobCounts, JobStatus, JobId, Job } from 'bull';
 import { JsonService } from '../../../services/json';
 import {
   CreateJobInput,
@@ -32,6 +26,7 @@ import redisInfo from 'redis-info';
 import { DataTextSearcher } from './data-text-search';
 import isNil from 'lodash/isNil';
 import { BullMonitorError } from '../errors';
+import { BullMonitorQueue as Queue } from '../../../queue';
 
 type Config = {
   textSearchScanCount?: number;
@@ -44,14 +39,14 @@ export enum ErrorEnum {
   BAD_LIMIT = 'Limit should be >= 1',
 }
 export class BullDataSource extends DataSource {
-  private _queuesMap: Map<string, BullQueue> = new Map();
-  constructor(private _queues: BullQueue[], private _config: Config) {
+  private _queuesMap: Map<string, Queue> = new Map();
+  constructor(private _queues: Queue[], private _config: Config) {
     super();
     this._convertQueuesToMap(_queues);
   }
-  private _convertQueuesToMap(queues: BullQueue[]) {
+  private _convertQueuesToMap(queues: Queue[]) {
     queues.forEach(queue => {
-      this._queuesMap.set(queue.name, queue);
+      this._queuesMap.set(queue.id as string, queue);
     });
   }
   private _throwInternalError(e: ErrorEnum) {
@@ -72,7 +67,15 @@ export class BullDataSource extends DataSource {
     }
     return queue;
   }
-  getQueues(): BullQueue[] {
+  // queries
+  getQueueById(id: string, throwIfNotFound?: boolean) {
+    const queue = this._queuesMap.get(id);
+    if (!queue && throwIfNotFound) {
+      this._throwQueueNotFound();
+    }
+    return queue;
+  }
+  getQueues(): Queue[] {
     return this._queues;
   }
   async getQueueJobs({
@@ -100,7 +103,7 @@ export class BullDataSource extends DataSource {
     if (!isNil(limit) && limit < 1) {
       this._throwInternalError(ErrorEnum.BAD_LIMIT);
     }
-    const bullQueue = this.getQueueByName(queue, true) as BullQueue;
+    const bullQueue = this.getQueueById(queue, true) as Queue;
     if (ids) {
       return await Promise.all(ids.map(id => bullQueue.getJob(id))).then(
         this._filterJobs
@@ -136,8 +139,8 @@ export class BullDataSource extends DataSource {
   private _filterJobs(jobs: Job[]) {
     return jobs.filter(Boolean);
   }
-  async getJob(queueName: string, id: JobId, throwIfNotFound?: boolean) {
-    const queue = this.getQueueByName(queueName, true);
+  async getJob(queueId: string, id: JobId, throwIfNotFound?: boolean) {
+    const queue = this.getQueueById(queueId, true);
     const job = await queue?.getJob(id);
     if (!job && throwIfNotFound) {
       this._throwJobNotFound();
@@ -148,42 +151,36 @@ export class BullDataSource extends DataSource {
     if (!job.processedOn || !job.finishedOn) return 0;
     return job.finishedOn - job.processedOn;
   }
-  async getJobLogs(queueName: string, id: number) {
-    const queue = this.getQueueByName(queueName, true);
-    return await queue?.getJobLogs(id);
-  }
-  async getQueueJobsCounts(name: string): Promise<Maybe<JobCounts>> {
-    const queue = this.getQueueByName(name);
+  async getQueueJobsCounts(id: string): Promise<Maybe<JobCounts>> {
+    const queue = this.getQueueById(id);
     return await queue?.getJobCounts();
   }
-  async getQueueFailedCount(name: string): Promise<Maybe<number>> {
-    const queue = this.getQueueByName(name);
+  async getQueueFailedCount(id: string): Promise<Maybe<number>> {
+    const queue = this.getQueueById(id);
     return await queue?.getFailedCount();
   }
-  async getQueueCompletedCount(name: string): Promise<Maybe<number>> {
-    const queue = this.getQueueByName(name);
+  async getQueueCompletedCount(id: string): Promise<Maybe<number>> {
+    const queue = this.getQueueById(id);
     return await queue?.getCompletedCount();
   }
-  async getQueueDelayedCount(name: string): Promise<Maybe<number>> {
-    const queue = this.getQueueByName(name);
+  async getQueueDelayedCount(id: string): Promise<Maybe<number>> {
+    const queue = this.getQueueById(id);
     return await queue?.getDelayedCount();
   }
-  async getQueueActiveCount(name: string): Promise<Maybe<number>> {
-    const queue = this.getQueueByName(name);
+  async getQueueActiveCount(id: string): Promise<Maybe<number>> {
+    const queue = this.getQueueById(id);
     return await queue?.getActiveCount();
   }
-  async getQueueWaitingCount(name: string): Promise<Maybe<number>> {
-    const queue = this.getQueueByName(name);
+  async getQueueWaitingCount(id: string): Promise<Maybe<number>> {
+    const queue = this.getQueueById(id);
     return await queue?.getWaitingCount();
   }
-  async getQueuePausedCount(name: string): Promise<Maybe<number>> {
-    const queue = this.getQueueByName(name);
+  async getQueuePausedCount(id: string): Promise<Maybe<number>> {
+    const queue = this.getQueueById(id);
     return await queue?.getPausedCount();
   }
-  async getQueueWaitingOrDelayedJobsCount(
-    name: string
-  ): Promise<Maybe<number>> {
-    const queue = this.getQueueByName(name);
+  async getQueueWaitingOrDelayedJobsCount(id: string): Promise<Maybe<number>> {
+    const queue = this.getQueueById(id);
     return await queue?.count();
   }
   async getRedisInfo() {
@@ -197,12 +194,12 @@ export class BullDataSource extends DataSource {
 
   // mutations
   async createJob({
-    queue: queueName,
+    queue: queueId,
     name = null,
     data = {},
     options = {},
   }: CreateJobInput) {
-    const queue = this.getQueueByName(queueName, true);
+    const queue = this.getQueueById(queueId, true);
     return await queue?.add(
       name as string,
       JsonService.maybeParse(data),
@@ -210,17 +207,17 @@ export class BullDataSource extends DataSource {
     );
   }
   async removeJobsByPattern(args: MutationRemoveJobsByPatternArgs) {
-    const queue = this.getQueueByName(args.queue, true);
+    const queue = this.getQueueById(args.queue, true);
     await queue?.removeJobs(args.pattern);
     return true;
   }
-  async pauseQueue(name: string) {
-    const queue = this.getQueueByName(name, true);
+  async pauseQueue(id: string) {
+    const queue = this.getQueueById(id, true);
     await queue?.pause();
     return queue;
   }
   async cleanQueue(args: MutationCleanQueueArgs) {
-    const queue = this.getQueueByName(args.queue, true);
+    const queue = this.getQueueById(args.queue, true);
     return await queue?.clean(
       args.grace as NonNullable<typeof args.grace>,
       args.status,
@@ -228,17 +225,17 @@ export class BullDataSource extends DataSource {
     );
   }
   async emptyQueue(args: MutationEmptyQueueArgs) {
-    const queue = this.getQueueByName(args.queue, true);
+    const queue = this.getQueueById(args.queue, true);
     await queue?.empty();
     return queue;
   }
   async closeQueue(args: MutationCloseQueueArgs) {
-    const queue = this.getQueueByName(args.queue, true);
+    const queue = this.getQueueById(args.queue, true);
     await queue?.close();
     return queue;
   }
   async resumeQueue(args: MutationResumeQueueArgs) {
-    const queue = this.getQueueByName(args.queue, true);
+    const queue = this.getQueueById(args.queue, true);
     await queue?.resume();
     return queue;
   }

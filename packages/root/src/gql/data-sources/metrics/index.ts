@@ -3,7 +3,7 @@ import { MetricsCollector } from '../../../metrics-collector';
 import { BullMonitorError } from '../errors';
 
 export enum ErrorEnum {
-  NO_COLLECTOR = 'Metrics is not enabled',
+  NO_COLLECTOR = 'Metrics are not enabled',
 }
 export class MetricsDataSource extends DataSource {
   constructor(private _internalCollector?: MetricsCollector) {

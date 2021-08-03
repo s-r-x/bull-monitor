@@ -10,7 +10,7 @@ export const moveJobToFailed = (
 ): Promise<MoveJobToFailedMutation> =>
   gqlClient.request(
     gql`
-      mutation MoveJobToFailed($queue: String!, $id: ID!) {
+      mutation MoveJobToFailed($queue: ID!, $id: ID!) {
         moveJobToFailed(queue: $queue, id: $id) {
           id
         }

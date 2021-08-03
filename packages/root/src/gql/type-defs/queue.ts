@@ -10,6 +10,7 @@ export const queueTypeDef = gql`
     paused: Int!
   }
   type Queue {
+    id: String!
     name: String!
     keyPrefix: String
     """

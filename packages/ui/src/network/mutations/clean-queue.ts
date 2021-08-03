@@ -10,7 +10,7 @@ export const cleanQueue = (
 ): Promise<CleanQueueMutation> =>
   gqlClient.request(
     gql`
-      mutation CleanQueue($queue: String!, $status: JobStatusClean!) {
+      mutation CleanQueue($queue: ID!, $status: JobStatusClean!) {
         cleanQueue(queue: $queue, status: $status)
       }
     `,

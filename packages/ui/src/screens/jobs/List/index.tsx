@@ -18,14 +18,14 @@ import { activeQueueAtom } from '@/atoms/workspaces';
 
 export default function Jobs() {
   const queue = useAtomValue(activeQueueAtom) as string;
-  const { data, status, refetch } = useJobsQuery();
+  const { data, status, refetch, error } = useJobsQuery();
   const [selectedJobs, toggleSelected, removeSelected] = useSelectedJobsStore(
     (state) => [state.selected, state.toggleJob, state.removeJob],
     shallow,
   );
   return (
     <Paper>
-      <NetworkRequest status={status} refetch={refetch}>
+      <NetworkRequest status={status} refetch={refetch} error={error}>
         <TableToolbar />
         <TableContainer>
           <Table size="medium">

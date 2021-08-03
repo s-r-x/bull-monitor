@@ -17,20 +17,20 @@ export const mutationsTypeDef = gql`
     """
     https://github.com/OptimalBits/bull/blob/develop/REFERENCE.md#queuepause
     """
-    pauseQueue(queue: String!): Queue
+    pauseQueue(queue: ID!): Queue
     """
     https://github.com/OptimalBits/bull/blob/develop/REFERENCE.md#queueresume
     """
-    resumeQueue(queue: String!): Queue
+    resumeQueue(queue: ID!): Queue
     """
     https://github.com/OptimalBits/bull/blob/develop/REFERENCE.md#queueclose
     """
-    closeQueue(queue: String!): Queue
+    closeQueue(queue: ID!): Queue
     """
     https://github.com/OptimalBits/bull/blob/develop/REFERENCE.md#queueclean
     """
     cleanQueue(
-      queue: String!
+      queue: ID!
       grace: Int = 1000
       status: JobStatusClean!
       limit: Int
@@ -38,47 +38,47 @@ export const mutationsTypeDef = gql`
     """
     https://github.com/OptimalBits/bull/blob/develop/REFERENCE.md#queueempty
     """
-    emptyQueue(queue: String!): Queue
+    emptyQueue(queue: ID!): Queue
     """
     https://github.com/OptimalBits/bull/blob/develop/REFERENCE.md#jobremove
     """
-    removeJob(queue: String!, id: ID!): Job
+    removeJob(queue: ID!, id: ID!): Job
     """
     calls https://github.com/OptimalBits/bull/blob/develop/REFERENCE.md#jobremove on every passed job
     """
-    removeJobs(queue: String!, jobs: [ID!]!): [Job]!
+    removeJobs(queue: ID!, jobs: [ID!]!): [Job]!
     """
     https://github.com/OptimalBits/bull/blob/develop/REFERENCE.md#jobmovetocompleted
     """
-    moveJobToCompleted(queue: String!, id: ID!): Job
+    moveJobToCompleted(queue: ID!, id: ID!): Job
     """
     https://github.com/OptimalBits/bull/blob/develop/REFERENCE.md#jobmovetofailed
     """
-    moveJobToFailed(queue: String!, id: ID!): Job
+    moveJobToFailed(queue: ID!, id: ID!): Job
     """
     https://github.com/OptimalBits/bull/blob/develop/REFERENCE.md#jobdiscard
     """
-    discardJob(queue: String!, id: ID!): Job
+    discardJob(queue: ID!, id: ID!): Job
     """
     https://github.com/OptimalBits/bull/blob/develop/REFERENCE.md#jobpromote
     """
-    promoteJob(queue: String!, id: ID!): Job
+    promoteJob(queue: ID!, id: ID!): Job
     """
     https://github.com/OptimalBits/bull/blob/develop/REFERENCE.md#jobupdate
     """
-    updateJobData(queue: String!, id: ID!, data: JSON): Job
+    updateJobData(queue: ID!, id: ID!, data: JSON): Job
     """
     https://github.com/OptimalBits/bull/blob/develop/REFERENCE.md#jobretry
     """
-    retryJob(queue: String!, id: ID!): Job
+    retryJob(queue: ID!, id: ID!): Job
     """
     calls https://github.com/OptimalBits/bull/blob/develop/REFERENCE.md#jobretry on every passed job
     """
-    retryJobs(queue: String!, jobs: [ID!]!): [Job]!
+    retryJobs(queue: ID!, jobs: [ID!]!): [Job]!
     """
     https://github.com/OptimalBits/bull/blob/develop/REFERENCE.md#joblog
     """
-    log(queue: String!, id: ID!, row: String!): Job
+    log(queue: ID!, id: ID!, row: String!): Job
     """
     https://github.com/OptimalBits/bull/blob/develop/REFERENCE.md#queueadd
     """
@@ -86,9 +86,9 @@ export const mutationsTypeDef = gql`
     """
     https://github.com/OptimalBits/bull/blob/develop/REFERENCE.md#queueremovejobs
     """
-    removeJobsByPattern(queue: String!, pattern: String!): Boolean
+    removeJobsByPattern(queue: ID!, pattern: String!): Boolean
 
-    clearMetrics(queue: String!): Boolean
+    clearMetrics(queue: ID!): Boolean
     clearAllMetrics: Boolean
   }
 `;

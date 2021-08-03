@@ -10,7 +10,7 @@ export const emptyQueue = (
 ): Promise<EmptyQueueMutation> =>
   gqlClient.request(
     gql`
-      mutation EmptyQueue($queue: String!) {
+      mutation EmptyQueue($queue: ID!) {
         emptyQueue(queue: $queue) {
           name
         }

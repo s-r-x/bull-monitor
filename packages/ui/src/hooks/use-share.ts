@@ -1,6 +1,7 @@
 import {
   activePageAtom,
   activeQueueAtom,
+  activeQueueLabelAtom,
   activeStatusAtom,
   activeWorkspaceAtom,
   dataSearchKeyAtom,
@@ -65,12 +66,14 @@ const useShare = () => {
   );
 };
 const extractData = (get: Getter, dto: TShareDto): TAddWorkspaceDto => {
-  const activeQueue = get(activeQueueAtom) as string;
+  const queue = get(activeQueueAtom) as string;
+  const queueLabel = get(activeQueueLabelAtom) as string;
   switch (dto[0]) {
     case EShareStrategy.WORKSPACE:
       return {
         page: get(activePageAtom),
-        queue: activeQueue,
+        queue,
+        queueLabel,
         status: get(activeStatusAtom),
         order: get(jobsOrderAtom),
         jobId: get(jobIdAtom),
@@ -79,7 +82,8 @@ const extractData = (get: Getter, dto: TShareDto): TAddWorkspaceDto => {
       };
     case EShareStrategy.SINGLE_JOB:
       return {
-        queue: activeQueue,
+        queue,
+        queueLabel,
         jobId: dto[1],
         page: 0,
         status: get(activeStatusAtom),

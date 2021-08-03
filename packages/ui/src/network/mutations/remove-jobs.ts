@@ -10,7 +10,7 @@ export const removeJobs = (
 ): Promise<RemoveJobsMutation> =>
   gqlClient.request(
     gql`
-      mutation RemoveJobs($queue: String!, $jobs: [ID!]!) {
+      mutation RemoveJobs($queue: ID!, $jobs: [ID!]!) {
         removeJobs(queue: $queue, jobs: $jobs) {
           id
         }

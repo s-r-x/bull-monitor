@@ -1,42 +1,42 @@
-import { Queue as BullQueue } from 'bull';
+import { BullMonitorQueue as Queue } from '../../queue';
 import type { TResolvers } from './typings';
 
 export const queueResolver: TResolvers = {
   Queue: {
-    async count(parent: BullQueue, _, { dataSources: { bull } }) {
-      return await bull.getQueueWaitingOrDelayedJobsCount(parent.name);
+    async count(parent: Queue, _, { dataSources: { bull } }) {
+      return await bull.getQueueWaitingOrDelayedJobsCount(parent.id);
     },
-    async failedCount(parent: BullQueue, _, { dataSources: { bull } }) {
-      return await bull.getQueueFailedCount(parent.name);
+    async failedCount(parent: Queue, _, { dataSources: { bull } }) {
+      return await bull.getQueueFailedCount(parent.id);
     },
-    async completedCount(parent: BullQueue, _, { dataSources: { bull } }) {
-      return await bull.getQueueCompletedCount(parent.name);
+    async completedCount(parent: Queue, _, { dataSources: { bull } }) {
+      return await bull.getQueueCompletedCount(parent.id);
     },
-    async delayedCount(parent: BullQueue, _, { dataSources: { bull } }) {
-      return await bull.getQueueDelayedCount(parent.name);
+    async delayedCount(parent: Queue, _, { dataSources: { bull } }) {
+      return await bull.getQueueDelayedCount(parent.id);
     },
-    async activeCount(parent: BullQueue, _, { dataSources: { bull } }) {
-      return await bull.getQueueActiveCount(parent.name);
+    async activeCount(parent: Queue, _, { dataSources: { bull } }) {
+      return await bull.getQueueActiveCount(parent.id);
     },
-    async waitingCount(parent: BullQueue, _, { dataSources: { bull } }) {
-      return await bull.getQueueWaitingCount(parent.name);
+    async waitingCount(parent: Queue, _, { dataSources: { bull } }) {
+      return await bull.getQueueWaitingCount(parent.id);
     },
-    async pausedCount(parent: BullQueue, _, { dataSources: { bull } }) {
-      return await bull.getQueueWaitingCount(parent.name);
+    async pausedCount(parent: Queue, _, { dataSources: { bull } }) {
+      return await bull.getQueueWaitingCount(parent.id);
     },
-    async jobsCounts(parent: BullQueue, _, { dataSources: { bull } }) {
-      return await bull.getQueueJobsCounts(parent.name);
+    async jobsCounts(parent: Queue, _, { dataSources: { bull } }) {
+      return await bull.getQueueJobsCounts(parent.id);
     },
-    async isPaused(parent: BullQueue) {
+    async isPaused(parent: Queue) {
       return await parent.isPaused();
     },
-    async jobs(parent: BullQueue, _, { dataSources: { bull } }) {
+    async jobs(parent: Queue, _, { dataSources: { bull } }) {
       return await bull.getQueueJobs({
-        queue: parent.name,
+        queue: parent.id,
       });
     },
-    async metrics(parent: BullQueue, _, { dataSources: { metrics } }) {
-      return await metrics.getMetrics(parent.name);
+    async metrics(parent: Queue, _, { dataSources: { metrics } }) {
+      return await metrics.getMetrics(parent.id);
     },
   },
 };

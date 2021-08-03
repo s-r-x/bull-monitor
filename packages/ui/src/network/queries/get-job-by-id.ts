@@ -9,7 +9,7 @@ export const getJobById = (
   gqlClient.request(
     gql`
       ${COMMON_JOB_FIELDS_FRAG}
-      query GetJobById($queue: String!, $id: ID!) {
+      query GetJobById($queue: ID!, $id: ID!) {
         job(queue: $queue, id: $id) {
           ...CommonJobFields
         }

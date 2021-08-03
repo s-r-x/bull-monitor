@@ -10,7 +10,7 @@ export const closeQueue = (
 ): Promise<CloseQueueMutation> =>
   gqlClient.request(
     gql`
-      mutation CloseQueue($queue: String!) {
+      mutation CloseQueue($queue: ID!) {
         closeQueue(queue: $queue) {
           name
         }

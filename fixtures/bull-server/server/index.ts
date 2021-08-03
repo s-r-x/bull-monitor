@@ -10,15 +10,26 @@ const app = express();
 const queues = Array.from(new Array(QUEUES_AMOUNT)).map(
   (_v, idx) => new Queue(`queue:${idx}`, redisUri)
 );
-queues[0].process('success', () => {
-  return 'some return value';
-});
-queues[0].process('fail', () => {
-  throw new Error('some error here');
+const prefixedQueues = Array.from(new Array(QUEUES_AMOUNT)).map(
+  (_v, idx) =>
+    new Queue(`queue:${idx}`, {
+      redis: redisUri,
+      prefix: 'bull2',
+    })
+);
+[queues[0], prefixedQueues[0]].forEach((queue, idx) => {
+  queue.process('success', () => {
+    return `some return value from ${idx ? 'prefixed queue' : 'normal queue'}`;
+  });
+  queue.process('fail', () => {
+    throw new Error(
+      `some error from ${idx ? 'prefixed queue' : 'normal queue'}`
+    );
+  });
 });
 
 const monitor = new BullMonitorExpress({
-  queues,
+  queues: [...queues, ...prefixedQueues],
   gqlPlayground: true,
   gqlIntrospection: true,
   //metrics: {

@@ -9,6 +9,7 @@ import { UI } from './ui';
 import { DEFAULT_TEXT_SEARCH_SCAN_COUNT } from './gql/data-sources/bull/config';
 import type { Config, MetricsConfig } from './typings/config';
 import { MetricsCollector } from './metrics-collector';
+import { BullMonitorQueue, patchBullQueue } from './queue';
 
 export abstract class BullMonitor<TServer extends ApolloServerBase> {
   constructor(config: Config) {
@@ -20,9 +21,10 @@ export abstract class BullMonitor<TServer extends ApolloServerBase> {
         : false,
     };
     this.ui = new UI();
+    this.queues = this.config.queues.map(patchBullQueue);
     if (this.config.metrics) {
       this.metricsCollector = new MetricsCollector(
-        this.config.queues,
+        this.queues,
         this.config.metrics as Required<MetricsConfig>
       );
       this.metricsCollector.startCollecting();
@@ -30,6 +32,7 @@ export abstract class BullMonitor<TServer extends ApolloServerBase> {
   }
   public abstract init(...args: any): Promise<any>;
 
+  private queues: BullMonitorQueue[];
   private ui: UI;
   private metricsCollector?: MetricsCollector;
   private _defaultMetricsConfig: MetricsConfig = {
@@ -57,7 +60,7 @@ export abstract class BullMonitor<TServer extends ApolloServerBase> {
       playground: this.config.gqlPlayground,
       introspection: this.config.gqlIntrospection,
       dataSources: () => ({
-        bull: new BullDataSource(this.config.queues, {
+        bull: new BullDataSource(this.queues, {
           textSearchScanCount: this.config.textSearchScanCount,
         }),
         metrics: new MetricsDataSource(this.metricsCollector),

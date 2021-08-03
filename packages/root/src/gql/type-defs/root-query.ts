@@ -11,10 +11,10 @@ export const rootQueryTypeDef = gql`
   }
   type Query {
     queues: [Queue!]
-    queue(name: String!): Queue
-    metrics(queue: String!, start: Int = 0, end: Int = -1): [QueueMetrics!]
+    queue(id: ID!): Queue
+    metrics(queue: ID!, start: Int = 0, end: Int = -1): [QueueMetrics!]
     jobs(
-      queue: String!
+      queue: ID!
       offset: Int
       limit: Int
       status: JobStatus
@@ -23,7 +23,7 @@ export const rootQueryTypeDef = gql`
       ids: [ID]
       dataSearch: JobDataSearchInput
     ): [Job!]!
-    job(queue: String!, id: ID!): Job
+    job(queue: ID!, id: ID!): Job
     redisInfo: RedisInfo
   }
 `;

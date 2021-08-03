@@ -4,6 +4,7 @@ import sample from 'lodash/sample';
 import random from 'lodash/random';
 import { EnvConfig } from '@/config/env';
 import without from 'lodash/without';
+import { v4 as uuidv4 } from 'uuid';
 
 const QUEUES_AMOUNT = 10;
 const JOBS_AMOUNT = 100;
@@ -15,6 +16,7 @@ const jobStatuses = without(
 
 const generateData = () => {
   const queues = range(QUEUES_AMOUNT).map((n) => ({
+    id: uuidv4(),
     name: `queue:${n}`,
     isPaused: false,
     keyPrefix: 'bull',
@@ -29,7 +31,7 @@ const generateData = () => {
       isFailedOrCompleted || status === JobStatus.Active;
     return {
       id: String(random(0, 1000000)),
-      queue: sample(queues)?.name,
+      queue: sample(queues)?.id,
       status,
       progress: 0,
       attemptsMade: 0,
@@ -74,7 +76,7 @@ class NetworkMockData {
     return this.jobs.find((job) => job.id == id && job.queue === queue);
   }
   public findQueue(queue: string) {
-    return this.queues.find(({ name }) => queue === name);
+    return this.queues.find(({ id }) => queue === id);
   }
 }
 

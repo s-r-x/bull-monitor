@@ -121,22 +121,22 @@ export type Mutation = {
 
 
 export type MutationPauseQueueArgs = {
-  queue: Scalars['String'];
+  queue: Scalars['ID'];
 };
 
 
 export type MutationResumeQueueArgs = {
-  queue: Scalars['String'];
+  queue: Scalars['ID'];
 };
 
 
 export type MutationCloseQueueArgs = {
-  queue: Scalars['String'];
+  queue: Scalars['ID'];
 };
 
 
 export type MutationCleanQueueArgs = {
-  queue: Scalars['String'];
+  queue: Scalars['ID'];
   grace?: Maybe<Scalars['Int']>;
   status: JobStatusClean;
   limit?: Maybe<Scalars['Int']>;
@@ -144,67 +144,67 @@ export type MutationCleanQueueArgs = {
 
 
 export type MutationEmptyQueueArgs = {
-  queue: Scalars['String'];
+  queue: Scalars['ID'];
 };
 
 
 export type MutationRemoveJobArgs = {
-  queue: Scalars['String'];
+  queue: Scalars['ID'];
   id: Scalars['ID'];
 };
 
 
 export type MutationRemoveJobsArgs = {
-  queue: Scalars['String'];
+  queue: Scalars['ID'];
   jobs: Array<Scalars['ID']>;
 };
 
 
 export type MutationMoveJobToCompletedArgs = {
-  queue: Scalars['String'];
+  queue: Scalars['ID'];
   id: Scalars['ID'];
 };
 
 
 export type MutationMoveJobToFailedArgs = {
-  queue: Scalars['String'];
+  queue: Scalars['ID'];
   id: Scalars['ID'];
 };
 
 
 export type MutationDiscardJobArgs = {
-  queue: Scalars['String'];
+  queue: Scalars['ID'];
   id: Scalars['ID'];
 };
 
 
 export type MutationPromoteJobArgs = {
-  queue: Scalars['String'];
+  queue: Scalars['ID'];
   id: Scalars['ID'];
 };
 
 
 export type MutationUpdateJobDataArgs = {
-  queue: Scalars['String'];
+  queue: Scalars['ID'];
   id: Scalars['ID'];
   data?: Maybe<Scalars['JSON']>;
 };
 
 
 export type MutationRetryJobArgs = {
-  queue: Scalars['String'];
+  queue: Scalars['ID'];
   id: Scalars['ID'];
 };
 
 
 export type MutationRetryJobsArgs = {
-  queue: Scalars['String'];
+  queue: Scalars['ID'];
   jobs: Array<Scalars['ID']>;
 };
 
 
 export type MutationLogArgs = {
-  queue: Scalars['String'];
+  queue: Scalars['ID'];
   id: Scalars['ID'];
   row: Scalars['String'];
 };
@@ -216,13 +216,13 @@ export type MutationCreateJobArgs = {
 
 
 export type MutationRemoveJobsByPatternArgs = {
-  queue: Scalars['String'];
+  queue: Scalars['ID'];
   pattern: Scalars['String'];
 };
 
 
 export type MutationClearMetricsArgs = {
-  queue: Scalars['String'];
+  queue: Scalars['ID'];
 };
 
 export enum OrderEnum {
@@ -241,19 +241,19 @@ export type Query = {
 
 
 export type QueryQueueArgs = {
-  name: Scalars['String'];
+  id: Scalars['ID'];
 };
 
 
 export type QueryMetricsArgs = {
-  queue: Scalars['String'];
+  queue: Scalars['ID'];
   start?: Maybe<Scalars['Int']>;
   end?: Maybe<Scalars['Int']>;
 };
 
 
 export type QueryJobsArgs = {
-  queue: Scalars['String'];
+  queue: Scalars['ID'];
   offset?: Maybe<Scalars['Int']>;
   limit?: Maybe<Scalars['Int']>;
   status?: Maybe<JobStatus>;
@@ -265,11 +265,12 @@ export type QueryJobsArgs = {
 
 
 export type QueryJobArgs = {
-  queue: Scalars['String'];
+  queue: Scalars['ID'];
   id: Scalars['ID'];
 };
 
 export type Queue = {
+  id: Scalars['String'];
   name: Scalars['String'];
   keyPrefix?: Maybe<Scalars['String']>;
   /** https://github.com/OptimalBits/bull/blob/develop/REFERENCE.md#queuecount */

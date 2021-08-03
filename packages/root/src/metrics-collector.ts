@@ -1,4 +1,4 @@
-import type { Queue, JobCounts } from 'bull';
+import type { JobCounts } from 'bull';
 import { MetricsConfig } from './typings/config';
 import { JsonService } from './services/json';
 import {
@@ -6,6 +6,7 @@ import {
   SimpleIntervalJob as SchedulerJob,
   AsyncTask as SchedulerTask,
 } from 'toad-scheduler';
+import { BullMonitorQueue } from './queue';
 
 type TMetrics = {
   queue: string;
@@ -13,7 +14,10 @@ type TMetrics = {
   counts: JobCounts;
 };
 export class MetricsCollector {
-  constructor(queues: Queue[], private _config: Required<MetricsConfig>) {
+  constructor(
+    queues: BullMonitorQueue[],
+    private _config: Required<MetricsConfig>
+  ) {
     this._scheduler = new Scheduler();
     this._queues = queues.filter(q => !_config.blacklist.includes(q.name));
   }
@@ -39,11 +43,11 @@ export class MetricsCollector {
   public async clearAll(): Promise<void> {
     const pipeline = this._redisClient.pipeline();
     this._queues.forEach(queue => {
-      pipeline.del(this._buildPersistKey(queue.name));
+      pipeline.del(this._buildPersistKey(queue.id));
     });
     await pipeline.exec();
   }
-  private _queues: Queue[];
+  private _queues: BullMonitorQueue[];
   private _scheduler: Scheduler;
   private _job: SchedulerJob;
   private _maybeCreateJob() {
@@ -61,7 +65,7 @@ export class MetricsCollector {
     return await Promise.all(
       this._queues.map(async queue => ({
         timestamp,
-        queue: queue.name,
+        queue: queue.id,
         counts: await queue.getJobCounts(),
       }))
     );

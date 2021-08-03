@@ -21,6 +21,7 @@ import { useExportJobsMutation } from '@/hooks/use-export-jobs-mutation';
 import { makeStyles } from '@material-ui/core/styles';
 import { useToggle } from '@/hooks/use-toggle';
 import { useShareJob } from '@/hooks/use-share';
+import type { TJobIdentity } from '@/typings';
 
 const useStyles = makeStyles((theme) => ({
   popover: {
@@ -88,7 +89,7 @@ const JobActions = ({ job, queue }: TProps) => {
     toast: 'Retried',
     invalidateSharedQueries: true,
   });
-  const sharedMutationArg = { queue, id: job.id };
+  const sharedMutationArg: TJobIdentity = { queue, id: job.id };
   return (
     <>
       <Tooltip title="Data">

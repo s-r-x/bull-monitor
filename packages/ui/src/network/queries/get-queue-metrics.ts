@@ -10,7 +10,7 @@ export const getQueueMetrics = (
 ): Promise<GetQueueMetricsQuery> =>
   gqlClient.request(
     gql`
-      query GetQueueMetrics($queue: String!, $start: Int, $end: Int) {
+      query GetQueueMetrics($queue: ID!, $start: Int, $end: Int) {
         metrics(queue: $queue, start: $start, end: $end) {
           timestamp
           counts {

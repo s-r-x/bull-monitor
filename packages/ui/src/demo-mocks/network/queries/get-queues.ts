@@ -4,6 +4,7 @@ import { networkMockData } from '../data';
 export const getQueuesMock = (): Promise<GetQueuesQuery> => {
   return Promise.resolve({
     queues: networkMockData.queues.map((queue) => ({
+      id: queue.id,
       name: queue.name,
       isPaused: queue.isPaused,
       keyPrefix: queue.keyPrefix,

@@ -7,6 +7,7 @@ export const getQueues = (): Promise<GetQueuesQuery> =>
     gql`
       query GetQueues {
         queues {
+          id
           name
           keyPrefix
           isPaused

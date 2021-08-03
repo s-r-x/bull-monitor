@@ -10,7 +10,7 @@ export const retryJob = (
 ): Promise<RetryJobMutation> =>
   gqlClient.request(
     gql`
-      mutation RetryJob($queue: String!, $id: ID!) {
+      mutation RetryJob($queue: ID!, $id: ID!) {
         retryJob(queue: $queue, id: $id) {
           id
         }

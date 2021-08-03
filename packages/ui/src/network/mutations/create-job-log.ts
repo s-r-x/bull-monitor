@@ -10,7 +10,7 @@ export const createJobLog = (
 ): Promise<CreateJobLogMutation> =>
   gqlClient.request(
     gql`
-      mutation CreateJobLog($queue: String!, $id: ID!, $row: String!) {
+      mutation CreateJobLog($queue: ID!, $id: ID!, $row: String!) {
         log(queue: $queue, id: $id, row: $row) {
           id
         }

@@ -14,6 +14,14 @@ export const useJobsCountArray = (count: QueueJobsCounts) => {
 export const useAliveJobsCount = (count: QueueJobsCounts) => {
   return count.active + count.delayed + count.waiting;
 };
+export const useQueueWorkspaceLabel = (
+  queue: NonNullable<GetQueuesQuery['queues']>[0],
+): string => {
+  if (!queue.keyPrefix || queue.keyPrefix === 'bull') {
+    return queue.name;
+  }
+  return queue.keyPrefix + ' ' + queue.name;
+};
 export const useMaybeGroupQueuesByPrefix = (
   queues: NonNullable<GetQueuesQuery['queues']>,
 ) => {

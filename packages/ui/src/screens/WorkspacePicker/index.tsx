@@ -8,6 +8,7 @@ import {
   activeWorkspaceIdAtom,
   addWorkspaceAtom,
   activeQueueAtom,
+  activeQueueLabelAtom,
   removeWorkspaceAtom,
   workspacesListAtom,
   workspacesSizeAtom,
@@ -46,12 +47,13 @@ export default function WorkspacePicker() {
   const workspacesSize = useAtomValue(workspacesSizeAtom);
   const addWorkspace = useUpdateAtom(addWorkspaceAtom);
   const queue = useAtomValue(activeQueueAtom) as string;
+  const queueLabel = useAtomValue(activeQueueLabelAtom) as string;
   const removeWorkspace = useUpdateAtom(removeWorkspaceAtom);
   const cls = useStyles();
   return (
     <Paper className={cls.root}>
       <div className={cls.chips}>
-        {workspaces.map(({ id, queue }) => (
+        {workspaces.map(({ id, queueLabel }) => (
           <Chip
             color={id === activeWorkspace ? 'primary' : 'default'}
             onDelete={
@@ -59,12 +61,12 @@ export default function WorkspacePicker() {
             }
             onClick={() => changeActiveWorkspace(id)}
             key={id}
-            label={queue}
+            label={queueLabel}
           />
         ))}
         {workspacesSize < WorkspacesConfig.maxWorkspaces && (
           <Chip
-            onClick={() => addWorkspace({ queue })}
+            onClick={() => addWorkspace({ queue, queueLabel })}
             icon={<AddIcon />}
             label="Add workspace"
             color="secondary"
