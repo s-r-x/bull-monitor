@@ -1,6 +1,6 @@
 {
   "name": "@bull-monitor/ui",
-  "version": "0.31.0",
+  "version": "1.0.0",
   "license": "MIT",
   "author": "Ilya Strus <strax1990@gmail.com>",
   "description": "bull-monitor ui",
