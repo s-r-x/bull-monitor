@@ -2895,7 +2895,7 @@
       ]
     },
     "dist/components/Drawer/Queues/hooks.js": {
-      "bytes": 716,
+      "bytes": 898,
       "imports": [
         {
           "path": "dist/stores/preferences.js",
@@ -3552,7 +3552,7 @@
       ]
     },
     "dist/components/Drawer/Queues/Queue.js": {
-      "bytes": 3443,
+      "bytes": 3537,
       "imports": [
         {
           "path": "_snowpack/pkg/react.js",
@@ -3891,7 +3891,7 @@
       ]
     },
     "dist/atoms/workspaces.js": {
-      "bytes": 3771,
+      "bytes": 4008,
       "imports": [
         {
           "path": "dist/config/storage.js",
@@ -3936,7 +3936,7 @@
       ]
     },
     "dist/components/Drawer/Queues/index.js": {
-      "bytes": 2071,
+      "bytes": 2331,
       "imports": [
         {
           "path": "_snowpack/pkg/react.js",
@@ -3976,6 +3976,10 @@
         },
         {
           "path": "dist/components/Drawer/Queues/hooks.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/jotai/utils.js",
           "kind": "import-statement"
         }
       ]
@@ -5095,7 +5099,7 @@
       ]
     },
     "dist/network/queries/get-job-data.js": {
-      "bytes": 303,
+      "bytes": 299,
       "imports": [
         {
           "path": "dist/network/gql-client.js",
@@ -5375,7 +5379,7 @@
       ]
     },
     "dist/demo-mocks/network/data.js": {
-      "bytes": 2183,
+      "bytes": 2256,
       "imports": [
         {
           "path": "dist/typings/gql.js",
@@ -5400,6 +5404,10 @@
         {
           "path": "_snowpack/pkg/lodash/without.js",
           "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/uuid.js",
+          "kind": "import-statement"
         }
       ]
     },
@@ -5413,7 +5421,7 @@
       ]
     },
     "dist/network/queries/get-job-logs.js": {
-      "bytes": 352,
+      "bytes": 348,
       "imports": [
         {
           "path": "dist/network/gql-client.js",
@@ -5444,7 +5452,7 @@
       ]
     },
     "dist/network/queries/get-jobs.js": {
-      "bytes": 807,
+      "bytes": 803,
       "imports": [
         {
           "path": "dist/network/gql-client.js",
@@ -5470,7 +5478,7 @@
       ]
     },
     "dist/network/queries/get-job-by-id.js": {
-      "bytes": 424,
+      "bytes": 420,
       "imports": [
         {
           "path": "dist/network/gql-client.js",
@@ -5513,7 +5521,7 @@
       "imports": []
     },
     "dist/network/queries/get-queues.js": {
-      "bytes": 436,
+      "bytes": 449,
       "imports": [
         {
           "path": "dist/network/gql-client.js",
@@ -5526,7 +5534,7 @@
       ]
     },
     "dist/network/mutations/create-job-log.js": {
-      "bytes": 334,
+      "bytes": 330,
       "imports": [
         {
           "path": "dist/network/gql-client.js",
@@ -5548,7 +5556,7 @@
       ]
     },
     "dist/network/mutations/discard-job.js": {
-      "bytes": 311,
+      "bytes": 307,
       "imports": [
         {
           "path": "dist/network/gql-client.js",
@@ -5570,7 +5578,7 @@
       ]
     },
     "dist/network/mutations/move-job-to-completed.js": {
-      "bytes": 335,
+      "bytes": 331,
       "imports": [
         {
           "path": "dist/network/gql-client.js",
@@ -5596,7 +5604,7 @@
       ]
     },
     "dist/network/mutations/move-job-to-failed.js": {
-      "bytes": 326,
+      "bytes": 322,
       "imports": [
         {
           "path": "dist/network/gql-client.js",
@@ -5622,7 +5630,7 @@
       ]
     },
     "dist/network/mutations/promote-job.js": {
-      "bytes": 311,
+      "bytes": 307,
       "imports": [
         {
           "path": "dist/network/gql-client.js",
@@ -5648,7 +5656,7 @@
       ]
     },
     "dist/network/mutations/retry-job.js": {
-      "bytes": 305,
+      "bytes": 301,
       "imports": [
         {
           "path": "dist/network/gql-client.js",
@@ -5670,7 +5678,7 @@
       ]
     },
     "dist/network/mutations/update-job-data.js": {
-      "bytes": 346,
+      "bytes": 342,
       "imports": [
         {
           "path": "dist/network/gql-client.js",
@@ -5692,7 +5700,7 @@
       ]
     },
     "dist/network/mutations/remove-job.js": {
-      "bytes": 308,
+      "bytes": 304,
       "imports": [
         {
           "path": "dist/network/gql-client.js",
@@ -5744,7 +5752,7 @@
       ]
     },
     "dist/network/mutations/pause-queue.js": {
-      "bytes": 294,
+      "bytes": 290,
       "imports": [
         {
           "path": "dist/network/gql-client.js",
@@ -5779,7 +5787,7 @@
       ]
     },
     "dist/network/mutations/resume-queue.js": {
-      "bytes": 297,
+      "bytes": 293,
       "imports": [
         {
           "path": "dist/network/gql-client.js",
@@ -5792,7 +5800,7 @@
       ]
     },
     "dist/network/mutations/empty-queue.js": {
-      "bytes": 294,
+      "bytes": 290,
       "imports": [
         {
           "path": "dist/network/gql-client.js",
@@ -5827,7 +5835,7 @@
       ]
     },
     "dist/network/mutations/close-queue.js": {
-      "bytes": 294,
+      "bytes": 290,
       "imports": [
         {
           "path": "dist/network/gql-client.js",
@@ -5849,7 +5857,7 @@
       ]
     },
     "dist/network/mutations/remove-jobs-by-pattern.js": {
-      "bytes": 332,
+      "bytes": 328,
       "imports": [
         {
           "path": "dist/network/gql-client.js",
@@ -5875,7 +5883,7 @@
       ]
     },
     "dist/network/mutations/clean-queue.js": {
-      "bytes": 310,
+      "bytes": 306,
       "imports": [
         {
           "path": "dist/network/gql-client.js",
@@ -5888,7 +5896,7 @@
       ]
     },
     "dist/network/mutations/retry-jobs.js": {
-      "bytes": 317,
+      "bytes": 313,
       "imports": [
         {
           "path": "dist/network/gql-client.js",
@@ -5905,7 +5913,7 @@
       "imports": []
     },
     "dist/network/mutations/remove-jobs.js": {
-      "bytes": 320,
+      "bytes": 316,
       "imports": [
         {
           "path": "dist/network/gql-client.js",
@@ -5927,7 +5935,7 @@
       ]
     },
     "dist/demo-mocks/network/queries/get-queues.js": {
-      "bytes": 570,
+      "bytes": 590,
       "imports": [
         {
           "path": "dist/demo-mocks/network/data.js",
@@ -5936,7 +5944,7 @@
       ]
     },
     "dist/network/queries/get-jobs-for-export.js": {
-      "bytes": 616,
+      "bytes": 612,
       "imports": [
         {
           "path": "dist/network/gql-client.js",
@@ -5958,7 +5966,7 @@
       ]
     },
     "dist/network/queries/get-queue-metrics.js": {
-      "bytes": 503,
+      "bytes": 499,
       "imports": [
         {
           "path": "dist/network/gql-client.js",
@@ -5971,7 +5979,7 @@
       ]
     },
     "dist/network/mutations/clear-metrics.js": {
-      "bytes": 273,
+      "bytes": 269,
       "imports": [
         {
           "path": "dist/network/gql-client.js",
@@ -6430,7 +6438,7 @@
       ]
     },
     "dist/components/Drawer/Footer.js": {
-      "bytes": 1262,
+      "bytes": 1258,
       "imports": [
         {
           "path": "_snowpack/pkg/react.js",
@@ -7224,7 +7232,7 @@
       ]
     },
     "dist/hooks/use-share.js": {
-      "bytes": 2183,
+      "bytes": 2263,
       "imports": [
         {
           "path": "dist/atoms/workspaces.js",
@@ -8704,7 +8712,7 @@
       ]
     },
     "dist/hooks/use-create-first-workspace.js": {
-      "bytes": 673,
+      "bytes": 775,
       "imports": [
         {
           "path": "dist/atoms/workspaces.js",
@@ -8947,7 +8955,7 @@
       ]
     },
     "dist/hooks/use-dynamic-page-title.js": {
-      "bytes": 424,
+      "bytes": 434,
       "imports": [
         {
           "path": "dist/atoms/workspaces.js",
@@ -9063,7 +9071,7 @@
       ]
     },
     "dist/hooks/use-queue-data.js": {
-      "bytes": 289,
+      "bytes": 287,
       "imports": [
         {
           "path": "dist/hooks/use-queues-query.js",
@@ -11988,7 +11996,7 @@
       ]
     },
     "dist/screens/jobs/List/index.js": {
-      "bytes": 2117,
+      "bytes": 2135,
       "imports": [
         {
           "path": "_snowpack/pkg/react.js",
@@ -12786,7 +12794,7 @@
       ]
     },
     "dist/screens/WorkspacePicker/index.js": {
-      "bytes": 2366,
+      "bytes": 2474,
       "imports": [
         {
           "path": "_snowpack/pkg/react.js",
@@ -13277,7 +13285,7 @@
           "bytesInOutput": 399
         },
         "dist/components/Drawer/Queues/hooks.js": {
-          "bytesInOutput": 168
+          "bytesInOutput": 239
         },
         "dist/components/Drawer/Queues/JobsCount.js": {
           "bytesInOutput": 356
@@ -13304,13 +13312,13 @@
           "bytesInOutput": 3480
         },
         "dist/components/Drawer/Queues/Queue.js": {
-          "bytesInOutput": 1173
+          "bytesInOutput": 1144
         },
         "dist/stores/queues-collapse.js": {
           "bytesInOutput": 303
         },
         "_snowpack/pkg/common/process-2545f00a.js": {
-          "bytesInOutput": 2189
+          "bytesInOutput": 2193
         },
         "_snowpack/pkg/common/index-c787bfa1.js": {
           "bytesInOutput": 9158
@@ -13352,10 +13360,10 @@
           "bytesInOutput": 82
         },
         "dist/atoms/workspaces.js": {
-          "bytesInOutput": 1157
+          "bytesInOutput": 1273
         },
         "dist/components/Drawer/Queues/index.js": {
-          "bytesInOutput": 502
+          "bytesInOutput": 529
         },
         "_snowpack/pkg/common/utils-cc6bb9d1.js": {
           "bytesInOutput": 265
@@ -13433,7 +13441,7 @@
           "bytesInOutput": 27
         },
         "dist/network/queries/get-job-data.js": {
-          "bytesInOutput": 157
+          "bytesInOutput": 153
         },
         "_snowpack/pkg/common/toFinite-6d56db76.js": {
           "bytesInOutput": 297
@@ -13460,13 +13468,13 @@
           "bytesInOutput": 446
         },
         "dist/demo-mocks/network/data.js": {
-          "bytesInOutput": 934
+          "bytesInOutput": 938
         },
         "dist/demo-mocks/network/queries/get-job-data.js": {
           "bytesInOutput": 81
         },
         "dist/network/queries/get-job-logs.js": {
-          "bytesInOutput": 206
+          "bytesInOutput": 202
         },
         "dist/demo-mocks/network/queries/get-job-logs.js": {
           "bytesInOutput": 81
@@ -13475,13 +13483,13 @@
           "bytesInOutput": 241
         },
         "dist/network/queries/get-jobs.js": {
-          "bytesInOutput": 569
+          "bytesInOutput": 565
         },
         "dist/demo-mocks/network/queries/get-jobs.js": {
           "bytesInOutput": 248
         },
         "dist/network/queries/get-job-by-id.js": {
-          "bytesInOutput": 183
+          "bytesInOutput": 179
         },
         "dist/demo-mocks/network/queries/get-job-by-id.js": {
           "bytesInOutput": 98
@@ -13493,52 +13501,52 @@
           "bytesInOutput": 351
         },
         "dist/network/queries/get-queues.js": {
-          "bytesInOutput": 300
+          "bytesInOutput": 313
         },
         "dist/network/mutations/create-job-log.js": {
-          "bytesInOutput": 186
+          "bytesInOutput": 182
         },
         "dist/demo-mocks/network/mutations/create-job-log.js": {
           "bytesInOutput": 120
         },
         "dist/network/mutations/discard-job.js": {
-          "bytesInOutput": 165
+          "bytesInOutput": 161
         },
         "dist/demo-mocks/network/mutations/discard-job.js": {
           "bytesInOutput": 65
         },
         "dist/network/mutations/move-job-to-completed.js": {
-          "bytesInOutput": 181
+          "bytesInOutput": 177
         },
         "dist/demo-mocks/network/mutations/move-job-to-completed.js": {
           "bytesInOutput": 117
         },
         "dist/network/mutations/move-job-to-failed.js": {
-          "bytesInOutput": 175
+          "bytesInOutput": 171
         },
         "dist/demo-mocks/network/mutations/move-job-to-failed.js": {
           "bytesInOutput": 111
         },
         "dist/network/mutations/promote-job.js": {
-          "bytesInOutput": 165
+          "bytesInOutput": 161
         },
         "dist/demo-mocks/network/mutations/promote-job.js": {
           "bytesInOutput": 107
         },
         "dist/network/mutations/retry-job.js": {
-          "bytesInOutput": 161
+          "bytesInOutput": 157
         },
         "dist/demo-mocks/network/mutations/retry-job.js": {
           "bytesInOutput": 63
         },
         "dist/network/mutations/update-job-data.js": {
-          "bytesInOutput": 197
+          "bytesInOutput": 193
         },
         "dist/demo-mocks/network/mutations/update-job-data.js": {
           "bytesInOutput": 104
         },
         "dist/network/mutations/remove-job.js": {
-          "bytesInOutput": 163
+          "bytesInOutput": 159
         },
         "dist/demo-mocks/network/mutations/remove-job.js": {
           "bytesInOutput": 150
@@ -13550,7 +13558,7 @@
           "bytesInOutput": 262
         },
         "dist/network/mutations/pause-queue.js": {
-          "bytesInOutput": 148
+          "bytesInOutput": 144
         },
         "dist/demo-mocks/network/mutations/pause-queue.js": {
           "bytesInOutput": 220
@@ -13559,10 +13567,10 @@
           "bytesInOutput": 99
         },
         "dist/network/mutations/resume-queue.js": {
-          "bytesInOutput": 150
+          "bytesInOutput": 146
         },
         "dist/network/mutations/empty-queue.js": {
-          "bytesInOutput": 148
+          "bytesInOutput": 144
         },
         "dist/demo-mocks/network/mutations/empty-queue.js": {
           "bytesInOutput": 170
@@ -13571,46 +13579,46 @@
           "bytesInOutput": 79
         },
         "dist/network/mutations/close-queue.js": {
-          "bytesInOutput": 148
+          "bytesInOutput": 144
         },
         "dist/demo-mocks/network/mutations/remove-jobs-by-pattern.js": {
           "bytesInOutput": 157
         },
         "dist/network/mutations/remove-jobs-by-pattern.js": {
-          "bytesInOutput": 177
+          "bytesInOutput": 173
         },
         "dist/demo-mocks/network/mutations/clean-queue.js": {
           "bytesInOutput": 145
         },
         "dist/network/mutations/clean-queue.js": {
-          "bytesInOutput": 164
+          "bytesInOutput": 160
         },
         "dist/network/mutations/retry-jobs.js": {
-          "bytesInOutput": 172
+          "bytesInOutput": 168
         },
         "dist/demo-mocks/network/mutations/retry-jobs.js": {
           "bytesInOutput": 42
         },
         "dist/network/mutations/remove-jobs.js": {
-          "bytesInOutput": 174
+          "bytesInOutput": 170
         },
         "dist/demo-mocks/network/mutations/remove-jobs.js": {
           "bytesInOutput": 168
         },
         "dist/demo-mocks/network/queries/get-queues.js": {
-          "bytesInOutput": 247
+          "bytesInOutput": 255
         },
         "dist/network/queries/get-jobs-for-export.js": {
-          "bytesInOutput": 464
+          "bytesInOutput": 460
         },
         "dist/demo-mocks/network/queries/get-jobs-for-export.js": {
           "bytesInOutput": 94
         },
         "dist/network/queries/get-queue-metrics.js": {
-          "bytesInOutput": 352
+          "bytesInOutput": 348
         },
         "dist/network/mutations/clear-metrics.js": {
-          "bytesInOutput": 125
+          "bytesInOutput": 121
         },
         "dist/network/mutations/clear-all-metrics.js": {
           "bytesInOutput": 98
@@ -13649,7 +13657,7 @@
           "bytesInOutput": 3385
         },
         "dist/components/Drawer/Footer.js": {
-          "bytesInOutput": 430
+          "bytesInOutput": 426
         },
         "dist/components/Drawer/index.js": {
           "bytesInOutput": 1408
@@ -13706,7 +13714,7 @@
           "bytesInOutput": 50
         },
         "dist/hooks/use-share.js": {
-          "bytesInOutput": 649
+          "bytesInOutput": 683
         },
         "_snowpack/pkg/@material-ui/icons/Timeline.js": {
           "bytesInOutput": 631
@@ -13817,7 +13825,7 @@
           "bytesInOutput": 1489
         },
         "dist/hooks/use-create-first-workspace.js": {
-          "bytesInOutput": 108
+          "bytesInOutput": 147
         },
         "dist/components/Shell/index.js": {
           "bytesInOutput": 489
@@ -13850,7 +13858,7 @@
           "bytesInOutput": 0
         },
         "dist/hooks/use-queue-data.js": {
-          "bytesInOutput": 81
+          "bytesInOutput": 79
         },
         "dist/screens/jobs/Filters/hooks.js": {
           "bytesInOutput": 180
@@ -14066,7 +14074,7 @@
           "bytesInOutput": 1141
         },
         "dist/screens/jobs/List/index.js": {
-          "bytesInOutput": 528
+          "bytesInOutput": 544
         },
         "dist/stores/create-job.js": {
           "bytesInOutput": 277
@@ -14108,7 +14116,7 @@
           "bytesInOutput": 377
         },
         "dist/screens/WorkspacePicker/index.js": {
-          "bytesInOutput": 779
+          "bytesInOutput": 806
         },
         "dist/screens/switch.js": {
           "bytesInOutput": 197
@@ -14123,7 +14131,7 @@
           "bytesInOutput": 122
         }
       },
-      "bytes": 1417093
+      "bytes": 1417325
     },
     "../packages/ui/~~bundle~~/dist/index.css": {
       "imports": [],
