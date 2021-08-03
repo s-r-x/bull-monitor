@@ -8,15 +8,17 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Features
 
-* **gql:** id field inside Queue(concatenated prefix and name then converted ([18bc332](https://github.com/s-r-x/bull-monitor/commit/18bc332d4a3e9a942d2a0ba65d8ec573a1c884eb))
+* **gql:** id field inside Queue(concatenated prefix and name then converted to base64)
+* **gql:** queues now can have the same name, if their keyPrefixes are different
 
 
 ### BREAKING CHANGES
-
-* **gql:** all mutations and queries that have the "queue"
+- all mutations and queries that have the "queue"
 argument now should use queue's id instead of name as a unique queue
 identifier
-BREAKING_CHANGE: since this version all the existing old metrics will be removed. they have been stored in redis assuming that queue names are unique, so queues with the same name did override metrics of each other
+- since this version all the existing old metrics will be removed. they have been stored in redis assuming that queue names are unique, so queues with the same name did override metrics of each other
+
+
 
 
 
