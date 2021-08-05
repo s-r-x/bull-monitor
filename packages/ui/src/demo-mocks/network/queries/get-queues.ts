@@ -10,7 +10,7 @@ export const getQueuesMock = (): Promise<GetQueuesQuery> => {
       keyPrefix: queue.keyPrefix,
       jobsCounts: networkMockData.jobs.reduce(
         (acc, job) => {
-          if (job.queue === queue.name) {
+          if (job.queue === queue.id) {
             // @ts-ignore
             acc[job.status] += 1;
           }
