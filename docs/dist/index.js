@@ -246,7 +246,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
           id
         }
       }
-    `,e);var n5=e=>{let t=[];return Pt.jobs=Pt.jobs.filter(r=>{let n=e.jobs.includes(r.id)&&r.queue===e.queue;return n&&t.push(n),!Boolean(n)}),Promise.resolve({removeJobs:t})};var o5=()=>Promise.resolve({queues:Pt.queues.map(e=>({id:e.id,name:e.name,isPaused:e.isPaused,keyPrefix:e.keyPrefix,jobsCounts:Pt.jobs.reduce((t,r)=>(r.queue===e.name&&(t[r.status]+=1),t),{waiting:0,active:0,completed:0,failed:0,delayed:0,paused:0})}))});var i5=e=>Tt.request(Ot`
+    `,e);var n5=e=>{let t=[];return Pt.jobs=Pt.jobs.filter(r=>{let n=e.jobs.includes(r.id)&&r.queue===e.queue;return n&&t.push(n),!Boolean(n)}),Promise.resolve({removeJobs:t})};var o5=()=>Promise.resolve({queues:Pt.queues.map(e=>({id:e.id,name:e.name,isPaused:e.isPaused,keyPrefix:e.keyPrefix,jobsCounts:Pt.jobs.reduce((t,r)=>(r.queue===e.id&&(t[r.status]+=1),t),{waiting:0,active:0,completed:0,failed:0,delayed:0,paused:0})}))});var i5=e=>Tt.request(Ot`
       query GetJobsForExport($queue: ID!, $ids: [ID]!) {
         jobs(queue: $queue, ids: $ids) {
           id

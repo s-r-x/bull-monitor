@@ -5935,7 +5935,7 @@
       ]
     },
     "dist/demo-mocks/network/queries/get-queues.js": {
-      "bytes": 590,
+      "bytes": 588,
       "imports": [
         {
           "path": "dist/demo-mocks/network/data.js",
@@ -13606,7 +13606,7 @@
           "bytesInOutput": 168
         },
         "dist/demo-mocks/network/queries/get-queues.js": {
-          "bytesInOutput": 255
+          "bytesInOutput": 253
         },
         "dist/network/queries/get-jobs-for-export.js": {
           "bytesInOutput": 460
@@ -14131,7 +14131,7 @@
           "bytesInOutput": 122
         }
       },
-      "bytes": 1417325
+      "bytes": 1417323
     },
     "../packages/ui/~~bundle~~/dist/index.css": {
       "imports": [],
