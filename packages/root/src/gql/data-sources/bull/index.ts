@@ -140,8 +140,8 @@ export class BullDataSource extends DataSource {
     return jobs.filter(Boolean);
   }
   async getJob(queueId: string, id: JobId, throwIfNotFound?: boolean) {
-    const queue = this.getQueueById(queueId, true);
-    const job = await queue?.getJob(id);
+    const queue = this.getQueueById(queueId, true)!;
+    const job = await queue.getJob(id);
     if (!job && throwIfNotFound) {
       this._throwJobNotFound();
     }
@@ -199,44 +199,44 @@ export class BullDataSource extends DataSource {
     data = {},
     options = {},
   }: CreateJobInput) {
-    const queue = this.getQueueById(queueId, true);
-    return await queue?.add(
+    const queue = this.getQueueById(queueId, true)!;
+    return await queue.add(
       name as string,
       JsonService.maybeParse(data),
       JsonService.maybeParse(options)
     );
   }
   async removeJobsByPattern(args: MutationRemoveJobsByPatternArgs) {
-    const queue = this.getQueueById(args.queue, true);
-    await queue?.removeJobs(args.pattern);
+    const queue = this.getQueueById(args.queue, true)!;
+    await queue.removeJobs(args.pattern);
     return true;
   }
   async pauseQueue(id: string) {
-    const queue = this.getQueueById(id, true);
-    await queue?.pause();
+    const queue = this.getQueueById(id, true)!;
+    await queue.pause();
     return queue;
   }
   async cleanQueue(args: MutationCleanQueueArgs) {
-    const queue = this.getQueueById(args.queue, true);
-    return await queue?.clean(
+    const queue = this.getQueueById(args.queue, true)!;
+    return await queue.clean(
       args.grace as NonNullable<typeof args.grace>,
       args.status,
       args.limit || undefined
     );
   }
   async emptyQueue(args: MutationEmptyQueueArgs) {
-    const queue = this.getQueueById(args.queue, true);
-    await queue?.empty();
+    const queue = this.getQueueById(args.queue, true)!;
+    await queue.empty();
     return queue;
   }
   async closeQueue(args: MutationCloseQueueArgs) {
-    const queue = this.getQueueById(args.queue, true);
-    await queue?.close();
+    const queue = this.getQueueById(args.queue, true)!;
+    await queue.close();
     return queue;
   }
   async resumeQueue(args: MutationResumeQueueArgs) {
-    const queue = this.getQueueById(args.queue, true);
-    await queue?.resume();
+    const queue = this.getQueueById(args.queue, true)!;
+    await queue.resume();
     return queue;
   }
   async promoteJob(args: MutationPromoteJobArgs) {
