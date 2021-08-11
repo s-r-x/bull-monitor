@@ -11,9 +11,6 @@ export const useJobsCountArray = (count: QueueJobsCounts) => {
     }));
   }, [count]);
 };
-export const useAliveJobsCount = (count: QueueJobsCounts) => {
-  return count.active + count.delayed + count.waiting;
-};
 export const useQueueWorkspaceLabel = (
   queue: NonNullable<GetQueuesQuery['queues']>[0],
 ): string => {

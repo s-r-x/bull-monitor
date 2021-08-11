@@ -13,7 +13,6 @@ import QueuesFilter from './Filter';
 import QueuesSorter from './Sorter';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 import { useQueuesQuery } from '@/hooks/use-queues-query';
-import Footer from './Footer';
 import isempty from 'lodash/isEmpty';
 import Alert from '@material-ui/lab/Alert';
 
@@ -35,12 +34,6 @@ const useStyles = makeStyles((theme) => ({
     marginLeft: theme.spacing(0.5),
     marginRight: theme.spacing(0.5),
     alignItems: 'center',
-  },
-  footer: {
-    marginTop: 'auto',
-    position: 'sticky',
-    bottom: 0,
-    zIndex: 2,
   },
   dragger: {
     width: 4,
@@ -100,7 +93,6 @@ export default function Drawer() {
                 <QueuesSorter />
               </div>
               {sortedQueues && <QueuesList queues={sortedQueues} />}
-              {queues && <Footer queues={queues} className={cls.footer} />}
             </>
           )}
         </NetworkRequest>
