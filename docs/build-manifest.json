@@ -767,7 +767,7 @@
         }
       ]
     },
-    "_snowpack/pkg/common/createSvgIcon-1d3bb7f2.js": {
+    "_snowpack/pkg/common/createSvgIcon-ceb7acc4.js": {
       "bytes": 4566,
       "imports": [
         {
@@ -832,7 +832,7 @@
           "kind": "import-statement"
         },
         {
-          "path": "_snowpack/pkg/common/createSvgIcon-1d3bb7f2.js",
+          "path": "_snowpack/pkg/common/createSvgIcon-ceb7acc4.js",
           "kind": "import-statement"
         },
         {
@@ -941,7 +941,7 @@
           "kind": "import-statement"
         },
         {
-          "path": "_snowpack/pkg/common/createSvgIcon-1d3bb7f2.js",
+          "path": "_snowpack/pkg/common/createSvgIcon-ceb7acc4.js",
           "kind": "import-statement"
         },
         {
@@ -2555,55 +2555,6 @@
         }
       ]
     },
-    "_snowpack/pkg/@material-ui/core/ListItemSecondaryAction.js": {
-      "bytes": 1532,
-      "imports": [
-        {
-          "path": "_snowpack/pkg/common/extends-7477639a.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/defaultTheme-4bf8ba25.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/index-56a88a1e.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/index-4bda1d4e.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/clsx.m-114f790f.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/withStyles-e3a5d4c0.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/inheritsLoose-a99a548f.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/useTheme-49949dbd.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/_commonjsHelpers-f5d70792.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/hoist-non-react-statics.cjs-fd576625.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/getThemeProps-6712df0a.js",
-          "kind": "import-statement"
-        }
-      ]
-    },
     "_snowpack/pkg/@material-ui/core/Chip.js": {
       "bytes": 15264,
       "imports": [
@@ -2895,7 +2846,7 @@
       ]
     },
     "dist/components/Drawer/Queues/hooks.js": {
-      "bytes": 898,
+      "bytes": 794,
       "imports": [
         {
           "path": "dist/stores/preferences.js",
@@ -2912,22 +2863,10 @@
       ]
     },
     "dist/components/Drawer/Queues/JobsCount.js": {
-      "bytes": 1229,
+      "bytes": 915,
       "imports": [
         {
           "path": "_snowpack/pkg/react.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/@material-ui/core/ListItem.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/@material-ui/core/ListItemText.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/@material-ui/core/ListItemSecondaryAction.js",
           "kind": "import-statement"
         },
         {
@@ -2935,120 +2874,11 @@
           "kind": "import-statement"
         },
         {
-          "path": "_snowpack/pkg/@material-ui/core/List.js",
-          "kind": "import-statement"
-        },
-        {
           "path": "dist/components/Drawer/Queues/hooks.js",
           "kind": "import-statement"
-        }
-      ]
-    },
-    "_snowpack/pkg/@material-ui/icons/MoveToInbox.js": {
-      "bytes": 2161,
-      "imports": [
-        {
-          "path": "_snowpack/pkg/common/_commonjsHelpers-f5d70792.js",
-          "kind": "import-statement"
         },
         {
-          "path": "_snowpack/pkg/common/createSvgIcon-1d3bb7f2.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/index-56a88a1e.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/capitalize-cb60b008.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/defaultTheme-4bf8ba25.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/extends-7477639a.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/inheritsLoose-a99a548f.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/useTheme-49949dbd.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/index-4bda1d4e.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/createChainedFunction-005a4b16.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/createSvgIcon-00e61fcb.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/SvgIcon-d4543f28.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/clsx.m-114f790f.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/withStyles-e3a5d4c0.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/hoist-non-react-statics.cjs-fd576625.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/getThemeProps-6712df0a.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/debounce-44d9042c.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/isMuiElement-8830bd8a.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/ownerDocument-d79106b5.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/ownerWindow-517ea49b.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/useForkRef-04088162.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/useControlled-1e84fbd6.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/useEventCallback-1597cefc.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/unstable_useId-5941258a.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/useIsFocusVisible-44401c41.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/index-c4ac9922.js",
+          "path": "_snowpack/pkg/@material-ui/core/styles.js",
           "kind": "import-statement"
         }
       ]
@@ -3061,7 +2891,7 @@
           "kind": "import-statement"
         },
         {
-          "path": "_snowpack/pkg/common/createSvgIcon-1d3bb7f2.js",
+          "path": "_snowpack/pkg/common/createSvgIcon-ceb7acc4.js",
           "kind": "import-statement"
         },
         {
@@ -3158,342 +2988,6 @@
         },
         {
           "path": "_snowpack/pkg/common/index-c4ac9922.js",
-          "kind": "import-statement"
-        }
-      ]
-    },
-    "_snowpack/pkg/@material-ui/icons/ExpandLess.js": {
-      "bytes": 2035,
-      "imports": [
-        {
-          "path": "_snowpack/pkg/common/_commonjsHelpers-f5d70792.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/createSvgIcon-1d3bb7f2.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/index-56a88a1e.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/capitalize-cb60b008.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/defaultTheme-4bf8ba25.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/extends-7477639a.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/inheritsLoose-a99a548f.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/useTheme-49949dbd.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/index-4bda1d4e.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/createChainedFunction-005a4b16.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/createSvgIcon-00e61fcb.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/SvgIcon-d4543f28.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/clsx.m-114f790f.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/withStyles-e3a5d4c0.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/hoist-non-react-statics.cjs-fd576625.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/getThemeProps-6712df0a.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/debounce-44d9042c.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/isMuiElement-8830bd8a.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/ownerDocument-d79106b5.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/ownerWindow-517ea49b.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/useForkRef-04088162.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/useControlled-1e84fbd6.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/useEventCallback-1597cefc.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/unstable_useId-5941258a.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/useIsFocusVisible-44401c41.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/index-c4ac9922.js",
-          "kind": "import-statement"
-        }
-      ]
-    },
-    "_snowpack/pkg/@material-ui/icons/ExpandMore.js": {
-      "bytes": 2033,
-      "imports": [
-        {
-          "path": "_snowpack/pkg/common/_commonjsHelpers-f5d70792.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/createSvgIcon-1d3bb7f2.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/index-56a88a1e.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/capitalize-cb60b008.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/defaultTheme-4bf8ba25.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/extends-7477639a.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/inheritsLoose-a99a548f.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/useTheme-49949dbd.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/index-4bda1d4e.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/createChainedFunction-005a4b16.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/createSvgIcon-00e61fcb.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/SvgIcon-d4543f28.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/clsx.m-114f790f.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/withStyles-e3a5d4c0.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/hoist-non-react-statics.cjs-fd576625.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/getThemeProps-6712df0a.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/debounce-44d9042c.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/isMuiElement-8830bd8a.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/ownerDocument-d79106b5.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/ownerWindow-517ea49b.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/useForkRef-04088162.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/useControlled-1e84fbd6.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/useEventCallback-1597cefc.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/unstable_useId-5941258a.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/useIsFocusVisible-44401c41.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/index-c4ac9922.js",
-          "kind": "import-statement"
-        }
-      ]
-    },
-    "_snowpack/pkg/common/Collapse-9b774f30.js": {
-      "bytes": 8017,
-      "imports": [
-        {
-          "path": "_snowpack/pkg/common/extends-7477639a.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/defaultTheme-4bf8ba25.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/index-56a88a1e.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/clsx.m-114f790f.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/index-4bda1d4e.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/withStyles-e3a5d4c0.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/utils-e683c8ea.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/useTheme-fd431b92.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/useForkRef-04088162.js",
-          "kind": "import-statement"
-        }
-      ]
-    },
-    "_snowpack/pkg/@material-ui/core/Collapse.js": {
-      "bytes": 881,
-      "imports": [
-        {
-          "path": "_snowpack/pkg/common/Collapse-9b774f30.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/Collapse-9b774f30.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/extends-7477639a.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/defaultTheme-4bf8ba25.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/index-56a88a1e.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/_commonjsHelpers-f5d70792.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/inheritsLoose-a99a548f.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/useTheme-49949dbd.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/index-4bda1d4e.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/clsx.m-114f790f.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/withStyles-e3a5d4c0.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/hoist-non-react-statics.cjs-fd576625.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/getThemeProps-6712df0a.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/utils-e683c8ea.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/index-c4ac9922.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/TransitionGroupContext-dd8e0246.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/useTheme-fd431b92.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/useForkRef-04088162.js",
           "kind": "import-statement"
         }
       ]
@@ -3551,8 +3045,69 @@
         }
       ]
     },
+    "_snowpack/pkg/@material-ui/core/Typography.js": {
+      "bytes": 703,
+      "imports": [
+        {
+          "path": "_snowpack/pkg/common/Typography-a578fc6f.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/Typography-a578fc6f.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/extends-7477639a.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/defaultTheme-4bf8ba25.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/index-56a88a1e.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/_commonjsHelpers-f5d70792.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/inheritsLoose-a99a548f.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/useTheme-49949dbd.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/index-4bda1d4e.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/clsx.m-114f790f.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/withStyles-e3a5d4c0.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/hoist-non-react-statics.cjs-fd576625.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/getThemeProps-6712df0a.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/capitalize-cb60b008.js",
+          "kind": "import-statement"
+        }
+      ]
+    },
     "dist/components/Drawer/Queues/Queue.js": {
-      "bytes": 3537,
+      "bytes": 2009,
       "imports": [
         {
           "path": "_snowpack/pkg/react.js",
@@ -3575,14 +3130,6 @@
           "kind": "import-statement"
         },
         {
-          "path": "_snowpack/pkg/@material-ui/core/ListItemSecondaryAction.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/@material-ui/icons/MoveToInbox.js",
-          "kind": "import-statement"
-        },
-        {
           "path": "_snowpack/pkg/@material-ui/icons/Pause.js",
           "kind": "import-statement"
         },
@@ -3591,44 +3138,15 @@
           "kind": "import-statement"
         },
         {
-          "path": "_snowpack/pkg/@material-ui/icons/ExpandLess.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/@material-ui/icons/ExpandMore.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/@material-ui/core/IconButton.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/@material-ui/core/Collapse.js",
-          "kind": "import-statement"
-        },
-        {
           "path": "_snowpack/pkg/@material-ui/core/Badge.js",
           "kind": "import-statement"
         },
         {
+          "path": "_snowpack/pkg/@material-ui/core/Typography.js",
+          "kind": "import-statement"
+        },
+        {
           "path": "dist/components/Drawer/Queues/hooks.js",
-          "kind": "import-statement"
-        }
-      ]
-    },
-    "dist/stores/queues-collapse.js": {
-      "bytes": 884,
-      "imports": [
-        {
-          "path": "_snowpack/pkg/zustand.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/zustand/middleware.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "dist/config/storage.js",
           "kind": "import-statement"
         }
       ]
@@ -3936,7 +3454,7 @@
       ]
     },
     "dist/components/Drawer/Queues/index.js": {
-      "bytes": 2331,
+      "bytes": 1671,
       "imports": [
         {
           "path": "_snowpack/pkg/react.js",
@@ -3955,15 +3473,7 @@
           "kind": "import-statement"
         },
         {
-          "path": "_snowpack/pkg/zustand/shallow.js",
-          "kind": "import-statement"
-        },
-        {
           "path": "dist/components/Drawer/Queues/Queue.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "dist/stores/queues-collapse.js",
           "kind": "import-statement"
         },
         {
@@ -4798,7 +4308,7 @@
           "kind": "import-statement"
         },
         {
-          "path": "_snowpack/pkg/common/createSvgIcon-1d3bb7f2.js",
+          "path": "_snowpack/pkg/common/createSvgIcon-ceb7acc4.js",
           "kind": "import-statement"
         },
         {
@@ -6352,122 +5862,8 @@
         }
       ]
     },
-    "_snowpack/pkg/@material-ui/core/ButtonGroup.js": {
-      "bytes": 9216,
-      "imports": [
-        {
-          "path": "_snowpack/pkg/common/extends-7477639a.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/defaultTheme-4bf8ba25.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/index-56a88a1e.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/index-1bf11690.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/index-4bda1d4e.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/clsx.m-114f790f.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/capitalize-cb60b008.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/withStyles-e3a5d4c0.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/Button-578b4fa1.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/inheritsLoose-a99a548f.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/useTheme-49949dbd.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/_commonjsHelpers-f5d70792.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/hoist-non-react-statics.cjs-fd576625.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/getThemeProps-6712df0a.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/ButtonBase-2c3ea620.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/index-c4ac9922.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/useForkRef-04088162.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/useEventCallback-1597cefc.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/useIsFocusVisible-44401c41.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/TransitionGroupContext-dd8e0246.js",
-          "kind": "import-statement"
-        }
-      ]
-    },
-    "dist/components/Drawer/Footer.js": {
-      "bytes": 1258,
-      "imports": [
-        {
-          "path": "_snowpack/pkg/react.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/@material-ui/core/Button.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/@material-ui/core/ButtonGroup.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/@material-ui/core/styles.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "dist/stores/queues-collapse.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/zustand/shallow.js",
-          "kind": "import-statement"
-        }
-      ]
-    },
     "dist/components/Drawer/index.js": {
-      "bytes": 3854,
+      "bytes": 3627,
       "imports": [
         {
           "path": "_snowpack/pkg/react.js",
@@ -6527,10 +5923,6 @@
         },
         {
           "path": "dist/hooks/use-queues-query.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "dist/components/Drawer/Footer.js",
           "kind": "import-statement"
         },
         {
@@ -6608,7 +6000,7 @@
           "kind": "import-statement"
         },
         {
-          "path": "_snowpack/pkg/common/createSvgIcon-1d3bb7f2.js",
+          "path": "_snowpack/pkg/common/createSvgIcon-ceb7acc4.js",
           "kind": "import-statement"
         },
         {
@@ -6803,7 +6195,7 @@
           "kind": "import-statement"
         },
         {
-          "path": "_snowpack/pkg/common/createSvgIcon-1d3bb7f2.js",
+          "path": "_snowpack/pkg/common/createSvgIcon-ceb7acc4.js",
           "kind": "import-statement"
         },
         {
@@ -6912,7 +6304,7 @@
           "kind": "import-statement"
         },
         {
-          "path": "_snowpack/pkg/common/createSvgIcon-1d3bb7f2.js",
+          "path": "_snowpack/pkg/common/createSvgIcon-ceb7acc4.js",
           "kind": "import-statement"
         },
         {
@@ -7122,7 +6514,7 @@
       ]
     },
     "_snowpack/pkg/notistack.js": {
-      "bytes": 38689,
+      "bytes": 46238,
       "imports": [
         {
           "path": "_snowpack/pkg/common/index-56a88a1e.js",
@@ -7153,7 +6545,7 @@
           "kind": "import-statement"
         },
         {
-          "path": "_snowpack/pkg/common/Collapse-9b774f30.js",
+          "path": "_snowpack/pkg/common/extends-7477639a.js",
           "kind": "import-statement"
         },
         {
@@ -7161,11 +6553,19 @@
           "kind": "import-statement"
         },
         {
-          "path": "_snowpack/pkg/common/ownerDocument-d79106b5.js",
+          "path": "_snowpack/pkg/common/utils-e683c8ea.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/useTheme-fd431b92.js",
           "kind": "import-statement"
         },
         {
           "path": "_snowpack/pkg/common/useForkRef-04088162.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/ownerDocument-d79106b5.js",
           "kind": "import-statement"
         },
         {
@@ -7185,10 +6585,6 @@
           "kind": "import-statement"
         },
         {
-          "path": "_snowpack/pkg/common/extends-7477639a.js",
-          "kind": "import-statement"
-        },
-        {
           "path": "_snowpack/pkg/common/useTheme-49949dbd.js",
           "kind": "import-statement"
         },
@@ -7198,14 +6594,6 @@
         },
         {
           "path": "_snowpack/pkg/common/debounce-44d9042c.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/useTheme-fd431b92.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/utils-e683c8ea.js",
           "kind": "import-statement"
         },
         {
@@ -7276,7 +6664,7 @@
           "kind": "import-statement"
         },
         {
-          "path": "_snowpack/pkg/common/createSvgIcon-1d3bb7f2.js",
+          "path": "_snowpack/pkg/common/createSvgIcon-ceb7acc4.js",
           "kind": "import-statement"
         },
         {
@@ -7385,7 +6773,7 @@
           "kind": "import-statement"
         },
         {
-          "path": "_snowpack/pkg/common/createSvgIcon-1d3bb7f2.js",
+          "path": "_snowpack/pkg/common/createSvgIcon-ceb7acc4.js",
           "kind": "import-statement"
         },
         {
@@ -8516,67 +7904,6 @@
         }
       ]
     },
-    "_snowpack/pkg/@material-ui/core/Typography.js": {
-      "bytes": 703,
-      "imports": [
-        {
-          "path": "_snowpack/pkg/common/Typography-a578fc6f.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/Typography-a578fc6f.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/extends-7477639a.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/defaultTheme-4bf8ba25.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/index-56a88a1e.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/_commonjsHelpers-f5d70792.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/inheritsLoose-a99a548f.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/useTheme-49949dbd.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/index-4bda1d4e.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/clsx.m-114f790f.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/withStyles-e3a5d4c0.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/hoist-non-react-statics.cjs-fd576625.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/getThemeProps-6712df0a.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/capitalize-cb60b008.js",
-          "kind": "import-statement"
-        }
-      ]
-    },
     "dist/components/Settings/index.js": {
       "bytes": 2437,
       "imports": [
@@ -9133,7 +8460,7 @@
           "kind": "import-statement"
         },
         {
-          "path": "_snowpack/pkg/common/createSvgIcon-1d3bb7f2.js",
+          "path": "_snowpack/pkg/common/createSvgIcon-ceb7acc4.js",
           "kind": "import-statement"
         },
         {
@@ -9552,7 +8879,7 @@
           "kind": "import-statement"
         },
         {
-          "path": "_snowpack/pkg/common/createSvgIcon-1d3bb7f2.js",
+          "path": "_snowpack/pkg/common/createSvgIcon-ceb7acc4.js",
           "kind": "import-statement"
         },
         {
@@ -9661,7 +8988,7 @@
           "kind": "import-statement"
         },
         {
-          "path": "_snowpack/pkg/common/createSvgIcon-1d3bb7f2.js",
+          "path": "_snowpack/pkg/common/createSvgIcon-ceb7acc4.js",
           "kind": "import-statement"
         },
         {
@@ -9770,7 +9097,7 @@
           "kind": "import-statement"
         },
         {
-          "path": "_snowpack/pkg/common/createSvgIcon-1d3bb7f2.js",
+          "path": "_snowpack/pkg/common/createSvgIcon-ceb7acc4.js",
           "kind": "import-statement"
         },
         {
@@ -9917,7 +9244,7 @@
           "kind": "import-statement"
         },
         {
-          "path": "_snowpack/pkg/common/createSvgIcon-1d3bb7f2.js",
+          "path": "_snowpack/pkg/common/createSvgIcon-ceb7acc4.js",
           "kind": "import-statement"
         },
         {
@@ -11716,7 +11043,7 @@
           "kind": "import-statement"
         },
         {
-          "path": "_snowpack/pkg/common/createSvgIcon-1d3bb7f2.js",
+          "path": "_snowpack/pkg/common/createSvgIcon-ceb7acc4.js",
           "kind": "import-statement"
         },
         {
@@ -11825,7 +11152,7 @@
           "kind": "import-statement"
         },
         {
-          "path": "_snowpack/pkg/common/createSvgIcon-1d3bb7f2.js",
+          "path": "_snowpack/pkg/common/createSvgIcon-ceb7acc4.js",
           "kind": "import-statement"
         },
         {
@@ -12227,7 +11554,7 @@
           "kind": "import-statement"
         },
         {
-          "path": "_snowpack/pkg/common/createSvgIcon-1d3bb7f2.js",
+          "path": "_snowpack/pkg/common/createSvgIcon-ceb7acc4.js",
           "kind": "import-statement"
         },
         {
@@ -13080,8 +12407,8 @@
         "_snowpack/pkg/common/useIsFocusVisible-44401c41.js": {
           "bytesInOutput": 973
         },
-        "_snowpack/pkg/common/createSvgIcon-1d3bb7f2.js": {
-          "bytesInOutput": 1815
+        "_snowpack/pkg/common/createSvgIcon-ceb7acc4.js": {
+          "bytesInOutput": 1819
         },
         "_snowpack/pkg/@material-ui/icons/ChevronLeft.js": {
           "bytesInOutput": 248
@@ -13248,9 +12575,6 @@
         "_snowpack/pkg/@material-ui/core/ListItemText.js": {
           "bytesInOutput": 1010
         },
-        "_snowpack/pkg/@material-ui/core/ListItemSecondaryAction.js": {
-          "bytesInOutput": 342
-        },
         "_snowpack/pkg/@material-ui/core/Chip.js": {
           "bytesInOutput": 6275
         },
@@ -13285,40 +12609,25 @@
           "bytesInOutput": 399
         },
         "dist/components/Drawer/Queues/hooks.js": {
-          "bytesInOutput": 239
+          "bytesInOutput": 204
         },
         "dist/components/Drawer/Queues/JobsCount.js": {
-          "bytesInOutput": 356
-        },
-        "_snowpack/pkg/@material-ui/icons/MoveToInbox.js": {
-          "bytesInOutput": 372
+          "bytesInOutput": 355
         },
         "_snowpack/pkg/@material-ui/icons/Pause.js": {
           "bytesInOutput": 228
         },
-        "_snowpack/pkg/@material-ui/icons/ExpandLess.js": {
-          "bytesInOutput": 248
-        },
-        "_snowpack/pkg/@material-ui/icons/ExpandMore.js": {
-          "bytesInOutput": 246
-        },
-        "_snowpack/pkg/common/Collapse-9b774f30.js": {
-          "bytesInOutput": 2712
-        },
-        "_snowpack/pkg/@material-ui/core/Collapse.js": {
-          "bytesInOutput": 0
-        },
         "_snowpack/pkg/@material-ui/core/Badge.js": {
           "bytesInOutput": 3480
         },
-        "dist/components/Drawer/Queues/Queue.js": {
-          "bytesInOutput": 1144
+        "_snowpack/pkg/@material-ui/core/Typography.js": {
+          "bytesInOutput": 0
         },
-        "dist/stores/queues-collapse.js": {
-          "bytesInOutput": 303
+        "dist/components/Drawer/Queues/Queue.js": {
+          "bytesInOutput": 626
         },
         "_snowpack/pkg/common/process-2545f00a.js": {
-          "bytesInOutput": 2193
+          "bytesInOutput": 2189
         },
         "_snowpack/pkg/common/index-c787bfa1.js": {
           "bytesInOutput": 9158
@@ -13327,16 +12636,16 @@
           "bytesInOutput": 29
         },
         "_snowpack/pkg/uuid.js": {
-          "bytesInOutput": 1184
+          "bytesInOutput": 1174
         },
         "_snowpack/pkg/lodash/isEmpty.js": {
-          "bytesInOutput": 368
+          "bytesInOutput": 356
         },
         "_snowpack/pkg/common/_baseSlice-ca622ba3.js": {
-          "bytesInOutput": 163
+          "bytesInOutput": 161
         },
         "_snowpack/pkg/common/_setToString-45363239.js": {
-          "bytesInOutput": 824
+          "bytesInOutput": 816
         },
         "_snowpack/pkg/common/_flatRest-d52d6ba3.js": {
           "bytesInOutput": 623
@@ -13363,7 +12672,7 @@
           "bytesInOutput": 1273
         },
         "dist/components/Drawer/Queues/index.js": {
-          "bytesInOutput": 529
+          "bytesInOutput": 364
         },
         "_snowpack/pkg/common/utils-cc6bb9d1.js": {
           "bytesInOutput": 265
@@ -13653,14 +12962,8 @@
         "dist/hooks/use-queues-query.js": {
           "bytesInOutput": 28
         },
-        "_snowpack/pkg/@material-ui/core/ButtonGroup.js": {
-          "bytesInOutput": 3385
-        },
-        "dist/components/Drawer/Footer.js": {
-          "bytesInOutput": 426
-        },
         "dist/components/Drawer/index.js": {
-          "bytesInOutput": 1408
+          "bytesInOutput": 1293
         },
         "_snowpack/pkg/@material-ui/core/AppBar.js": {
           "bytesInOutput": 1276
@@ -13708,7 +13011,7 @@
           "bytesInOutput": 94
         },
         "_snowpack/pkg/notistack.js": {
-          "bytesInOutput": 15909
+          "bytesInOutput": 18625
         },
         "dist/hooks/use-toast.js": {
           "bytesInOutput": 50
@@ -13814,9 +13117,6 @@
         },
         "dist/components/Settings/Network/index.js": {
           "bytesInOutput": 828
-        },
-        "_snowpack/pkg/@material-ui/core/Typography.js": {
-          "bytesInOutput": 0
         },
         "dist/components/Settings/index.js": {
           "bytesInOutput": 784
@@ -14131,7 +13431,7 @@
           "bytesInOutput": 122
         }
       },
-      "bytes": 1417323
+      "bytes": 1411139
     },
     "../packages/ui/~~bundle~~/dist/index.css": {
       "imports": [],
