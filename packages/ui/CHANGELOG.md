@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.1.0](https://github.com/s-r-x/bull-monitor/compare/v1.0.0...v1.1.0) (2021-08-11)
+
+
+### Features
+
+* **ui:** drawer. inline jobs count ([30940da](https://github.com/s-r-x/bull-monitor/commit/30940da920eea482eaf7c8c7f3cbb02c452807a5))
+
+
+
+
+
 # [1.0.0](https://github.com/s-r-x/bull-monitor/compare/v0.31.0...v1.0.0) (2021-08-03)
 
 
