@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.2.0](https://github.com/s-r-x/bull-monitor/compare/v1.1.0...v1.2.0) (2021-08-23)
+
+
+### Bug Fixes
+
+* **ui:** pages count is always zero if search by job id is not empty ([9c102ad](https://github.com/s-r-x/bull-monitor/commit/9c102adc1d5c76427e6ac41b1911df2676b9e646))
+
+
+### Features
+
+* **ui:** add more "per page" options to the jobs list ([137e18e](https://github.com/s-r-x/bull-monitor/commit/137e18e85dd249d3256c1f9b2e155e6f544ea647))
+
+
+
+
+
 # [1.1.0](https://github.com/s-r-x/bull-monitor/compare/v1.0.0...v1.1.0) (2021-08-11)
 
 
