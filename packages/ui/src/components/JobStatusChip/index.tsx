@@ -13,7 +13,7 @@ type TProps = {
 
 export default function JobStatusChip(props: TProps) {
   const backgroundColor = useJobStatusColor(props.status);
-  const style = {
+  const style: React.CSSProperties = {
     color: '#fff',
     backgroundColor,
   };
