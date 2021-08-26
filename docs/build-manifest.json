@@ -2701,7 +2701,7 @@
       ]
     },
     "dist/components/JobStatusChip/index.js": {
-      "bytes": 589,
+      "bytes": 682,
       "imports": [
         {
           "path": "_snowpack/pkg/react.js",
@@ -10683,7 +10683,7 @@
       ]
     },
     "dist/config/pagination.js": {
-      "bytes": 72,
+      "bytes": 87,
       "imports": []
     },
     "dist/stores/pagination.js": {
@@ -10708,7 +10708,7 @@
       ]
     },
     "dist/screens/jobs/List/Pagination/hooks.js": {
-      "bytes": 644,
+      "bytes": 681,
       "imports": [
         {
           "path": "dist/hooks/use-queue-data.js",
@@ -12594,7 +12594,7 @@
           "bytesInOutput": 524
         },
         "dist/components/JobStatusChip/index.js": {
-          "bytesInOutput": 171
+          "bytesInOutput": 216
         },
         "dist/stores/preferences.js": {
           "bytesInOutput": 354
@@ -13335,13 +13335,13 @@
           "bytesInOutput": 3343
         },
         "dist/config/pagination.js": {
-          "bytesInOutput": 38
+          "bytesInOutput": 50
         },
         "dist/stores/pagination.js": {
           "bytesInOutput": 140
         },
         "dist/screens/jobs/List/Pagination/hooks.js": {
-          "bytesInOutput": 94
+          "bytesInOutput": 106
         },
         "dist/screens/jobs/List/Pagination/index.js": {
           "bytesInOutput": 549
@@ -13431,7 +13431,7 @@
           "bytesInOutput": 122
         }
       },
-      "bytes": 1411139
+      "bytes": 1411208
     },
     "../packages/ui/~~bundle~~/dist/index.css": {
       "imports": [],
