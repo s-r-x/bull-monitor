@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.3.0](https://github.com/s-r-x/bull-monitor/compare/v1.2.0...v1.3.0) (2021-08-26)
+
+
+### Features
+
+* **ui:** make JobStatusChip transparent when there are no jobs in it ([5ef1388](https://github.com/s-r-x/bull-monitor/commit/5ef138881a7edcd8985652248ca160415ea2457a))
+
+
+
+
+
 # [1.2.0](https://github.com/s-r-x/bull-monitor/compare/v1.1.0...v1.2.0) (2021-08-23)
 
 
