@@ -12,8 +12,10 @@ const useStyles = makeStyles({
     listStyleType: 'none',
     padding: 0,
     '& li': {
-      marginRight: -4,
-      marginBottom: 1,
+      margin: '0 2px 2px 0',
+      '& div': {
+        cursor: 'pointer',
+      },
     },
   },
 });

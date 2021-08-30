@@ -13,16 +13,12 @@ type TProps = {
 
 export default function JobStatusChip(props: TProps) {
   const backgroundColor = useJobStatusColor(props.status);
-  const style: React.CSSProperties = {
-    color: '#fff',
-    backgroundColor,
-  };
-  if (isUndefined(props.label) || props.label <= 0) {
-    style.opacity = 0.5;
-  }
   return (
     <Chip
-      style={style}
+      style={{
+        color: '#fff',
+        backgroundColor,
+      }}
       size={props.size}
       className={props.className}
       label={isUndefined(props.label) ? props.status : props.label}
