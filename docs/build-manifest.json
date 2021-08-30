@@ -2701,7 +2701,7 @@
       ]
     },
     "dist/components/JobStatusChip/index.js": {
-      "bytes": 682,
+      "bytes": 589,
       "imports": [
         {
           "path": "_snowpack/pkg/react.js",
@@ -2863,7 +2863,7 @@
       ]
     },
     "dist/components/Drawer/Queues/JobsCount.js": {
-      "bytes": 915,
+      "bytes": 950,
       "imports": [
         {
           "path": "_snowpack/pkg/react.js",
@@ -12594,7 +12594,7 @@
           "bytesInOutput": 524
         },
         "dist/components/JobStatusChip/index.js": {
-          "bytesInOutput": 216
+          "bytesInOutput": 171
         },
         "dist/stores/preferences.js": {
           "bytesInOutput": 354
@@ -12612,7 +12612,7 @@
           "bytesInOutput": 204
         },
         "dist/components/Drawer/Queues/JobsCount.js": {
-          "bytesInOutput": 355
+          "bytesInOutput": 373
         },
         "_snowpack/pkg/@material-ui/icons/Pause.js": {
           "bytesInOutput": 228
@@ -13431,7 +13431,7 @@
           "bytesInOutput": 122
         }
       },
-      "bytes": 1411208
+      "bytes": 1411181
     },
     "../packages/ui/~~bundle~~/dist/index.css": {
       "imports": [],
