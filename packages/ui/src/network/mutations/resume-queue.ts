@@ -6,7 +6,7 @@ import type {
 import { gql } from 'graphql-request';
 
 export const resumeQueue = (
-  args: ResumeQueueMutationVariables,
+  args: ResumeQueueMutationVariables
 ): Promise<ResumeQueueMutation> =>
   gqlClient.request(
     gql`
@@ -16,5 +16,5 @@ export const resumeQueue = (
         }
       }
     `,
-    args,
+    args
   );

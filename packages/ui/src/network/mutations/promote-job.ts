@@ -6,7 +6,7 @@ import type {
 import { gql } from 'graphql-request';
 
 export const promoteJob = (
-  args: PromoteJobMutationVariables,
+  args: PromoteJobMutationVariables
 ): Promise<PromoteJobMutation> =>
   gqlClient.request(
     gql`
@@ -16,5 +16,5 @@ export const promoteJob = (
         }
       }
     `,
-    args,
+    args
   );

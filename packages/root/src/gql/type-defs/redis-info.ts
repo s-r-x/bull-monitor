@@ -1,6 +1,5 @@
 import { gql } from 'apollo-server-core';
 
-
 export const redisInfoTypeDef = gql`
   type RedisInfo {
     redis_version: String!

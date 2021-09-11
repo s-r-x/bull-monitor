@@ -7,7 +7,7 @@ import {
 import { networkMockData } from '../data';
 
 export const cleanQueueMock = (
-  args: CleanQueueMutationVariables,
+  args: CleanQueueMutationVariables
 ): Promise<CleanQueueMutation> => {
   networkMockData.jobs = networkMockData.jobs.filter((job) => {
     if (job.queue !== args.queue) {

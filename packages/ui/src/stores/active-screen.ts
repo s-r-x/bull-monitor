@@ -22,6 +22,6 @@ export const useActiveScreenStore = createStore<TState>(
     }),
     {
       name: `${StorageConfig.persistNs}active-screen`,
-    },
-  ),
+    }
+  )
 );

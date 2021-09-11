@@ -6,7 +6,7 @@ import Button from '@material-ui/core/Button';
 import shallow from 'zustand/shallow';
 import { useRedisInfoModalStore } from '@/stores/redis-info-modal';
 import List from '@material-ui/core/List';
-import ListItem, { ListItemProps } from '@material-ui/core/ListItem';
+import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import { makeStyles } from '@material-ui/core/styles';
 import Box from '@material-ui/core/Box';
@@ -52,7 +52,7 @@ const RedisInfo = () => {
     {
       refetchInterval,
       select: (data) => data?.redisInfo,
-    },
+    }
   );
   return (
     <>
@@ -88,7 +88,7 @@ const RedisInfo = () => {
 export default function RedisInfoModal() {
   const [isOpen, onClose] = useRedisInfoModalStore(
     (state) => [state.isOpen, state.close],
-    shallow,
+    shallow
   );
   return (
     <Dialog open={isOpen} onClose={onClose}>

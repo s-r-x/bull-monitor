@@ -6,7 +6,7 @@ import type {
 import { gql } from 'graphql-request';
 
 export const moveJobToCompleted = (
-  args: MoveJobToCompletedMutationVariables,
+  args: MoveJobToCompletedMutationVariables
 ): Promise<MoveJobToCompletedMutation> =>
   gqlClient.request(
     gql`
@@ -16,5 +16,5 @@ export const moveJobToCompleted = (
         }
       }
     `,
-    args,
+    args
   );

@@ -42,7 +42,7 @@ const useStyles = makeStyles((theme) => ({
 export default function WorkspacePicker() {
   const workspaces = useAtomValue(workspacesListAtom);
   const [activeWorkspace, changeActiveWorkspace] = useAtom(
-    activeWorkspaceIdAtom,
+    activeWorkspaceIdAtom
   );
   const workspacesSize = useAtomValue(workspacesSizeAtom);
   const addWorkspace = useUpdateAtom(addWorkspaceAtom);

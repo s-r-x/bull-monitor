@@ -30,7 +30,7 @@ type TProps = {
 const CodeEditor = (props: TProps) => {
   const [theme, keyMap, tabSize] = useCodeEditorStore(
     (state) => [state.theme, state.keyMap, state.tabSize],
-    shallow,
+    shallow
   );
   return (
     <div

@@ -21,5 +21,5 @@ export const getRedisInfo = (): Promise<GetRedisInfoQuery> =>
           tcp_port
         }
       }
-    `,
+    `
   );

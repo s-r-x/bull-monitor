@@ -17,7 +17,7 @@ export const useFilteredQueues = (queues?: TQueues) => {
     }
     const lowerFilter = filterName.toLowerCase();
     return queues.filter(({ name }) =>
-      name.toLowerCase().includes(lowerFilter),
+      name.toLowerCase().includes(lowerFilter)
     );
   }, [filterName, queues]);
 };
@@ -30,7 +30,7 @@ export const useSortedQueues = (queues?: TQueues) => {
 };
 
 const useWaitForDraggerToMount = (
-  ref: React.MutableRefObject<Maybe<HTMLDivElement>>,
+  ref: React.MutableRefObject<Maybe<HTMLDivElement>>
 ) => {
   const [isMounted, setIsMounted] = useState(Boolean(ref.current));
   useEffect(() => {
@@ -50,7 +50,7 @@ const useWaitForDraggerToMount = (
 };
 export const useDrawerWidth = () => {
   const [defaultDrawerWidth, changeDefaultDrawerWidth] = useDrawerState(
-    (state) => [state.defaultWidth, state.changeDefaultWidth],
+    (state) => [state.defaultWidth, state.changeDefaultWidth]
   );
   const draggerRef = useRef<HTMLDivElement>(null);
   const [drawerWidth, setDrawerWidth] = useState(defaultDrawerWidth);

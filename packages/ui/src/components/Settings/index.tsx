@@ -57,7 +57,7 @@ const Settings = () => {
 export default function SettingsModal() {
   const [isOpen, onClose] = useSettingsModalStore(
     (state) => [state.isOpen, state.close],
-    shallow,
+    shallow
   );
   return (
     <Dialog open={isOpen} onClose={onClose}>

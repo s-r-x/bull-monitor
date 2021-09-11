@@ -53,7 +53,7 @@ export default function Drawer() {
   const isDesktop = useMediaQuery(theme.breakpoints.up('md'));
   const [isOpen, closeDrawer] = useDrawerState(
     (state) => [state.isOpen, state.close],
-    shallow,
+    shallow
   );
   const queues = data?.queues;
   const filteredQueues = useFilteredQueues(queues);

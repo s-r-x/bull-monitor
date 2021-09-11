@@ -1,5 +1,5 @@
 export const JsonService = {
-  maybeStringify(data?: Object | null | string, space = 2) {
+  maybeStringify(data?: any, space = 2) {
     if (data && typeof data === 'object') {
       try {
         return JSON.stringify(data, null, space);

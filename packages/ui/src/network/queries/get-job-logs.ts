@@ -3,7 +3,7 @@ import { gqlClient } from '@/network/gql-client';
 import { gql } from 'graphql-request';
 
 export const getJobLogs = (
-  args: GetJobLogsQueryVariables,
+  args: GetJobLogsQueryVariables
 ): Promise<GetJobLogsQuery> =>
   gqlClient.request(
     gql`
@@ -16,5 +16,5 @@ export const getJobLogs = (
         }
       }
     `,
-    args,
+    args
   );

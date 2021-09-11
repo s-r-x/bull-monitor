@@ -1,10 +1,5 @@
-import type {
-  ClearMetricsMutation,
-  ClearMetricsMutationVariables,
-} from '@/typings/gql';
+import type { ClearMetricsMutation } from '@/typings/gql';
 
-export const clearMetricsMock = (
-  _args: ClearMetricsMutationVariables,
-): Promise<ClearMetricsMutation> => {
+export const clearMetricsMock = (): Promise<ClearMetricsMutation> => {
   return Promise.resolve({ clearMetrics: true });
 };

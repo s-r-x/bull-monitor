@@ -6,7 +6,7 @@ import {
 import { networkMockData } from '../data';
 
 export const promoteJobMock = (
-  args: PromoteJobMutationVariables,
+  args: PromoteJobMutationVariables
 ): Promise<PromoteJobMutation> => {
   const job = networkMockData.findJob(args.queue, args.id);
   if (job) {

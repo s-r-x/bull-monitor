@@ -6,7 +6,7 @@ import type {
 import { gql } from 'graphql-request';
 
 export const retryJobs = (
-  args: RetryJobsMutationVariables,
+  args: RetryJobsMutationVariables
 ): Promise<RetryJobsMutation> =>
   gqlClient.request(
     gql`
@@ -16,5 +16,5 @@ export const retryJobs = (
         }
       }
     `,
-    args,
+    args
   );

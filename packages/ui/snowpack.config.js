@@ -8,7 +8,7 @@ module.exports = {
   },
   buildOptions: {
     watch: !prod,
-    out: "./build"
+    out: './build',
     /* ... */
   },
 };

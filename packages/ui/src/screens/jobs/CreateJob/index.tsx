@@ -54,7 +54,7 @@ const CreateJob = () => {
       state.name,
       state.changeName,
     ],
-    shallow,
+    shallow
   );
   const mutation = useAbstractMutation({
     mutation: createJob,
@@ -112,7 +112,7 @@ const CreateJob = () => {
 export default function CreateJobModal() {
   const [isOpen, onClose] = useCreateJobStore(
     (state) => [state.isOpen, state.close],
-    shallow,
+    shallow
   );
   return (
     <Dialog open={isOpen} onClose={onClose}>

@@ -1,5 +1,9 @@
 import { useQueueData } from '@/hooks/use-queue-data';
-import { activeQueueAtom, activeStatusAtom, jobIdAtom } from '@/atoms/workspaces';
+import {
+  activeQueueAtom,
+  activeStatusAtom,
+  jobIdAtom,
+} from '@/atoms/workspaces';
 import { useAtomValue } from 'jotai/utils';
 import { JobStatus } from '@/typings/gql';
 

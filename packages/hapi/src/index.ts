@@ -12,7 +12,7 @@ export class BullMonitorHapi extends BullMonitor<ApolloServer> {
     await this.server.start();
     this.plugin = {
       name: 'bull-monitor',
-      register: app => {
+      register: (app) => {
         this.server.applyMiddleware({
           app,
           path: this.gqlEndpoint,

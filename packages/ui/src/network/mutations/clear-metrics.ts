@@ -6,7 +6,7 @@ import type {
 import { gql } from 'graphql-request';
 
 export const clearMetrics = (
-  args: ClearMetricsMutationVariables,
+  args: ClearMetricsMutationVariables
 ): Promise<ClearMetricsMutation> =>
   gqlClient.request(
     gql`
@@ -14,5 +14,5 @@ export const clearMetrics = (
         clearMetrics(queue: $queue)
       }
     `,
-    args,
+    args
   );

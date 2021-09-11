@@ -4,7 +4,7 @@ import { JsonService } from '@/services/json';
 
 export function storageAtom<Value>(
   key: string,
-  initialValue: Value,
+  initialValue: Value
 ): PrimitiveAtom<Value> {
   const getInitialValue = (): Value => {
     try {
@@ -23,7 +23,7 @@ export function storageAtom<Value>(
           : update;
       set(baseAtom, newValue);
       localStorage.setItem(key, JsonService.maybeStringify(newValue));
-    },
+    }
   );
 
   return anAtom;

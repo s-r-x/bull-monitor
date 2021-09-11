@@ -22,6 +22,6 @@ export const useQueuesSortStore = createStore<TState>(
     }),
     {
       name: `${StorageConfig.persistNs}queues-sort`,
-    },
-  ),
+    }
+  )
 );

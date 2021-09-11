@@ -15,7 +15,7 @@ type TProps = {
 export default function TableHead({ jobs }: TProps) {
   const [selected, clearSelected, setSelected] = useSelectedJobsStore(
     (state) => [state.selected, state.clear, state.setJobs],
-    shallow,
+    shallow
   );
   const hasJobs = !isempty(jobs);
   const jobsLength = jobs?.length ?? 0;

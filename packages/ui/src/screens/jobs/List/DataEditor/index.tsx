@@ -27,7 +27,7 @@ const DataEditor = () => {
       state.close,
       state.jobIdentity as NonNullable<typeof state.jobIdentity>,
     ],
-    shallow,
+    shallow
   );
   const queryKey = [QueryKeysConfig.jobData, jobIdentity];
   const { status, refetch } = useQuery(
@@ -38,7 +38,7 @@ const DataEditor = () => {
         setData(data.job?.data);
       },
       enabled: Boolean(jobIdentity),
-    },
+    }
   );
   const mutation = useAbstractMutation({
     mutation: updateJobData,
@@ -74,7 +74,7 @@ const DataEditor = () => {
 export default function DataEditorModal() {
   const [isOpen, onClose] = useDataEditorStore(
     (state) => [state.isOpen, state.close],
-    shallow,
+    shallow
   );
   return (
     <Dialog open={isOpen} onClose={onClose}>

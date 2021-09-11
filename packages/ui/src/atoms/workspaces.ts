@@ -16,8 +16,7 @@ export type TWorkspace = {
   status?: JobStatus;
   jobId?: string;
   order?: OrderEnum;
-  dataSearchKey?: string;
-  dataSearchTerm?: string;
+  dataSearch?: string;
   queue: string;
   queueLabel: string;
 };
@@ -27,15 +26,15 @@ type TUpdateWorkspaceDto = TAddWorkspaceDto;
 
 export const activeWorkspaceIdAtom = storageAtom<Maybe<string>>(
   `${StorageConfig.atomsPersistNs}wsIdV2`,
-  null,
+  null
 );
 export const workspacesListAtom = storageAtom<TWorkspace[]>(
   `${StorageConfig.atomsPersistNs}wsListV2`,
-  [],
+  []
 );
 export const workspacesSizeAtom = selectAtom(
   workspacesListAtom,
-  (list) => list.length,
+  (list) => list.length
 );
 const specificWorkspaceAtom = atomFamily((id: Maybe<string>) =>
   atom((get) => {
@@ -47,7 +46,7 @@ const specificWorkspaceAtom = atomFamily((id: Maybe<string>) =>
       return null;
     }
     return list.find((ws) => ws.id === id) || null;
-  }),
+  })
 );
 export const activeWorkspaceAtom = atom(
   (get) => get(specificWorkspaceAtom(get(activeWorkspaceIdAtom))),
@@ -60,58 +59,52 @@ export const activeWorkspaceAtom = atom(
             ...ws,
             ...updates,
           }
-        : ws,
+        : ws
     );
     set(workspacesListAtom, newList);
-  },
+  }
 );
 export const activePageAtom = atom(
   (get) => get(activeWorkspaceAtom)?.page ?? 0,
   (_get, set, page: number) => {
     set(activeWorkspaceAtom, { page });
-  },
+  }
 );
 export const activeQueueAtom = atom(
   (get) => get(activeWorkspaceAtom)?.queue ?? null,
   (_get, set, queue: string) => {
     set(activeWorkspaceAtom, { queue, page: 0 });
-  },
+  }
 );
 export const activeQueueLabelAtom = atom(
   (get) => get(activeWorkspaceAtom)?.queueLabel ?? null,
   (_get, set, queueLabel: string) => {
     set(activeWorkspaceAtom, { queueLabel, page: 0 });
-  },
+  }
 );
 export const activeStatusAtom = atom(
   (get) => get(activeWorkspaceAtom)?.status ?? JobStatus.Active,
   (_get, set, status: JobStatus) => {
     set(activeWorkspaceAtom, { status, page: 0 });
-  },
+  }
 );
 export const jobsOrderAtom = atom(
   (get) => get(activeWorkspaceAtom)?.order ?? OrderEnum.Asc,
   (_get, set, order: OrderEnum) => {
     set(activeWorkspaceAtom, { order, page: 0 });
-  },
+  }
 );
 export const jobIdAtom = atom(
   (get) => get(activeWorkspaceAtom)?.jobId ?? '',
   (_get, set, jobId: string) => {
     set(activeWorkspaceAtom, { jobId, page: 0 });
-  },
+  }
 );
-export const dataSearchKeyAtom = atom(
-  (get) => get(activeWorkspaceAtom)?.dataSearchKey ?? '',
-  (_get, set, dataSearchKey: string) => {
-    set(activeWorkspaceAtom, { dataSearchKey, page: 0 });
-  },
-);
-export const dataSearchTermAtom = atom(
-  (get) => get(activeWorkspaceAtom)?.dataSearchTerm ?? '',
-  (_get, set, dataSearchTerm: string) => {
-    set(activeWorkspaceAtom, { dataSearchTerm, page: 0 });
-  },
+export const dataSearchAtom = atom(
+  (get) => get(activeWorkspaceAtom)?.dataSearch ?? '',
+  (_get, set, dataSearch: string) => {
+    set(activeWorkspaceAtom, { dataSearch, page: 0 });
+  }
 );
 
 // write only
@@ -133,10 +126,10 @@ export const addWorkspaceAtom = atom(
       set(workspacesListAtom, [...list, ws]);
     }
     set(activeWorkspaceIdAtom, ws.id);
-  },
+  }
 );
 export const clearDataSearchAtom = atom(null, (_get, set) => {
-  set(activeWorkspaceAtom, { dataSearchTerm: '', dataSearchKey: '', page: 0 });
+  set(activeWorkspaceAtom, { dataSearch: '' });
 });
 
 export const removeWorkspaceAtom = atom(null, (get, set, id: string) => {

@@ -6,7 +6,7 @@ import type {
 import { gql } from 'graphql-request';
 
 export const cleanQueue = (
-  args: CleanQueueMutationVariables,
+  args: CleanQueueMutationVariables
 ): Promise<CleanQueueMutation> =>
   gqlClient.request(
     gql`
@@ -14,5 +14,5 @@ export const cleanQueue = (
         cleanQueue(queue: $queue, status: $status)
       }
     `,
-    args,
+    args
   );

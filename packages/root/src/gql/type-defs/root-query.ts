@@ -1,14 +1,6 @@
 import { gql } from 'apollo-server-core';
 
 export const rootQueryTypeDef = gql`
-  input JobDataSearchInput {
-    """
-    any key supported by https://lodash.com/docs/4.17.15#get
-    if not specified text search will be performed on the whole stringified data
-    """
-    key: String
-    term: String!
-  }
   type Query {
     queues: [Queue!]
     queue(id: ID!): Queue
@@ -21,7 +13,7 @@ export const rootQueryTypeDef = gql`
       order: OrderEnum
       id: ID
       ids: [ID]
-      dataSearch: JobDataSearchInput
+      dataSearch: String
     ): [Job!]!
     job(queue: ID!, id: ID!): Job
     redisInfo: RedisInfo

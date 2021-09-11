@@ -6,7 +6,7 @@ import type {
 import { gql } from 'graphql-request';
 
 export const emptyQueue = (
-  args: EmptyQueueMutationVariables,
+  args: EmptyQueueMutationVariables
 ): Promise<EmptyQueueMutation> =>
   gqlClient.request(
     gql`
@@ -16,5 +16,5 @@ export const emptyQueue = (
         }
       }
     `,
-    args,
+    args
   );

@@ -19,7 +19,7 @@ export class MetricsCollector {
     private _config: Required<MetricsConfig>
   ) {
     this._scheduler = new Scheduler();
-    this._queues = queues.filter(q => !_config.blacklist.includes(q.name));
+    this._queues = queues.filter((q) => !_config.blacklist.includes(q.name));
   }
   public startCollecting(): void {
     this._maybeCreateJob();
@@ -42,7 +42,7 @@ export class MetricsCollector {
   }
   public async clearAll(): Promise<void> {
     const pipeline = this._redisClient.pipeline();
-    this._queues.forEach(queue => {
+    this._queues.forEach((queue) => {
       pipeline.del(this._buildPersistKey(queue.id));
     });
     await pipeline.exec();
@@ -63,7 +63,7 @@ export class MetricsCollector {
   private async _collect(): Promise<TMetrics[]> {
     const timestamp = Date.now();
     return await Promise.all(
-      this._queues.map(async queue => ({
+      this._queues.map(async (queue) => ({
         timestamp,
         queue: queue.id,
         counts: await queue.getJobCounts(),
@@ -74,7 +74,7 @@ export class MetricsCollector {
     const client = this._redisClient;
     const lpopPipeline = client.pipeline();
     await Promise.all(
-      metrics.map(async metric => {
+      metrics.map(async (metric) => {
         const key = this._buildPersistKey(metric.queue);
         const listLen = await client.rpush(key, JSON.stringify(metric));
         if (listLen > this._config.maxMetrics) {

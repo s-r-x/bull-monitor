@@ -1,11 +1,6 @@
-import type {
-  RetryJobsMutation,
-  RetryJobsMutationVariables,
-} from '@/typings/gql';
+import type { RetryJobsMutation } from '@/typings/gql';
 
-export const retryJobsMock = (
-  _args: RetryJobsMutationVariables,
-): Promise<RetryJobsMutation> => {
+export const retryJobsMock = (): Promise<RetryJobsMutation> => {
   return Promise.resolve({
     retryJobs: [],
   });

@@ -5,7 +5,7 @@ import { JobStatus, JobStatusClean, OrderEnum } from '../../../typings/gql';
 const mockJobId = 'id';
 const mockQueueName = 'q';
 const none = 'none';
-const mockJob = ({
+const mockJob = {
   id: mockJobId,
   promote: jest.fn().mockImplementation(() => Promise.resolve()),
   discard: jest.fn().mockImplementation(() => Promise.resolve()),
@@ -15,7 +15,7 @@ const mockJob = ({
   remove: jest.fn().mockImplementation(() => Promise.resolve()),
   moveToCompleted: jest.fn().mockImplementation(() => Promise.resolve()),
   moveToFailed: jest.fn().mockImplementation(() => Promise.resolve()),
-} as unknown) as Job;
+} as unknown as Job;
 const mockQueue = {
   name: mockQueueName,
   getJob: jest.fn().mockImplementation((id: any) => {
@@ -44,7 +44,7 @@ const mockQueue = {
   resume: jest.fn().mockImplementation(() => Promise.resolve()),
 };
 const createDataSrc = () =>
-  new BullDataSource([(mockQueue as unknown) as Queue], {});
+  new BullDataSource([mockQueue as unknown as Queue], {});
 
 afterEach(() => {
   jest.clearAllMocks();

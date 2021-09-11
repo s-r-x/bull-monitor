@@ -6,14 +6,14 @@ import {
 import { networkMockData } from '../data';
 
 export const emptyQueueMock = (
-  args: EmptyQueueMutationVariables,
+  args: EmptyQueueMutationVariables
 ): Promise<EmptyQueueMutation> => {
   const queue = networkMockData.findQueue(args.queue);
   networkMockData.jobs = networkMockData.jobs.filter(
     (job) =>
       job.queue !== args.queue &&
       job.status !== JobStatus.Waiting &&
-      job.status !== JobStatus.Delayed,
+      job.status !== JobStatus.Delayed
   );
   return Promise.resolve({ emptyQueue: queue });
 };

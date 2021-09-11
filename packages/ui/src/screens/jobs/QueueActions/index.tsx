@@ -31,14 +31,14 @@ const useStyles = makeStyles((theme) => ({
 export default function QueueActions() {
   const classes = useStyles();
   const [cleanAnchorEl, setCleanAnchorEl] = React.useState<null | HTMLElement>(
-    null,
+    null
   );
   const [moreAnchorEl, setMoreAnchorEl] = React.useState<null | HTMLElement>(
-    null,
+    null
   );
   const [isRefetchLocked, toggleIsRefetchLocked] = useRefetchJobsLockStore(
     (state) => [state.isLocked, state.toggle],
-    shallow,
+    shallow
   );
   const pollingInterval = getPollingInterval();
   const handleClickClean = (event: React.MouseEvent<HTMLButtonElement>) => {

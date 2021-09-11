@@ -18,7 +18,7 @@ const HydrateShareGate: React.FC = (props) => {
           window.history.replaceState(
             null,
             document.title,
-            window.location.pathname,
+            window.location.pathname
           );
         }
       }

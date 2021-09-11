@@ -1,10 +1,10 @@
 import React, { memo } from 'react';
 import TextField from '@material-ui/core/TextField';
 import CloseableTip from '@/components/CloseableTip';
-import { makeStyles } from '@material-ui/core/styles';
-import BackspaceIcon from '@material-ui/icons/Backspace';
-import IconButton from '@material-ui/core/IconButton';
 import Tooltip from '@material-ui/core/Tooltip';
+import IconButton from '@material-ui/core/IconButton';
+import BackspaceIcon from '@material-ui/icons/Backspace';
+import { makeStyles } from '@material-ui/core/styles';
 import { useDataSearchState } from './hooks';
 
 const useStyles = makeStyles((theme) => ({
@@ -29,41 +29,26 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const DataSearch = () => {
-  const {
-    key,
-    term,
-    onClear,
-    onKeyChange,
-    onTermChange,
-  } = useDataSearchState();
+  const { search, onChange, onClear } = useDataSearchState();
   const cls = useStyles();
 
   return (
     <>
       <CloseableTip
         className={cls.searchTip}
-        persistKey="data-text-search"
-        tip='Search inside your data by any key supported by lodash.get. {"user": {"profile": {"name": "vasya"}}} -> user.profile.name. If key is not specified text search will be performed on the whole stringified data.'
+        persistKey="data-text-search-v2"
+        tip='Data search is powered by jsonata(https://docs.jsonata.org/overview.html). Example query for data {"user": {"profile": {"name": "ilya", "age": 30}}} -> user.profile[name="ilya" and age>=30]'
       />
       <div className={cls.root}>
         <div className={cls.textFields}>
           <TextField
-            value={key}
-            onChange={onKeyChange}
-            label="Data search key"
+            value={search}
+            onChange={onChange}
+            label="Data search"
             variant="outlined"
             id="jobs-filters_data-search-key"
             autoComplete="off"
             size="small"
-          />
-          <TextField
-            value={term}
-            onChange={onTermChange}
-            autoComplete="off"
-            variant="outlined"
-            size="small"
-            label="Data search term"
-            id="jobs-filters_data-search-term"
           />
         </div>
         <Tooltip title="Clear">

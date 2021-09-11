@@ -5,11 +5,11 @@ import type {
 import { networkMockData } from '../data';
 
 export const getJobsForExportMock = (
-  args: GetJobsForExportQueryVariables,
+  args: GetJobsForExportQueryVariables
 ): Promise<GetJobsForExportQuery> => {
   return Promise.resolve({
     jobs: networkMockData.jobs.filter(
-      (job) => job.queue === args.queue && args.ids?.includes(job.id),
+      (job) => job.queue === args.queue && args.ids?.includes(job.id)
     ),
   });
 };

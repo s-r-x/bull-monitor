@@ -6,7 +6,7 @@ import type {
 import { gql } from 'graphql-request';
 
 export const moveJobToFailed = (
-  args: MoveJobToFailedMutationVariables,
+  args: MoveJobToFailedMutationVariables
 ): Promise<MoveJobToFailedMutation> =>
   gqlClient.request(
     gql`
@@ -16,5 +16,5 @@ export const moveJobToFailed = (
         }
       }
     `,
-    args,
+    args
   );

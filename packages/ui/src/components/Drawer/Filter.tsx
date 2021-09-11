@@ -11,7 +11,7 @@ export default function DrawerQueuesFilter(props: TProps) {
     (e) => {
       changeName(e.target.value);
     },
-    [],
+    []
   );
 
   return (

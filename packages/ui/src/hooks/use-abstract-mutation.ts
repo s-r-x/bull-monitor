@@ -17,7 +17,7 @@ export function useAbstractMutation<
   invalidateSharedQueries?: boolean;
 }) {
   const confirmDangerousActions = usePreferencesStore(
-    (state) => state.confirmDangerousActions,
+    (state) => state.confirmDangerousActions
   );
   const confirm = useConfirm();
   const toast = useToast();

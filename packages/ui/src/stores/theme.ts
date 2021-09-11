@@ -60,8 +60,8 @@ export const useThemeStore = createStore<TState>(
     }),
     {
       name: `${StorageConfig.persistNs}theme`,
-    },
-  ),
+    }
+  )
 );
 export const getMuiTheme = () => {
   const [theme, palette] = useThemeStore((state) => [
@@ -76,6 +76,6 @@ export const getMuiTheme = () => {
           type: theme,
         },
       }),
-    [theme, palette],
+    [theme, palette]
   );
 };

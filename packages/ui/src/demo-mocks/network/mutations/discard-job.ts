@@ -5,7 +5,7 @@ import type {
 import { networkMockData } from '../data';
 
 export const discardJobMock = (
-  args: DiscardJobMutationVariables,
+  args: DiscardJobMutationVariables
 ): Promise<DiscardJobMutation> => {
   return Promise.resolve({
     discardJob: networkMockData.findJob(args.queue, args.id),

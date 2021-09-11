@@ -21,5 +21,5 @@ export const getQueues = (): Promise<GetQueuesQuery> =>
           }
         }
       }
-    `,
+    `
   );

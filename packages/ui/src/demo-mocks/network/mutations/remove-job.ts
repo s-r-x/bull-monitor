@@ -5,7 +5,7 @@ import type {
 import { networkMockData } from '../data';
 
 export const removeJobMock = (
-  args: RemoveJobMutationVariables,
+  args: RemoveJobMutationVariables
 ): Promise<RemoveJobMutation> => {
   let found: any;
   networkMockData.jobs = networkMockData.jobs.filter((job) => {

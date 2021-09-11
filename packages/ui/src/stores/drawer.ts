@@ -26,6 +26,6 @@ export const useDrawerState = createStore<TState>(
     }),
     {
       name: `${StorageConfig.persistNs}drawer`,
-    },
-  ),
+    }
+  )
 );

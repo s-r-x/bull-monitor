@@ -22,7 +22,7 @@ export const useNetworkSettingsStore = createStore<TState>(
       changePollingInterval: (pollingInterval) => set({ pollingInterval }),
       toggleTextSearchPollingDisabled: () =>
         set(({ textSearchPollingDisabled }) =>
-          set({ textSearchPollingDisabled: !textSearchPollingDisabled }),
+          set({ textSearchPollingDisabled: !textSearchPollingDisabled })
         ),
       toggleShouldFetchData: () =>
         set(({ shouldFetchData }) => ({ shouldFetchData: !shouldFetchData })),
@@ -30,8 +30,8 @@ export const useNetworkSettingsStore = createStore<TState>(
     {
       name: `${StorageConfig.persistNs}network`,
       version: 1,
-    },
-  ),
+    }
+  )
 );
 export const getPollingInterval = () => {
   const interval = useNetworkSettingsStore((state) => state.pollingInterval);

@@ -17,24 +17,18 @@ const AVAILABLE_KEY_MAP = ['vim', 'emacs', 'default', 'sublime'];
 const AVAILABLE_TAB_SIZES = [2, 4, 8];
 
 export default function CodeEditorSettings() {
-  const [
-    theme,
-    changeTheme,
-    keyMap,
-    changeKeyMap,
-    tabSize,
-    changeTabSize,
-  ] = useCodeEditorStore(
-    (state) => [
-      state.theme,
-      state.changeTheme,
-      state.keyMap,
-      state.changeKeyMap,
-      state.tabSize,
-      state.changeTabSize,
-    ],
-    shallow,
-  );
+  const [theme, changeTheme, keyMap, changeKeyMap, tabSize, changeTabSize] =
+    useCodeEditorStore(
+      (state) => [
+        state.theme,
+        state.changeTheme,
+        state.keyMap,
+        state.changeKeyMap,
+        state.tabSize,
+        state.changeTabSize,
+      ],
+      shallow
+    );
   return (
     <div>
       <TextField

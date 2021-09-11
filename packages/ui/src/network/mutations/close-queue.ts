@@ -6,7 +6,7 @@ import type {
 import { gql } from 'graphql-request';
 
 export const closeQueue = (
-  args: CloseQueueMutationVariables,
+  args: CloseQueueMutationVariables
 ): Promise<CloseQueueMutation> =>
   gqlClient.request(
     gql`
@@ -16,5 +16,5 @@ export const closeQueue = (
         }
       }
     `,
-    args,
+    args
   );

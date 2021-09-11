@@ -14,7 +14,7 @@ export const getJobs = (args: GetJobsQueryVariables): Promise<GetJobsQuery> =>
         $status: JobStatus
         $order: OrderEnum
         $id: ID
-        $dataSearch: JobDataSearchInput
+        $dataSearch: String
         $fetchData: Boolean!
       ) {
         jobs(
@@ -31,5 +31,5 @@ export const getJobs = (args: GetJobsQueryVariables): Promise<GetJobsQuery> =>
         }
       }
     `,
-    args,
+    args
   );

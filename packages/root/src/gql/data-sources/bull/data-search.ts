@@ -1,16 +1,15 @@
 import type { Queue as BullQueue, JobStatus } from 'bull';
-import get from 'lodash/get';
 import isempty from 'lodash/isEmpty';
 import { Readable } from 'stream';
-import { JsonService } from '../../../services/json';
 import { DEFAULT_TEXT_SEARCH_SCAN_COUNT } from './config';
+import { JsonService } from '../../../../dist/services/json';
+import jsonata from 'jsonata';
 
 type TSearchArgs = {
   status: JobStatus;
   limit: number;
   offset: number;
-  term: string;
-  key?: string;
+  search: string;
   scanCount?: number;
 };
 
@@ -30,10 +29,10 @@ abstract class AbstractIterator {
   }
   protected async _extractJobsData(ids: string[]): Promise<TJobExcerpt[]> {
     const pipeline = this._queue.client.pipeline();
-    ids.forEach(id => pipeline.hmget(this._queue.toKey(id), 'data'));
+    ids.forEach((id) => pipeline.hmget(this._queue.toKey(id), 'data'));
     const data = await pipeline.exec();
     return data.reduce((acc, [error, [jobData]], idx) => {
-      if (!error && jobData) {
+      if (!error && jobData && jobData !== '{}' && jobData !== '[]') {
         acc.push({
           data: jobData,
           id: ids[idx],
@@ -102,9 +101,15 @@ class ListIterator extends AbstractIterator {
     return this._ids.slice(this._cursor, this._cursor + this._scanCount);
   }
 }
-export class DataTextSearcher {
+export class DataSearcher {
   constructor(private _queue: BullQueue) {}
   async search(args: TSearchArgs) {
+    let expr: jsonata.Expression;
+    try {
+      expr = jsonata(args.search);
+    } catch (_e) {
+      return [];
+    }
     const it = this._getIterator(args);
     const start = args.offset;
     const end = args.limit + start;
@@ -112,7 +117,7 @@ export class DataTextSearcher {
     // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/label
     mainLoop: for await (const jobs of it.generator()) {
       for (const job of jobs) {
-        const matched = this._matchData(job.data, args.term, args.key);
+        const matched = this._matchData(job.data, expr);
         if (matched) {
           acc.push(job.id);
         }
@@ -123,7 +128,7 @@ export class DataTextSearcher {
     }
     it.destroy();
     const jobs = await Promise.all(
-      acc.slice(start, end).map(id => this._queue.getJob(id))
+      acc.slice(start, end).map((id) => this._queue.getJob(id))
     );
     return jobs;
   }
@@ -143,15 +148,13 @@ export class DataTextSearcher {
         return new ListIterator(this._queue, redisKey, config);
     }
   }
-  private _matchData(data: string, term: string, key?: string) {
-    if (key) {
-      const parsedData = JsonService.maybeParse(data);
-      if (typeof parsedData === 'object') {
-        const value = String(get(parsedData, key));
-        return value?.includes(term);
-      }
-    } else {
-      return data.includes(term);
+  private _matchData(data: string, expr: jsonata.Expression): boolean {
+    try {
+      const result = expr.evaluate(JsonService.maybeParse(data));
+      if (!result) return false;
+      return typeof result === 'object' ? !isempty(result) : !!result;
+    } catch (_e) {
+      return false;
     }
   }
 }

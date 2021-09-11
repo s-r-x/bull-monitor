@@ -22,7 +22,7 @@ export const useRefetchJobsLockStore = createStore<TState>((set) => ({
 export const useRunRefetchJobsLockSideEffects = () => {
   const [lock, unlock] = useRefetchJobsLockStore(
     (state) => [state.lock, state.unlock],
-    shallow,
+    shallow
   );
   useEffect(() => {
     const modalEffect = (isOpen: boolean) => {
@@ -34,11 +34,11 @@ export const useRunRefetchJobsLockSideEffects = () => {
     };
     const unsubDataEditor = useDataEditorStore.subscribe(
       modalEffect,
-      (state) => state.isOpen,
+      (state) => state.isOpen
     );
     const unsubJobLogs = useJobLogsStore.subscribe(
       modalEffect,
-      (state) => state.isOpen,
+      (state) => state.isOpen
     );
     return () => {
       unsubDataEditor();

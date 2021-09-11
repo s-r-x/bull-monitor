@@ -50,8 +50,8 @@ import { getQueueMetrics } from '@/network/queries/get-queue-metrics';
 import { clearMetrics } from '@/network/mutations/clear-metrics';
 import { clearAllMetrics } from '@/network/mutations/clear-all-metrics';
 import { getQueueMetricsMock } from '@/demo-mocks/network/queries/get-queue-metrics';
-import {clearAllMetricsMock} from '@/demo-mocks/network/mutations/clear-all-metrics';
-import {clearMetricsMock} from '@/demo-mocks/network/mutations/clear-metrics';
+import { clearAllMetricsMock } from '@/demo-mocks/network/mutations/clear-all-metrics';
+import { clearMetricsMock } from '@/demo-mocks/network/mutations/clear-metrics';
 
 import { EnvConfig } from '@/config/env';
 
@@ -85,8 +85,8 @@ const mutations = {
   cleanQueue: m ? cleanQueueMock : cleanQueue,
   retryJobs: m ? retryJobsMock : retryJobs,
   removeJobs: m ? removeJobsMock : removeJobs,
-  clearMetrics: m ?clearMetricsMock : clearMetrics,
-  clearAllMetrics: m?clearAllMetricsMock : clearAllMetrics,
+  clearMetrics: m ? clearMetricsMock : clearMetrics,
+  clearAllMetrics: m ? clearAllMetricsMock : clearAllMetrics,
 };
 
 export const networkContextValue = { mutations, queries };

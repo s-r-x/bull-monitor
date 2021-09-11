@@ -4,8 +4,7 @@ import {
   activeQueueLabelAtom,
   activeStatusAtom,
   activeWorkspaceAtom,
-  dataSearchKeyAtom,
-  dataSearchTermAtom,
+  dataSearchAtom,
   jobIdAtom,
   jobsOrderAtom,
   TAddWorkspaceDto,
@@ -39,7 +38,7 @@ export const useShareJob = () => {
     (jobId: string) => {
       share([EShareStrategy.SINGLE_JOB, jobId]);
     },
-    [share],
+    [share]
   );
 };
 const useShare = () => {
@@ -62,7 +61,7 @@ const useShare = () => {
         variant: 'success',
         autoHideDuration: 1000,
       });
-    }, []),
+    }, [])
   );
 };
 const extractData = (get: Getter, dto: TShareDto): TAddWorkspaceDto => {
@@ -77,8 +76,7 @@ const extractData = (get: Getter, dto: TShareDto): TAddWorkspaceDto => {
         status: get(activeStatusAtom),
         order: get(jobsOrderAtom),
         jobId: get(jobIdAtom),
-        dataSearchKey: get(dataSearchKeyAtom),
-        dataSearchTerm: get(dataSearchTermAtom),
+        dataSearch: get(dataSearchAtom),
       };
     case EShareStrategy.SINGLE_JOB:
       return {

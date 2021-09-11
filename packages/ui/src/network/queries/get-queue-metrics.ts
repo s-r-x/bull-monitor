@@ -6,7 +6,7 @@ import { gqlClient } from '@/network/gql-client';
 import { gql } from 'graphql-request';
 
 export const getQueueMetrics = (
-  args: GetQueueMetricsQueryVariables,
+  args: GetQueueMetricsQueryVariables
 ): Promise<GetQueueMetricsQuery> =>
   gqlClient.request(
     gql`
@@ -24,5 +24,5 @@ export const getQueueMetrics = (
         }
       }
     `,
-    args,
+    args
   );

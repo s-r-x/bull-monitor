@@ -7,7 +7,7 @@ import { useJobStatusesPalette } from '@/components/JobStatusChip/hooks';
 import day from 'dayjs';
 
 const statuses = Object.values(JobStatus).filter(
-  (status) => status !== JobStatus.Stuck,
+  (status) => status !== JobStatus.Stuck
 );
 const tickXFormatter = (timestamp: number) => {
   return day(timestamp).format('YYYY-MM-DD HH:mm');

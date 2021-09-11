@@ -11,7 +11,7 @@ const JOBS_AMOUNT = 100;
 
 const jobStatuses = without(
   Object.values(JobStatus),
-  JobStatus.Stuck,
+  JobStatus.Stuck
 ) as JobStatus[];
 
 const generateData = () => {
@@ -48,7 +48,7 @@ const generateData = () => {
           delay,
         },
         null,
-        2,
+        2
       ),
       stacktrace: [],
       data: `{"key": "value-${n}"}`,

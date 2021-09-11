@@ -40,14 +40,14 @@ const JobLogs = () => {
       state.close,
       state.jobIdentity as NonNullable<typeof state.jobIdentity>,
     ],
-    shallow,
+    shallow
   );
   const { status, refetch, data } = useQuery(
     [QueryKeysConfig.jobLogs, jobIdentity],
     () => getJobLogs(jobIdentity),
     {
       enabled: Boolean(jobIdentity),
-    },
+    }
   );
   const mutation = useAbstractMutation({
     mutation: createJobLog,
@@ -99,7 +99,7 @@ const JobLogs = () => {
 export default function JobLogsModal() {
   const [isOpen, onClose] = useJobLogsStore(
     (state) => [state.isOpen, state.close],
-    shallow,
+    shallow
   );
   return (
     <Dialog open={isOpen} onClose={onClose}>

@@ -3,14 +3,14 @@ import React from 'react';
 import Box from '@material-ui/core/Box';
 import { makeStyles } from '@material-ui/core/styles';
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles({
   root: {
     minWidth: '320px',
     '& .CodeMirror': {
       height: '200px',
     },
   },
-}));
+});
 
 type TProps = {
   options?: string;

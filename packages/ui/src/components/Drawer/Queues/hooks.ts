@@ -12,7 +12,7 @@ export const useJobsCountArray = (count: QueueJobsCounts) => {
   }, [count]);
 };
 export const useQueueWorkspaceLabel = (
-  queue: NonNullable<GetQueuesQuery['queues']>[0],
+  queue: NonNullable<GetQueuesQuery['queues']>[0]
 ): string => {
   if (!queue.keyPrefix || queue.keyPrefix === 'bull') {
     return queue.name;
@@ -20,7 +20,7 @@ export const useQueueWorkspaceLabel = (
   return queue.keyPrefix + ' ' + queue.name;
 };
 export const useMaybeGroupQueuesByPrefix = (
-  queues: NonNullable<GetQueuesQuery['queues']>,
+  queues: NonNullable<GetQueuesQuery['queues']>
 ) => {
   const shouldGroup = usePreferencesStore((state) => state.groupQueuesByPrefix);
   if (!shouldGroup) {

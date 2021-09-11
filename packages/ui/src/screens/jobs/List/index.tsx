@@ -21,7 +21,7 @@ export default function Jobs() {
   const { data, status, refetch, error } = useJobsQuery();
   const [selectedJobs, toggleSelected, removeSelected] = useSelectedJobsStore(
     (state) => [state.selected, state.toggleJob, state.removeJob],
-    shallow,
+    shallow
   );
   return (
     <Paper>

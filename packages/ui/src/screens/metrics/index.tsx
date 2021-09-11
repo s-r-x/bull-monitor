@@ -28,7 +28,7 @@ const MetricsScreen = () => {
     {
       refetchInterval,
       select: (d) => d?.metrics ?? [],
-    },
+    }
   );
   return (
     <NetworkRequest error={error} refetch={refetch} status={status}>

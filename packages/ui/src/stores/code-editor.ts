@@ -25,6 +25,6 @@ export const useCodeEditorStore = createStore<TState>(
     }),
     {
       name: `${StorageConfig.persistNs}code-editor`,
-    },
-  ),
+    }
+  )
 );

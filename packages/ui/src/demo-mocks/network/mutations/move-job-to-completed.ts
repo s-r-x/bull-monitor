@@ -6,7 +6,7 @@ import {
 import { networkMockData } from '../data';
 
 export const moveJobToCompletedMock = (
-  args: MoveJobToCompletedMutationVariables,
+  args: MoveJobToCompletedMutationVariables
 ): Promise<MoveJobToCompletedMutation> => {
   const job = networkMockData.findJob(args.queue, args.id);
   if (job) {

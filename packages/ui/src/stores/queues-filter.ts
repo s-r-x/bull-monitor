@@ -15,6 +15,6 @@ export const useQueuesFilterStore = createStore<TState>(
     }),
     {
       name: `${StorageConfig.persistNs}queues-filter`,
-    },
-  ),
+    }
+  )
 );

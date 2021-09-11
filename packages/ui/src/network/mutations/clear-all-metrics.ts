@@ -8,5 +8,5 @@ export const clearAllMetrics = (): Promise<ClearAllMetricsMutation> =>
       mutation ClearAllMetrics {
         clearAllMetrics
       }
-    `,
+    `
   );

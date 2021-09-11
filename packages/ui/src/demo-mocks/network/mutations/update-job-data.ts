@@ -5,7 +5,7 @@ import type {
 import { networkMockData } from '../data';
 
 export const updateJobDataMock = (
-  args: UpdateJobDataMutationVariables,
+  args: UpdateJobDataMutationVariables
 ): Promise<UpdateJobDataMutation> => {
   const job = networkMockData.findJob(args.queue, args.id);
   if (job) {

@@ -13,8 +13,7 @@ import {
   activePageAtom,
   activeQueueAtom,
   activeStatusAtom,
-  dataSearchKeyAtom,
-  dataSearchTermAtom,
+  dataSearchAtom,
   jobIdAtom,
   jobsOrderAtom,
 } from '@/atoms/workspaces';
@@ -29,12 +28,11 @@ export const useJobsQuery = () => {
   const queue = useAtomValue(activeQueueAtom) as string;
   const order = useAtomValue(jobsOrderAtom);
   const jobId = useAtomValue(jobIdAtom);
-  const searchKey = useAtomValue(dataSearchKeyAtom);
-  const searchTerm = useAtomValue(dataSearchTermAtom);
+  const dataSearch = useAtomValue(dataSearchAtom);
   const isFetchLocked = useRefetchJobsLockStore((state) => state.isLocked);
   const [shouldFetchData, textSearchPollingDisabled] = useNetworkSettingsStore(
     (state) => [state.shouldFetchData, state.textSearchPollingDisabled],
-    shallow,
+    shallow
   );
   const refetchInterval = getPollingInterval();
   return useQuery(
@@ -47,8 +45,7 @@ export const useJobsQuery = () => {
         status,
         order,
         id: jobId,
-        searchKey,
-        searchTerm,
+        dataSearch,
         shouldFetchData,
       },
     ],
@@ -61,20 +58,15 @@ export const useJobsQuery = () => {
         order,
         id: jobId,
         fetchData: shouldFetchData,
-        dataSearch: searchTerm
-          ? {
-              term: searchTerm,
-              key: searchKey,
-            }
-          : null,
+        dataSearch: dataSearch,
       }),
     {
       keepPreviousData: true,
       enabled: Boolean(queue),
       refetchInterval:
-        isFetchLocked || (textSearchPollingDisabled && searchKey && searchTerm)
+        isFetchLocked || (textSearchPollingDisabled && dataSearch)
           ? false
           : refetchInterval,
-    },
+    }
   );
 };

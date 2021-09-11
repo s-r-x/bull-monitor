@@ -82,7 +82,7 @@ const RemoveJobs = () => {
 export default function RemoveJobsModal() {
   const [isOpen, onClose] = useRemoveJobsModalStore(
     (state) => [state.isOpen, state.close],
-    shallow,
+    shallow
   );
   return (
     <Dialog open={isOpen} onClose={onClose}>

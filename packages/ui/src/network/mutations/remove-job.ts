@@ -6,7 +6,7 @@ import type {
 import { gql } from 'graphql-request';
 
 export const removeJob = (
-  args: RemoveJobMutationVariables,
+  args: RemoveJobMutationVariables
 ): Promise<RemoveJobMutation> =>
   gqlClient.request(
     gql`
@@ -16,5 +16,5 @@ export const removeJob = (
         }
       }
     `,
-    args,
+    args
   );

@@ -3,7 +3,7 @@ import { useEffect, useRef } from 'react';
 export const useRemoveJobSelectionOnUnmount = (
   jobId: string,
   isSelected: boolean,
-  removeSelected: (id: string) => void,
+  removeSelected: (id: string) => void
 ) => {
   const jobIdRef = useRef(jobId);
   const isSelectedRef = useRef(isSelected);

@@ -4,7 +4,7 @@ import { gql } from 'graphql-request';
 import { COMMON_JOB_FIELDS_FRAG } from '../fragments/common-page-fields';
 
 export const getJobById = (
-  args: GetJobByIdQueryVariables,
+  args: GetJobByIdQueryVariables
 ): Promise<GetJobByIdQuery> =>
   gqlClient.request(
     gql`
@@ -15,5 +15,5 @@ export const getJobById = (
         }
       }
     `,
-    args,
+    args
   );

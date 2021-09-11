@@ -10,7 +10,7 @@ export const getJobsMock = ({
 }: GetJobsQueryVariables): Promise<GetJobsQuery> => {
   if (id) {
     const job = networkMockData.jobs.find(
-      (job) => job.queue === queue && job.id === id,
+      (job) => job.queue === queue && job.id === id
     );
     return Promise.resolve({
       jobs: job ? [job] : [],

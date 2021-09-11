@@ -5,7 +5,7 @@ import type {
 import { networkMockData } from '../data';
 
 export const retryJobMock = (
-  args: RetryJobMutationVariables,
+  args: RetryJobMutationVariables
 ): Promise<RetryJobMutation> => {
   return Promise.resolve({
     retryJob: networkMockData.findJob(args.queue, args.id),

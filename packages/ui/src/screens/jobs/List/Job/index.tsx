@@ -48,7 +48,7 @@ const Job = ({
   const cls = useStyles();
   useRemoveJobSelectionOnUnmount(job.id, isSelected, removeSelected);
   const delayDate = useFormatDateTime(
-    job.delay ? job.timestamp + job.delay : null,
+    job.delay ? job.timestamp + job.delay : null
   );
   const hasData = !!job.data && job.data !== '{}';
   const hasStacktrace = !isempty(job.stacktrace);

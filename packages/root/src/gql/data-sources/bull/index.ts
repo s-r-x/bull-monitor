@@ -3,7 +3,6 @@ import type { JobCounts, JobStatus, JobId, Job } from 'bull';
 import { JsonService } from '../../../services/json';
 import {
   CreateJobInput,
-  JobDataSearchInput,
   MutationCleanQueueArgs,
   MutationCloseQueueArgs,
   MutationDiscardJobArgs,
@@ -23,7 +22,7 @@ import {
 } from '../../../typings/gql';
 import { Maybe } from '../../../typings/utils';
 import redisInfo from 'redis-info';
-import { DataTextSearcher } from './data-text-search';
+import { DataSearcher } from './data-search';
 import isNil from 'lodash/isNil';
 import { BullMonitorError } from '../errors';
 import { BullMonitorQueue as Queue } from '../../../queue';
@@ -45,7 +44,7 @@ export class BullDataSource extends DataSource {
     this._convertQueuesToMap(_queues);
   }
   private _convertQueuesToMap(queues: Queue[]) {
-    queues.forEach(queue => {
+    queues.forEach((queue) => {
       this._queuesMap.set(queue.id as string, queue);
     });
   }
@@ -90,7 +89,7 @@ export class BullDataSource extends DataSource {
   }: {
     limit?: number;
     offset?: number;
-    dataSearch?: JobDataSearchInput;
+    dataSearch?: string;
     id?: string;
     order?: OrderEnum;
     ids?: string[];
@@ -105,7 +104,7 @@ export class BullDataSource extends DataSource {
     }
     const bullQueue = this.getQueueById(queue, true) as Queue;
     if (ids) {
-      return await Promise.all(ids.map(id => bullQueue.getJob(id))).then(
+      return await Promise.all(ids.map((id) => bullQueue.getJob(id))).then(
         this._filterJobs
       );
     } else if (id) {
@@ -113,12 +112,11 @@ export class BullDataSource extends DataSource {
       return job ? [job] : [];
     } else if (dataSearch) {
       if (status) {
-        const searcher = new DataTextSearcher(bullQueue);
+        const searcher = new DataSearcher(bullQueue);
         return await searcher
           .search({
             status,
-            term: dataSearch.term,
-            key: dataSearch.key as string,
+            search: dataSearch,
             offset: offset,
             limit: limit,
             scanCount: this._config.textSearchScanCount,
@@ -266,9 +264,9 @@ export class BullDataSource extends DataSource {
   }
   async retryJobs(args: MutationRetryJobsArgs) {
     const jobs = await Promise.all(
-      args.jobs.map(jobId => this.getJob(args.queue, jobId, true))
+      args.jobs.map((jobId) => this.getJob(args.queue, jobId, true))
     );
-    await Promise.all(jobs.map(job => job?.retry()));
+    await Promise.all(jobs.map((job) => job?.retry()));
     return jobs;
   }
   async removeJobById(args: MutationRemoveJobArgs) {
@@ -278,9 +276,9 @@ export class BullDataSource extends DataSource {
   }
   async removeJobs(args: MutationRemoveJobsArgs) {
     const jobs = await Promise.all(
-      args.jobs.map(jobId => this.getJob(args.queue, jobId, true))
+      args.jobs.map((jobId) => this.getJob(args.queue, jobId, true))
     );
-    await Promise.all(jobs.map(job => job?.remove()));
+    await Promise.all(jobs.map((job) => job?.remove()));
     return jobs;
   }
   async moveJobToCompleted(args: MutationMoveJobToCompletedArgs) {

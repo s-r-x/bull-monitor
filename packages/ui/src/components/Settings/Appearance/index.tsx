@@ -12,7 +12,7 @@ export default function AppearanceSettings() {
       state.changeTheme,
       state.changePalette,
     ],
-    shallow,
+    shallow
   );
   return (
     <div>

@@ -30,6 +30,6 @@ export const usePreferencesStore = createStore<TState>(
     {
       name: `${StorageConfig.persistNs}prefs`,
       version: 2,
-    },
-  ),
+    }
+  )
 );

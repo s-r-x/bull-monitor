@@ -6,7 +6,7 @@ import {
 import { networkMockData } from '../data';
 
 export const pauseQueueMock = (
-  args: PauseQueueMutationVariables,
+  args: PauseQueueMutationVariables
 ): Promise<PauseQueueMutation> => {
   const queue = networkMockData.findQueue(args.queue);
   if (queue) {
@@ -16,7 +16,7 @@ export const pauseQueueMock = (
     if (job.queue === args.queue) {
       if (
         [JobStatus.Active, JobStatus.Waiting, JobStatus.Delayed].includes(
-          job.status,
+          job.status
         )
       ) {
         return {

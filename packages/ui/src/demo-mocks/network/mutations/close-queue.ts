@@ -5,7 +5,7 @@ import type {
 import { networkMockData } from '../data';
 
 export const closeQueueMock = (
-  args: CloseQueueMutationVariables,
+  args: CloseQueueMutationVariables
 ): Promise<CloseQueueMutation> => {
   const queue = networkMockData.findQueue(args.queue);
   // TODO

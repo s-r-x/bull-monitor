@@ -23,7 +23,7 @@ export const getQueuesMock = (): Promise<GetQueuesQuery> => {
           failed: 0,
           delayed: 0,
           paused: 0,
-        },
+        }
       ),
     })),
   });

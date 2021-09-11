@@ -17,6 +17,6 @@ export const usePaginationStore = createStore<TState>(
     {
       whitelist: ['perPage'],
       name: `${StorageConfig.persistNs}pagination`,
-    },
-  ),
+    }
+  )
 );
