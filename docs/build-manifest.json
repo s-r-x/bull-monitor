@@ -3409,7 +3409,7 @@
       ]
     },
     "dist/atoms/workspaces.js": {
-      "bytes": 4008,
+      "bytes": 3776,
       "imports": [
         {
           "path": "dist/config/storage.js",
@@ -4962,7 +4962,7 @@
       ]
     },
     "dist/network/queries/get-jobs.js": {
-      "bytes": 803,
+      "bytes": 791,
       "imports": [
         {
           "path": "dist/network/gql-client.js",
@@ -5419,7 +5419,7 @@
       ]
     },
     "dist/demo-mocks/network/mutations/retry-jobs.js": {
-      "bytes": 96,
+      "bytes": 91,
       "imports": []
     },
     "dist/network/mutations/remove-jobs.js": {
@@ -5528,11 +5528,11 @@
       ]
     },
     "dist/demo-mocks/network/mutations/clear-all-metrics.js": {
-      "bytes": 102,
+      "bytes": 97,
       "imports": []
     },
     "dist/demo-mocks/network/mutations/clear-metrics.js": {
-      "bytes": 96,
+      "bytes": 91,
       "imports": []
     },
     "dist/providers/network/value.js": {
@@ -6620,7 +6620,7 @@
       ]
     },
     "dist/hooks/use-share.js": {
-      "bytes": 2263,
+      "bytes": 2183,
       "imports": [
         {
           "path": "dist/atoms/workspaces.js",
@@ -7839,7 +7839,7 @@
       ]
     },
     "dist/components/Settings/CodeEditor/index.js": {
-      "bytes": 2138,
+      "bytes": 2110,
       "imports": [
         {
           "path": "_snowpack/pkg/react.js",
@@ -8562,7 +8562,7 @@
       ]
     },
     "dist/screens/jobs/Filters/DataSearch/hooks.js": {
-      "bytes": 1894,
+      "bytes": 1251,
       "imports": [
         {
           "path": "_snowpack/pkg/react.js",
@@ -8587,7 +8587,7 @@
       ]
     },
     "dist/screens/jobs/Filters/DataSearch/index.js": {
-      "bytes": 2442,
+      "bytes": 2129,
       "imports": [
         {
           "path": "_snowpack/pkg/react.js",
@@ -8602,11 +8602,7 @@
           "kind": "import-statement"
         },
         {
-          "path": "_snowpack/pkg/@material-ui/core/styles.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/@material-ui/icons/Backspace.js",
+          "path": "_snowpack/pkg/@material-ui/core/Tooltip.js",
           "kind": "import-statement"
         },
         {
@@ -8614,7 +8610,11 @@
           "kind": "import-statement"
         },
         {
-          "path": "_snowpack/pkg/@material-ui/core/Tooltip.js",
+          "path": "_snowpack/pkg/@material-ui/icons/Backspace.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/@material-ui/core/styles.js",
           "kind": "import-statement"
         },
         {
@@ -9969,7 +9969,7 @@
       ]
     },
     "dist/screens/jobs/List/Job/Options/index.js": {
-      "bytes": 697,
+      "bytes": 684,
       "imports": [
         {
           "path": "dist/components/CodeEditor/index.js",
@@ -10708,7 +10708,7 @@
       ]
     },
     "dist/screens/jobs/List/Pagination/hooks.js": {
-      "bytes": 681,
+      "bytes": 689,
       "imports": [
         {
           "path": "dist/hooks/use-queue-data.js",
@@ -10896,7 +10896,7 @@
       ]
     },
     "dist/screens/jobs/List/hooks.js": {
-      "bytes": 2154,
+      "bytes": 1968,
       "imports": [
         {
           "path": "dist/hooks/use-network.js",
@@ -12645,7 +12645,7 @@
           "bytesInOutput": 161
         },
         "_snowpack/pkg/common/_setToString-45363239.js": {
-          "bytesInOutput": 816
+          "bytesInOutput": 812
         },
         "_snowpack/pkg/common/_flatRest-d52d6ba3.js": {
           "bytesInOutput": 623
@@ -12669,7 +12669,7 @@
           "bytesInOutput": 82
         },
         "dist/atoms/workspaces.js": {
-          "bytesInOutput": 1273
+          "bytesInOutput": 1160
         },
         "dist/components/Drawer/Queues/index.js": {
           "bytesInOutput": 364
@@ -12792,7 +12792,7 @@
           "bytesInOutput": 241
         },
         "dist/network/queries/get-jobs.js": {
-          "bytesInOutput": 565
+          "bytesInOutput": 553
         },
         "dist/demo-mocks/network/queries/get-jobs.js": {
           "bytesInOutput": 248
@@ -12906,7 +12906,7 @@
           "bytesInOutput": 168
         },
         "dist/demo-mocks/network/mutations/retry-jobs.js": {
-          "bytesInOutput": 42
+          "bytesInOutput": 43
         },
         "dist/network/mutations/remove-jobs.js": {
           "bytesInOutput": 170
@@ -12936,10 +12936,10 @@
           "bytesInOutput": 233
         },
         "dist/demo-mocks/network/mutations/clear-all-metrics.js": {
-          "bytesInOutput": 48
+          "bytesInOutput": 49
         },
         "dist/demo-mocks/network/mutations/clear-metrics.js": {
-          "bytesInOutput": 45
+          "bytesInOutput": 46
         },
         "dist/providers/network/value.js": {
           "bytesInOutput": 642
@@ -13017,7 +13017,7 @@
           "bytesInOutput": 50
         },
         "dist/hooks/use-share.js": {
-          "bytesInOutput": 683
+          "bytesInOutput": 659
         },
         "_snowpack/pkg/@material-ui/icons/Timeline.js": {
           "bytesInOutput": 631
@@ -13170,10 +13170,10 @@
           "bytesInOutput": 418
         },
         "dist/screens/jobs/Filters/DataSearch/hooks.js": {
-          "bytesInOutput": 465
+          "bytesInOutput": 270
         },
         "dist/screens/jobs/Filters/DataSearch/index.js": {
-          "bytesInOutput": 1150
+          "bytesInOutput": 957
         },
         "dist/screens/jobs/Filters/index.js": {
           "bytesInOutput": 1366
@@ -13293,7 +13293,7 @@
           "bytesInOutput": 1193
         },
         "dist/screens/jobs/List/Job/Options/index.js": {
-          "bytesInOutput": 203
+          "bytesInOutput": 198
         },
         "_snowpack/pkg/file-saver.js": {
           "bytesInOutput": 2542
@@ -13353,7 +13353,7 @@
           "bytesInOutput": 1170
         },
         "dist/screens/jobs/List/hooks.js": {
-          "bytesInOutput": 509
+          "bytesInOutput": 465
         },
         "_snowpack/pkg/@material-ui/core/TableHead.js": {
           "bytesInOutput": 395
@@ -13431,7 +13431,7 @@
           "bytesInOutput": 122
         }
       },
-      "bytes": 1411181
+      "bytes": 1410594
     },
     "../packages/ui/~~bundle~~/dist/index.css": {
       "imports": [],
