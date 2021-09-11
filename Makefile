@@ -6,6 +6,12 @@ fixture.bull-server:
 	cd $(fixtures_dir)/bull-server && docker-compose up
 deps:
 	npm ci
+lint:
+	npx eslint packages/$(pkg)
+lint.fix:
+	npx eslint packages/$(pkg) --fix
+check-types:
+	cd packages/$(pkg) && npx tsc -noEmit
 ui.dev-server:
 	$(ui_npm_prefix) run serve
 ui.dev-server-with-mocks:

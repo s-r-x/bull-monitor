@@ -1,2 +1,9 @@
 node_modules
-packages/core/dist
+packages/ui/build
+packages/root/dist
+packages/hapi/dist
+packages/fastify/dist
+packages/koa/dist
+packages/express/dist
+packages/ui/.snowpack
+./docs
