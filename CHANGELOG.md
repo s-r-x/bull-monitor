@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0](https://github.com/s-r-x/bull-monitor/compare/v2.0.1...v2.1.0) (2021-09-11)
+
+
+### Features
+
+* **ui:** drawer. statuses pie chart next to every queue ([18703cf](https://github.com/s-r-x/bull-monitor/commit/18703cfb7c32d1fdbc6322dcd97b4ede8439802f))
+* **ui:** more distinguishable colors for statuses ([5e1f064](https://github.com/s-r-x/bull-monitor/commit/5e1f0649e995af39e762aeebd15dd048d5ca4870))
+
+
+
+
+
 ## [2.0.1](https://github.com/s-r-x/bull-monitor/compare/v2.0.0...v2.0.1) (2021-09-11)
 
 **Note:** Version bump only for package @bull-monitor/entrypoint
