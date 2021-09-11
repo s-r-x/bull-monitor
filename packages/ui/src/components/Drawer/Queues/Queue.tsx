@@ -8,11 +8,12 @@ import PauseIcon from '@material-ui/icons/Pause';
 import { makeStyles } from '@material-ui/core/styles';
 import Badge from '@material-ui/core/Badge';
 import Typography from '@material-ui/core/Typography';
-import { useQueueWorkspaceLabel } from './hooks';
+import { useJobsCountArray, useQueueWorkspaceLabel } from './hooks';
+import StatusesPie from './QueueStatusesPie';
 
 const useStyles = makeStyles((theme) => ({
   listItem: {
-    // paddingLeft: theme.spacing(1),
+    paddingLeft: theme.spacing(0.5),
     paddingRight: theme.spacing(1),
     '& .MuiListItemIcon-root': {
       minWidth: 32,
@@ -33,6 +34,7 @@ const DrawerQueue = (props: TProps) => {
   const onSelect = useCallback(() => {
     props.onSelect(id, workspaceLabel);
   }, [id, workspaceLabel]);
+  const countArray = useJobsCountArray(props.queue.jobsCounts);
   return (
     <ListItem
       onClick={onSelect}
@@ -41,13 +43,17 @@ const DrawerQueue = (props: TProps) => {
       dense
       button
     >
-      {props.queue.isPaused && (
-        <ListItemIcon>
-          <Badge color="secondary" showZero>
-            <PauseIcon />
-          </Badge>
-        </ListItemIcon>
-      )}
+      <ListItemIcon>
+        {props.queue.isPaused ? (
+          <ListItemIcon>
+            <Badge color="secondary" showZero>
+              <PauseIcon />
+            </Badge>
+          </ListItemIcon>
+        ) : (
+          <StatusesPie count={countArray} />
+        )}
+      </ListItemIcon>
       <ListItemText
         disableTypography
         primary={
@@ -61,7 +67,7 @@ const DrawerQueue = (props: TProps) => {
             {props.queue.name}
           </Typography>
         }
-        secondary={<JobsCount jobsCounts={props.queue.jobsCounts} />}
+        secondary={<JobsCount count={countArray} />}
       />
     </ListItem>
   );

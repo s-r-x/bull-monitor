@@ -1,7 +1,6 @@
 import React from 'react';
-import type { QueueJobsCounts } from '@/typings/gql';
+import type { JobStatus } from '@/typings/gql';
 import JobStatusChip from '@/components/JobStatusChip';
-import { useJobsCountArray } from './hooks';
 import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles({
@@ -20,14 +19,13 @@ const useStyles = makeStyles({
   },
 });
 type TProps = {
-  jobsCounts: QueueJobsCounts;
+  count: { status: JobStatus; count: number }[];
 };
 export default function QueueJobsCount(props: TProps) {
-  const jobsCount = useJobsCountArray(props.jobsCounts);
   const cls = useStyles();
   return (
     <ul className={cls.root}>
-      {jobsCount.map(({ status, count }, idx) => (
+      {props.count.map(({ status, count }, idx) => (
         <li key={idx} title={status}>
           <JobStatusChip size="small" status={status} label={count} />
         </li>
