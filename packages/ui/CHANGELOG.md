@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0](https://github.com/s-r-x/bull-monitor/compare/v1.31.0...v2.0.0) (2021-09-11)
+
+
+### Features
+
+* data search powered by jsonata ([eb61186](https://github.com/s-r-x/bull-monitor/commit/eb61186ec699fc625e4407c8d5ddd83a0aa3c92a))
+
+
+
+
+
 # [1.31.0](https://github.com/s-r-x/bull-monitor/compare/v1.3.0...v1.31.0) (2021-08-30)
 
 
