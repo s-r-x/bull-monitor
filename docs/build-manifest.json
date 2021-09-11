@@ -2671,15 +2671,38 @@
         }
       ]
     },
+    "_snowpack/pkg/@material-ui/core/colors/red.js": {
+      "bytes": 753,
+      "imports": [
+        {
+          "path": "_snowpack/pkg/common/_commonjsHelpers-f5d70792.js",
+          "kind": "import-statement"
+        }
+      ]
+    },
+    "_snowpack/pkg/@material-ui/core/colors/green.js": {
+      "bytes": 761,
+      "imports": [
+        {
+          "path": "_snowpack/pkg/common/_commonjsHelpers-f5d70792.js",
+          "kind": "import-statement"
+        }
+      ]
+    },
+    "_snowpack/pkg/@material-ui/core/colors/blue.js": {
+      "bytes": 757,
+      "imports": [
+        {
+          "path": "_snowpack/pkg/common/_commonjsHelpers-f5d70792.js",
+          "kind": "import-statement"
+        }
+      ]
+    },
     "dist/components/JobStatusChip/hooks.js": {
-      "bytes": 1420,
+      "bytes": 905,
       "imports": [
         {
           "path": "dist/typings/gql.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/@material-ui/core/styles.js",
           "kind": "import-statement"
         },
         {
@@ -2695,7 +2718,15 @@
           "kind": "import-statement"
         },
         {
-          "path": "_snowpack/pkg/react.js",
+          "path": "_snowpack/pkg/@material-ui/core/colors/red.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/@material-ui/core/colors/green.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/@material-ui/core/colors/blue.js",
           "kind": "import-statement"
         }
       ]
@@ -2721,149 +2752,8 @@
         }
       ]
     },
-    "dist/stores/preferences.js": {
-      "bytes": 703,
-      "imports": [
-        {
-          "path": "_snowpack/pkg/zustand.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/zustand/middleware.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "dist/config/storage.js",
-          "kind": "import-statement"
-        }
-      ]
-    },
-    "_snowpack/pkg/common/_defineProperty-aabc0e70.js": {
-      "bytes": 286,
-      "imports": [
-        {
-          "path": "_snowpack/pkg/common/_Map-c9e411ee.js",
-          "kind": "import-statement"
-        }
-      ]
-    },
-    "_snowpack/pkg/common/_baseAssignValue-cb55355c.js": {
-      "bytes": 687,
-      "imports": [
-        {
-          "path": "_snowpack/pkg/common/_defineProperty-aabc0e70.js",
-          "kind": "import-statement"
-        }
-      ]
-    },
-    "_snowpack/pkg/lodash/groupBy.js": {
-      "bytes": 4315,
-      "imports": [
-        {
-          "path": "_snowpack/pkg/common/_baseAssignValue-cb55355c.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/_baseIteratee-0ef57da7.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/isArray-948abc3f.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/_defineProperty-aabc0e70.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/_Map-c9e411ee.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/isFunction-2ca51fdf.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/isObjectLike-8b78f128.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/_commonjsHelpers-f5d70792.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/isObject-ab5f8392.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/keys-81c237f4.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/_baseKeys-581c6c4f.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/isArrayLike-283c6321.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/_baseUnary-7c37ff19.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/_isIndex-6a000f67.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/identity-16948037.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/eq-dbb58409.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/_cacheHas-e49c40f8.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/get-ac3efdbd.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/isSymbol-3dbd148c.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/_arrayMap-48f5420d.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/_getTag-82e29088.js",
-          "kind": "import-statement"
-        }
-      ]
-    },
-    "dist/components/Drawer/Queues/hooks.js": {
-      "bytes": 794,
-      "imports": [
-        {
-          "path": "dist/stores/preferences.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/react.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/lodash/groupBy.js",
-          "kind": "import-statement"
-        }
-      ]
-    },
     "dist/components/Drawer/Queues/JobsCount.js": {
-      "bytes": 950,
+      "bytes": 849,
       "imports": [
         {
           "path": "_snowpack/pkg/react.js",
@@ -2871,10 +2761,6 @@
         },
         {
           "path": "dist/components/JobStatusChip/index.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "dist/components/Drawer/Queues/hooks.js",
           "kind": "import-statement"
         },
         {
@@ -3106,8 +2992,404 @@
         }
       ]
     },
+    "dist/stores/preferences.js": {
+      "bytes": 703,
+      "imports": [
+        {
+          "path": "_snowpack/pkg/zustand.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/zustand/middleware.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "dist/config/storage.js",
+          "kind": "import-statement"
+        }
+      ]
+    },
+    "_snowpack/pkg/common/_defineProperty-aabc0e70.js": {
+      "bytes": 286,
+      "imports": [
+        {
+          "path": "_snowpack/pkg/common/_Map-c9e411ee.js",
+          "kind": "import-statement"
+        }
+      ]
+    },
+    "_snowpack/pkg/common/_baseAssignValue-cb55355c.js": {
+      "bytes": 687,
+      "imports": [
+        {
+          "path": "_snowpack/pkg/common/_defineProperty-aabc0e70.js",
+          "kind": "import-statement"
+        }
+      ]
+    },
+    "_snowpack/pkg/lodash/groupBy.js": {
+      "bytes": 4315,
+      "imports": [
+        {
+          "path": "_snowpack/pkg/common/_baseAssignValue-cb55355c.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/_baseIteratee-0ef57da7.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/isArray-948abc3f.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/_defineProperty-aabc0e70.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/_Map-c9e411ee.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/isFunction-2ca51fdf.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/isObjectLike-8b78f128.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/_commonjsHelpers-f5d70792.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/isObject-ab5f8392.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/keys-81c237f4.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/_baseKeys-581c6c4f.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/isArrayLike-283c6321.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/_baseUnary-7c37ff19.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/_isIndex-6a000f67.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/identity-16948037.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/eq-dbb58409.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/_cacheHas-e49c40f8.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/get-ac3efdbd.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/isSymbol-3dbd148c.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/_arrayMap-48f5420d.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/_getTag-82e29088.js",
+          "kind": "import-statement"
+        }
+      ]
+    },
+    "dist/components/Drawer/Queues/hooks.js": {
+      "bytes": 794,
+      "imports": [
+        {
+          "path": "dist/stores/preferences.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/react.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/lodash/groupBy.js",
+          "kind": "import-statement"
+        }
+      ]
+    },
+    "_snowpack/pkg/common/_setToString-45363239.js": {
+      "bytes": 4249,
+      "imports": [
+        {
+          "path": "_snowpack/pkg/common/_defineProperty-aabc0e70.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/identity-16948037.js",
+          "kind": "import-statement"
+        }
+      ]
+    },
+    "_snowpack/pkg/common/_baseRest-68a6544e.js": {
+      "bytes": 3981,
+      "imports": [
+        {
+          "path": "_snowpack/pkg/common/identity-16948037.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/_setToString-45363239.js",
+          "kind": "import-statement"
+        }
+      ]
+    },
+    "_snowpack/pkg/common/_baseSlice-ca622ba3.js": {
+      "bytes": 785,
+      "imports": []
+    },
+    "_snowpack/pkg/common/process-2545f00a.js": {
+      "bytes": 6350,
+      "imports": []
+    },
+    "_snowpack/pkg/common/_flatRest-d52d6ba3.js": {
+      "bytes": 4070,
+      "imports": [
+        {
+          "path": "_snowpack/pkg/common/get-ac3efdbd.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/_baseSlice-ca622ba3.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/isObjectLike-8b78f128.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/isArray-948abc3f.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/_setToString-45363239.js",
+          "kind": "import-statement"
+        }
+      ]
+    },
+    "_snowpack/pkg/common/toFinite-6d56db76.js": {
+      "bytes": 1909,
+      "imports": [
+        {
+          "path": "_snowpack/pkg/common/eq-dbb58409.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/isArrayLike-283c6321.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/_isIndex-6a000f67.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/isObject-ab5f8392.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/toNumber-aef865ba.js",
+          "kind": "import-statement"
+        }
+      ]
+    },
+    "_snowpack/pkg/common/range-38edc002.js": {
+      "bytes": 2805,
+      "imports": [
+        {
+          "path": "_snowpack/pkg/common/toFinite-6d56db76.js",
+          "kind": "import-statement"
+        }
+      ]
+    },
+    "_snowpack/pkg/recharts.js": {
+      "bytes": 1176479,
+      "imports": [
+        {
+          "path": "_snowpack/pkg/common/index-56a88a1e.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/_commonjsHelpers-f5d70792.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/isObject-ab5f8392.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/isFunction-2ca51fdf.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/_baseIteratee-0ef57da7.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/_cacheHas-e49c40f8.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/_baseRest-68a6544e.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/_getTag-82e29088.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/_baseSlice-ca622ba3.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/get-ac3efdbd.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/isArray-948abc3f.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/isObjectLike-8b78f128.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/index-4bda1d4e.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/process-2545f00a.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/_flatRest-d52d6ba3.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/_baseOrderBy-36f15ec4.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/toFinite-6d56db76.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/debounce-c33a8f97.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/index-c4ac9922.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/isSymbol-3dbd148c.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/identity-16948037.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/_arrayMap-48f5420d.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/_baseKeys-581c6c4f.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/range-38edc002.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/_baseAssignValue-cb55355c.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/isArrayLike-283c6321.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/keys-81c237f4.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/eq-dbb58409.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/_baseUnary-7c37ff19.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/_Map-c9e411ee.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/_isIndex-6a000f67.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/_setToString-45363239.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/_defineProperty-aabc0e70.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/_compareAscending-4c3a1b58.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/common/toNumber-aef865ba.js",
+          "kind": "import-statement"
+        }
+      ]
+    },
+    "dist/components/Drawer/Queues/QueueStatusesPie.js": {
+      "bytes": 781,
+      "imports": [
+        {
+          "path": "dist/components/JobStatusChip/hooks.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/react.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/recharts.js",
+          "kind": "import-statement"
+        }
+      ]
+    },
     "dist/components/Drawer/Queues/Queue.js": {
-      "bytes": 2009,
+      "bytes": 2297,
       "imports": [
         {
           "path": "_snowpack/pkg/react.js",
@@ -3148,12 +3430,12 @@
         {
           "path": "dist/components/Drawer/Queues/hooks.js",
           "kind": "import-statement"
+        },
+        {
+          "path": "dist/components/Drawer/Queues/QueueStatusesPie.js",
+          "kind": "import-statement"
         }
       ]
-    },
-    "_snowpack/pkg/common/process-2545f00a.js": {
-      "bytes": 6350,
-      "imports": []
     },
     "_snowpack/pkg/common/index-c787bfa1.js": {
       "bytes": 24405,
@@ -3238,48 +3520,6 @@
         },
         {
           "path": "_snowpack/pkg/common/isObject-ab5f8392.js",
-          "kind": "import-statement"
-        }
-      ]
-    },
-    "_snowpack/pkg/common/_baseSlice-ca622ba3.js": {
-      "bytes": 785,
-      "imports": []
-    },
-    "_snowpack/pkg/common/_setToString-45363239.js": {
-      "bytes": 4249,
-      "imports": [
-        {
-          "path": "_snowpack/pkg/common/_defineProperty-aabc0e70.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/identity-16948037.js",
-          "kind": "import-statement"
-        }
-      ]
-    },
-    "_snowpack/pkg/common/_flatRest-d52d6ba3.js": {
-      "bytes": 4070,
-      "imports": [
-        {
-          "path": "_snowpack/pkg/common/get-ac3efdbd.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/_baseSlice-ca622ba3.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/isObjectLike-8b78f128.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/isArray-948abc3f.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/_setToString-45363239.js",
           "kind": "import-statement"
         }
       ]
@@ -4621,40 +4861,6 @@
         }
       ]
     },
-    "_snowpack/pkg/common/toFinite-6d56db76.js": {
-      "bytes": 1909,
-      "imports": [
-        {
-          "path": "_snowpack/pkg/common/eq-dbb58409.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/isArrayLike-283c6321.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/_isIndex-6a000f67.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/isObject-ab5f8392.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/toNumber-aef865ba.js",
-          "kind": "import-statement"
-        }
-      ]
-    },
-    "_snowpack/pkg/common/range-38edc002.js": {
-      "bytes": 2805,
-      "imports": [
-        {
-          "path": "_snowpack/pkg/common/toFinite-6d56db76.js",
-          "kind": "import-statement"
-        }
-      ]
-    },
     "_snowpack/pkg/lodash/range.js": {
       "bytes": 541,
       "imports": [
@@ -4810,19 +5016,6 @@
         },
         {
           "path": "_snowpack/pkg/common/isSymbol-3dbd148c.js",
-          "kind": "import-statement"
-        }
-      ]
-    },
-    "_snowpack/pkg/common/_baseRest-68a6544e.js": {
-      "bytes": 3981,
-      "imports": [
-        {
-          "path": "_snowpack/pkg/common/identity-16948037.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/_setToString-45363239.js",
           "kind": "import-statement"
         }
       ]
@@ -7311,15 +7504,6 @@
         }
       ]
     },
-    "_snowpack/pkg/@material-ui/core/colors/blue.js": {
-      "bytes": 757,
-      "imports": [
-        {
-          "path": "_snowpack/pkg/common/_commonjsHelpers-f5d70792.js",
-          "kind": "import-statement"
-        }
-      ]
-    },
     "_snowpack/pkg/@material-ui/core/colors/indigo.js": {
       "bytes": 765,
       "imports": [
@@ -7358,15 +7542,6 @@
     },
     "_snowpack/pkg/@material-ui/core/colors/lightBlue.js": {
       "bytes": 777,
-      "imports": [
-        {
-          "path": "_snowpack/pkg/common/_commonjsHelpers-f5d70792.js",
-          "kind": "import-statement"
-        }
-      ]
-    },
-    "_snowpack/pkg/@material-ui/core/colors/red.js": {
-      "bytes": 753,
       "imports": [
         {
           "path": "_snowpack/pkg/common/_commonjsHelpers-f5d70792.js",
@@ -11844,151 +12019,6 @@
         }
       ]
     },
-    "_snowpack/pkg/recharts.js": {
-      "bytes": 1176479,
-      "imports": [
-        {
-          "path": "_snowpack/pkg/common/index-56a88a1e.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/_commonjsHelpers-f5d70792.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/isObject-ab5f8392.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/isFunction-2ca51fdf.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/_baseIteratee-0ef57da7.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/_cacheHas-e49c40f8.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/_baseRest-68a6544e.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/_getTag-82e29088.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/_baseSlice-ca622ba3.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/get-ac3efdbd.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/isArray-948abc3f.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/isObjectLike-8b78f128.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/index-4bda1d4e.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/process-2545f00a.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/_flatRest-d52d6ba3.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/_baseOrderBy-36f15ec4.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/toFinite-6d56db76.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/debounce-c33a8f97.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/index-c4ac9922.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/isSymbol-3dbd148c.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/identity-16948037.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/_arrayMap-48f5420d.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/_baseKeys-581c6c4f.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/range-38edc002.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/_baseAssignValue-cb55355c.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/isArrayLike-283c6321.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/keys-81c237f4.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/eq-dbb58409.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/_baseUnary-7c37ff19.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/_Map-c9e411ee.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/_isIndex-6a000f67.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/_setToString-45363239.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/_defineProperty-aabc0e70.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/_compareAscending-4c3a1b58.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/common/toNumber-aef865ba.js",
-          "kind": "import-statement"
-        }
-      ]
-    },
     "dist/screens/metrics/Chart.js": {
       "bytes": 1966,
       "imports": [
@@ -12590,11 +12620,32 @@
         "_snowpack/pkg/@material-ui/core/colors/cyan.js": {
           "bytesInOutput": 331
         },
+        "_snowpack/pkg/@material-ui/core/colors/red.js": {
+          "bytesInOutput": 331
+        },
+        "_snowpack/pkg/@material-ui/core/colors/green.js": {
+          "bytesInOutput": 331
+        },
+        "_snowpack/pkg/@material-ui/core/colors/blue.js": {
+          "bytesInOutput": 331
+        },
         "dist/components/JobStatusChip/hooks.js": {
-          "bytesInOutput": 524
+          "bytesInOutput": 175
         },
         "dist/components/JobStatusChip/index.js": {
           "bytesInOutput": 171
+        },
+        "dist/components/Drawer/Queues/JobsCount.js": {
+          "bytesInOutput": 360
+        },
+        "_snowpack/pkg/@material-ui/icons/Pause.js": {
+          "bytesInOutput": 228
+        },
+        "_snowpack/pkg/@material-ui/core/Badge.js": {
+          "bytesInOutput": 3480
+        },
+        "_snowpack/pkg/@material-ui/core/Typography.js": {
+          "bytesInOutput": 0
         },
         "dist/stores/preferences.js": {
           "bytesInOutput": 354
@@ -12611,23 +12662,35 @@
         "dist/components/Drawer/Queues/hooks.js": {
           "bytesInOutput": 204
         },
-        "dist/components/Drawer/Queues/JobsCount.js": {
-          "bytesInOutput": 373
+        "_snowpack/pkg/common/_setToString-45363239.js": {
+          "bytesInOutput": 798
         },
-        "_snowpack/pkg/@material-ui/icons/Pause.js": {
-          "bytesInOutput": 228
+        "_snowpack/pkg/common/_baseRest-68a6544e.js": {
+          "bytesInOutput": 532
         },
-        "_snowpack/pkg/@material-ui/core/Badge.js": {
-          "bytesInOutput": 3480
-        },
-        "_snowpack/pkg/@material-ui/core/Typography.js": {
-          "bytesInOutput": 0
-        },
-        "dist/components/Drawer/Queues/Queue.js": {
-          "bytesInOutput": 626
+        "_snowpack/pkg/common/_baseSlice-ca622ba3.js": {
+          "bytesInOutput": 161
         },
         "_snowpack/pkg/common/process-2545f00a.js": {
-          "bytesInOutput": 2189
+          "bytesInOutput": 2217
+        },
+        "_snowpack/pkg/common/_flatRest-d52d6ba3.js": {
+          "bytesInOutput": 623
+        },
+        "_snowpack/pkg/common/toFinite-6d56db76.js": {
+          "bytesInOutput": 297
+        },
+        "_snowpack/pkg/common/range-38edc002.js": {
+          "bytesInOutput": 349
+        },
+        "_snowpack/pkg/recharts.js": {
+          "bytesInOutput": 458767
+        },
+        "dist/components/Drawer/Queues/QueueStatusesPie.js": {
+          "bytesInOutput": 312
+        },
+        "dist/components/Drawer/Queues/Queue.js": {
+          "bytesInOutput": 713
         },
         "_snowpack/pkg/common/index-c787bfa1.js": {
           "bytesInOutput": 9158
@@ -12636,19 +12699,10 @@
           "bytesInOutput": 29
         },
         "_snowpack/pkg/uuid.js": {
-          "bytesInOutput": 1174
+          "bytesInOutput": 1184
         },
         "_snowpack/pkg/lodash/isEmpty.js": {
-          "bytesInOutput": 356
-        },
-        "_snowpack/pkg/common/_baseSlice-ca622ba3.js": {
-          "bytesInOutput": 161
-        },
-        "_snowpack/pkg/common/_setToString-45363239.js": {
-          "bytesInOutput": 812
-        },
-        "_snowpack/pkg/common/_flatRest-d52d6ba3.js": {
-          "bytesInOutput": 623
+          "bytesInOutput": 368
         },
         "_snowpack/pkg/lodash/pullAt.js": {
           "bytesInOutput": 429
@@ -12752,12 +12806,6 @@
         "dist/network/queries/get-job-data.js": {
           "bytesInOutput": 153
         },
-        "_snowpack/pkg/common/toFinite-6d56db76.js": {
-          "bytesInOutput": 297
-        },
-        "_snowpack/pkg/common/range-38edc002.js": {
-          "bytesInOutput": 349
-        },
         "_snowpack/pkg/lodash/range.js": {
           "bytesInOutput": 0
         },
@@ -12769,9 +12817,6 @@
         },
         "_snowpack/pkg/lodash/random.js": {
           "bytesInOutput": 412
-        },
-        "_snowpack/pkg/common/_baseRest-68a6544e.js": {
-          "bytesInOutput": 552
         },
         "_snowpack/pkg/lodash/without.js": {
           "bytesInOutput": 446
@@ -13052,9 +13097,6 @@
         "_snowpack/pkg/@material-ui/core/colors/deepOrange.js": {
           "bytesInOutput": 335
         },
-        "_snowpack/pkg/@material-ui/core/colors/blue.js": {
-          "bytesInOutput": 335
-        },
         "_snowpack/pkg/@material-ui/core/colors/indigo.js": {
           "bytesInOutput": 335
         },
@@ -13068,9 +13110,6 @@
           "bytesInOutput": 335
         },
         "_snowpack/pkg/@material-ui/core/colors/lightBlue.js": {
-          "bytesInOutput": 335
-        },
-        "_snowpack/pkg/@material-ui/core/colors/red.js": {
           "bytesInOutput": 335
         },
         "_snowpack/pkg/@material-ui/core/colors/lightGreen.js": {
@@ -13403,9 +13442,6 @@
         "dist/screens/jobs/index.js": {
           "bytesInOutput": 181
         },
-        "_snowpack/pkg/recharts.js": {
-          "bytesInOutput": 458768
-        },
         "dist/screens/metrics/Chart.js": {
           "bytesInOutput": 732
         },
@@ -13431,7 +13467,7 @@
           "bytesInOutput": 122
         }
       },
-      "bytes": 1410594
+      "bytes": 1410969
     },
     "../packages/ui/~~bundle~~/dist/index.css": {
       "imports": [],
