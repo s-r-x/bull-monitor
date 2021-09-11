@@ -2,8 +2,8 @@ import type { Queue as BullQueue, JobStatus } from 'bull';
 import isempty from 'lodash/isEmpty';
 import { Readable } from 'stream';
 import { DEFAULT_TEXT_SEARCH_SCAN_COUNT } from './config';
-import { JsonService } from '../../../../dist/services/json';
 import jsonata from 'jsonata';
+import { JsonService } from '../../../services/json';
 
 type TSearchArgs = {
   status: JobStatus;
