@@ -8610,23 +8610,6 @@
         }
       ]
     },
-    "dist/components/CloseableTip/index.js": {
-      "bytes": 654,
-      "imports": [
-        {
-          "path": "_snowpack/pkg/react.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "_snowpack/pkg/@material-ui/lab/Alert.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "dist/config/storage.js",
-          "kind": "import-statement"
-        }
-      ]
-    },
     "_snowpack/pkg/@material-ui/icons/Backspace.js": {
       "bytes": 2199,
       "imports": [
@@ -8762,7 +8745,7 @@
       ]
     },
     "dist/screens/jobs/Filters/DataSearch/index.js": {
-      "bytes": 2129,
+      "bytes": 1158,
       "imports": [
         {
           "path": "_snowpack/pkg/react.js",
@@ -8770,10 +8753,6 @@
         },
         {
           "path": "_snowpack/pkg/@material-ui/core/TextField.js",
-          "kind": "import-statement"
-        },
-        {
-          "path": "dist/components/CloseableTip/index.js",
           "kind": "import-statement"
         },
         {
@@ -8789,17 +8768,43 @@
           "kind": "import-statement"
         },
         {
-          "path": "_snowpack/pkg/@material-ui/core/styles.js",
-          "kind": "import-statement"
-        },
-        {
           "path": "dist/screens/jobs/Filters/DataSearch/hooks.js",
           "kind": "import-statement"
         }
       ]
     },
+    "dist/components/CloseableTip/index.js": {
+      "bytes": 654,
+      "imports": [
+        {
+          "path": "_snowpack/pkg/react.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/@material-ui/lab/Alert.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "dist/config/storage.js",
+          "kind": "import-statement"
+        }
+      ]
+    },
+    "dist/screens/jobs/Filters/DataSearch/Tip.js": {
+      "bytes": 528,
+      "imports": [
+        {
+          "path": "_snowpack/pkg/react.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "dist/components/CloseableTip/index.js",
+          "kind": "import-statement"
+        }
+      ]
+    },
     "dist/screens/jobs/Filters/index.js": {
-      "bytes": 3032,
+      "bytes": 3271,
       "imports": [
         {
           "path": "_snowpack/pkg/react.js",
@@ -8843,6 +8848,10 @@
         },
         {
           "path": "dist/screens/jobs/Filters/DataSearch/index.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "dist/screens/jobs/Filters/DataSearch/Tip.js",
           "kind": "import-statement"
         }
       ]
@@ -12672,7 +12681,7 @@
           "bytesInOutput": 161
         },
         "_snowpack/pkg/common/process-2545f00a.js": {
-          "bytesInOutput": 2219
+          "bytesInOutput": 2221
         },
         "_snowpack/pkg/common/_flatRest-d52d6ba3.js": {
           "bytesInOutput": 623
@@ -13202,9 +13211,6 @@
         "dist/screens/jobs/Filters/hooks.js": {
           "bytesInOutput": 180
         },
-        "dist/components/CloseableTip/index.js": {
-          "bytesInOutput": 219
-        },
         "_snowpack/pkg/@material-ui/icons/Backspace.js": {
           "bytesInOutput": 418
         },
@@ -13212,10 +13218,16 @@
           "bytesInOutput": 270
         },
         "dist/screens/jobs/Filters/DataSearch/index.js": {
-          "bytesInOutput": 957
+          "bytesInOutput": 389
+        },
+        "dist/components/CloseableTip/index.js": {
+          "bytesInOutput": 219
+        },
+        "dist/screens/jobs/Filters/DataSearch/Tip.js": {
+          "bytesInOutput": 295
         },
         "dist/screens/jobs/Filters/index.js": {
-          "bytesInOutput": 1366
+          "bytesInOutput": 1480
         },
         "_snowpack/pkg/dayjs.js": {
           "bytesInOutput": 6403
@@ -13467,7 +13479,7 @@
           "bytesInOutput": 122
         }
       },
-      "bytes": 1411549
+      "bytes": 1411392
     },
     "../packages/ui/~~bundle~~/dist/index.css": {
       "imports": [],
