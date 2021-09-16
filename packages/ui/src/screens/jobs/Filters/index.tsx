@@ -9,6 +9,7 @@ import { OrderEnum } from '@/typings/gql';
 import { useAtom } from 'jotai';
 import { jobIdAtom, jobsOrderAtom } from '@/atoms/workspaces';
 import DataSearch from './DataSearch';
+import DataSearchTip from './DataSearch/Tip';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -33,21 +34,24 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
     alignItems: 'center',
   },
-  statusesTip: {
-    display: 'inline-flex',
-    marginBottom: theme.spacing(1),
-  },
   textFields: {
     display: 'flex',
-    flexWrap: 'nowrap',
-    alignItems: 'center',
+    flexWrap: 'wrap',
     marginBottom: theme.spacing(1),
     '& > *': {
       marginRight: theme.spacing(1),
+      marginTop: theme.spacing(1),
     },
-    '&:last-child': {
-      marginBottom: 0,
-    },
+  },
+  sortField: {
+    minWidth: '90px',
+  },
+  dataSearchField: {
+    flex: 1,
+    minWidth: '300px',
+  },
+  dataSearchTip: {
+    marginBottom: theme.spacing(1),
   },
 }));
 
@@ -72,6 +76,7 @@ export default function JobsFilters() {
           />
         ))}
       </div>
+      <DataSearchTip className={cls.dataSearchTip} />
       <div className={cls.textFields}>
         <TextField
           value={jobId}
@@ -84,6 +89,7 @@ export default function JobsFilters() {
         <TextField
           variant="outlined"
           size="small"
+          className={cls.sortField}
           value={order}
           onChange={(e) => {
             changeOrder(e.target.value as OrderEnum);
@@ -95,8 +101,8 @@ export default function JobsFilters() {
           <MenuItem value={OrderEnum.Desc}>DESC</MenuItem>
           <MenuItem value={OrderEnum.Asc}>ASC</MenuItem>
         </TextField>
+        <DataSearch className={cls.dataSearchField} />
       </div>
-      <DataSearch />
     </Paper>
   );
 }
