@@ -16,8 +16,16 @@ import MoreIcon from '@material-ui/icons/MoreHoriz';
 import { useRefetchJobsLockStore } from '@/stores/refetch-jobs-lock';
 import shallow from 'zustand/shallow';
 import { getPollingInterval } from '@/stores/network-settings';
-import { activeQueueAtom } from '@/atoms/workspaces';
+import {
+  activeQueueAtom,
+  activeStatusAtom,
+  jobIdAtom,
+  dataSearchAtom,
+} from '@/atoms/workspaces';
 import { useAtomValue } from 'jotai/utils';
+import SaveIcon from '@material-ui/icons/Save';
+import Tooltip from '@material-ui/core/Tooltip';
+import { useExportJobsMutation } from '@/hooks/use-export-jobs-mutation';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -33,6 +41,7 @@ export default function QueueActions() {
   const [cleanAnchorEl, setCleanAnchorEl] = React.useState<null | HTMLElement>(
     null
   );
+  React.useState<null | HTMLElement>(null);
   const [moreAnchorEl, setMoreAnchorEl] = React.useState<null | HTMLElement>(
     null
   );
@@ -40,11 +49,11 @@ export default function QueueActions() {
     (state) => [state.isLocked, state.toggle],
     shallow
   );
+  const exportMutation = useExportJobsMutation();
   const pollingInterval = getPollingInterval();
   const handleClickClean = (event: React.MouseEvent<HTMLButtonElement>) => {
     setCleanAnchorEl(event.currentTarget);
   };
-
   const handleCloseClean = () => {
     setCleanAnchorEl(null);
   };
@@ -60,6 +69,9 @@ export default function QueueActions() {
   };
 
   const queue = useAtomValue(activeQueueAtom) as string;
+  const status = useAtomValue(activeStatusAtom);
+  const jobId = useAtomValue(jobIdAtom);
+  const dataSearch = useAtomValue(dataSearchAtom);
   const {
     mutations: { pauseQueue, resumeQueue, emptyQueue, cleanQueue },
   } = useNetwork();
@@ -141,6 +153,20 @@ export default function QueueActions() {
         <MenuItem onClick={() => clean(JobStatusClean.Failed)}>Failed</MenuItem>
         <MenuItem onClick={() => clean(JobStatusClean.Paused)}>Paused</MenuItem>
       </Menu>
+      <Tooltip title="Export jobs as JSON">
+        <IconButton
+          onClick={() => {
+            exportMutation.mutate({
+              queue,
+              status,
+              id: jobId,
+              dataSearch,
+            });
+          }}
+        >
+          <SaveIcon />
+        </IconButton>
+      </Tooltip>
       <IconButton
         onClick={handleClickMore}
         aria-controls="more-queue-actions-menu"
