@@ -8,12 +8,15 @@ import PauseIcon from '@material-ui/icons/Pause';
 import { makeStyles } from '@material-ui/core/styles';
 import Badge from '@material-ui/core/Badge';
 import Typography from '@material-ui/core/Typography';
-import { useJobsCountArray, useQueueWorkspaceLabel } from './hooks';
+import {
+  useJobsCountArray,
+  useQueueWorkspaceLabel,
+  useShouldRenderStatusesPie,
+} from './hooks';
 import StatusesPie from './QueueStatusesPie';
 
 const useStyles = makeStyles((theme) => ({
   listItem: {
-    paddingLeft: theme.spacing(0.5),
     paddingRight: theme.spacing(1),
     '& .MuiListItemIcon-root': {
       minWidth: 32,
@@ -30,11 +33,13 @@ type TProps = {
 const DrawerQueue = (props: TProps) => {
   const cls = useStyles();
   const workspaceLabel = useQueueWorkspaceLabel(props.queue);
-  const { id } = props.queue;
+  const { id, isPaused } = props.queue;
   const onSelect = useCallback(() => {
     props.onSelect(id, workspaceLabel);
   }, [id, workspaceLabel]);
   const countArray = useJobsCountArray(props.queue.jobsCounts);
+  const shouldRenderStatusesPie = useShouldRenderStatusesPie(props.queue);
+  const shouldRenderListIcon = isPaused || shouldRenderStatusesPie;
   return (
     <ListItem
       onClick={onSelect}
@@ -43,17 +48,18 @@ const DrawerQueue = (props: TProps) => {
       dense
       button
     >
-      <ListItemIcon>
-        {props.queue.isPaused ? (
-          <ListItemIcon>
-            <Badge color="secondary" showZero>
-              <PauseIcon />
-            </Badge>
-          </ListItemIcon>
-        ) : (
-          <StatusesPie count={countArray} />
-        )}
-      </ListItemIcon>
+      {shouldRenderListIcon && (
+        <ListItemIcon>
+          {isPaused && (
+            <ListItemIcon>
+              <Badge color="secondary" showZero>
+                <PauseIcon />
+              </Badge>
+            </ListItemIcon>
+          )}
+          {shouldRenderStatusesPie && <StatusesPie count={countArray} />}
+        </ListItemIcon>
+      )}
       <ListItemText
         disableTypography
         primary={
