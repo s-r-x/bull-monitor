@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.2.0](https://github.com/s-r-x/bull-monitor/compare/v2.1.0...v2.2.0) (2021-09-16)
+
+
+### Features
+
+* **ui:** "show statuses pie in drawer" preference / show pie only if there are at least two different non zero statuses in job ([868b2c4](https://github.com/s-r-x/bull-monitor/commit/868b2c4cb654ca6fe85a2dd1ccd9d7ae0c489187))
+
+
+
+
+
 # [2.1.0](https://github.com/s-r-x/bull-monitor/compare/v2.0.1...v2.1.0) (2021-09-11)
 
 
