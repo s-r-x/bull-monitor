@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.4.0](https://github.com/s-r-x/bull-monitor/compare/v2.3.0...v2.4.0) (2021-09-16)
+
+
+### Features
+
+* **ui:** export the whole list of jobs(that matches the active query(queue, status, data search, job id, etc.)) as JSON ([f091068](https://github.com/s-r-x/bull-monitor/commit/f0910689008ad379d9c36df6fe7cb758e012b130))
+
+
+
+
+
 # [2.3.0](https://github.com/s-r-x/bull-monitor/compare/v2.2.0...v2.3.0) (2021-09-16)
 
 
