@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.3.0](https://github.com/s-r-x/bull-monitor/compare/v2.2.0...v2.3.0) (2021-09-16)
+
+
+### Features
+
+* **ui:** render data search input in the same line as "Job ID" and "Order" and take the whole available space ([35b80d8](https://github.com/s-r-x/bull-monitor/commit/35b80d824f07b00335b71243b9228302a167f62f))
+
+
+
+
+
 # [2.2.0](https://github.com/s-r-x/bull-monitor/compare/v2.1.0...v2.2.0) (2021-09-16)
 
 
