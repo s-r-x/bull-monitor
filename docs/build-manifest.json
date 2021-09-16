@@ -5647,7 +5647,7 @@
       ]
     },
     "dist/network/queries/get-jobs-for-export.js": {
-      "bytes": 612,
+      "bytes": 856,
       "imports": [
         {
           "path": "dist/network/gql-client.js",
@@ -11858,7 +11858,7 @@
       ]
     },
     "dist/screens/jobs/QueueActions/index.js": {
-      "bytes": 6132,
+      "bytes": 6980,
       "imports": [
         {
           "path": "_snowpack/pkg/react.js",
@@ -11938,6 +11938,18 @@
         },
         {
           "path": "_snowpack/pkg/jotai/utils.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/@material-ui/icons/Save.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/@material-ui/core/Tooltip.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "dist/hooks/use-export-jobs-mutation.js",
           "kind": "import-statement"
         }
       ]
@@ -12972,7 +12984,7 @@
           "bytesInOutput": 253
         },
         "dist/network/queries/get-jobs-for-export.js": {
-          "bytesInOutput": 460
+          "bytesInOutput": 704
         },
         "dist/demo-mocks/network/queries/get-jobs-for-export.js": {
           "bytesInOutput": 94
@@ -13446,7 +13458,7 @@
           "bytesInOutput": 26
         },
         "dist/screens/jobs/QueueActions/index.js": {
-          "bytesInOutput": 2157
+          "bytesInOutput": 2369
         },
         "dist/screens/jobs/RemoveJobs/index.js": {
           "bytesInOutput": 964
@@ -13479,7 +13491,7 @@
           "bytesInOutput": 122
         }
       },
-      "bytes": 1411392
+      "bytes": 1411848
     },
     "../packages/ui/~~bundle~~/dist/index.css": {
       "imports": [],
