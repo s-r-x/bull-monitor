@@ -2993,7 +2993,7 @@
       ]
     },
     "dist/stores/preferences.js": {
-      "bytes": 703,
+      "bytes": 954,
       "imports": [
         {
           "path": "_snowpack/pkg/zustand.js",
@@ -3117,7 +3117,7 @@
       ]
     },
     "dist/components/Drawer/Queues/hooks.js": {
-      "bytes": 794,
+      "bytes": 1195,
       "imports": [
         {
           "path": "dist/stores/preferences.js",
@@ -3389,7 +3389,7 @@
       ]
     },
     "dist/components/Drawer/Queues/Queue.js": {
-      "bytes": 2297,
+      "bytes": 2488,
       "imports": [
         {
           "path": "_snowpack/pkg/react.js",
@@ -7972,7 +7972,7 @@
       ]
     },
     "dist/components/Settings/Preferences/index.js": {
-      "bytes": 1292,
+      "bytes": 1690,
       "imports": [
         {
           "path": "_snowpack/pkg/react.js",
@@ -12648,7 +12648,7 @@
           "bytesInOutput": 0
         },
         "dist/stores/preferences.js": {
-          "bytesInOutput": 354
+          "bytesInOutput": 540
         },
         "_snowpack/pkg/common/_defineProperty-aabc0e70.js": {
           "bytesInOutput": 97
@@ -12660,7 +12660,7 @@
           "bytesInOutput": 399
         },
         "dist/components/Drawer/Queues/hooks.js": {
-          "bytesInOutput": 204
+          "bytesInOutput": 393
         },
         "_snowpack/pkg/common/_setToString-45363239.js": {
           "bytesInOutput": 798
@@ -12672,7 +12672,7 @@
           "bytesInOutput": 161
         },
         "_snowpack/pkg/common/process-2545f00a.js": {
-          "bytesInOutput": 2217
+          "bytesInOutput": 2219
         },
         "_snowpack/pkg/common/_flatRest-d52d6ba3.js": {
           "bytesInOutput": 623
@@ -12690,7 +12690,7 @@
           "bytesInOutput": 312
         },
         "dist/components/Drawer/Queues/Queue.js": {
-          "bytesInOutput": 713
+          "bytesInOutput": 711
         },
         "_snowpack/pkg/common/index-c787bfa1.js": {
           "bytesInOutput": 9158
@@ -13143,7 +13143,7 @@
           "bytesInOutput": 0
         },
         "dist/components/Settings/Preferences/index.js": {
-          "bytesInOutput": 452
+          "bytesInOutput": 657
         },
         "dist/stores/code-editor.js": {
           "bytesInOutput": 192
@@ -13467,7 +13467,7 @@
           "bytesInOutput": 122
         }
       },
-      "bytes": 1410969
+      "bytes": 1411549
     },
     "../packages/ui/~~bundle~~/dist/index.css": {
       "imports": [],
