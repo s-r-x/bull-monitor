@@ -10,8 +10,6 @@ export default function Preferences() {
     toggleConfirmDangerousActions,
     groupQueuesByPrefix,
     toggleGroupQueuesByPrefix,
-    showStatusesPieInDrawer,
-    toggleShowStatusesPieInDrawer,
   } = usePreferencesStore();
   return (
     <div>
@@ -24,17 +22,6 @@ export default function Preferences() {
             />
           }
           label="Confirm dangerous actions"
-        />
-      </FormControl>
-      <FormControl margin="dense">
-        <FormControlLabel
-          control={
-            <Switch
-              checked={showStatusesPieInDrawer}
-              onChange={toggleShowStatusesPieInDrawer}
-            />
-          }
-          label="Show statuses pies in drawer"
         />
       </FormControl>
       <FormControl margin="dense">
