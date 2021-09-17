@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.5.0](https://github.com/s-r-x/bull-monitor/compare/v2.4.0...v2.5.0) (2021-09-17)
+
+
+### Features
+
+* **ui:** drawer. replace statuses pie with inline indicator ([20fec69](https://github.com/s-r-x/bull-monitor/commit/20fec69b816401addfd0dd55631691c09a79a166))
+* **ui:** remove show statuses pie preference ([6185c7d](https://github.com/s-r-x/bull-monitor/commit/6185c7d312f9b1c3dd88cdfc887eb07fdd5210c2))
+
+
+
+
+
 # [2.4.0](https://github.com/s-r-x/bull-monitor/compare/v2.3.0...v2.4.0) (2021-09-16)
 
 
