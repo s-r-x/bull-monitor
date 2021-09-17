@@ -2,9 +2,13 @@ import React from 'react';
 import type { JobStatus } from '@/typings/gql';
 import JobStatusChip from '@/components/JobStatusChip';
 import { makeStyles } from '@material-ui/core/styles';
+import StatusesIndicator from './QueueStatusesIndicator';
 
 const useStyles = makeStyles({
   root: {
+    position: 'relative',
+  },
+  list: {
     display: 'flex',
     flexWrap: 'wrap',
     alignItems: 'center',
@@ -24,12 +28,15 @@ type TProps = {
 export default function QueueJobsCount(props: TProps) {
   const cls = useStyles();
   return (
-    <ul className={cls.root}>
-      {props.count.map(({ status, count }, idx) => (
-        <li key={idx} title={status}>
-          <JobStatusChip size="small" status={status} label={count} />
-        </li>
-      ))}
-    </ul>
+    <div className={cls.root}>
+      <ul className={cls.list}>
+        {props.count.map(({ status, count }, idx) => (
+          <li key={idx} title={status}>
+            <JobStatusChip size="small" status={status} label={count} />
+          </li>
+        ))}
+      </ul>
+      <StatusesIndicator count={props.count} />
+    </div>
   );
 }

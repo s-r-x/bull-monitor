@@ -25,15 +25,3 @@ export const useMaybeGroupQueuesByPrefix = (queues: QueueFromQuery[]) => {
   }
   return groupBy(queues, 'keyPrefix');
 };
-
-export const useShouldRenderStatusesPie = (queue: QueueFromQuery): boolean => {
-  const pref = usePreferencesStore((state) => state.showStatusesPieInDrawer);
-  return useMemo(() => {
-    if (!pref || queue.isPaused) return false;
-    // show pie only if there are at least two different non zero statuses
-    const [firstCount, secondCount] = Object.values(queue.jobsCounts).sort(
-      (a, b) => b - a
-    );
-    return firstCount > 0 && secondCount > 0;
-  }, [pref, queue.isPaused, queue.jobsCounts]);
-};
