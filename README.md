@@ -1,6 +1,6 @@
 # bull-monitor
 
-Modern UI and graphql api for [Bull](https://github.com/OptimalBits/bull).
+Standard UI for [Bull](https://github.com/OptimalBits/bull).
 
 [Demo](https://s-r-x.github.io/bull-monitor)
 
