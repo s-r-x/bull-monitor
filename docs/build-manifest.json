@@ -2786,7 +2786,7 @@
       ]
     },
     "dist/components/Drawer/Queues/QueueStatusesIndicator.js": {
-      "bytes": 1191,
+      "bytes": 1265,
       "imports": [
         {
           "path": "_snowpack/pkg/react.js",
@@ -12734,7 +12734,7 @@
           "bytesInOutput": 61
         },
         "dist/components/Drawer/Queues/QueueStatusesIndicator.js": {
-          "bytesInOutput": 416
+          "bytesInOutput": 430
         },
         "dist/components/Drawer/Queues/JobsCount.js": {
           "bytesInOutput": 465
@@ -13568,7 +13568,7 @@
           "bytesInOutput": 122
         }
       },
-      "bytes": 1411609
+      "bytes": 1411623
     },
     "../packages/ui/~~bundle~~/dist/index.css": {
       "imports": [],
