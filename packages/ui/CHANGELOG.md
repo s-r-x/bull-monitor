@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.5.1](https://github.com/s-r-x/bull-monitor/compare/v2.5.0...v2.5.1) (2021-09-21)
+
+
+### Bug Fixes
+
+* clean command doesn't update the drawer inline indicator when there are only one type of jobs in selected queue ([edef20f](https://github.com/s-r-x/bull-monitor/commit/edef20f9ff37f845fbfe2a74367c6cc32be622d4))
+
+
+
+
+
 # [2.5.0](https://github.com/s-r-x/bull-monitor/compare/v2.4.0...v2.5.0) (2021-09-17)
 
 
