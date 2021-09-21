@@ -23,11 +23,13 @@ export default function QueueStatusesIndicator({ count }: TProps) {
   const palette = useJobStatusesPalette();
   const mapped = useMemo(() => {
     const allJobsCount = sum(count.map(({ count }) => count));
+    if (!allJobsCount) return null;
     return count.map(({ count, status }) => ({
       width: MathUtils.mapNumberToPercent(count, 0, allJobsCount) + '%',
       color: palette[status],
     }));
   }, [palette, count]);
+  if (!mapped) return null;
   return (
     <div className={cls.root}>
       {mapped.map(({ width, color }, idx) => (
