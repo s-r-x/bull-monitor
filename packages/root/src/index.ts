@@ -14,41 +14,30 @@ import { BullMonitorQueue, patchBullQueue } from './queue';
 export abstract class BullMonitor<TServer extends ApolloServerBase> {
   constructor(config: Config) {
     this.config = {
-      ...this._defaultConfig,
+      ...this.defaultConfig,
       ...config,
       metrics: config.metrics
-        ? { ...this._defaultMetricsConfig, ...config.metrics }
+        ? { ...this.defaultMetricsConfig, ...config.metrics }
         : false,
     };
     this.ui = new UI();
-    this.queues = this.config.queues.map(patchBullQueue);
+    this._queues = this.config.queues.map(patchBullQueue);
     if (this.config.metrics) {
-      this.metricsCollector = new MetricsCollector(
-        this.queues,
-        this.config.metrics as Required<MetricsConfig>
-      );
-      this.metricsCollector.startCollecting();
+      this.initMetricsCollector();
     }
   }
   public abstract init(...args: any): Promise<any>;
+  public get queues() {
+    return this._queues;
+  }
+  public set queues(queues: Config['queues']) {
+    this._queues = queues.map(patchBullQueue);
+    if (this.metricsCollector && this.config.metrics) {
+      this.metricsCollector.stopCollecting();
+      this.initMetricsCollector();
+    }
+  }
 
-  private queues: BullMonitorQueue[];
-  private ui: UI;
-  private metricsCollector?: MetricsCollector;
-  private _defaultMetricsConfig: MetricsConfig = {
-    redisPrefix: 'bull_monitor::metrics::',
-    collectInterval: { hours: 1 },
-    maxMetrics: 100,
-    blacklist: [],
-  };
-  private _defaultConfig: Required<Config> = {
-    queues: [],
-    baseUrl: '',
-    gqlIntrospection: true,
-    gqlPlayground: true,
-    textSearchScanCount: DEFAULT_TEXT_SEARCH_SCAN_COUNT,
-    metrics: false,
-  };
   protected gqlBasePath = '/graphql';
   protected config: Required<Config>;
   protected server: TServer;
@@ -60,7 +49,7 @@ export abstract class BullMonitor<TServer extends ApolloServerBase> {
       playground: this.config.gqlPlayground,
       introspection: this.config.gqlIntrospection,
       dataSources: () => ({
-        bull: new BullDataSource(this.queues, {
+        bull: new BullDataSource(this._queues, {
           textSearchScanCount: this.config.textSearchScanCount,
         }),
         metrics: new MetricsDataSource(this.metricsCollector),
@@ -87,6 +76,31 @@ export abstract class BullMonitor<TServer extends ApolloServerBase> {
       return base.slice(0, -1) + this.gqlBasePath;
     }
     return base + this.gqlBasePath;
+  }
+
+  private _queues: BullMonitorQueue[];
+  private ui: UI;
+  private metricsCollector?: MetricsCollector;
+  private defaultMetricsConfig: MetricsConfig = {
+    redisPrefix: 'bull_monitor::metrics::',
+    collectInterval: { hours: 1 },
+    maxMetrics: 100,
+    blacklist: [],
+  };
+  private defaultConfig: Required<Config> = {
+    queues: [],
+    baseUrl: '',
+    gqlIntrospection: true,
+    gqlPlayground: true,
+    textSearchScanCount: DEFAULT_TEXT_SEARCH_SCAN_COUNT,
+    metrics: false,
+  };
+  private initMetricsCollector() {
+    this.metricsCollector = new MetricsCollector(
+      this._queues,
+      this.config.metrics as Required<MetricsConfig>
+    );
+    this.metricsCollector.startCollecting();
   }
 }
 
