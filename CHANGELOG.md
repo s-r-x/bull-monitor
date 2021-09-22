@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.6.0](https://github.com/s-r-x/bull-monitor/compare/v2.5.1...v2.6.0) (2021-09-22)
+
+
+### Features
+
+* add ability to update queues list after bull-monitor has been instantiated ([0d0c6a2](https://github.com/s-r-x/bull-monitor/commit/0d0c6a2046662172d610712002d0c317df7a3973))
+
+
+
+
+
 ## [2.5.1](https://github.com/s-r-x/bull-monitor/compare/v2.5.0...v2.5.1) (2021-09-21)
 
 
