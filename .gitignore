@@ -6,4 +6,4 @@ packages/hapi/dist
 packages/fastify/dist
 packages/ui/build
 fixtures/bull-server/server/index.js
-./docs/build-manifest.json
+./docs

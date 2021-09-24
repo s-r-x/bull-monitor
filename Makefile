@@ -16,6 +16,8 @@ add-dep:
 	npx lerna add $(dep) --scope=@bull-monitor/$(pkg)
 version:
 	npx lerna version $(ver) --force-publish --conventional-commits --create-release github
+deploy-demo:
+	npm run deploy
 publish:
 	npx lerna publish from-package --yes
 add-dev-dep:
