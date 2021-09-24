@@ -1,4 +1,5 @@
-import { MutationFunction, useMutation } from 'react-query';
+import { useMutation } from 'react-query';
+import type { MutationFunction } from 'react-query';
 import { useToast } from '@/hooks/use-toast';
 import { useConfirm, ConfirmError } from '@/hooks/use-confirm';
 import type { ConfirmOptions } from 'material-ui-confirm';

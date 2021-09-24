@@ -12,10 +12,6 @@ lint.fix:
 	npx eslint packages/$(pkg) --fix
 check-types:
 	cd packages/$(pkg) && npx tsc -noEmit
-ui.dev-server:
-	$(ui_npm_prefix) run serve
-ui.dev-server-with-mocks:
-	$(ui_npm_prefix) run serve-with-mocks
 add-dep:
 	npx lerna add $(dep) --scope=@bull-monitor/$(pkg)
 version:
@@ -26,6 +22,8 @@ add-dev-dep:
 	npx lerna add $(dep) --scope=@bull-monitor/$(pkg) --dev
 ui.dev:
 	$(ui_npm_prefix) run dev
+ui.dev-with-mocks:
+	$(ui_npm_prefix) run dev-with-mocks
 ui.build:
 	$(ui_npm_prefix) run build
 ui.build-demo:

@@ -2,7 +2,8 @@ import { QueryKeysConfig } from '@/config/query-keys';
 import { useNetwork } from '@/hooks/use-network';
 import type { GetQueuesQuery } from '@/typings/gql';
 import React from 'react';
-import { useQuery, UseQueryResult } from 'react-query';
+import { useQuery } from 'react-query';
+import type { UseQueryResult } from 'react-query';
 import { getPollingInterval } from '@/stores/network-settings';
 
 type TValue = UseQueryResult<GetQueuesQuery, unknown>;
