@@ -5,5 +5,4 @@ packages/hapi/dist
 packages/fastify/dist
 packages/koa/dist
 packages/express/dist
-packages/ui/.snowpack
 ./docs

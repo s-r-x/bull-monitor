@@ -5,5 +5,4 @@ packages/koa/dist
 packages/hapi/dist
 packages/fastify/dist
 packages/ui/build
-packages/ui/.snowpack
 ./docs/build-manifest.json
