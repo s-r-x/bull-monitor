@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.7.0](https://github.com/s-r-x/bull-monitor/compare/v2.6.3...v2.7.0) (2021-09-24)
+
+
+### Features
+
+* **ui:** add "format" button to text editors ([15b7872](https://github.com/s-r-x/bull-monitor/commit/15b78723e457d3b1d0aeca3a4f5a482a401550bd))
+
+
+
+
+
 ## [2.6.3](https://github.com/s-r-x/bull-monitor/compare/v2.6.2...v2.6.3) (2021-09-24)
 
 **Note:** Version bump only for package @bull-monitor/entrypoint
