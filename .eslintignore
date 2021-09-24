@@ -5,4 +5,10 @@ packages/hapi/dist
 packages/fastify/dist
 packages/koa/dist
 packages/express/dist
+packages/ui/node_modules
+packages/root/node_modules
+packages/hapi/node_modules
+packages/fastify/node_modules
+packages/koa/node_modules
+packages/express/node_modules
 ./docs
