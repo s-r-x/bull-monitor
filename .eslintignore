@@ -11,4 +11,6 @@ packages/hapi/node_modules
 packages/fastify/node_modules
 packages/koa/node_modules
 packages/express/node_modules
+fixtures/bull-server/server/node_modules
+fixtures/bull-server/server/index.js
 ./docs
