@@ -19,25 +19,45 @@ import { Controlled as CodeMirror } from 'react-codemirror2';
 import jsonlint from 'jsonlint-mod';
 import { useCodeEditorStore } from '@/stores/code-editor';
 import shallow from 'zustand/shallow';
+import { makeStyles } from '@material-ui/core';
 // @ts-ignore
 window.jsonlint = jsonlint;
+import Button from '@material-ui/core/Button';
+import { JsonService } from '@/services/json';
 
+const useStyles = makeStyles({
+  root: {
+    width: '100%',
+    position: 'relative',
+  },
+  utils: {
+    position: 'absolute',
+    right: 5,
+    top: 5,
+    zIndex: 2,
+  },
+});
 type TProps = {
   value?: Maybe<string>;
   onChange?: (value: string) => void;
   readOnly?: boolean;
 };
+
 const CodeEditor = (props: TProps) => {
+  const cls = useStyles();
   const [theme, keyMap, tabSize] = useCodeEditorStore(
     (state) => [state.theme, state.keyMap, state.tabSize],
     shallow
   );
+  const formatValue = () => {
+    if (props.onChange && props.value) {
+      props.onChange(
+        JsonService.maybeStringify(JsonService.maybeParse(props.value))
+      );
+    }
+  };
   return (
-    <div
-      style={{
-        width: '100%',
-      }}
-    >
+    <div className={cls.root}>
       <CodeMirror
         onBeforeChange={(_editor, _data, value) => {
           if (props.onChange) {
@@ -60,6 +80,11 @@ const CodeEditor = (props: TProps) => {
         }}
         value={props.value as string}
       />
+      {!props.readOnly && props.value && (
+        <div className={cls.utils} onClick={formatValue}>
+          <Button size="small">Format</Button>
+        </div>
+      )}
     </div>
   );
 };
