@@ -1,9 +1,9 @@
 import random from 'lodash/random';
-import {
+import type {
   CreateJobMutation,
   CreateJobMutationVariables,
-  JobStatus,
 } from '@/typings/gql';
+import { JobStatus } from '@/typings/gql';
 import { networkMockData } from '../data';
 
 export const createJobMock = ({

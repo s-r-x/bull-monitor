@@ -1,7 +1,6 @@
 import React from 'react';
-import CircularProgress, {
-  CircularProgressProps,
-} from '@material-ui/core/CircularProgress';
+import CircularProgress from '@material-ui/core/CircularProgress';
+import type { CircularProgressProps } from '@material-ui/core/CircularProgress';
 
 type TProps = CircularProgressProps & {
   centered: boolean;

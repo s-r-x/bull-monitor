@@ -1,8 +1,8 @@
-import {
-  JobStatus,
+import type {
   PromoteJobMutation,
   PromoteJobMutationVariables,
 } from '@/typings/gql';
+import { JobStatus } from '@/typings/gql';
 import { networkMockData } from '../data';
 
 export const promoteJobMock = (

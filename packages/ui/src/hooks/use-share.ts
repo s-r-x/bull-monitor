@@ -7,8 +7,8 @@ import {
   dataSearchAtom,
   jobIdAtom,
   jobsOrderAtom,
-  TAddWorkspaceDto,
 } from '@/atoms/workspaces';
+import type { TAddWorkspaceDto } from '@/atoms/workspaces';
 import { Base64 } from '@/services/base64';
 import copyToClipboard from 'copy-to-clipboard';
 import { useAtomCallback } from 'jotai/utils';

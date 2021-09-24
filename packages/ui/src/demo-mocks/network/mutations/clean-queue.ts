@@ -1,9 +1,8 @@
-import {
+import type {
   CleanQueueMutation,
   CleanQueueMutationVariables,
-  JobStatus,
-  JobStatusClean,
 } from '@/typings/gql';
+import { JobStatus, JobStatusClean } from '@/typings/gql';
 import { networkMockData } from '../data';
 
 export const cleanQueueMock = (

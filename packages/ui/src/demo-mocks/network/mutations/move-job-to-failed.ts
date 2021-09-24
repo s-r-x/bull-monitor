@@ -1,8 +1,8 @@
-import {
-  JobStatus,
+import type {
   MoveJobToFailedMutation,
   MoveJobToFailedMutationVariables,
 } from '@/typings/gql';
+import { JobStatus } from '@/typings/gql';
 import { networkMockData } from '../data';
 
 export const moveJobToFailedMock = (

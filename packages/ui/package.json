@@ -13,12 +13,10 @@
     "directory": "packages/ui"
   },
   "scripts": {
-    "serve": "NODE_ENV=development snowpack dev",
-    "serve-with-mocks": "NODE_ENV=development SNOWPACK_PUBLIC_ENABLE_MOCKS=true snowpack dev",
-    "dev": "NODE_ENV=development snowpack build",
-    "build": "NODE_ENV=production snowpack build",
-    "build-demo": "SNOWPACK_PUBLIC_ENABLE_MOCKS=true NODE_ENV=production snowpack build --config ./snowpack.config.demo.js",
-    "test": "web-test-runner \"src/**/*.test.tsx\""
+    "dev": "NODE_ENV=development vite --open --port=8080",
+    "dev-with-mocks": "NODE_ENV=development VITE_ENABLE_MOCKS=true vite --open --port=8080",
+    "build": "NODE_ENV=production vite build",
+    "build-demo": "VITE_ENABLE_MOCKS=true NODE_ENV=production vite build -c ./vite.config.demo.ts"
   },
   "dependencies": {
     "@material-ui/core": "^4.11.3",
@@ -30,7 +28,6 @@
     "codemirror": "^5.60.0",
     "copy-to-clipboard": "^3.3.1",
     "dayjs": "^1.10.4",
-    "eventemitter3": "^4.0.7",
     "file-saver": "^2.0.5",
     "graphql": "^15.5.0",
     "graphql-request": "^3.4.0",
@@ -48,7 +45,6 @@
     "react-query": "^3.13.3",
     "react-textarea-autosize": "^8.3.2",
     "recharts": "^2.0.9",
-    "snowpack": "3.0.13",
     "uuid": "^8.3.2",
     "zustand": "^3.5.2"
   },
@@ -56,21 +52,13 @@
     "@graphql-codegen/cli": "^1.21.3",
     "@graphql-codegen/typescript": "^1.21.1",
     "@graphql-codegen/typescript-operations": "^1.17.15",
-    "@snowpack/plugin-dotenv": "^2.0.5",
-    "@snowpack/plugin-react-refresh": "^2.4.0",
-    "@snowpack/plugin-typescript": "^1.2.0",
-    "@snowpack/web-test-runner-plugin": "^0.2.0",
-    "@testing-library/react": "^11.0.0",
-    "@types/chai": "^4.2.13",
     "@types/file-saver": "^2.0.2",
-    "@types/mocha": "^8.2.0",
     "@types/ms": "^0.7.31",
     "@types/react": "^17.0.0",
     "@types/react-dom": "^17.0.0",
-    "@types/snowpack-env": "^2.3.2",
-    "@web/test-runner": "^0.12.0",
-    "chai": "^4.2.0",
-    "typescript": "^4.0.0"
+    "@vitejs/plugin-react-refresh": "^1.3.6",
+    "typescript": "^4.0.0",
+    "vite": "^2.5.10"
   },
   "gitHead": "56060c20da8134cce74efaf278dd63b81cdcab4f"
 }

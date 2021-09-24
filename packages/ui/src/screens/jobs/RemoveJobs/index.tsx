@@ -7,12 +7,12 @@ import shallow from 'zustand/shallow';
 import { useNetwork } from '@/hooks/use-network';
 import { useAbstractMutation } from '@/hooks/use-abstract-mutation';
 import TextField from '@material-ui/core/TextField';
-import { makeStyles, Theme } from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core/styles';
 import { useRemoveJobsModalStore } from '@/stores/remove-jobs-modal';
 import { activeQueueAtom } from '@/atoms/workspaces';
 import { useAtomValue } from 'jotai/utils';
 
-const useStyles = makeStyles((theme: Theme) => ({
+const useStyles = makeStyles((theme) => ({
   container: {
     width: 500,
   },

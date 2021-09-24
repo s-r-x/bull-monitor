@@ -2,7 +2,8 @@ import React, { memo } from 'react';
 import Paper from '@material-ui/core/Paper';
 import * as Chart from 'recharts';
 import { makeStyles } from '@material-ui/core/styles';
-import { GetQueueMetricsQuery, JobStatus } from '@/typings/gql';
+import { JobStatus } from '@/typings/gql';
+import type { GetQueueMetricsQuery } from '@/typings/gql';
 import { useJobStatusesPalette } from '@/components/JobStatusChip/hooks';
 import day from 'dayjs';
 
