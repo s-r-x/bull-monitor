@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.7.1](https://github.com/s-r-x/bull-monitor/compare/v2.7.0...v2.7.1) (2021-09-24)
+
+
+### Bug Fixes
+
+* timestamp in metrics chart tooltip is not visible in dark mode, and should be formatted to human readable date ([2881730](https://github.com/s-r-x/bull-monitor/commit/288173095033d87c72c5757194e4fad4e1c79baf))
+
+
+
+
+
 # [2.7.0](https://github.com/s-r-x/bull-monitor/compare/v2.6.3...v2.7.0) (2021-09-24)
 
 
