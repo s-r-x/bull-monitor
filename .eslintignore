@@ -1,4 +1,5 @@
 node_modules
+packages/ui/src/typings/gql.ts
 packages/ui/build
 packages/root/dist
 packages/hapi/dist
