@@ -6,12 +6,14 @@ import { JobStatus } from '@/typings/gql';
 import type { GetQueueMetricsQuery } from '@/typings/gql';
 import { useJobStatusesPalette } from '@/components/JobStatusChip/hooks';
 import day from 'dayjs';
+import { useCallback } from 'react';
 
+const DATE_FORMAT = 'YYYY-MM-DD HH:mm';
 const statuses = Object.values(JobStatus).filter(
   (status) => status !== JobStatus.Stuck
 );
 const tickXFormatter = (timestamp: number) => {
-  return day(timestamp).format('YYYY-MM-DD HH:mm');
+  return day(timestamp).format(DATE_FORMAT);
 };
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -19,13 +21,20 @@ const useStyles = makeStyles((theme) => ({
     overflow: 'hidden',
     flex: 1,
   },
+  tooltipLabel: {
+    color: 'black',
+  },
 }));
 
+type TMetrics = NonNullable<GetQueueMetricsQuery['metrics']>;
 type TProps = {
-  metrics: NonNullable<GetQueueMetricsQuery['metrics']>;
+  metrics: TMetrics;
 };
 const MetricsChart = ({ metrics }: TProps) => {
   const cls = useStyles();
+  const tooltipLabelFormatter = useCallback((label: number) => {
+    return day(label).format(DATE_FORMAT);
+  }, []);
   const palette = useJobStatusesPalette();
   return (
     <Paper className={cls.root}>
@@ -55,7 +64,10 @@ const MetricsChart = ({ metrics }: TProps) => {
             }}
             tickLine={false}
           />
-          <Chart.Tooltip />
+          <Chart.Tooltip
+            labelClassName={cls.tooltipLabel}
+            labelFormatter={tooltipLabelFormatter}
+          />
           <Chart.Legend />
           {statuses.map((status) => (
             <Chart.Line
