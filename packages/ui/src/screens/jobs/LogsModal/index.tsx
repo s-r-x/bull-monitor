@@ -17,6 +17,12 @@ import NetworkRequest from '@/components/NetworkRequest';
 import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme) => ({
+  root: {
+    width: 500,
+    '@media(max-width: 540px)': {
+      width: 'auto',
+    },
+  },
   inputRoot: {
     display: 'flex',
     alignItems: 'center',
@@ -66,7 +72,7 @@ const JobLogs = () => {
   };
   return (
     <>
-      <DialogContent>
+      <DialogContent className={cls.root}>
         <form onSubmit={onSubmit} autoComplete="off">
           <div className={cls.inputRoot}>
             <TextField
