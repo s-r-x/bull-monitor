@@ -22,7 +22,7 @@ import {
 } from '../../../typings/gql';
 import { Maybe } from '../../../typings/utils';
 import redisInfo from 'redis-info';
-import { DataSearcher } from './data-search';
+import { DataSearcher } from '../../../data-search';
 import isNil from 'lodash/isNil';
 import { BullMonitorError } from '../errors';
 import { BullMonitorQueue as Queue } from '../../../queue';
