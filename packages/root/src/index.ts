@@ -10,6 +10,7 @@ import { DEFAULT_TEXT_SEARCH_SCAN_COUNT } from './gql/data-sources/bull/config';
 import type { Config, MetricsConfig } from './typings/config';
 import { MetricsCollector } from './metrics-collector';
 import { BullMonitorQueue, patchBullQueue } from './queue';
+import { DEV } from './constants';
 
 export abstract class BullMonitor<TServer extends ApolloServerBase> {
   constructor(config: Config) {
@@ -104,8 +105,8 @@ export abstract class BullMonitor<TServer extends ApolloServerBase> {
   private defaultConfig: Required<Config> = {
     queues: [],
     baseUrl: '',
-    gqlIntrospection: true,
-    gqlPlayground: true,
+    gqlIntrospection: DEV,
+    gqlPlayground: DEV,
     textSearchScanCount: DEFAULT_TEXT_SEARCH_SCAN_COUNT,
     metrics: false,
   };
