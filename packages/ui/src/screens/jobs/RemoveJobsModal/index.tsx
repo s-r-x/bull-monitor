@@ -14,7 +14,7 @@ import { useAtomValue } from 'jotai/utils';
 
 const useStyles = makeStyles((theme) => ({
   container: {
-    width: 500,
+    minWidth: 320,
   },
   formControl: {
     marginBottom: theme.spacing(2),
