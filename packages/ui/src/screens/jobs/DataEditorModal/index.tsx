@@ -1,7 +1,5 @@
 import React from 'react';
 import Dialog from '@material-ui/core/Dialog';
-import DialogActions from '@material-ui/core/DialogActions';
-import DialogContent from '@material-ui/core/DialogContent';
 import Button from '@material-ui/core/Button';
 import { useDataEditorStore } from '@/stores/data-editor';
 import shallow from 'zustand/shallow';
@@ -13,9 +11,33 @@ import { useNetwork } from '@/hooks/use-network';
 import { useAbstractMutation } from '@/hooks/use-abstract-mutation';
 import type { GetJobDataQuery } from '@/typings/gql';
 import NetworkRequest from '@/components/NetworkRequest';
+import AppBar from '@material-ui/core/AppBar';
+import Toolbar from '@material-ui/core/Toolbar';
+import IconButton from '@material-ui/core/IconButton';
+import CloseIcon from '@material-ui/icons/Close';
+import Typography from '@material-ui/core/Typography';
+import { makeStyles } from '@material-ui/core/styles';
+
+const useStyles = makeStyles((theme) => ({
+  appBar: {
+    position: 'relative',
+  },
+  title: {
+    marginLeft: theme.spacing(2),
+    flex: 1,
+  },
+  root: {
+    padding: theme.spacing(2),
+    paddingBottom: 0,
+    '& .CodeMirror': {
+      height: 'calc(100vh - 100px)',
+    },
+  },
+}));
 
 const DataEditor = () => {
   const queryClient = useQueryClient();
+  const classes = useStyles();
 
   const [data, setData] = React.useState<Maybe<string> | undefined>();
   const {
@@ -59,15 +81,27 @@ const DataEditor = () => {
   };
   return (
     <>
-      <DialogContent>
+      <AppBar className={classes.appBar}>
+        <Toolbar>
+          <IconButton
+            edge="start"
+            color="inherit"
+            onClick={onClose}
+            aria-label="close"
+          >
+            <CloseIcon />
+          </IconButton>
+          <Typography variant="h6" className={classes.title}>
+            Edit data
+          </Typography>
+          <Button onClick={onSubmit}>Submit</Button>
+        </Toolbar>
+      </AppBar>
+      <div className={classes.root}>
         <NetworkRequest status={status} refetch={refetch}>
           <CodeEditor onChange={setData} value={data} />
         </NetworkRequest>
-      </DialogContent>
-      <DialogActions>
-        <Button onClick={onClose}>Cancel</Button>
-        <Button onClick={onSubmit}>Submit</Button>
-      </DialogActions>
+      </div>
     </>
   );
 };
@@ -77,7 +111,7 @@ export default function DataEditorModal() {
     shallow
   );
   return (
-    <Dialog open={isOpen} onClose={onClose}>
+    <Dialog fullScreen open={isOpen} onClose={onClose}>
       <DataEditor />
     </Dialog>
   );

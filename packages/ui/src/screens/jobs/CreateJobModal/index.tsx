@@ -101,7 +101,6 @@ const CreateJob = () => {
             type="submit"
             form={FORM_ID}
             color="inherit"
-            onClick={close}
           >
             Submit
           </Button>
