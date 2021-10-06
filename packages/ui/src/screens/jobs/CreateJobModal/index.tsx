@@ -1,7 +1,5 @@
 import React from 'react';
 import Dialog from '@material-ui/core/Dialog';
-import DialogActions from '@material-ui/core/DialogActions';
-import DialogContent from '@material-ui/core/DialogContent';
 import Button from '@material-ui/core/Button';
 import shallow from 'zustand/shallow';
 import CodeEditor from '@/components/CodeEditor';
@@ -14,6 +12,12 @@ import { makeStyles } from '@material-ui/core/styles';
 import FormLabel from '@material-ui/core/FormLabel';
 import { activeQueueAtom } from '@/atoms/workspaces';
 import { useAtomValue } from 'jotai/utils';
+import Grid from '@material-ui/core/Grid';
+import AppBar from '@material-ui/core/AppBar';
+import Toolbar from '@material-ui/core/Toolbar';
+import IconButton from '@material-ui/core/IconButton';
+import CloseIcon from '@material-ui/icons/Close';
+import Typography from '@material-ui/core/Typography';
 
 const useStyles = makeStyles((theme) => ({
   label: {
@@ -22,19 +26,35 @@ const useStyles = makeStyles((theme) => ({
   formControl: {
     marginBottom: theme.spacing(2),
   },
+  appBar: {
+    position: 'relative',
+  },
+  title: {
+    marginLeft: theme.spacing(2),
+    flex: 1,
+  },
   form: {
-    width: '100%',
+    display: 'flex',
+    padding: theme.spacing(2),
+    paddingBottom: 0,
+    flexDirection: 'column',
+    [theme.breakpoints.up('sm')]: {
+      '& .CodeMirror': {
+        height: 'calc(100vh - 180px)',
+      },
+    },
   },
 }));
+
+const FORM_ID = 'create-job_form';
 
 const CreateJob = () => {
   const classes = useStyles();
   const queue = useAtomValue(activeQueueAtom) as string;
-
   const {
     mutations: { createJob },
   } = useNetwork();
-  const [
+  const {
     close,
     data,
     changeData,
@@ -43,19 +63,7 @@ const CreateJob = () => {
     closeAndClearInput,
     name,
     changeName,
-  ] = useCreateJobStore(
-    (state) => [
-      state.close,
-      state.data,
-      state.changeData,
-      state.options,
-      state.changeOptions,
-      state.closeAndClearInput,
-      state.name,
-      state.changeName,
-    ],
-    shallow
-  );
+  } = useCreateJobStore();
   const mutation = useAbstractMutation({
     mutation: createJob,
     toast: 'Job has been created',
@@ -75,37 +83,56 @@ const CreateJob = () => {
   };
   return (
     <>
-      <DialogContent>
-        <form onSubmit={onSubmit} id="create-job_form" className={classes.form}>
-          <TextField
-            fullWidth
-            variant="outlined"
-            value={name}
-            onChange={(e) => changeName(e.target.value)}
-            id="create-job_name"
-            label="Name"
-            className={classes.formControl}
-          />
-          <FormControl className={classes.formControl} fullWidth>
-            <FormLabel className={classes.label}>Data</FormLabel>
-            <CodeEditor value={data} onChange={changeData} />
-          </FormControl>
-          <FormControl className={classes.formControl} fullWidth>
-            <FormLabel className={classes.label}>Options</FormLabel>
-            <CodeEditor value={options} onChange={changeOptions} />
-          </FormControl>
-        </form>
-      </DialogContent>
-      <DialogActions>
-        <Button onClick={close}>Cancel</Button>
-        <Button
-          disabled={mutation.isLoading}
-          type="submit"
-          form="create-job_form"
-        >
-          Submit
-        </Button>
-      </DialogActions>
+      <AppBar className={classes.appBar}>
+        <Toolbar>
+          <IconButton
+            edge="start"
+            color="inherit"
+            onClick={close}
+            aria-label="close"
+          >
+            <CloseIcon />
+          </IconButton>
+          <Typography variant="h6" className={classes.title}>
+            Create job
+          </Typography>
+          <Button
+            disabled={mutation.isLoading}
+            type="submit"
+            form={FORM_ID}
+            color="inherit"
+            onClick={close}
+          >
+            Submit
+          </Button>
+        </Toolbar>
+      </AppBar>
+      <form className={classes.form} onSubmit={onSubmit} id={FORM_ID}>
+        <TextField
+          fullWidth
+          variant="outlined"
+          value={name}
+          size="small"
+          onChange={(e) => changeName(e.target.value)}
+          id="create-job_name"
+          label="Name"
+          className={classes.formControl}
+        />
+        <Grid container spacing={2}>
+          <Grid item xs={12} sm={6}>
+            <FormControl fullWidth>
+              <FormLabel className={classes.label}>Data</FormLabel>
+              <CodeEditor value={data} onChange={changeData} />
+            </FormControl>
+          </Grid>
+          <Grid item xs={12} sm={6}>
+            <FormControl fullWidth>
+              <FormLabel className={classes.label}>Options</FormLabel>
+              <CodeEditor value={options} onChange={changeOptions} />
+            </FormControl>
+          </Grid>
+        </Grid>
+      </form>
     </>
   );
 };
@@ -115,7 +142,7 @@ export default function CreateJobModal() {
     shallow
   );
   return (
-    <Dialog open={isOpen} onClose={onClose}>
+    <Dialog fullScreen open={isOpen} onClose={onClose}>
       <CreateJob />
     </Dialog>
   );
