@@ -18,6 +18,64 @@ type TJobExcerpt = {
   id: string;
 };
 
+export class DataSearcher {
+  constructor(private _queue: BullQueue) {}
+  async search(args: TSearchArgs) {
+    let expr: jsonata.Expression;
+    try {
+      expr = jsonata(args.search);
+    } catch (_e) {
+      return [];
+    }
+    const it = this._getIterator(args);
+    const start = args.offset;
+    const end = args.limit + start;
+    const acc: string[] = [];
+    // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/label
+    mainLoop: for await (const jobs of it.generator()) {
+      for (const job of jobs) {
+        const matched = this._matchData(job.data, expr);
+        if (matched) {
+          acc.push(job.id);
+        }
+        if (acc.length >= end) {
+          break mainLoop;
+        }
+      }
+    }
+    it.destroy();
+    const jobs = await Promise.all(
+      acc.slice(start, end).map((id) => this._queue.getJob(id))
+    );
+    return jobs;
+  }
+  private _getIterator(args: TSearchArgs): AbstractIterator {
+    const redisKey = this._queue.toKey(args.status);
+    const config: TIteratorConfig = {
+      scanCount: args.scanCount,
+    };
+    switch (args.status) {
+      case 'completed':
+      case 'failed':
+      case 'delayed':
+        return new SetIterator(this._queue, redisKey, config);
+      case 'active':
+      case 'waiting':
+      case 'paused':
+        return new ListIterator(this._queue, redisKey, config);
+    }
+  }
+  private _matchData(data: string, expr: jsonata.Expression): boolean {
+    try {
+      const result = expr.evaluate(JsonService.maybeParse(data));
+      if (!result) return false;
+      return typeof result === 'object' ? !isempty(result) : !!result;
+    } catch (_e) {
+      return false;
+    }
+  }
+}
+
 type TIteratorConfig = {
   scanCount?: number;
 };
@@ -99,62 +157,5 @@ class ListIterator extends AbstractIterator {
   }
   private get _nextChunk() {
     return this._ids.slice(this._cursor, this._cursor + this._scanCount);
-  }
-}
-export class DataSearcher {
-  constructor(private _queue: BullQueue) {}
-  async search(args: TSearchArgs) {
-    let expr: jsonata.Expression;
-    try {
-      expr = jsonata(args.search);
-    } catch (_e) {
-      return [];
-    }
-    const it = this._getIterator(args);
-    const start = args.offset;
-    const end = args.limit + start;
-    const acc: string[] = [];
-    // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/label
-    mainLoop: for await (const jobs of it.generator()) {
-      for (const job of jobs) {
-        const matched = this._matchData(job.data, expr);
-        if (matched) {
-          acc.push(job.id);
-        }
-        if (acc.length >= end) {
-          break mainLoop;
-        }
-      }
-    }
-    it.destroy();
-    const jobs = await Promise.all(
-      acc.slice(start, end).map((id) => this._queue.getJob(id))
-    );
-    return jobs;
-  }
-  private _getIterator(args: TSearchArgs): AbstractIterator {
-    const redisKey = this._queue.toKey(args.status);
-    const config: TIteratorConfig = {
-      scanCount: args.scanCount,
-    };
-    switch (args.status) {
-      case 'completed':
-      case 'failed':
-      case 'delayed':
-        return new SetIterator(this._queue, redisKey, config);
-      case 'active':
-      case 'waiting':
-      case 'paused':
-        return new ListIterator(this._queue, redisKey, config);
-    }
-  }
-  private _matchData(data: string, expr: jsonata.Expression): boolean {
-    try {
-      const result = expr.evaluate(JsonService.maybeParse(data));
-      if (!result) return false;
-      return typeof result === 'object' ? !isempty(result) : !!result;
-    } catch (_e) {
-      return false;
-    }
   }
 }
