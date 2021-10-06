@@ -1,5 +1,5 @@
 import React from 'react';
-import Shell from '@/components/Shell';
+import Shell from '@/shell';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import { getMuiTheme } from '@/stores/theme';
 import { MuiThemeProvider } from '@material-ui/core/styles';

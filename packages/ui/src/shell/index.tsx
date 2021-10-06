@@ -3,8 +3,8 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import { makeStyles } from '@material-ui/core/styles';
 import Drawer from '@/components/Drawer';
 import AppBar from '@/components/AppBar';
-import SettingsModal from '../Settings';
-import RedisInfoModal from '../RedisInfo';
+import SettingsModal from '../components/Settings';
+import RedisInfoModal from '../components/RedisInfo';
 import { useCreateFirstWorkspace } from '@/hooks/use-create-first-workspace';
 
 const useStyles = makeStyles((theme) => ({
