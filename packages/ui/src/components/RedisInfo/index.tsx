@@ -18,6 +18,12 @@ import ms from 'ms';
 import { getPollingInterval } from '@/stores/network-settings';
 
 const useStyles = makeStyles({
+  root: {
+    width: 400,
+    '@media(max-width: 440px)': {
+      width: 'auto',
+    },
+  },
   keyValueRoot: {
     display: 'flex',
     justifyContent: 'space-between',
@@ -44,6 +50,7 @@ const RedisInfo = () => {
   const {
     queries: { getRedisInfo },
   } = useNetwork();
+  const cls = useStyles();
   const onClose = useRedisInfoModalStore((state) => state.close);
   const refetchInterval = getPollingInterval();
   const { data, status, refetch } = useQuery(
@@ -56,7 +63,7 @@ const RedisInfo = () => {
   );
   return (
     <>
-      <DialogContent>
+      <DialogContent className={cls.root}>
         <NetworkRequest status={status} refetch={refetch}>
           {data && (
             <List dense>
