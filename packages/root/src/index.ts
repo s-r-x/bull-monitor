@@ -21,7 +21,7 @@ export abstract class BullMonitor<TServer extends ApolloServerBase> {
         : false,
     };
     this.ui = new UI();
-    this._queues = this.config.queues.map(patchBullQueue);
+    this.initQueues(this.config.queues);
     if (this.config.metrics) {
       this.initMetricsCollector();
     }
@@ -31,7 +31,7 @@ export abstract class BullMonitor<TServer extends ApolloServerBase> {
     return this._queues;
   }
   public set queues(queues: Config['queues']) {
-    this._queues = queues.map(patchBullQueue);
+    this.initQueues(queues);
     if (this.metricsCollector && this.config.metrics) {
       this.metricsCollector.stopCollecting();
       this.initMetricsCollector();
@@ -49,7 +49,7 @@ export abstract class BullMonitor<TServer extends ApolloServerBase> {
       playground: this.config.gqlPlayground,
       introspection: this.config.gqlIntrospection,
       dataSources: () => ({
-        bull: new BullDataSource(this._queues, {
+        bull: new BullDataSource(this._queues, this._queuesMap, {
           textSearchScanCount: this.config.textSearchScanCount,
         }),
         metrics: new MetricsDataSource(this.metricsCollector),
@@ -79,6 +79,13 @@ export abstract class BullMonitor<TServer extends ApolloServerBase> {
   }
 
   private _queues: BullMonitorQueue[];
+  private _queuesMap: Map<string, BullMonitorQueue> = new Map();
+  private initQueues(queues: Config['queues']) {
+    this._queues = queues.map(patchBullQueue);
+    this._queues.forEach((queue) => {
+      this._queuesMap.set(queue.id as string, queue);
+    });
+  }
   private ui: UI;
   private metricsCollector?: MetricsCollector;
   private defaultMetricsConfig: MetricsConfig = {
@@ -87,6 +94,13 @@ export abstract class BullMonitor<TServer extends ApolloServerBase> {
     maxMetrics: 100,
     blacklist: [],
   };
+  private initMetricsCollector() {
+    this.metricsCollector = new MetricsCollector(
+      this._queues,
+      this.config.metrics as Required<MetricsConfig>
+    );
+    this.metricsCollector.startCollecting();
+  }
   private defaultConfig: Required<Config> = {
     queues: [],
     baseUrl: '',
@@ -95,13 +109,6 @@ export abstract class BullMonitor<TServer extends ApolloServerBase> {
     textSearchScanCount: DEFAULT_TEXT_SEARCH_SCAN_COUNT,
     metrics: false,
   };
-  private initMetricsCollector() {
-    this.metricsCollector = new MetricsCollector(
-      this._queues,
-      this.config.metrics as Required<MetricsConfig>
-    );
-    this.metricsCollector.startCollecting();
-  }
 }
 
 export { Config, MetricsConfig };

@@ -38,15 +38,12 @@ export enum ErrorEnum {
   BAD_LIMIT = 'Limit should be >= 1',
 }
 export class BullDataSource extends DataSource {
-  private _queuesMap: Map<string, Queue> = new Map();
-  constructor(private _queues: Queue[], private _config: Config) {
+  constructor(
+    private _queues: Queue[],
+    private _queuesMap: Map<string, Queue>,
+    private _config: Config
+  ) {
     super();
-    this._convertQueuesToMap(_queues);
-  }
-  private _convertQueuesToMap(queues: Queue[]) {
-    queues.forEach((queue) => {
-      this._queuesMap.set(queue.id as string, queue);
-    });
   }
   private _throwInternalError(e: ErrorEnum) {
     throw new BullMonitorError(e);
@@ -58,14 +55,6 @@ export class BullDataSource extends DataSource {
     this._throwInternalError(ErrorEnum.JOB_NOT_FOUND);
   }
 
-  // queries
-  getQueueByName(name: string, throwIfNotFound?: boolean) {
-    const queue = this._queuesMap.get(name);
-    if (!queue && throwIfNotFound) {
-      this._throwQueueNotFound();
-    }
-    return queue;
-  }
   // queries
   getQueueById(id: string, throwIfNotFound?: boolean) {
     const queue = this._queuesMap.get(id);
