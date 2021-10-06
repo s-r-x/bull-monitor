@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.9.0](https://github.com/s-r-x/bull-monitor/compare/v2.8.0...v2.9.0) (2021-10-06)
+
+
+### Bug Fixes
+
+* **ui:** add minWidth to RemoveJobsModal ([e2dcd7e](https://github.com/s-r-x/bull-monitor/commit/e2dcd7e45819d5151a6e0a054d4e69cff7552717))
+* **ui:** correct width for JobLogsModal ([d812577](https://github.com/s-r-x/bull-monitor/commit/d8125775b27bf5b36872e2a18e94e00690f12cda))
+* **ui:** correct width for RedisInfoModal ([a35204d](https://github.com/s-r-x/bull-monitor/commit/a35204dec7d156c0c6a958c8b1b99a6531439cd2))
+
+
+### Features
+
+* **ui:** AddJobModal redesign ([364c2f2](https://github.com/s-r-x/bull-monitor/commit/364c2f2fab85f89c46a044b58743959f7eb5888b))
+* **ui:** DataEditorModal redesign ([a2f9da7](https://github.com/s-r-x/bull-monitor/commit/a2f9da701478c76598c4c58926060cd294e4c490))
+
+
+
+
+
 # [2.8.0](https://github.com/s-r-x/bull-monitor/compare/v2.7.1...v2.8.0) (2021-10-06)
 
 
