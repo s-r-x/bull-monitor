@@ -12,6 +12,7 @@ export const useExportJobsMutation = () => {
         ...job,
         opts: JsonService.maybeParse(job.opts),
         data: JsonService.maybeParse(job.data),
+        returnValue: JsonService.maybeParse(job.returnValue),
       }));
       const blob = new Blob([JSON.stringify(normalizedJobs, null, 2)], {
         type: 'application/json',
