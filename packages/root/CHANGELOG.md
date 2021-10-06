@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.8.0](https://github.com/s-r-x/bull-monitor/compare/v2.7.1...v2.8.0) (2021-10-06)
+
+
+### Bug Fixes
+
+* **root:** disable gqlPlayground and gqlIntrospection in production by default ([131f71d](https://github.com/s-r-x/bull-monitor/commit/131f71d9a62909297e9da512c8832135be5839fd))
+
+
+### Performance Improvements
+
+* **root:** convert queues to map when initializing the base class ([fd7f94f](https://github.com/s-r-x/bull-monitor/commit/fd7f94fd9fb9a1ce3b7204f7224448e41d5fc374))
+
+
+
+
+
 ## [2.7.1](https://github.com/s-r-x/bull-monitor/compare/v2.7.0...v2.7.1) (2021-09-24)
 
 **Note:** Version bump only for package @bull-monitor/root
