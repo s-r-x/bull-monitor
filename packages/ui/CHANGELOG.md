@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.11.0](https://github.com/s-r-x/bull-monitor/compare/v2.10.0...v2.11.0) (2021-10-07)
+
+
+### Features
+
+* **ui:** move submit button in AddJobModal and DataEditorModal to the left ([61c9098](https://github.com/s-r-x/bull-monitor/commit/61c90989dc7ee6b17e96cd641a84357454ba117a))
+
+
+
+
+
 # [2.10.0](https://github.com/s-r-x/bull-monitor/compare/v2.9.0...v2.10.0) (2021-10-07)
 
 
