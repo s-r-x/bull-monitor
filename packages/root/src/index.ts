@@ -1,29 +1,28 @@
 import { BullDataSource, MetricsDataSource } from './gql/data-sources';
 import { typeDefs } from './gql/type-defs';
 import { resolvers } from './gql/resolvers';
+import { UI } from './ui';
+import { MetricsCollector } from './metrics-collector';
+import { BullMonitorQueue, patchBullQueue } from './queue';
+import { DEFAULT_METRICS_CONFIG, DEFAULT_ROOT_CONFIG } from './constants';
 import type {
   ApolloServerBase,
   Config as ApolloConfig,
 } from 'apollo-server-core';
-import { UI } from './ui';
 import type { Config, MetricsConfig } from './typings/config';
-import { MetricsCollector } from './metrics-collector';
-import { BullMonitorQueue, patchBullQueue } from './queue';
-import { DEFAULT_DATA_SEARCH_SCAN_COUNT, DEV } from './constants';
 
 export abstract class BullMonitor<TServer extends ApolloServerBase> {
+  private _queues: BullMonitorQueue[];
+  private _queuesMap: Map<string, BullMonitorQueue> = new Map();
+  private _ui: UI;
+  private _metricsCollector?: MetricsCollector;
+
   constructor(config: Config) {
-    this.config = {
-      ...this.defaultConfig,
-      ...config,
-      metrics: config.metrics
-        ? { ...this.defaultMetricsConfig, ...config.metrics }
-        : false,
-    };
-    this.ui = new UI();
-    this.initQueues(this.config.queues);
+    this.config = this._normalizeConfig(config);
+    this._ui = new UI();
+    this._initQueues(this.config.queues);
     if (this.config.metrics) {
-      this.initMetricsCollector();
+      this._initMetricsCollector();
     }
   }
   public abstract init(...args: any): Promise<any>;
@@ -31,10 +30,9 @@ export abstract class BullMonitor<TServer extends ApolloServerBase> {
     return this._queues;
   }
   public set queues(queues: Config['queues']) {
-    this.initQueues(queues);
-    if (this.metricsCollector && this.config.metrics) {
-      this.metricsCollector.stopCollecting();
-      this.initMetricsCollector();
+    this._initQueues(queues);
+    if (this._metricsCollector && this.config.metrics) {
+      this._metricsCollector.queues = this._queues;
     }
   }
 
@@ -52,7 +50,7 @@ export abstract class BullMonitor<TServer extends ApolloServerBase> {
         bull: new BullDataSource(this._queues, this._queuesMap, {
           textSearchScanCount: this.config.textSearchScanCount,
         }),
-        metrics: new MetricsDataSource(this.metricsCollector),
+        metrics: new MetricsDataSource(this._metricsCollector),
       }),
     });
   }
@@ -60,7 +58,7 @@ export abstract class BullMonitor<TServer extends ApolloServerBase> {
     return await this.server.start();
   }
   protected renderUi() {
-    return this.ui.render();
+    return this._ui.render();
   }
   protected get baseUrl() {
     return this.config.baseUrl;
@@ -78,37 +76,28 @@ export abstract class BullMonitor<TServer extends ApolloServerBase> {
     return base + this.gqlBasePath;
   }
 
-  private _queues: BullMonitorQueue[];
-  private _queuesMap: Map<string, BullMonitorQueue> = new Map();
-  private initQueues(queues: Config['queues']) {
+  private _initQueues(queues: Config['queues']) {
     this._queues = queues.map(patchBullQueue);
     this._queues.forEach((queue) => {
       this._queuesMap.set(queue.id as string, queue);
     });
   }
-  private ui: UI;
-  private metricsCollector?: MetricsCollector;
-  private defaultMetricsConfig: MetricsConfig = {
-    redisPrefix: 'bull_monitor::metrics::',
-    collectInterval: { hours: 1 },
-    maxMetrics: 100,
-    blacklist: [],
-  };
-  private initMetricsCollector() {
-    this.metricsCollector = new MetricsCollector(
+  private _normalizeConfig(config: Config): Required<Config> {
+    return {
+      ...DEFAULT_ROOT_CONFIG,
+      ...config,
+      metrics: config.metrics
+        ? { ...DEFAULT_METRICS_CONFIG, ...config.metrics }
+        : false,
+    };
+  }
+  private _initMetricsCollector() {
+    this._metricsCollector = new MetricsCollector(
       this._queues,
       this.config.metrics as Required<MetricsConfig>
     );
-    this.metricsCollector.startCollecting();
+    this._metricsCollector.startCollecting();
   }
-  private defaultConfig: Required<Config> = {
-    queues: [],
-    baseUrl: '',
-    gqlIntrospection: DEV,
-    gqlPlayground: DEV,
-    textSearchScanCount: DEFAULT_DATA_SEARCH_SCAN_COUNT,
-    metrics: false,
-  };
 }
 
 export { Config, MetricsConfig };

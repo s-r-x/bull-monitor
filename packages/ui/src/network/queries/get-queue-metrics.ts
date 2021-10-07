@@ -13,6 +13,7 @@ export const getQueueMetrics = (
       query GetQueueMetrics($queue: ID!, $start: Int, $end: Int) {
         metrics(queue: $queue, start: $start, end: $end) {
           timestamp
+          processingTime
           counts {
             waiting
             active

@@ -1,40 +1,18 @@
 import React, { memo } from 'react';
 import Paper from '@material-ui/core/Paper';
 import * as Chart from 'recharts';
-import { makeStyles } from '@material-ui/core/styles';
 import { JobStatus } from '@/typings/gql';
-import type { GetQueueMetricsQuery } from '@/typings/gql';
 import { useJobStatusesPalette } from '@/components/JobStatusChip/hooks';
-import day from 'dayjs';
-import { useCallback } from 'react';
+import type { TChartProps } from '../typings';
+import { useChartStyles } from './styles';
+import { tickXFormatter, tooltipLabelFormatter } from './utils';
 
-const DATE_FORMAT = 'YYYY-MM-DD HH:mm';
 const statuses = Object.values(JobStatus).filter(
   (status) => status !== JobStatus.Stuck
 );
-const tickXFormatter = (timestamp: number) => {
-  return day(timestamp).format(DATE_FORMAT);
-};
-const useStyles = makeStyles((theme) => ({
-  root: {
-    padding: theme.spacing(1),
-    overflow: 'hidden',
-    flex: 1,
-  },
-  tooltipLabel: {
-    color: 'black',
-  },
-}));
 
-type TMetrics = NonNullable<GetQueueMetricsQuery['metrics']>;
-type TProps = {
-  metrics: TMetrics;
-};
-const MetricsChart = ({ metrics }: TProps) => {
-  const cls = useStyles();
-  const tooltipLabelFormatter = useCallback((label: number) => {
-    return day(label).format(DATE_FORMAT);
-  }, []);
+const JobsCountChart = ({ metrics }: TChartProps) => {
+  const cls = useChartStyles();
   const palette = useJobStatusesPalette();
   return (
     <Paper className={cls.root}>
@@ -75,7 +53,6 @@ const MetricsChart = ({ metrics }: TProps) => {
               strokeWidth={2}
               isAnimationActive={false}
               name={status}
-              //dot={false}
               type="monotone"
               stroke={palette[status]}
               dataKey={`counts.${status}`}
@@ -87,4 +64,4 @@ const MetricsChart = ({ metrics }: TProps) => {
   );
 };
 
-export default memo(MetricsChart);
+export default memo(JobsCountChart);

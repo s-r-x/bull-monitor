@@ -297,6 +297,7 @@ export type QueueJobsCounts = {
 export type QueueMetrics = {
   timestamp: Scalars['Float'];
   counts: QueueJobsCounts;
+  processingTime?: Maybe<Scalars['Float']>;
 };
 
 export type RedisInfo = {
@@ -536,7 +537,7 @@ export type GetQueueMetricsQueryVariables = Exact<{
 
 
 export type GetQueueMetricsQuery = { metrics?: Maybe<Array<(
-    Pick<QueueMetrics, 'timestamp'>
+    Pick<QueueMetrics, 'timestamp' | 'processingTime'>
     & { counts: Pick<QueueJobsCounts, 'waiting' | 'active' | 'completed' | 'failed' | 'delayed' | 'paused'> }
   )>> };
 

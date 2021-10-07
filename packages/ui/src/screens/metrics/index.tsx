@@ -1,5 +1,6 @@
 import React from 'react';
-import Chart from './Chart';
+import JobsCount from './charts/JobsCount';
+import ProcessingTime from './charts/ProcessingTime';
 import Actions from './Actions';
 import { useQuery } from 'react-query';
 import { useNetwork } from '@/hooks/use-network';
@@ -10,11 +11,31 @@ import { getPollingInterval } from '@/stores/network-settings';
 import { QueryKeysConfig } from '@/config/query-keys';
 import isempty from 'lodash/isEmpty';
 import Alert from '@material-ui/lab/Alert';
+import Grid from '@material-ui/core/Grid';
+import { makeStyles } from '@material-ui/core/styles';
 
+const useStyles = makeStyles((theme) => ({
+  grid: {
+    flex: 1,
+    display: 'flex',
+    [theme.breakpoints.down('xs')]: {
+      display: 'block',
+    },
+  },
+  gridItem: {
+    flex: 1,
+    display: 'flex',
+    flexDirection: 'column',
+    [theme.breakpoints.down('xs')]: {
+      display: 'block',
+    },
+  },
+}));
 const MetricsScreen = () => {
   const {
     queries: { getQueueMetrics },
   } = useNetwork();
+  const cls = useStyles();
   const queue = useAtomValue(activeQueueAtom) as string;
   const refetchInterval = getPollingInterval();
   const { status, refetch, data, error } = useQuery(
@@ -36,7 +57,14 @@ const MetricsScreen = () => {
       {!data || isempty(data) ? (
         <Alert severity="warning">No metrics</Alert>
       ) : (
-        <Chart metrics={data} />
+        <Grid className={cls.grid} container spacing={1}>
+          <Grid className={cls.gridItem} item xs={12} sm={6}>
+            <JobsCount metrics={data} />
+          </Grid>
+          <Grid className={cls.gridItem} item xs={12} sm={6}>
+            <ProcessingTime metrics={data} />
+          </Grid>
+        </Grid>
       )}
     </NetworkRequest>
   );

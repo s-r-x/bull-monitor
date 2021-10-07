@@ -4,5 +4,6 @@ export const metricsTypeDef = gql`
   type QueueMetrics {
     timestamp: Float!
     counts: QueueJobsCounts!
+    processingTime: Float
   }
 `;

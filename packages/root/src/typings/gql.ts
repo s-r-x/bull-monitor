@@ -1,13 +1,7 @@
 export type Maybe<T> = T | null;
-export type Exact<T extends { [key: string]: unknown }> = {
-  [K in keyof T]: T[K];
-};
-export type MakeOptional<T, K extends keyof T> = Omit<T, K> & {
-  [SubKey in K]?: Maybe<T[SubKey]>;
-};
-export type MakeMaybe<T, K extends keyof T> = Omit<T, K> & {
-  [SubKey in K]: Maybe<T[SubKey]>;
-};
+export type Exact<T extends { [key: string]: unknown }> = { [K in keyof T]: T[K] };
+export type MakeOptional<T, K extends keyof T> = Omit<T, K> & { [SubKey in K]?: Maybe<T[SubKey]> };
+export type MakeMaybe<T, K extends keyof T> = Omit<T, K> & { [SubKey in K]: Maybe<T[SubKey]> };
 /** All built-in and custom scalars, mapped to their actual values */
 export type Scalars = {
   ID: string;
@@ -23,7 +17,7 @@ export type Scalars = {
 
 export enum CacheControlScope {
   Public = 'PUBLIC',
-  Private = 'PRIVATE',
+  Private = 'PRIVATE'
 }
 
 export type CreateJobInput = {
@@ -32,6 +26,7 @@ export type CreateJobInput = {
   data?: Maybe<Scalars['JSON']>;
   options?: Maybe<Scalars['JSON']>;
 };
+
 
 export type Job = {
   id: Scalars['ID'];
@@ -64,7 +59,7 @@ export enum JobStatus {
   Delayed = 'delayed',
   Failed = 'failed',
   Paused = 'paused',
-  Stuck = 'stuck',
+  Stuck = 'stuck'
 }
 
 export enum JobStatusClean {
@@ -73,7 +68,7 @@ export enum JobStatusClean {
   Active = 'active',
   Delayed = 'delayed',
   Failed = 'failed',
-  Paused = 'paused',
+  Paused = 'paused'
 }
 
 export type Mutation = {
@@ -115,17 +110,21 @@ export type Mutation = {
   clearAllMetrics?: Maybe<Scalars['Boolean']>;
 };
 
+
 export type MutationPauseQueueArgs = {
   queue: Scalars['ID'];
 };
+
 
 export type MutationResumeQueueArgs = {
   queue: Scalars['ID'];
 };
 
+
 export type MutationCloseQueueArgs = {
   queue: Scalars['ID'];
 };
+
 
 export type MutationCleanQueueArgs = {
   queue: Scalars['ID'];
@@ -134,39 +133,47 @@ export type MutationCleanQueueArgs = {
   limit?: Maybe<Scalars['Int']>;
 };
 
+
 export type MutationEmptyQueueArgs = {
   queue: Scalars['ID'];
 };
+
 
 export type MutationRemoveJobArgs = {
   queue: Scalars['ID'];
   id: Scalars['ID'];
 };
 
+
 export type MutationRemoveJobsArgs = {
   queue: Scalars['ID'];
   jobs: Array<Scalars['ID']>;
 };
+
 
 export type MutationMoveJobToCompletedArgs = {
   queue: Scalars['ID'];
   id: Scalars['ID'];
 };
 
+
 export type MutationMoveJobToFailedArgs = {
   queue: Scalars['ID'];
   id: Scalars['ID'];
 };
+
 
 export type MutationDiscardJobArgs = {
   queue: Scalars['ID'];
   id: Scalars['ID'];
 };
 
+
 export type MutationPromoteJobArgs = {
   queue: Scalars['ID'];
   id: Scalars['ID'];
 };
+
 
 export type MutationUpdateJobDataArgs = {
   queue: Scalars['ID'];
@@ -174,15 +181,18 @@ export type MutationUpdateJobDataArgs = {
   data?: Maybe<Scalars['JSON']>;
 };
 
+
 export type MutationRetryJobArgs = {
   queue: Scalars['ID'];
   id: Scalars['ID'];
 };
 
+
 export type MutationRetryJobsArgs = {
   queue: Scalars['ID'];
   jobs: Array<Scalars['ID']>;
 };
+
 
 export type MutationLogArgs = {
   queue: Scalars['ID'];
@@ -190,14 +200,17 @@ export type MutationLogArgs = {
   row: Scalars['String'];
 };
 
+
 export type MutationCreateJobArgs = {
   input: CreateJobInput;
 };
+
 
 export type MutationRemoveJobsByPatternArgs = {
   queue: Scalars['ID'];
   pattern: Scalars['String'];
 };
+
 
 export type MutationClearMetricsArgs = {
   queue: Scalars['ID'];
@@ -205,7 +218,7 @@ export type MutationClearMetricsArgs = {
 
 export enum OrderEnum {
   Asc = 'ASC',
-  Desc = 'DESC',
+  Desc = 'DESC'
 }
 
 export type Query = {
@@ -217,15 +230,18 @@ export type Query = {
   redisInfo?: Maybe<RedisInfo>;
 };
 
+
 export type QueryQueueArgs = {
   id: Scalars['ID'];
 };
+
 
 export type QueryMetricsArgs = {
   queue: Scalars['ID'];
   start?: Maybe<Scalars['Int']>;
   end?: Maybe<Scalars['Int']>;
 };
+
 
 export type QueryJobsArgs = {
   queue: Scalars['ID'];
@@ -237,6 +253,7 @@ export type QueryJobsArgs = {
   ids?: Maybe<Array<Maybe<Scalars['ID']>>>;
   dataSearch?: Maybe<Scalars['String']>;
 };
+
 
 export type QueryJobArgs = {
   queue: Scalars['ID'];
@@ -280,6 +297,7 @@ export type QueueJobsCounts = {
 export type QueueMetrics = {
   timestamp: Scalars['Float'];
   counts: QueueJobsCounts;
+  processingTime?: Maybe<Scalars['Float']>;
 };
 
 export type RedisInfo = {
@@ -307,3 +325,4 @@ export type RedisInfo = {
   used_cpu_sys: Scalars['String'];
   tcp_port: Scalars['String'];
 };
+
