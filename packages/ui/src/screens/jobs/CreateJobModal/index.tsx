@@ -17,7 +17,6 @@ import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import IconButton from '@material-ui/core/IconButton';
 import CloseIcon from '@material-ui/icons/Close';
-import Typography from '@material-ui/core/Typography';
 
 const useStyles = makeStyles((theme) => ({
   label: {
@@ -29,9 +28,8 @@ const useStyles = makeStyles((theme) => ({
   appBar: {
     position: 'relative',
   },
-  title: {
-    marginLeft: theme.spacing(2),
-    flex: 1,
+  submitBtn: {
+    marginLeft: theme.spacing(1),
   },
   form: {
     display: 'flex',
@@ -93,16 +91,14 @@ const CreateJob = () => {
           >
             <CloseIcon />
           </IconButton>
-          <Typography variant="h6" className={classes.title}>
-            Create job
-          </Typography>
           <Button
+            className={classes.submitBtn}
             disabled={mutation.isLoading}
             type="submit"
             form={FORM_ID}
             color="inherit"
           >
-            Submit
+            Create job
           </Button>
         </Toolbar>
       </AppBar>

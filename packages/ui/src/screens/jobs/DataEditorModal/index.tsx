@@ -15,16 +15,14 @@ import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import IconButton from '@material-ui/core/IconButton';
 import CloseIcon from '@material-ui/icons/Close';
-import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme) => ({
   appBar: {
     position: 'relative',
   },
-  title: {
-    marginLeft: theme.spacing(2),
-    flex: 1,
+  submitBtn: {
+    marginLeft: theme.spacing(1),
   },
   root: {
     padding: theme.spacing(2),
@@ -91,10 +89,9 @@ const DataEditor = () => {
           >
             <CloseIcon />
           </IconButton>
-          <Typography variant="h6" className={classes.title}>
-            Edit data
-          </Typography>
-          <Button onClick={onSubmit}>Submit</Button>
+          <Button className={classes.submitBtn} onClick={onSubmit}>
+            Update data
+          </Button>
         </Toolbar>
       </AppBar>
       <div className={classes.root}>
