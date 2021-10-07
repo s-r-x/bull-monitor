@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.10.0](https://github.com/s-r-x/bull-monitor/compare/v2.9.0...v2.10.0) (2021-10-07)
+
+
+### Features
+
+* "processing time" metric ([0f6d9e7](https://github.com/s-r-x/bull-monitor/commit/0f6d9e70ed871c2cbf7cb1e8cf660e069912f003))
+
+
+
+
+
 # [2.9.0](https://github.com/s-r-x/bull-monitor/compare/v2.8.0...v2.9.0) (2021-10-06)
 
 
