@@ -6,11 +6,10 @@ import type {
   Config as ApolloConfig,
 } from 'apollo-server-core';
 import { UI } from './ui';
-import { DEFAULT_TEXT_SEARCH_SCAN_COUNT } from './gql/data-sources/bull/config';
 import type { Config, MetricsConfig } from './typings/config';
 import { MetricsCollector } from './metrics-collector';
 import { BullMonitorQueue, patchBullQueue } from './queue';
-import { DEV } from './constants';
+import { DEFAULT_DATA_SEARCH_SCAN_COUNT, DEV } from './constants';
 
 export abstract class BullMonitor<TServer extends ApolloServerBase> {
   constructor(config: Config) {
@@ -107,7 +106,7 @@ export abstract class BullMonitor<TServer extends ApolloServerBase> {
     baseUrl: '',
     gqlIntrospection: DEV,
     gqlPlayground: DEV,
-    textSearchScanCount: DEFAULT_TEXT_SEARCH_SCAN_COUNT,
+    textSearchScanCount: DEFAULT_DATA_SEARCH_SCAN_COUNT,
     metrics: false,
   };
 }

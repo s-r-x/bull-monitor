@@ -1,9 +1,9 @@
 import type { Queue as BullQueue, JobStatus } from 'bull';
 import isempty from 'lodash/isEmpty';
 import { Readable } from 'stream';
-import { DEFAULT_TEXT_SEARCH_SCAN_COUNT } from './gql/data-sources/bull/config';
 import jsonata from 'jsonata';
 import { JsonService } from './services/json';
+import { DEFAULT_DATA_SEARCH_SCAN_COUNT } from './constants';
 
 type TSearchArgs = {
   status: JobStatus;
@@ -83,7 +83,7 @@ type TIteratorConfig = {
 abstract class AbstractIterator {
   protected _scanCount: number;
   constructor(protected _queue: BullQueue, config: TIteratorConfig) {
-    this._scanCount = config.scanCount || DEFAULT_TEXT_SEARCH_SCAN_COUNT;
+    this._scanCount = config.scanCount || DEFAULT_DATA_SEARCH_SCAN_COUNT;
   }
   protected async _extractJobsData(ids: string[]): Promise<TJobExcerpt[]> {
     const pipeline = this._queue.client.pipeline();
