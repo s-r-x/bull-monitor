@@ -5,8 +5,8 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import JobsCount from './JobsCount';
 import PauseIcon from '@material-ui/icons/Pause';
+import BlockIcon from '@material-ui/icons/Block';
 import { makeStyles } from '@material-ui/core/styles';
-import Badge from '@material-ui/core/Badge';
 import Typography from '@material-ui/core/Typography';
 import { useJobsCountArray, useQueueWorkspaceLabel } from './hooks';
 
@@ -29,7 +29,7 @@ type TProps = {
 const DrawerQueue = (props: TProps) => {
   const cls = useStyles();
   const workspaceLabel = useQueueWorkspaceLabel(props.queue);
-  const { id, isPaused } = props.queue;
+  const { id, isPaused, readonly } = props.queue;
   const onSelect = useCallback(() => {
     props.onSelect(id, workspaceLabel);
   }, [id, workspaceLabel]);
@@ -42,12 +42,10 @@ const DrawerQueue = (props: TProps) => {
       dense
       button
     >
-      {isPaused && (
+      {(readonly || isPaused) && (
         <ListItemIcon>
-          <ListItemIcon>
-            <Badge color="secondary" showZero>
-              <PauseIcon />
-            </Badge>
+          <ListItemIcon title={isPaused ? 'Paused' : 'Readonly'}>
+            {isPaused ? <PauseIcon /> : <BlockIcon />}
           </ListItemIcon>
         </ListItemIcon>
       )}

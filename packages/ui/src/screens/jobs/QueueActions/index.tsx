@@ -7,7 +7,6 @@ import { useNetwork } from '@/hooks/use-network';
 import AddIcon from '@material-ui/icons/Add';
 import { useAbstractMutation } from '@/hooks/use-abstract-mutation';
 import { useRemoveJobsModalStore } from '@/stores/remove-jobs-modal';
-import { useIsQueuePaused } from './hooks';
 import { JobStatusClean } from '@/typings/gql';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
@@ -26,6 +25,7 @@ import { useAtomValue } from 'jotai/utils';
 import SaveIcon from '@material-ui/icons/Save';
 import Tooltip from '@material-ui/core/Tooltip';
 import { useExportJobsMutation } from '@/hooks/use-export-jobs-mutation';
+import { useQueueData } from '@/hooks/use-queue-data';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -75,7 +75,9 @@ export default function QueueActions() {
   const {
     mutations: { pauseQueue, resumeQueue, emptyQueue, cleanQueue },
   } = useNetwork();
-  const isQueuePaused = useIsQueuePaused(queue);
+  const queueData = useQueueData(queue);
+  const isQueuePaused = queueData?.isPaused;
+  const isReadonly = !!queueData?.readonly;
   const openRemoveJobsModal = useRemoveJobsModalStore((state) => state.open);
   const pauseMutation = useAbstractMutation({
     mutation: pauseQueue,
@@ -123,6 +125,7 @@ export default function QueueActions() {
       <Button
         onClick={openCreateJob}
         variant="contained"
+        disabled={isReadonly}
         startIcon={<AddIcon />}
         color="primary"
       >
@@ -131,6 +134,7 @@ export default function QueueActions() {
       <Button
         onClick={handleClickClean}
         color="secondary"
+        disabled={isReadonly}
         aria-controls="clean-queue-menu"
         aria-haspopup="true"
       >
@@ -169,6 +173,7 @@ export default function QueueActions() {
       </Tooltip>
       <IconButton
         onClick={handleClickMore}
+        disabled={isReadonly}
         aria-controls="more-queue-actions-menu"
         aria-haspopup="true"
       >
