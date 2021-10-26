@@ -1,4 +1,8 @@
-import { BullDataSource, MetricsDataSource } from './gql/data-sources';
+import {
+  BullDataSource,
+  MetricsDataSource,
+  PoliciesDataSource,
+} from './gql/data-sources';
 import { typeDefs } from './gql/type-defs';
 import { resolvers } from './gql/resolvers';
 import { UI } from './ui';
@@ -14,6 +18,7 @@ import type { Config, MetricsConfig } from './typings/config';
 export abstract class BullMonitor<TServer extends ApolloServerBase> {
   private _queues: BullMonitorQueue[];
   private _queuesMap: Map<string, BullMonitorQueue> = new Map();
+  private _readonlyQueuesMap: Map<string, BullMonitorQueue> = new Map();
   private _ui: UI;
   private _metricsCollector?: MetricsCollector;
 
@@ -51,6 +56,7 @@ export abstract class BullMonitor<TServer extends ApolloServerBase> {
           textSearchScanCount: this.config.textSearchScanCount,
         }),
         metrics: new MetricsDataSource(this._metricsCollector),
+        policies: new PoliciesDataSource(this._readonlyQueuesMap),
       }),
     });
   }
@@ -76,10 +82,17 @@ export abstract class BullMonitor<TServer extends ApolloServerBase> {
     return base + this.gqlBasePath;
   }
 
-  private _initQueues(queues: Config['queues']) {
+  private _initQueues(rawQueues: Config['queues']) {
+    const queues = rawQueues.map((queue) =>
+      Array.isArray(queue) ? queue[0] : queue
+    );
     this._queues = queues.map(patchBullQueue);
-    this._queues.forEach((queue) => {
-      this._queuesMap.set(queue.id as string, queue);
+    this._queues.forEach((queue, idx) => {
+      this._queuesMap.set(queue.id, queue);
+      const rawQueue = rawQueues[idx];
+      if (Array.isArray(rawQueue) && rawQueue[1].readonly) {
+        this._readonlyQueuesMap.set(queue.id, queue);
+      }
     });
   }
   private _normalizeConfig(config: Config): Required<Config> {

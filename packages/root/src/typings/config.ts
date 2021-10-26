@@ -1,4 +1,4 @@
-import { Queue } from 'bull';
+import type { Queue } from 'bull';
 import { SimpleIntervalSchedule } from 'toad-scheduler';
 
 export type MetricsConfig = {
@@ -7,8 +7,12 @@ export type MetricsConfig = {
   maxMetrics?: number;
   blacklist?: string[];
 };
+export type QueueConfig = {
+  readonly?: boolean;
+};
+export type QueueConfigTuple = [queue: Queue, config: QueueConfig];
 export type Config = {
-  queues: Queue[];
+  queues: (Queue | QueueConfigTuple)[];
   gqlPlayground?: boolean;
   gqlIntrospection?: boolean;
   baseUrl?: string;

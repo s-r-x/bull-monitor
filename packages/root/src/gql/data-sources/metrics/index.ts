@@ -1,6 +1,6 @@
 import { DataSource } from 'apollo-datasource';
 import { MetricsCollector } from '../../../metrics-collector';
-import { BullMonitorError } from '../errors';
+import { BullMonitorError } from '../../../errors';
 import { MetricsErrorEnum as ErrorEnum } from './errors-enum';
 
 export class MetricsDataSource extends DataSource {

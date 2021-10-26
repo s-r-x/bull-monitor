@@ -263,6 +263,7 @@ export type QueryJobArgs = {
 export type Queue = {
   id: Scalars['String'];
   name: Scalars['String'];
+  readonly?: Maybe<Scalars['Boolean']>;
   keyPrefix?: Maybe<Scalars['String']>;
   /** https://github.com/OptimalBits/bull/blob/develop/REFERENCE.md#queuecount */
   count: Scalars['Int'];

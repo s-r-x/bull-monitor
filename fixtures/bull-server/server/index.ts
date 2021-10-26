@@ -3,12 +3,16 @@ import express from 'express';
 import Queue from 'bull';
 
 const QUEUES_AMOUNT = 5;
+const READONLY_QUEUES_AMOUNT = 2;
 const redisUri = process.env.REDIS_URI as string;
 const port = process.env.PORT;
 const app = express();
 
 const queues = Array.from(new Array(QUEUES_AMOUNT)).map(
   (_v, idx) => new Queue(`queue:${idx}`, redisUri)
+);
+const readonlyQueues = Array.from(new Array(READONLY_QUEUES_AMOUNT)).map(
+  (_v, idx) => new Queue(`ro-queue:${idx}`, redisUri)
 );
 const prefixedQueues = Array.from(new Array(QUEUES_AMOUNT)).map(
   (_v, idx) =>
@@ -29,7 +33,11 @@ const prefixedQueues = Array.from(new Array(QUEUES_AMOUNT)).map(
 });
 
 const monitor = new BullMonitorExpress({
-  queues: [...queues, ...prefixedQueues],
+  queues: [
+    ...queues,
+    ...prefixedQueues,
+    ...readonlyQueues.map((queue) => [queue, { readonly: true }]),
+  ],
   gqlPlayground: true,
   gqlIntrospection: true,
   //metrics: {

@@ -24,7 +24,7 @@ import { Maybe } from '../../../typings/utils';
 import redisInfo from 'redis-info';
 import { DataSearcher } from '../../../data-search';
 import isNil from 'lodash/isNil';
-import { BullMonitorError } from '../errors';
+import { BullMonitorError } from '../../../errors';
 import { BullMonitorQueue as Queue } from '../../../queue';
 import { BullErrorEnum as ErrorEnum } from './errors-enum';
 
