@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.12.0](https://github.com/s-r-x/bull-monitor/compare/v2.11.0...v2.12.0) (2021-10-26)
+
+
+### Features
+
+* **ui:** readonly queues ([fae1a90](https://github.com/s-r-x/bull-monitor/commit/fae1a907b9670b4a01b28af59081e5bd676025ed))
+
+
+
+
+
 # [2.11.0](https://github.com/s-r-x/bull-monitor/compare/v2.10.0...v2.11.0) (2021-10-07)
 
 
