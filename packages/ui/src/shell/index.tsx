@@ -1,8 +1,8 @@
 import React from 'react';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import { makeStyles } from '@material-ui/core/styles';
-import Drawer from '@/components/Drawer';
-import AppBar from '@/components/AppBar';
+import Drawer from './Drawer';
+import AppBar from './AppBar';
 import SettingsModal from '../components/Settings';
 import RedisInfoModal from '../components/RedisInfo';
 import { useCreateFirstWorkspace } from '@/hooks/use-create-first-workspace';
