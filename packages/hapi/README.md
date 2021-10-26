@@ -5,7 +5,7 @@
 ## Usage
 
 ```sh
-npm i @hapi/hapi @bull-monitor/hapi bull
+npm i @bull-monitor/hapi
 ```
 
 ```typescript

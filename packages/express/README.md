@@ -5,7 +5,7 @@
 ## Usage
 
 ```sh
-npm i express @bull-monitor/express bull
+npm i @bull-monitor/express
 ```
 
 ```typescript

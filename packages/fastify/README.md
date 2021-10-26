@@ -5,7 +5,7 @@
 ## Usage
 
 ```sh
-npm i @bull-monitor/fastify fastify bull
+npm i @bull-monitor/fastify
 ```
 
 ```typescript

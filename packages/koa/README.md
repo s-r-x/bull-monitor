@@ -7,7 +7,7 @@
 @bull-monitor/koa has a peer dependency of koa-router
 
 ```sh
-npm i koa @bull-monitor/koa bull koa-router
+npm i @bull-monitor/koa koa-router
 ```
 
 ```typescript
