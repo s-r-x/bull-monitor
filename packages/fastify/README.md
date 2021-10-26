@@ -14,12 +14,15 @@ import { BullMonitorFastify } from '@bull-monitor/fastify';
 import Queue from 'bull';
 
 (async () => {
-  const queues = [new Queue('1', 'REDIS_URI')];
   const app = Fastify();
   const monitor = new BullMonitorFastify({
+    queues: [
+      new Queue('1', 'REDIS_URI'),
+      // readonly queue
+      [new Queue('2', 'REDIS_URI'), { readonly: true }],
+    ],
     // enables graphql playground at /my/url/graphql. true by default
     gqlPlayground: true,
-    queues,
     baseUrl: '/my/url',
     // enable metrics collector. false by default
     // metrics are persisted into redis as a list

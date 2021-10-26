@@ -14,18 +14,20 @@ import Hapi from '@hapi/hapi';
 import Queue from 'bull';
 
 (async () => {
-  const queues = [new Queue('1', 'REDIS_URI')];
   const server = new Hapi.server({
     port: 3000,
     host: 'localhost',
   });
   await server.start();
   const monitor = new BullMonitorHapi({
-    queues,
+    queues: [
+      new Queue('1', 'REDIS_URI'),
+      // readonly queue
+      [new Queue('2', 'REDIS_URI'), { readonly: true }],
+    ],
     baseUrl: '/my/url',
     // enables graphql playground at /my/url/graphql. true by default
     gqlPlayground: true,
-    queues,
     // enable metrics collector. false by default
     // metrics are persisted into redis as a list
     // with keys in format "bull_monitor::metrics::{{queue}}"
