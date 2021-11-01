@@ -43,6 +43,7 @@ const Job = ({
   isSelected,
   toggleSelected,
   removeSelected,
+  readonly,
 }: TJobProps) => {
   const date = useFormatDateTime(job.timestamp);
   const cls = useStyles();
@@ -63,7 +64,7 @@ const Job = ({
           />
         </TableCell>
         <TableCell>
-          <Actions job={job} queue={queue} />
+          <Actions readonly={readonly} job={job} queue={queue} />
         </TableCell>
         <TableCell>{job.id}</TableCell>
         <TableCell>

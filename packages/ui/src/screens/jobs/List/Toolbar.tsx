@@ -12,7 +12,7 @@ import { JobStatus } from '@/typings/gql';
 import { useNetwork } from '@/hooks/use-network';
 import { useAbstractMutation } from '@/hooks/use-abstract-mutation';
 import { useExportJobsMutation } from '@/hooks/use-export-jobs-mutation';
-import { activeQueueAtom, activeStatusAtom } from '@/atoms/workspaces';
+import { activeStatusAtom } from '@/atoms/workspaces';
 import { useAtomValue } from 'jotai/utils';
 
 const useStyles = makeStyles((theme) => ({
@@ -21,10 +21,13 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function TableToolbar() {
+type TProps = {
+  queue: string;
+  readonly: boolean;
+};
+export default function TableToolbar({ queue, readonly }: TProps) {
   const cls = useStyles();
   const activeStatus = useAtomValue(activeStatusAtom);
-  const queue = useAtomValue(activeQueueAtom) as string;
   const { mutations } = useNetwork();
   const [selectedJobs, clearSelectedJobs] = useSelectedJobsStore((state) => [
     state.selected,
@@ -65,6 +68,7 @@ export default function TableToolbar() {
           {activeStatus === JobStatus.Failed && (
             <Tooltip title="Retry selected jobs">
               <IconButton
+                disabled={readonly}
                 onClick={() =>
                   retryMutation.mutate({
                     queue,
@@ -78,6 +82,7 @@ export default function TableToolbar() {
           )}
           <Tooltip title="Delete selected jobs">
             <IconButton
+              disabled={readonly}
               onClick={() =>
                 removeMutation.mutate({
                   queue,

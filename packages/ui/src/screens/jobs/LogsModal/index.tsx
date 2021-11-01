@@ -15,6 +15,7 @@ import { useNetwork } from '@/hooks/use-network';
 import { useAbstractMutation } from '@/hooks/use-abstract-mutation';
 import NetworkRequest from '@/components/NetworkRequest';
 import { makeStyles } from '@material-ui/core/styles';
+import { useQueueData } from '@/hooks/use-queue-data';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -48,6 +49,7 @@ const JobLogs = () => {
     ],
     shallow
   );
+  const readonly = !!useQueueData(jobIdentity.queue)?.readonly;
   const { status, refetch, data } = useQuery(
     [QueryKeysConfig.jobLogs, jobIdentity],
     () => getJobLogs(jobIdentity),
@@ -73,9 +75,10 @@ const JobLogs = () => {
   return (
     <>
       <DialogContent className={cls.root}>
-        <form onSubmit={onSubmit} autoComplete="off">
+        <form aria-disabled={readonly} onSubmit={onSubmit} autoComplete="off">
           <div className={cls.inputRoot}>
             <TextField
+              disabled={readonly}
               fullWidth
               value={log}
               onChange={(e) => setLog(e.target.value)}
@@ -83,7 +86,9 @@ const JobLogs = () => {
               id="job-log-input"
               label="Log"
             />
-            <Button type="submit">submit</Button>
+            <Button disabled={readonly} type="submit">
+              submit
+            </Button>
           </div>
         </form>
         <NetworkRequest status={status} refetch={refetch}>

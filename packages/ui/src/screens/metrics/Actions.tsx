@@ -8,6 +8,7 @@ import { useAbstractMutation } from '@/hooks/use-abstract-mutation';
 import { useNetwork } from '@/hooks/use-network';
 import { useQueryClient } from 'react-query';
 import { QueryKeysConfig } from '@/config/query-keys';
+import { useQueueData } from '@/hooks/use-queue-data';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -25,6 +26,7 @@ const MetricsActions = () => {
   } = useNetwork();
   const queryClient = useQueryClient();
   const queue = useAtomValue(activeQueueAtom) as string;
+  const readonly = !!useQueueData(queue)?.readonly;
   const clearMetricsMutation = useAbstractMutation({
     mutation: clearMetrics,
     toast: 'Cleared',
@@ -49,12 +51,14 @@ const MetricsActions = () => {
   return (
     <Paper className={cls.root}>
       <Button
+        disabled={readonly}
         onClick={() => clearMetricsMutation.mutate({ queue })}
         color="secondary"
       >
         Clear
       </Button>
       <Button
+        disabled={readonly}
         onClick={() => clearAllMetricsMutation.mutate(null)}
         color="secondary"
       >

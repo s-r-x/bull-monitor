@@ -1,3 +1,3 @@
 ## Dev
 
-### npm dev-with-mocks
+### npm run dev-with-mocks

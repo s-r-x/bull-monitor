@@ -33,8 +33,8 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-type TProps = Pick<TJobProps, 'job' | 'queue'>;
-const JobActions = ({ job, queue }: TProps) => {
+type TProps = Pick<TJobProps, 'job' | 'queue' | 'readonly'>;
+const JobActions = ({ job, queue, readonly }: TProps) => {
   const cls = useStyles();
   const { mutations } = useNetwork();
   const openDataEditor = useDataEditorStore((state) => state.open);
@@ -94,6 +94,7 @@ const JobActions = ({ job, queue }: TProps) => {
     <>
       <Tooltip title="Data">
         <IconButton
+          disabled={readonly}
           size="small"
           onClick={() => openDataEditor(sharedMutationArg)}
           color="primary"
@@ -103,6 +104,7 @@ const JobActions = ({ job, queue }: TProps) => {
       </Tooltip>
       <Tooltip title="Delete job">
         <IconButton
+          disabled={readonly}
           size="small"
           onClick={() => removeMutation.mutate(sharedMutationArg)}
           color="secondary"
@@ -198,12 +200,16 @@ const JobActions = ({ job, queue }: TProps) => {
         onClick={handleCloseMore}
       >
         {job.status === JobStatus.Failed && (
-          <MenuItem onClick={() => retryMutation.mutate(sharedMutationArg)}>
+          <MenuItem
+            disabled={readonly}
+            onClick={() => retryMutation.mutate(sharedMutationArg)}
+          >
             Retry
           </MenuItem>
         )}
         {job.status === JobStatus.Waiting && (
           <MenuItem
+            disabled={readonly}
             onClick={() => moveToCompletedMutation.mutate(sharedMutationArg)}
           >
             Move to completed
@@ -211,6 +217,7 @@ const JobActions = ({ job, queue }: TProps) => {
         )}
         {job.status === JobStatus.Waiting && (
           <MenuItem
+            disabled={readonly}
             onClick={() => moveToFailedMutation.mutate(sharedMutationArg)}
           >
             Move to failed
@@ -228,11 +235,17 @@ const JobActions = ({ job, queue }: TProps) => {
         </MenuItem>
         <MenuItem onClick={() => shareJob(job.id)}>Share</MenuItem>
         {job.status === JobStatus.Delayed && (
-          <MenuItem onClick={() => promoteMutation.mutate(sharedMutationArg)}>
+          <MenuItem
+            disabled={readonly}
+            onClick={() => promoteMutation.mutate(sharedMutationArg)}
+          >
             Promote
           </MenuItem>
         )}
-        <MenuItem onClick={() => discardMutation.mutate(sharedMutationArg)}>
+        <MenuItem
+          disabled={readonly}
+          onClick={() => discardMutation.mutate(sharedMutationArg)}
+        >
           Discard
         </MenuItem>
         <MenuItem onClick={() => openJobLogs(sharedMutationArg)}>Logs</MenuItem>

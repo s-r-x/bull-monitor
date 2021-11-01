@@ -15,6 +15,7 @@ import { useSelectedJobsStore } from '@/stores/selected-jobs';
 import shallow from 'zustand/shallow';
 import { useAtomValue } from 'jotai/utils';
 import { activeQueueAtom } from '@/atoms/workspaces';
+import { useQueueData } from '@/hooks/use-queue-data';
 
 export default function Jobs() {
   const queue = useAtomValue(activeQueueAtom) as string;
@@ -23,16 +24,18 @@ export default function Jobs() {
     (state) => [state.selected, state.toggleJob, state.removeJob],
     shallow
   );
+  const readonly = !!useQueueData(queue)?.readonly;
   return (
     <Paper>
       <NetworkRequest status={status} refetch={refetch} error={error}>
-        <TableToolbar />
+        <TableToolbar queue={queue} readonly={readonly} />
         <TableContainer>
           <Table size="medium">
             <TableHead jobs={data?.jobs} />
             <TableBody>
               {data?.jobs?.map((job) => (
                 <Job
+                  readonly={readonly}
                   toggleSelected={toggleSelected}
                   removeSelected={removeSelected}
                   isSelected={selectedJobs.has(job.id)}
