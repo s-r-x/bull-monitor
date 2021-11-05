@@ -2,6 +2,7 @@ import React from 'react';
 import BaseAppBar from '@material-ui/core/AppBar';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
+import GitHubIcon from '@material-ui/icons/GitHub';
 import Toolbar from '@material-ui/core/Toolbar';
 import { makeStyles } from '@material-ui/core/styles';
 import type { Theme } from '@material-ui/core/styles';
@@ -18,6 +19,8 @@ import { useShareActiveWorkspace } from '@/hooks/use-share';
 import MetricsScreenIcon from '@material-ui/icons/Timeline';
 import JobsScreenIcon from '@material-ui/icons/ViewList';
 import { useActiveScreenStore } from '@/stores/active-screen';
+import { LinksConfig } from '@/config/links';
+import { EnvConfig } from '@/config/env';
 
 const useStyles = makeStyles((theme: Theme) => ({
   appBar: {
@@ -57,6 +60,18 @@ export default function AppBar() {
         </IconButton>
         <Logo fill="white" width="130" />
         <Box className={classes.right} marginLeft="auto">
+          {EnvConfig.demo && (
+            <Tooltip title="Github repository">
+              <IconButton
+                href={LinksConfig.githubRepo}
+                target="_blank"
+                component="a"
+                color="inherit"
+              >
+                <GitHubIcon />
+              </IconButton>
+            </Tooltip>
+          )}
           <Tooltip title="Redis info">
             <IconButton onClick={openRedisInfo} aria-label="redis info">
               <RedisLogo width="24" />
