@@ -12,6 +12,7 @@ npm i -g @bull-monitor/cli
 
 ```sh
 bull-monitor -q my-queue
+
 # For additonal options
 bull-monitor --help
 ```
