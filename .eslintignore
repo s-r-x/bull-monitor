@@ -5,7 +5,8 @@ packages/ui/build
 packages/root/dist
 packages/hapi/dist
 packages/fastify/dist
-packages/koa/dist
+packages/ui/dist
+packages/cli/dist
 packages/express/dist
 fixtures/bull-server/server/index.js
 ./docs
