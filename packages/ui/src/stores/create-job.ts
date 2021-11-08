@@ -1,5 +1,7 @@
 import type { Maybe } from '@/typings/utils';
 import createStore from 'zustand';
+import _ from 'lodash';
+import { JsonService } from '@/services/json';
 
 const DEFAULT_DATA = '{}';
 const DEFAULT_OPTIONS = '{}';
@@ -38,13 +40,19 @@ export const useCreateJobStore = createStore<TState>((set) => ({
       options: DEFAULT_OPTIONS,
       name: DEFAULT_NAME,
     }),
-  setInputAndOpen: (input) =>
+  setInputAndOpen: (input) => {
+    const parsedOptions = JsonService.maybeParse(input.options);
+    const finalOptions =
+      parsedOptions && _.isObject(parsedOptions)
+        ? JsonService.maybeStringify(_.omit(parsedOptions, 'timestamp', 2))
+        : '';
     set({
       name: input.name || '',
       data: input.data || '',
-      options: input.options || '',
+      options: finalOptions,
       isOpen: true,
-    }),
+    });
+  },
   changeData: (data) => set({ data }),
   changeOptions: (options) => set({ options }),
   changeName: (name) => set({ name }),
