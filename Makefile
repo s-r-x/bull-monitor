@@ -1,5 +1,6 @@
 ui_npm_prefix = npm --prefix ./packages/ui
 root_npm_prefix = npm --prefix ./packages/root
+cli_npm_prefix = npm --prefix ./packages/cli
 fixtures_dir = fixtures
 
 fixture.bull-server:
@@ -40,6 +41,10 @@ root.dev:
 	$(root_npm_prefix) run dev
 root.test:
 	npx jest ./packages/root
+cli.dev:
+	$(cli_npm_prefix) run dev
+cli.build:
+	$(cli_npm_prefix) run build
 root.test.watch:
 	npx jest --watch ./packages/root
 root.gen-ts-types:
