@@ -1,0 +1,36 @@
+{
+  "name": "@bull-monitor/cli",
+  "version": "2.12.0",
+  "description": "cli for bull-monitor",
+  "keywords": [
+    "bull"
+  ],
+  "author": "Ilya Strus <strax1990@gmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/s-r-x/bull-monitor.git",
+    "directory": "packages/cli"
+  },
+  "license": "MIT",
+  "types": "dist/index.d.ts",
+  "bin": {
+    "bull-monitor": "dist/index.js"
+  },
+  "scripts": {
+    "build": "npm run clean && npm run compile",
+    "clean": "rm -rf ./dist",
+    "compile": "tsc -p tsconfig.build.json",
+    "dev": "tsc -p tsconfig.build.json --watch"
+  },
+  "main": "dist/index.js",
+  "dependencies": {
+    "@bull-monitor/express": "^2.12.0",
+    "bull": "^4.0.0",
+    "commander": "^8.3.0",
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "@types/bull": "^3.15.5",
+    "typescript": "^4.2.4"
+  }
+}
