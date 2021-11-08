@@ -22,6 +22,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import { useToggle } from '@/hooks/use-toggle';
 import { useShareJob } from '@/hooks/use-share';
 import type { TJobIdentity } from '@/typings';
+import { useCreateJobStore } from '@/stores/create-job';
 
 const useStyles = makeStyles((theme) => ({
   popover: {
@@ -38,6 +39,7 @@ const JobActions = ({ job, queue, readonly }: TProps) => {
   const cls = useStyles();
   const { mutations } = useNetwork();
   const openDataEditor = useDataEditorStore((state) => state.open);
+  const openNewJobEditor = useCreateJobStore((state) => state.setInputAndOpen);
   const openJobLogs = useJobLogsStore((state) => state.open);
   const tlPopoverId = `${job.id}-tl-popover`;
   const optsPopoverId = `${job.id}-opts-popover`;
@@ -199,6 +201,20 @@ const JobActions = ({ job, queue, readonly }: TProps) => {
         onClose={handleCloseMore}
         onClick={handleCloseMore}
       >
+        {job.status === JobStatus.Completed && (
+          <MenuItem
+            disabled={readonly}
+            onClick={() =>
+              openNewJobEditor({
+                name: job.name,
+                data: job.data,
+                options: job.opts,
+              })
+            }
+          >
+            Queue again
+          </MenuItem>
+        )}
         {job.status === JobStatus.Failed && (
           <MenuItem
             disabled={readonly}
