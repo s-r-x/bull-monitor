@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.13.0](https://github.com/s-r-x/bull-monitor/compare/v2.12.1...v2.13.0) (2021-11-08)
+
+
+### Bug Fixes
+
+* omit timestamp from incoming options on completed jobs requeue ([9b55e0e](https://github.com/s-r-x/bull-monitor/commit/9b55e0eae07b6c4c331e7e9adf99a96686c8fe27))
+
+
+### Features
+
+* **ui:** requeue completed jobs ([6213a1c](https://github.com/s-r-x/bull-monitor/commit/6213a1c3646180f9b4c7882c49716c4e3fe9a0a0))
+
+
+
+
+
 ## [2.12.1](https://github.com/s-r-x/bull-monitor/compare/v2.12.0...v2.12.1) (2021-11-01)
 
 
