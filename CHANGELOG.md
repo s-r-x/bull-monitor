@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.14.0](https://github.com/s-r-x/bull-monitor/compare/v2.13.0...v2.14.0) (2021-11-27)
+
+
+### Features
+
+* open timeline popover on click instead of hover to allow copy return value from one ([86bcaff](https://github.com/s-r-x/bull-monitor/commit/86bcaff9ff4b3816652fe617826eceb6429c671f))
+
+
+
+
+
 # [2.13.0](https://github.com/s-r-x/bull-monitor/compare/v2.12.1...v2.13.0) (2021-11-08)
 
 
