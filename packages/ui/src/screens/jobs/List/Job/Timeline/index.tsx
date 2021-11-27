@@ -9,7 +9,7 @@ import { JobStatus } from '@/typings/gql';
 import { useActiveStep } from './hooks';
 import { makeStyles } from '@material-ui/core/styles';
 import Box from '@material-ui/core/Box';
-import CodeEditor from '@/components/CodeEditor';
+import SimpleJsonView from '@/components/SimpleJsonView';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -81,7 +81,7 @@ export default function Timeline({ job }: TProps) {
       </Stepper>
       {returnData && (
         <div className={cls.returnData}>
-          <CodeEditor value={returnData} readOnly />
+          <SimpleJsonView>{returnData}</SimpleJsonView>
         </div>
       )}
     </Box>

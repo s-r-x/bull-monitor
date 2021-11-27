@@ -47,7 +47,6 @@ const JobActions = ({ job, queue, readonly }: TProps) => {
   const optsPopoverAnchor = React.useRef<any>(null);
   const [tlOpen, toggleTlOpen, setTlOpen] = useToggle();
   const [optsOpen, toggleOptsOpen, setOptsOpen] = useToggle();
-  const openTlPopover = () => setTlOpen(true);
   const closeTlPopover = () => setTlOpen(false);
   const openOptsPopover = () => setOptsOpen(true);
   const closeOptsPopover = () => setOptsOpen(false);
@@ -118,26 +117,14 @@ const JobActions = ({ job, queue, readonly }: TProps) => {
         aria-haspopup="true"
         aria-owns={tlPopoverId}
         ref={tlPopoverAnchor}
-        onMouseEnter={openTlPopover}
         onClick={toggleTlOpen}
-        onMouseLeave={closeTlPopover}
         size="small"
       >
         <ScheduleIcon />
       </IconButton>
       <Popover
         id={tlPopoverId}
-        disableScrollLock
-        disableRestoreFocus
         onClose={closeTlPopover}
-        className={cls.popover}
-        //classes={{
-        //  paper: cls.paper,
-        //}}
-        //PaperProps={{
-        //  onMouseEnter: openTlPopover,
-        //  onMouseLeave: closeTlPopover,
-        //}}
         open={tlOpen}
         anchorEl={tlPopoverAnchor.current}
         anchorOrigin={{
