@@ -7,7 +7,11 @@ import { makeStyles, useTheme } from '@material-ui/core/styles';
 import { useDrawerState } from '@/stores/drawer';
 import shallow from 'zustand/shallow';
 import NetworkRequest from '@/components/NetworkRequest';
-import { useDrawerWidth, useFilteredQueues, useSortedQueues } from './hooks';
+import {
+  useFilteredQueues,
+  useSortedQueues,
+  useDraggerEventHandlers,
+} from './hooks';
 import QueuesList from './Queues';
 import QueuesFilter from './Filter';
 import QueuesSorter from './Sorter';
@@ -15,11 +19,14 @@ import useMediaQuery from '@material-ui/core/useMediaQuery';
 import { useQueuesQuery } from '@/hooks/use-queues-query';
 import isempty from 'lodash/isEmpty';
 import Alert from '@material-ui/lab/Alert';
+import { LayoutConfig } from '@/config/layouts';
 
 const useStyles = makeStyles((theme) => ({
   drawer: {
+    width: 'auto',
     position: 'relative',
     [theme.breakpoints.up('md')]: {
+      width: 'var(--drawer-width)',
       flexShrink: 0,
     },
   },
@@ -55,24 +62,27 @@ export default function Drawer() {
     (state) => [state.isOpen, state.close],
     shallow
   );
+  const { onMouseDown: onDraggerMouseDown } = useDraggerEventHandlers();
   const queues = data?.queues;
   const filteredQueues = useFilteredQueues(queues);
   const sortedQueues = useSortedQueues(filteredQueues);
-  const { drawerWidth, draggerRef } = useDrawerWidth();
 
   return (
-    <nav
-      className={cls.drawer}
-      style={{ width: isDesktop ? drawerWidth : 'auto' }}
-    >
-      <div ref={draggerRef} className={cls.dragger} />
+    <nav className={cls.drawer}>
+      <div onMouseDown={onDraggerMouseDown} className={cls.dragger} />
       <BaseDrawer
         open={isDesktop || isOpen}
-        container={isDesktop ? undefined : window.document.body}
+        container={isDesktop ? undefined : document.querySelector('main')}
         variant={isDesktop ? 'permanent' : 'temporary'}
         onClose={closeDrawer}
         anchor={theme.direction === 'rtl' ? 'right' : 'left'}
-        PaperProps={{ style: { width: drawerWidth } }}
+        PaperProps={{
+          style: {
+            width: isDesktop
+              ? 'var(--drawer-width)'
+              : LayoutConfig.drawerWidth + 'px',
+          },
+        }}
       >
         <div className={cls.toolbar}>
           <IconButton onClick={closeDrawer}>

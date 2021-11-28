@@ -9,7 +9,7 @@ type TProps = {
 };
 export default function CloseableTip(props: TProps) {
   const persistKey = StorageConfig.closeableTipNs + props.persistKey;
-  const [isOpen, setIsOpen] = useState(!localStorage.getItem(persistKey));
+  const [isOpen, setIsOpen] = useState(() => !localStorage.getItem(persistKey));
   const onClose = () => {
     localStorage.setItem(persistKey, '!');
     setIsOpen(false);

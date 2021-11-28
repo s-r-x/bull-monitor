@@ -1,3 +1,10 @@
+body.resizing-drawer {
+  cursor: ew-resize;
+  user-select: none;
+}
+body.resizing-drawer * {
+  cursor: ew-resize !important;
+}
 .CodeMirror-lint-tooltip {
   z-index: 1400;
 }

@@ -6,6 +6,7 @@ import AppBar from './AppBar';
 import SettingsModal from '../components/Settings';
 import RedisInfoModal from '../components/RedisInfo';
 import { useCreateFirstWorkspace } from '@/hooks/use-create-first-workspace';
+import { useDrawerState } from '@/stores/drawer';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -17,6 +18,9 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
     flexDirection: 'column',
     maxWidth: '100%',
+    [theme.breakpoints.up('md')]: {
+      maxWidth: 'calc(100% - var(--drawer-width) - 1px)',
+    },
     flexGrow: 1,
     padding: theme.spacing(1),
   },
@@ -25,9 +29,12 @@ const useStyles = makeStyles((theme) => ({
 const Shell: React.FC = (props) => {
   const classes = useStyles();
   useCreateFirstWorkspace();
-
+  const drawerWidth = useDrawerState((state) => state.defaultWidth);
+  const rootStyle = {
+    '--drawer-width': drawerWidth + 'px',
+  } as React.CSSProperties;
   return (
-    <div className={classes.root}>
+    <div style={rootStyle} className={classes.root}>
       <CssBaseline />
       <AppBar />
       <Drawer />
