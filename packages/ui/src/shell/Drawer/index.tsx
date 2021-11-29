@@ -35,12 +35,15 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
     alignItems: 'center',
   },
-  filters: {
+  utils: {
     display: 'flex',
     marginTop: theme.spacing(1),
     marginLeft: theme.spacing(0.5),
     marginRight: theme.spacing(0.5),
     alignItems: 'center',
+  },
+  filter: {
+    flex: 1,
   },
   dragger: {
     width: 4,
@@ -98,8 +101,8 @@ export default function Drawer() {
             <Alert severity="error">No queues</Alert>
           ) : (
             <>
-              <div className={cls.filters}>
-                <QueuesFilter />
+              <div className={cls.utils}>
+                <QueuesFilter className={cls.filter} />
                 <QueuesSorter />
               </div>
               {sortedQueues && <QueuesList queues={sortedQueues} />}
