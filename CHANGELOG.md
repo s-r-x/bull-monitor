@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.14.1](https://github.com/s-r-x/bull-monitor/compare/v2.14.0...v2.14.1) (2021-11-29)
+
+
+### Bug Fixes
+
+* invalid drawer width after resize to max or min values on low-end devices ([5079d77](https://github.com/s-r-x/bull-monitor/commit/5079d77e2dd114ebb52047a3fe99a37eb532aacb))
+* stretch queues filter width to match the drawer width ([e5c9385](https://github.com/s-r-x/bull-monitor/commit/e5c9385010103b3024c9d1b4119f54c73bb18027))
+* table viewport overflow on medium size devices ([5a3b327](https://github.com/s-r-x/bull-monitor/commit/5a3b32755c24f0e7a1e31324b6869fca81c3913a))
+
+
+
+
+
 # [2.14.0](https://github.com/s-r-x/bull-monitor/compare/v2.13.0...v2.14.0) (2021-11-27)
 
 
