@@ -5,6 +5,7 @@ import { LayoutConfig } from '@/config/layouts';
 import { useDrawerState } from '@/stores/drawer';
 import { useQueuesSortStore } from '@/stores/queues-sort';
 import orderBy from 'lodash/orderBy';
+import clamp from 'lodash/clamp';
 
 type TQueues = GetQueuesQuery['queues'];
 export const useFilteredQueues = (queues?: TQueues) => {
@@ -32,12 +33,12 @@ export const useDraggerEventHandlers = () => {
   return useMemo(() => {
     const $body = document.body;
     const onMouseMove = (e: MouseEvent) => {
-      if (
-        e.clientX > LayoutConfig.drawerWidth &&
-        e.clientX < LayoutConfig.maxDrawerWidth
-      ) {
-        changeDrawerWidth(e.clientX);
-      }
+      const normalizedWidth = clamp(
+        e.clientX,
+        LayoutConfig.drawerWidth,
+        LayoutConfig.maxDrawerWidth
+      );
+      changeDrawerWidth(normalizedWidth);
     };
     const onMouseDown = () => {
       $body.classList.add('resizing-drawer');
