@@ -1,20 +1,21 @@
 import React, { memo, useMemo } from 'react';
 import Paper from '@material-ui/core/Paper';
 import * as Chart from 'recharts';
-import { useCallback } from 'react';
-import ms from 'ms';
 import Alert from '@material-ui/lab/Alert';
 import isempty from 'lodash/isEmpty';
 import type { TChartProps } from '../typings';
-import { useChartStyles } from './styles';
-import { tickXFormatter, tooltipLabelFormatter } from './utils';
+import { useChartStyles, processingTimePalette as palette } from './styles';
+import {
+  tickXFormatter,
+  tooltipLabelFormatter,
+  tooltipValueFormatter,
+} from './utils';
 
 const ProcessingTimeChart = ({ metrics: rawMetrics }: TChartProps) => {
   const cls = useChartStyles();
   const metrics = useMemo(() => {
     return rawMetrics.filter((metric) => !!metric.processingTime);
   }, [rawMetrics]);
-  const tooltipValueFormatter = useCallback((v: number) => ms(v), []);
   if (isempty(metrics)) {
     return <Alert severity="warning">No "processing time" metrics</Alert>;
   }
@@ -55,9 +56,26 @@ const ProcessingTimeChart = ({ metrics: rawMetrics }: TChartProps) => {
           <Chart.Line
             strokeWidth={2}
             isAnimationActive={false}
-            name="Processing time"
+            name="Processing time(min)"
+            type="monotone"
+            dataKey="processingTimeMin"
+            stroke={palette.min}
+          />
+          <Chart.Line
+            strokeWidth={2}
+            isAnimationActive={false}
+            name="Processing time(max)"
+            type="monotone"
+            dataKey="processingTimeMax"
+            stroke={palette.max}
+          />
+          <Chart.Line
+            strokeWidth={2}
+            isAnimationActive={false}
+            name="Processing time(avg)"
             type="monotone"
             dataKey="processingTime"
+            stroke={palette.avg}
           />
         </Chart.LineChart>
       </Chart.ResponsiveContainer>

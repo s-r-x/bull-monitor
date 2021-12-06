@@ -16,6 +16,8 @@ type TMetrics = {
   timestamp: number;
   counts: JobCounts;
   processingTime?: number;
+  processingTimeMin?: number;
+  processingTimeMax?: number;
 };
 type TJobCompletionCb = (
   queue: BullMonitorQueue,
@@ -104,7 +106,7 @@ export class MetricsCollector {
           timestamp,
           queue: queue.id,
           counts: await queue.getJobCounts(),
-          processingTime,
+          ...processingTime,
         };
       })
     );
@@ -154,13 +156,22 @@ export class MetricsCollector {
       stats.push(dur);
     }
   }
-  private _extractProcessingTime(queue: string): number | undefined {
+  private _extractProcessingTime(
+    queue: string
+  ): Pick<
+    TMetrics,
+    'processingTime' | 'processingTimeMax' | 'processingTimeMin'
+  > {
     const stats = this._processingTimeGauge.get(queue);
-    if (isEmpty(stats)) {
-      return;
-    } else {
-      return round(sum(stats) / stats!.length, 2);
-    }
+    if (isEmpty(stats)) return {};
+    return {
+      processingTime: this._normalizeProcessingTime(sum(stats) / stats!.length),
+      processingTimeMin: this._normalizeProcessingTime(Math.min(...stats!)),
+      processingTimeMax: this._normalizeProcessingTime(Math.max(...stats!)),
+    };
+  }
+  private _normalizeProcessingTime(time: number) {
+    return round(time, 2);
   }
   private _buildPersistKey(queue: string) {
     return this._config.redisPrefix + queue;

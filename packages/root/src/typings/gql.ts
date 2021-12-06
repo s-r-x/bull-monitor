@@ -299,6 +299,8 @@ export type QueueMetrics = {
   timestamp: Scalars['Float'];
   counts: QueueJobsCounts;
   processingTime?: Maybe<Scalars['Float']>;
+  processingTimeMin?: Maybe<Scalars['Float']>;
+  processingTimeMax?: Maybe<Scalars['Float']>;
 };
 
 export type RedisInfo = {

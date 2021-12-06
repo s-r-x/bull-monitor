@@ -54,15 +54,15 @@ const MetricsScreen = () => {
   return (
     <NetworkRequest error={error} refetch={refetch} status={status}>
       <Actions />
-      {!data || isempty(data) ? (
+      {isempty(data) ? (
         <Alert severity="warning">No metrics</Alert>
       ) : (
         <Grid className={cls.grid} container spacing={1}>
           <Grid className={cls.gridItem} item xs={12} sm={6}>
-            <JobsCount metrics={data} />
+            <JobsCount metrics={data!} />
           </Grid>
           <Grid className={cls.gridItem} item xs={12} sm={6}>
-            <ProcessingTime metrics={data} />
+            <ProcessingTime metrics={data!} />
           </Grid>
         </Grid>
       )}
