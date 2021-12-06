@@ -1,27 +1,25 @@
 import React from 'react';
 import Shell from '@/shell';
 import { QueryClient, QueryClientProvider } from 'react-query';
-import { getMuiTheme } from '@/stores/theme';
-import { MuiThemeProvider } from '@material-ui/core/styles';
 import { ConfirmProvider } from 'material-ui-confirm';
 import { SnackbarProvider } from 'notistack';
-import { NetworkProvider } from './providers/network';
 import { useRunStoreSideEffects } from './stores/side-effects';
-import { QueuesQueryProvider } from './providers/queues-query';
 import { useDynamicPageTitle } from './hooks/use-dynamic-page-title';
 import HydrateShareGate from './components/HydrateShareGate';
+import { NetworkProvider } from '@/providers/network';
+import { QueuesQueryProvider } from '@/providers/queues-query';
+import { ThemeProvider } from '@/providers/theme';
 import ScreensSwitch from './screens/switch';
 
 const queryClient = new QueryClient();
 
 export default function App() {
-  const muiTheme = getMuiTheme();
   useRunStoreSideEffects();
   useDynamicPageTitle();
   return (
     <HydrateShareGate>
       <NetworkProvider>
-        <MuiThemeProvider theme={muiTheme}>
+        <ThemeProvider>
           <ConfirmProvider>
             <SnackbarProvider maxSnack={3}>
               <QueryClientProvider client={queryClient}>
@@ -33,7 +31,7 @@ export default function App() {
               </QueryClientProvider>
             </SnackbarProvider>
           </ConfirmProvider>
-        </MuiThemeProvider>
+        </ThemeProvider>
       </NetworkProvider>
     </HydrateShareGate>
   );
