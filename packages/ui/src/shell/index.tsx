@@ -7,6 +7,9 @@ import SettingsModal from '../components/Settings';
 import RedisInfoModal from '../components/RedisInfo';
 import { useCreateFirstWorkspace } from '@/hooks/use-create-first-workspace';
 import { useDrawerState } from '@/stores/drawer';
+import { useAtomValue } from 'jotai/utils';
+import { activeQueueAtom } from '@/atoms/workspaces';
+import WorkspacePicker from './WorkspacePicker';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -30,6 +33,7 @@ const Shell: React.FC = (props) => {
   const classes = useStyles();
   useCreateFirstWorkspace();
   const drawerWidth = useDrawerState((state) => state.defaultWidth);
+  const activeQueue = useAtomValue(activeQueueAtom);
   const rootStyle = {
     '--drawer-width': drawerWidth + 'px',
   } as React.CSSProperties;
@@ -40,7 +44,12 @@ const Shell: React.FC = (props) => {
       <Drawer />
       <main className={classes.content}>
         <div className={classes.toolbar} />
-        {props.children}
+        {activeQueue && (
+          <>
+            <WorkspacePicker />
+            {props.children}
+          </>
+        )}
       </main>
       <SettingsModal />
       <RedisInfoModal />

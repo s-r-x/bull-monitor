@@ -2,7 +2,7 @@ import { StorageConfig } from '@/config/storage';
 import createStore from 'zustand';
 import { persist } from 'zustand/middleware';
 
-type TScreen = 'jobs' | 'metrics';
+export type TScreen = 'jobs' | 'metrics';
 
 type TState = {
   screen: TScreen;
