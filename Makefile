@@ -71,3 +71,5 @@ example.fastify:
 	npm --prefix ./examples/fastify start
 example.fastify-with-basic-auth:
 	npm --prefix ./examples/fastify run with-basic-auth
+example.nest:
+	npm --prefix ./examples/nest run start:dev

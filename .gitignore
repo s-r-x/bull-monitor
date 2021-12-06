@@ -6,5 +6,6 @@ packages/hapi/dist
 packages/fastify/dist
 packages/cli/dist
 packages/ui/build
+examples/nest/dist
 fixtures/bull-server/server/index.js
 ./docs
