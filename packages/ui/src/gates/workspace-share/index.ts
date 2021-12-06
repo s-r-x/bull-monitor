@@ -6,7 +6,7 @@ import { addWorkspaceAtom } from '@/atoms/workspaces';
 import isObject from 'lodash/isObject';
 
 const token = ShareConfig.shareToken;
-const HydrateShareGate: React.FC = (props) => {
+const WorkspaceShareGate: React.FC = (props) => {
   const [hydrated, setHydrated] = useState(!token);
   const addWorkspace = useUpdateAtom(addWorkspaceAtom);
   useEffect(() => {
@@ -31,4 +31,4 @@ const HydrateShareGate: React.FC = (props) => {
   return props.children as React.ReactElement;
 };
 
-export default HydrateShareGate;
+export default WorkspaceShareGate;

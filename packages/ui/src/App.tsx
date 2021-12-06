@@ -5,7 +5,7 @@ import { ConfirmProvider } from 'material-ui-confirm';
 import { SnackbarProvider } from 'notistack';
 import { useRunStoreSideEffects } from './stores/side-effects';
 import { useDynamicPageTitle } from './hooks/use-dynamic-page-title';
-import HydrateShareGate from './components/HydrateShareGate';
+import WorkspaceShareGate from '@/gates/workspace-share';
 import { NetworkProvider } from '@/providers/network';
 import { QueuesQueryProvider } from '@/providers/queues-query';
 import { ThemeProvider } from '@/providers/theme';
@@ -17,7 +17,7 @@ export default function App() {
   useRunStoreSideEffects();
   useDynamicPageTitle();
   return (
-    <HydrateShareGate>
+    <WorkspaceShareGate>
       <NetworkProvider>
         <ThemeProvider>
           <ConfirmProvider>
@@ -33,6 +33,6 @@ export default function App() {
           </ConfirmProvider>
         </ThemeProvider>
       </NetworkProvider>
-    </HydrateShareGate>
+    </WorkspaceShareGate>
   );
 }
