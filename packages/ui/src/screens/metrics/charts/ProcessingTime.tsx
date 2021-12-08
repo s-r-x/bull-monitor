@@ -1,7 +1,7 @@
 import React, { memo, useMemo } from 'react';
-import Paper from '@material-ui/core/Paper';
+import Paper from '@mui/material/Paper';
 import * as Chart from 'recharts';
-import Alert from '@material-ui/lab/Alert';
+import Alert from '@mui/material/Alert';
 import isempty from 'lodash/isEmpty';
 import type { TChartProps } from '../typings';
 import { useChartStyles, processingTimePalette as palette } from './styles';

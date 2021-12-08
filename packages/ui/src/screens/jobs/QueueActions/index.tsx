@@ -1,17 +1,17 @@
 import React from 'react';
-import Paper from '@material-ui/core/Paper';
-import { makeStyles } from '@material-ui/core/styles';
+import Paper from '@mui/material/Paper';
+import makeStyles from '@mui/styles/makeStyles';
 import { useCreateJobStore } from '@/stores/create-job';
-import Button from '@material-ui/core/Button';
+import Button from '@mui/material/Button';
 import { useNetwork } from '@/hooks/use-network';
-import AddIcon from '@material-ui/icons/Add';
+import AddIcon from '@mui/icons-material/Add';
 import { useAbstractMutation } from '@/hooks/use-abstract-mutation';
 import { useRemoveJobsModalStore } from '@/stores/remove-jobs-modal';
 import { JobStatusClean } from '@/typings/gql';
-import Menu from '@material-ui/core/Menu';
-import MenuItem from '@material-ui/core/MenuItem';
-import IconButton from '@material-ui/core/IconButton';
-import MoreIcon from '@material-ui/icons/MoreHoriz';
+import Menu from '@mui/material/Menu';
+import MenuItem from '@mui/material/MenuItem';
+import IconButton from '@mui/material/IconButton';
+import MoreIcon from '@mui/icons-material/MoreHoriz';
 import { useRefetchJobsLockStore } from '@/stores/refetch-jobs-lock';
 import shallow from 'zustand/shallow';
 import { getPollingInterval } from '@/stores/network-settings';
@@ -22,8 +22,8 @@ import {
   dataSearchAtom,
 } from '@/atoms/workspaces';
 import { useAtomValue } from 'jotai/utils';
-import SaveIcon from '@material-ui/icons/Save';
-import Tooltip from '@material-ui/core/Tooltip';
+import SaveIcon from '@mui/icons-material/Save';
+import Tooltip from '@mui/material/Tooltip';
 import { useExportJobsMutation } from '@/hooks/use-export-jobs-mutation';
 import { useQueueData } from '@/hooks/use-queue-data';
 
@@ -167,7 +167,7 @@ export default function QueueActions() {
               dataSearch,
             });
           }}
-        >
+          size="large">
           <SaveIcon />
         </IconButton>
       </Tooltip>
@@ -176,7 +176,7 @@ export default function QueueActions() {
         disabled={isReadonly}
         aria-controls="more-queue-actions-menu"
         aria-haspopup="true"
-      >
+        size="large">
         <MoreIcon />
       </IconButton>
       <Menu

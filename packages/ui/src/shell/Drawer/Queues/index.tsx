@@ -1,7 +1,7 @@
 import React, { useCallback } from 'react';
 import type { GetQueuesQuery } from '@/typings/gql';
-import List from '@material-ui/core/List';
-import ListSubheader from '@material-ui/core/ListSubheader';
+import List from '@mui/material/List';
+import ListSubheader from '@mui/material/ListSubheader';
 import { useDrawerState } from '@/stores/drawer';
 import Queue from './Queue';
 import { useAtom } from 'jotai';

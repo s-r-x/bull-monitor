@@ -1,16 +1,16 @@
 import React from 'react';
-import Dialog from '@material-ui/core/Dialog';
-import DialogActions from '@material-ui/core/DialogActions';
-import DialogContent from '@material-ui/core/DialogContent';
-import Button from '@material-ui/core/Button';
+import Dialog from '@mui/material/Dialog';
+import DialogActions from '@mui/material/DialogActions';
+import DialogContent from '@mui/material/DialogContent';
+import Button from '@mui/material/Button';
 import shallow from 'zustand/shallow';
 import { useSettingsModalStore } from '@/stores/settings-modal';
 import Appearance from './Appearance';
 import Preferences from './Preferences';
 import CodeEditor from './CodeEditor';
-import Box from '@material-ui/core/Box';
+import Box from '@mui/material/Box';
 import Network from './Network';
-import Typography from '@material-ui/core/Typography';
+import Typography from '@mui/material/Typography';
 
 const Section: React.FC = ({ children }) => (
   <Box marginBottom={2.5}>{children}</Box>

@@ -1,9 +1,10 @@
 import React from 'react';
-import BaseDrawer from '@material-ui/core/Drawer';
-import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
-import ChevronRightIcon from '@material-ui/icons/ChevronRight';
-import IconButton from '@material-ui/core/IconButton';
-import { makeStyles, useTheme } from '@material-ui/core/styles';
+import BaseDrawer from '@mui/material/Drawer';
+import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
+import ChevronRightIcon from '@mui/icons-material/ChevronRight';
+import IconButton from '@mui/material/IconButton';
+import { useTheme } from '@mui/material/styles';
+import makeStyles from '@mui/styles/makeStyles';
 import { useDrawerState } from '@/stores/drawer';
 import shallow from 'zustand/shallow';
 import NetworkRequest from '@/components/NetworkRequest';
@@ -15,10 +16,10 @@ import {
 import QueuesList from './Queues';
 import QueuesFilter from './Filter';
 import QueuesSorter from './Sorter';
-import useMediaQuery from '@material-ui/core/useMediaQuery';
+import useMediaQuery from '@mui/material/useMediaQuery';
 import { useQueuesQuery } from '@/hooks/use-queues-query';
 import isempty from 'lodash/isEmpty';
-import Alert from '@material-ui/lab/Alert';
+import Alert from '@mui/material/Alert';
 import { LayoutConfig } from '@/config/layouts';
 
 const useStyles = makeStyles((theme) => ({
@@ -88,7 +89,7 @@ export default function Drawer() {
         }}
       >
         <div className={cls.toolbar}>
-          <IconButton onClick={closeDrawer}>
+          <IconButton onClick={closeDrawer} size="large">
             {theme.direction === 'ltr' ? (
               <ChevronLeftIcon />
             ) : (

@@ -1,23 +1,23 @@
 import React from 'react';
-import BaseAppBar from '@material-ui/core/AppBar';
-import IconButton from '@material-ui/core/IconButton';
-import MenuIcon from '@material-ui/icons/Menu';
-import GitHubIcon from '@material-ui/icons/GitHub';
-import Toolbar from '@material-ui/core/Toolbar';
-import { makeStyles } from '@material-ui/core/styles';
-import type { Theme } from '@material-ui/core/styles';
+import BaseAppBar from '@mui/material/AppBar';
+import IconButton from '@mui/material/IconButton';
+import MenuIcon from '@mui/icons-material/Menu';
+import GitHubIcon from '@mui/icons-material/GitHub';
+import Toolbar from '@mui/material/Toolbar';
+import makeStyles from '@mui/styles/makeStyles';
+import type { Theme } from '@mui/material/styles';
 import { useDrawerState } from '@/stores/drawer';
-import SettingsIcon from '@material-ui/icons/Settings';
-import ShareIcon from '@material-ui/icons/Share';
+import SettingsIcon from '@mui/icons-material/Settings';
+import ShareIcon from '@mui/icons-material/Share';
 import { useSettingsModalStore } from '@/stores/settings-modal';
-import Tooltip from '@material-ui/core/Tooltip';
-import Box from '@material-ui/core/Box';
+import Tooltip from '@mui/material/Tooltip';
+import Box from '@mui/material/Box';
 import { useRedisInfoModalStore } from '@/stores/redis-info-modal';
 import RedisLogo from '@/components/RedisLogo';
 import Logo from '@/components/Logo';
 import { useShareActiveWorkspace } from '@/hooks/use-share';
-import MetricsScreenIcon from '@material-ui/icons/Timeline';
-import JobsScreenIcon from '@material-ui/icons/ViewList';
+import MetricsScreenIcon from '@mui/icons-material/Timeline';
+import JobsScreenIcon from '@mui/icons-material/ViewList';
 import { useActiveScreenStore } from '@/stores/active-screen';
 import { LinksConfig } from '@/config/links';
 import { EnvConfig } from '@/config/env';
@@ -55,7 +55,7 @@ export default function AppBar() {
           edge="start"
           onClick={toggleDrawer}
           className={classes.menuButton}
-        >
+          size="large">
           <MenuIcon />
         </IconButton>
         <Logo fill="white" width="130" />
@@ -67,13 +67,13 @@ export default function AppBar() {
                 target="_blank"
                 component="a"
                 color="inherit"
-              >
+                size="large">
                 <GitHubIcon />
               </IconButton>
             </Tooltip>
           )}
           <Tooltip title="Redis info">
-            <IconButton onClick={openRedisInfo} aria-label="redis info">
+            <IconButton onClick={openRedisInfo} aria-label="redis info" size="large">
               <RedisLogo width="24" />
             </IconButton>
           </Tooltip>
@@ -82,21 +82,17 @@ export default function AppBar() {
               onClick={shareWorkspace}
               color="inherit"
               aria-label="share active workspace"
-            >
+              size="large">
               <ShareIcon />
             </IconButton>
           </Tooltip>
           <Tooltip title={screen === 'jobs' ? 'Metrics' : 'Jobs'}>
-            <IconButton color="inherit" onClick={toggleScreen}>
+            <IconButton color="inherit" onClick={toggleScreen} size="large">
               {screen === 'jobs' ? <MetricsScreenIcon /> : <JobsScreenIcon />}
             </IconButton>
           </Tooltip>
           <Tooltip title="Settings">
-            <IconButton
-              onClick={openSettings}
-              color="inherit"
-              aria-label="settings"
-            >
+            <IconButton onClick={openSettings} color="inherit" aria-label="settings" size="large">
               <SettingsIcon />
             </IconButton>
           </Tooltip>

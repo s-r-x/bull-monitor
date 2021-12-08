@@ -1,10 +1,10 @@
 import React from 'react';
-import Paper from '@material-ui/core/Paper';
-import Chip from '@material-ui/core/Chip';
-import { makeStyles } from '@material-ui/core/styles';
+import Paper from '@mui/material/Paper';
+import Chip from '@mui/material/Chip';
+import makeStyles from '@mui/styles/makeStyles';
 import { useQueueCounts } from './hooks';
-import TextField from '@material-ui/core/TextField';
-import MenuItem from '@material-ui/core/MenuItem';
+import TextField from '@mui/material/TextField';
+import MenuItem from '@mui/material/MenuItem';
 import { OrderEnum } from '@/typings/gql';
 import { useAtom } from 'jotai';
 import { jobIdAtom, jobsOrderAtom } from '@/atoms/workspaces';

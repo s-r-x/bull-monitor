@@ -1,5 +1,5 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
+import makeStyles from '@mui/styles/makeStyles';
 import type { JobStatus } from '@/typings/gql';
 import { useJobStatusesPalette } from '@/components/JobStatusChip/hooks';
 import { MathUtils } from '@/services/math-utils';

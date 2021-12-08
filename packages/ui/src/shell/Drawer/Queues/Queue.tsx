@@ -1,13 +1,13 @@
 import React, { memo, useCallback } from 'react';
 import type { GetQueuesQuery } from '@/typings/gql';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
-import ListItemText from '@material-ui/core/ListItemText';
+import ListItem from '@mui/material/ListItem';
+import ListItemIcon from '@mui/material/ListItemIcon';
+import ListItemText from '@mui/material/ListItemText';
 import JobsCount from './JobsCount';
-import PauseIcon from '@material-ui/icons/Pause';
-import BlockIcon from '@material-ui/icons/Block';
-import { makeStyles } from '@material-ui/core/styles';
-import Typography from '@material-ui/core/Typography';
+import PauseIcon from '@mui/icons-material/Pause';
+import BlockIcon from '@mui/icons-material/Block';
+import makeStyles from '@mui/styles/makeStyles';
+import Typography from '@mui/material/Typography';
 import { useJobsCountArray, useQueueWorkspaceLabel } from './hooks';
 
 const useStyles = makeStyles((theme) => ({

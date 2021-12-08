@@ -1,6 +1,6 @@
 import React from 'react';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import { makeStyles } from '@material-ui/core/styles';
+import CssBaseline from '@mui/material/CssBaseline';
+import makeStyles from '@mui/styles/makeStyles';
 import Drawer from './Drawer';
 import AppBar from './AppBar';
 import SettingsModal from '../components/Settings';

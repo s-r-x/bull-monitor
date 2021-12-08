@@ -2,7 +2,7 @@ import React from 'react';
 import Spin from '@/components/Spin';
 import NetworkError from '@/components/NetworkError';
 import type { QueryStatus } from 'react-query';
-import { makeStyles } from '@material-ui/core/styles';
+import makeStyles from '@mui/styles/makeStyles';
 
 const useStyles = makeStyles({
   spin: {

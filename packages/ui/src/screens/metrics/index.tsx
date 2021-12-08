@@ -10,15 +10,15 @@ import NetworkRequest from '@/components/NetworkRequest';
 import { getPollingInterval } from '@/stores/network-settings';
 import { QueryKeysConfig } from '@/config/query-keys';
 import isempty from 'lodash/isEmpty';
-import Alert from '@material-ui/lab/Alert';
-import Grid from '@material-ui/core/Grid';
-import { makeStyles } from '@material-ui/core/styles';
+import Alert from '@mui/material/Alert';
+import Grid from '@mui/material/Grid';
+import makeStyles from '@mui/styles/makeStyles';
 
 const useStyles = makeStyles((theme) => ({
   grid: {
     flex: 1,
     display: 'flex',
-    [theme.breakpoints.down('xs')]: {
+    [theme.breakpoints.down('md')]: {
       display: 'block',
     },
   },
@@ -26,7 +26,7 @@ const useStyles = makeStyles((theme) => ({
     flex: 1,
     display: 'flex',
     flexDirection: 'column',
-    [theme.breakpoints.down('xs')]: {
+    [theme.breakpoints.down('md')]: {
       display: 'block',
     },
   },

@@ -1,13 +1,13 @@
 import React from 'react';
-import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
-import { makeStyles } from '@material-ui/core/styles';
+import Toolbar from '@mui/material/Toolbar';
+import Typography from '@mui/material/Typography';
+import makeStyles from '@mui/styles/makeStyles';
 import { useSelectedJobsStore } from '@/stores/selected-jobs';
-import ReplayIcon from '@material-ui/icons/Replay';
-import DeleteIcon from '@material-ui/icons/Delete';
-import IconButton from '@material-ui/core/IconButton';
-import SaveIcon from '@material-ui/icons/Save';
-import Tooltip from '@material-ui/core/Tooltip';
+import ReplayIcon from '@mui/icons-material/Replay';
+import DeleteIcon from '@mui/icons-material/Delete';
+import IconButton from '@mui/material/IconButton';
+import SaveIcon from '@mui/icons-material/Save';
+import Tooltip from '@mui/material/Tooltip';
 import { JobStatus } from '@/typings/gql';
 import { useNetwork } from '@/hooks/use-network';
 import { useAbstractMutation } from '@/hooks/use-abstract-mutation';
@@ -75,7 +75,7 @@ export default function TableToolbar({ queue, readonly }: TProps) {
                     jobs: Array.from(selectedJobs),
                   })
                 }
-              >
+                size="large">
                 <ReplayIcon />
               </IconButton>
             </Tooltip>
@@ -90,7 +90,7 @@ export default function TableToolbar({ queue, readonly }: TProps) {
                 })
               }
               color="secondary"
-            >
+              size="large">
               <DeleteIcon />
             </IconButton>
           </Tooltip>
@@ -102,7 +102,7 @@ export default function TableToolbar({ queue, readonly }: TProps) {
                   ids: Array.from(selectedJobs),
                 })
               }
-            >
+              size="large">
               <SaveIcon />
             </IconButton>
           </Tooltip>

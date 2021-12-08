@@ -1,8 +1,8 @@
 import React from 'react';
-import TableCell from '@material-ui/core/TableCell';
-import MuiTableHead from '@material-ui/core/TableHead';
-import TableRow from '@material-ui/core/TableRow';
-import Checkbox from '@material-ui/core/Checkbox';
+import TableCell from '@mui/material/TableCell';
+import MuiTableHead from '@mui/material/TableHead';
+import TableRow from '@mui/material/TableRow';
+import Checkbox from '@mui/material/Checkbox';
 import { useSelectedJobsStore } from '@/stores/selected-jobs';
 import shallow from 'zustand/shallow';
 import type { GetJobsQuery } from '@/typings/gql';

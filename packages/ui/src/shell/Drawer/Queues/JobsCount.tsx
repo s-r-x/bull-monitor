@@ -1,7 +1,7 @@
 import React from 'react';
 import type { JobStatus } from '@/typings/gql';
 import JobStatusChip from '@/components/JobStatusChip';
-import { makeStyles } from '@material-ui/core/styles';
+import makeStyles from '@mui/styles/makeStyles';
 import StatusesIndicator from './QueueStatusesIndicator';
 
 const useStyles = makeStyles({
