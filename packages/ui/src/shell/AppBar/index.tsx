@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback, memo } from 'react';
 import BaseAppBar from '@material-ui/core/AppBar';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
@@ -21,6 +21,9 @@ import JobsScreenIcon from '@material-ui/icons/ViewList';
 import { useActiveScreenStore } from '@/stores/active-screen';
 import { LinksConfig } from '@/config/links';
 import { EnvConfig } from '@/config/env';
+import { useQueryClient } from 'react-query';
+import { QueryKeysConfig } from '@/config/query-keys';
+import { useNetwork } from '@/hooks/use-network';
 
 const useStyles = makeStyles((theme: Theme) => ({
   appBar: {
@@ -38,7 +41,15 @@ const useStyles = makeStyles((theme: Theme) => ({
   },
 }));
 
-export default function AppBar() {
+export default memo(function AppBar() {
+  const queryClient = useQueryClient();
+  const {
+    queries: { getRedisInfo },
+  } = useNetwork();
+
+  const onRedisHover = useCallback(() => {
+    queryClient.prefetchQuery(QueryKeysConfig.redisInfo, getRedisInfo);
+  }, []);
   const classes = useStyles();
   const toggleDrawer = useDrawerState((state) => state.toggle);
   const openSettings = useSettingsModalStore((state) => state.open);
@@ -73,7 +84,11 @@ export default function AppBar() {
             </Tooltip>
           )}
           <Tooltip title="Redis info">
-            <IconButton onClick={openRedisInfo} aria-label="redis info">
+            <IconButton
+              onMouseEnter={onRedisHover}
+              onClick={openRedisInfo}
+              aria-label="redis info"
+            >
               <RedisLogo width="24" />
             </IconButton>
           </Tooltip>
@@ -104,4 +119,4 @@ export default function AppBar() {
       </Toolbar>
     </BaseAppBar>
   );
-}
+});
