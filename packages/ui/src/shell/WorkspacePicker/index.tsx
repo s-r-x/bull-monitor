@@ -15,6 +15,7 @@ import {
 } from '@/atoms/workspaces';
 import { useAtom } from 'jotai';
 import { WorkspacesConfig } from '@/config/workspaces';
+import IconButton from '@material-ui/core/IconButton';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -65,12 +66,13 @@ export default function WorkspacePicker() {
           />
         ))}
         {workspacesSize < WorkspacesConfig.maxWorkspaces && (
-          <Chip
+          <IconButton
             onClick={() => addWorkspace({ queue, queueLabel })}
-            icon={<AddIcon />}
-            label="Add workspace"
-            color="secondary"
-          />
+            aria-label="Add workspace"
+            size="small"
+          >
+            <AddIcon />
+          </IconButton>
         )}
       </div>
     </Paper>
