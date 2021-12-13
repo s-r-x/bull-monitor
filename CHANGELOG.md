@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.15.1](https://github.com/s-r-x/bull-monitor/compare/v2.15.0...v2.15.1) (2021-12-13)
+
+
+### Performance Improvements
+
+* prefetch redis info on redis icon hover ([ee53c81](https://github.com/s-r-x/bull-monitor/commit/ee53c810e6a7a3096ee080d6f9deb17d07466e6b))
+
+
+
+
+
 # [2.15.0](https://github.com/s-r-x/bull-monitor/compare/v2.14.1...v2.15.0) (2021-12-06)
 
 
