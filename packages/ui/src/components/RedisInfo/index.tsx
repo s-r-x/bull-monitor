@@ -87,7 +87,9 @@ const RedisInfo = () => {
         </NetworkRequest>
       </DialogContent>
       <DialogActions>
-        <Button onClick={onClose}>Close</Button>
+        <Button color="inherit" onClick={onClose}>
+          Close
+        </Button>
       </DialogActions>
     </>
   );

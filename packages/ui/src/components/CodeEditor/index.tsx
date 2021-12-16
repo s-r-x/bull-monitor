@@ -82,7 +82,9 @@ const CodeEditor = (props: TProps) => {
       />
       {!props.readOnly && props.value && (
         <div className={cls.utils} onClick={formatValue}>
-          <Button size="small">Format</Button>
+          <Button color="info" size="small">
+            Format
+          </Button>
         </div>
       )}
     </div>

@@ -8,7 +8,7 @@ import shallow from 'zustand/shallow';
 import type { GetJobsQuery } from '@/typings/gql';
 import isempty from 'lodash/isEmpty';
 
-const actionsWidth = '190';
+const actionsWidth = '210';
 type TProps = {
   jobs?: GetJobsQuery['jobs'];
 };

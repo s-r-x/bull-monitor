@@ -1,6 +1,6 @@
 import React from 'react';
 import { getMuiTheme } from '@/stores/theme';
-import { ThemeProvider as MuiThemeProvider } from '@mui/styles';
+import { ThemeProvider as MuiThemeProvider } from '@mui/material/styles';
 import { StyledEngineProvider } from '@mui/styled-engine';
 
 export const ThemeProvider: React.FC = (props) => {

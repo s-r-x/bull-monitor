@@ -76,6 +76,7 @@ export const getMuiTheme = () => {
       createTheme({
         palette: {
           primary: palettesMap[palette],
+          secondary: red,
           mode: theme,
         },
       }),

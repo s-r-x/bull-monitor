@@ -77,28 +77,35 @@ const DataEditor = () => {
       data,
     });
   };
-  return <>
-    <AppBar className={classes.appBar}>
-      <Toolbar>
-        <IconButton
-          edge="start"
-          color="inherit"
-          onClick={onClose}
-          aria-label="close"
-          size="large">
-          <CloseIcon />
-        </IconButton>
-        <Button className={classes.submitBtn} onClick={onSubmit}>
-          Update data
-        </Button>
-      </Toolbar>
-    </AppBar>
-    <div className={classes.root}>
-      <NetworkRequest status={status} refetch={refetch}>
-        <CodeEditor onChange={setData} value={data} />
-      </NetworkRequest>
-    </div>
-  </>;
+  return (
+    <>
+      <AppBar className={classes.appBar}>
+        <Toolbar>
+          <IconButton
+            edge="start"
+            color="inherit"
+            onClick={onClose}
+            aria-label="close"
+            size="large"
+          >
+            <CloseIcon />
+          </IconButton>
+          <Button
+            color="inherit"
+            className={classes.submitBtn}
+            onClick={onSubmit}
+          >
+            Update data
+          </Button>
+        </Toolbar>
+      </AppBar>
+      <div className={classes.root}>
+        <NetworkRequest status={status} refetch={refetch}>
+          <CodeEditor onChange={setData} value={data} />
+        </NetworkRequest>
+      </div>
+    </>
+  );
 };
 export default function DataEditorModal() {
   const [isOpen, onClose] = useDataEditorStore(

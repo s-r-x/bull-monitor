@@ -5,7 +5,15 @@ export const useConfirm = () => {
   const materialConfirm = useMaterialConfirm();
   const confirm = async (options: Parameters<typeof materialConfirm>[0]) => {
     try {
-      await materialConfirm(options);
+      await materialConfirm({
+        ...options,
+        confirmationButtonProps: {
+          color: 'inherit',
+        },
+        cancellationButtonProps: {
+          color: 'inherit',
+        },
+      });
     } catch (_e) {
       throw new ConfirmError();
     }

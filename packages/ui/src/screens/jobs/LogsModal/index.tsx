@@ -29,8 +29,6 @@ const useStyles = makeStyles((theme) => ({
     alignItems: 'center',
     '& button': {
       marginLeft: theme.spacing(1),
-      position: 'relative',
-      top: '10px',
     },
   },
 }));
@@ -86,7 +84,7 @@ const JobLogs = () => {
               id="job-log-input"
               label="Log"
             />
-            <Button disabled={readonly} type="submit">
+            <Button color="inherit" disabled={readonly} type="submit">
               submit
             </Button>
           </div>

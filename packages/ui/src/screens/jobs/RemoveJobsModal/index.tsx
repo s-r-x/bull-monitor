@@ -67,8 +67,11 @@ const RemoveJobs = () => {
         </form>
       </DialogContent>
       <DialogActions>
-        <Button onClick={onClose}>Cancel</Button>
+        <Button color="inherit" onClick={onClose}>
+          Cancel
+        </Button>
         <Button
+          color="inherit"
           disabled={mutation.isLoading}
           type="submit"
           form="remove-jobs_form"
