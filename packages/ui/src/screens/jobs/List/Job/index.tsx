@@ -1,14 +1,14 @@
 import React from 'react';
 import { useFormatDateTime } from '@/hooks/use-format-date-time';
-import TableRow from '@material-ui/core/TableRow';
-import TableCell from '@material-ui/core/TableCell';
+import TableRow from '@mui/material/TableRow';
+import TableCell from '@mui/material/TableCell';
 import Actions from './Actions';
 import type { TJobProps } from './typings';
-import Checkbox from '@material-ui/core/Checkbox';
+import Checkbox from '@mui/material/Checkbox';
 import JobStatusChip from '@/components/JobStatusChip';
 import SimpleJsonView from '@/components/SimpleJsonView';
 import isempty from 'lodash/isEmpty';
-import { makeStyles } from '@material-ui/core/styles';
+import makeStyles from '@mui/styles/makeStyles';
 import { useRemoveJobSelectionOnUnmount } from './hooks';
 import ms from 'ms';
 
@@ -29,7 +29,7 @@ const useStyles = makeStyles((theme) => ({
     display: 'grid',
     gridTemplateColumns: '1fr 1fr',
     gridGap: theme.spacing(1),
-    [theme.breakpoints.down('md')]: {
+    [theme.breakpoints.down('xl')]: {
       gridTemplateColumns: '1fr',
     },
   },

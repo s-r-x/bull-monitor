@@ -1,8 +1,8 @@
 import React from 'react';
-import TextField from '@material-ui/core/TextField';
+import TextField from '@mui/material/TextField';
 import { SUPPORTED_PALETTES, useThemeStore } from '@/stores/theme';
 import shallow from 'zustand/shallow';
-import MenuItem from '@material-ui/core/MenuItem';
+import MenuItem from '@mui/material/MenuItem';
 
 export default function AppearanceSettings() {
   const [theme, palette, changeTheme, changePalette] = useThemeStore(

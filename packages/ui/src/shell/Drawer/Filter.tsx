@@ -1,5 +1,5 @@
 import React, { useCallback } from 'react';
-import TextField from '@material-ui/core/TextField';
+import TextField from '@mui/material/TextField';
 import { useQueuesFilterStore } from '@/stores/queues-filter';
 
 type TProps = {

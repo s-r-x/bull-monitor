@@ -1,5 +1,5 @@
 import React, { memo } from 'react';
-import Paper from '@material-ui/core/Paper';
+import Paper from '@mui/material/Paper';
 import * as Chart from 'recharts';
 import { JobStatus } from '@/typings/gql';
 import { useJobStatusesPalette } from '@/components/JobStatusChip/hooks';

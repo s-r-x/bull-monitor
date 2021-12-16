@@ -1,7 +1,5 @@
-import { makeStyles } from '@material-ui/core/styles';
-import green from '@material-ui/core/colors/green';
-import red from '@material-ui/core/colors/red';
-import blue from '@material-ui/core/colors/blue';
+import makeStyles from '@mui/styles/makeStyles';
+import { green, red, blue } from '@mui/material/colors';
 
 export const useChartStyles = makeStyles((theme) => ({
   root: {
@@ -9,7 +7,7 @@ export const useChartStyles = makeStyles((theme) => ({
     paddingLeft: 0,
     overflow: 'hidden',
     flex: 1,
-    [theme.breakpoints.down('xs')]: {
+    [theme.breakpoints.down('md')]: {
       display: 'block',
       height: 400,
     },

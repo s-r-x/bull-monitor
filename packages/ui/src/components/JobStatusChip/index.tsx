@@ -1,5 +1,5 @@
 import React from 'react';
-import Chip from '@material-ui/core/Chip';
+import Chip from '@mui/material/Chip';
 import type { JobStatus } from '@/typings/gql';
 import isUndefined from 'lodash/isUndefined';
 import { useJobStatusColor } from './hooks';

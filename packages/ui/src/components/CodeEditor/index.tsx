@@ -19,10 +19,10 @@ import { Controlled as CodeMirror } from 'react-codemirror2';
 import jsonlint from 'jsonlint-mod';
 import { useCodeEditorStore } from '@/stores/code-editor';
 import shallow from 'zustand/shallow';
-import { makeStyles } from '@material-ui/core';
+import makeStyles from '@mui/styles/makeStyles';
 // @ts-ignore
 window.jsonlint = jsonlint;
-import Button from '@material-ui/core/Button';
+import Button from '@mui/material/Button';
 import { JsonService } from '@/services/json';
 
 const useStyles = makeStyles({
@@ -82,7 +82,9 @@ const CodeEditor = (props: TProps) => {
       />
       {!props.readOnly && props.value && (
         <div className={cls.utils} onClick={formatValue}>
-          <Button size="small">Format</Button>
+          <Button color="info" size="small">
+            Format
+          </Button>
         </div>
       )}
     </div>

@@ -1,20 +1,20 @@
 import React from 'react';
-import Dialog from '@material-ui/core/Dialog';
-import DialogActions from '@material-ui/core/DialogActions';
-import DialogContent from '@material-ui/core/DialogContent';
-import Button from '@material-ui/core/Button';
+import Dialog from '@mui/material/Dialog';
+import DialogActions from '@mui/material/DialogActions';
+import DialogContent from '@mui/material/DialogContent';
+import Button from '@mui/material/Button';
 import shallow from 'zustand/shallow';
 import { useQuery } from 'react-query';
 import { QueryKeysConfig } from '@/config/query-keys';
 import { useJobLogsStore } from '@/stores/job-logs';
-import TextField from '@material-ui/core/TextField';
-import List from '@material-ui/core/List';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemText from '@material-ui/core/ListItemText';
+import TextField from '@mui/material/TextField';
+import List from '@mui/material/List';
+import ListItem from '@mui/material/ListItem';
+import ListItemText from '@mui/material/ListItemText';
 import { useNetwork } from '@/hooks/use-network';
 import { useAbstractMutation } from '@/hooks/use-abstract-mutation';
 import NetworkRequest from '@/components/NetworkRequest';
-import { makeStyles } from '@material-ui/core/styles';
+import makeStyles from '@mui/styles/makeStyles';
 import { useQueueData } from '@/hooks/use-queue-data';
 
 const useStyles = makeStyles((theme) => ({
@@ -29,8 +29,6 @@ const useStyles = makeStyles((theme) => ({
     alignItems: 'center',
     '& button': {
       marginLeft: theme.spacing(1),
-      position: 'relative',
-      top: '10px',
     },
   },
 }));
@@ -86,7 +84,7 @@ const JobLogs = () => {
               id="job-log-input"
               label="Log"
             />
-            <Button disabled={readonly} type="submit">
+            <Button color="inherit" disabled={readonly} type="submit">
               submit
             </Button>
           </div>

@@ -1,14 +1,14 @@
 import React from 'react';
 import type { TJobProps } from '../typings';
-import Stepper from '@material-ui/core/Stepper';
-import Step from '@material-ui/core/Step';
-import StepLabel from '@material-ui/core/StepLabel';
-import Typography from '@material-ui/core/Typography';
+import Stepper from '@mui/material/Stepper';
+import Step from '@mui/material/Step';
+import StepLabel from '@mui/material/StepLabel';
+import Typography from '@mui/material/Typography';
 import { useFormatDateTime } from '@/hooks/use-format-date-time';
 import { JobStatus } from '@/typings/gql';
 import { useActiveStep } from './hooks';
-import { makeStyles } from '@material-ui/core/styles';
-import Box from '@material-ui/core/Box';
+import makeStyles from '@mui/styles/makeStyles';
+import Box from '@mui/material/Box';
 import SimpleJsonView from '@/components/SimpleJsonView';
 
 const useStyles = makeStyles((theme) => ({

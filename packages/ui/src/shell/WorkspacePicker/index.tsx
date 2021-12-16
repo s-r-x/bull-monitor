@@ -1,8 +1,8 @@
 import React from 'react';
-import Chip from '@material-ui/core/Chip';
-import Paper from '@material-ui/core/Paper';
-import { makeStyles } from '@material-ui/core/styles';
-import AddIcon from '@material-ui/icons/Add';
+import Chip from '@mui/material/Chip';
+import Paper from '@mui/material/Paper';
+import makeStyles from '@mui/styles/makeStyles';
+import AddIcon from '@mui/icons-material/Add';
 import { useAtomValue, useUpdateAtom } from 'jotai/utils';
 import {
   activeWorkspaceIdAtom,
@@ -15,7 +15,7 @@ import {
 } from '@/atoms/workspaces';
 import { useAtom } from 'jotai';
 import { WorkspacesConfig } from '@/config/workspaces';
-import IconButton from '@material-ui/core/IconButton';
+import IconButton from '@mui/material/IconButton';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -31,7 +31,7 @@ const useStyles = makeStyles((theme) => ({
     '& > *': {
       margin: theme.spacing(0.5),
     },
-    [theme.breakpoints.down('md')]: {
+    [theme.breakpoints.down('xl')]: {
       maxWidth: '100%',
       overflowX: 'auto',
       flexWrap: 'nowrap',

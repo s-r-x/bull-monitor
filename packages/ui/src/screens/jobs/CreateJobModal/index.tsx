@@ -1,22 +1,22 @@
 import React from 'react';
-import Dialog from '@material-ui/core/Dialog';
-import Button from '@material-ui/core/Button';
+import Dialog from '@mui/material/Dialog';
+import Button from '@mui/material/Button';
 import shallow from 'zustand/shallow';
 import CodeEditor from '@/components/CodeEditor';
 import { useNetwork } from '@/hooks/use-network';
 import { useAbstractMutation } from '@/hooks/use-abstract-mutation';
 import { useCreateJobStore } from '@/stores/create-job';
-import FormControl from '@material-ui/core/FormControl';
-import TextField from '@material-ui/core/TextField';
-import { makeStyles } from '@material-ui/core/styles';
-import FormLabel from '@material-ui/core/FormLabel';
+import FormControl from '@mui/material/FormControl';
+import TextField from '@mui/material/TextField';
+import makeStyles from '@mui/styles/makeStyles';
+import FormLabel from '@mui/material/FormLabel';
 import { activeQueueAtom } from '@/atoms/workspaces';
 import { useAtomValue } from 'jotai/utils';
-import Grid from '@material-ui/core/Grid';
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import IconButton from '@material-ui/core/IconButton';
-import CloseIcon from '@material-ui/icons/Close';
+import Grid from '@mui/material/Grid';
+import AppBar from '@mui/material/AppBar';
+import Toolbar from '@mui/material/Toolbar';
+import IconButton from '@mui/material/IconButton';
+import CloseIcon from '@mui/icons-material/Close';
 
 const useStyles = makeStyles((theme) => ({
   label: {
@@ -88,6 +88,7 @@ const CreateJob = () => {
             color="inherit"
             onClick={close}
             aria-label="close"
+            size="large"
           >
             <CloseIcon />
           </IconButton>

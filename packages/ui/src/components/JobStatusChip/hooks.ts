@@ -1,10 +1,5 @@
 import { JobStatus } from '@/typings/gql';
-import deepPurple from '@material-ui/core/colors/deepPurple';
-import grey from '@material-ui/core/colors/grey';
-import cyan from '@material-ui/core/colors/cyan';
-import red from '@material-ui/core/colors/red';
-import green from '@material-ui/core/colors/green';
-import blue from '@material-ui/core/colors/blue';
+import { deepPurple, grey, cyan, red, green, blue } from '@mui/material/colors';
 
 const palette: Record<JobStatus, string> = {
   [JobStatus.Failed]: red[500],

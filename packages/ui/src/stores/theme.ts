@@ -1,23 +1,26 @@
 import { useMemo } from 'react';
 import createStore from 'zustand';
-import { createMuiTheme } from '@material-ui/core/styles';
+import { createTheme } from '@mui/material/styles';
 import { persist } from 'zustand/middleware';
 import { StorageConfig } from '@/config/storage';
-import deepPurple from '@material-ui/core/colors/deepPurple';
-import deepOrange from '@material-ui/core/colors/deepOrange';
-import blue from '@material-ui/core/colors/blue';
-import indigo from '@material-ui/core/colors/indigo';
-import pink from '@material-ui/core/colors/pink';
-import teal from '@material-ui/core/colors/teal';
-import amber from '@material-ui/core/colors/amber';
-import lightBlue from '@material-ui/core/colors/lightBlue';
-import red from '@material-ui/core/colors/red';
-import lightGreen from '@material-ui/core/colors/lightGreen';
-import blueGrey from '@material-ui/core/colors/blueGrey';
-import brown from '@material-ui/core/colors/brown';
-import cyan from '@material-ui/core/colors/cyan';
-import yellow from '@material-ui/core/colors/yellow';
-import grey from '@material-ui/core/colors/grey';
+
+import {
+  deepPurple,
+  deepOrange,
+  blue,
+  indigo,
+  pink,
+  teal,
+  amber,
+  lightBlue,
+  red,
+  lightGreen,
+  blueGrey,
+  brown,
+  cyan,
+  yellow,
+  grey,
+} from '@mui/material/colors';
 
 const palettesMap = {
   deepPurple,
@@ -70,10 +73,11 @@ export const getMuiTheme = () => {
   ]);
   return useMemo(
     () =>
-      createMuiTheme({
+      createTheme({
         palette: {
           primary: palettesMap[palette],
-          type: theme,
+          secondary: red,
+          mode: theme,
         },
       }),
     [theme, palette]

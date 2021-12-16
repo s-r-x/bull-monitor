@@ -1,6 +1,6 @@
 import React from 'react';
-import Dialog from '@material-ui/core/Dialog';
-import Button from '@material-ui/core/Button';
+import Dialog from '@mui/material/Dialog';
+import Button from '@mui/material/Button';
 import { useDataEditorStore } from '@/stores/data-editor';
 import shallow from 'zustand/shallow';
 import { useQuery, useQueryClient } from 'react-query';
@@ -11,11 +11,11 @@ import { useNetwork } from '@/hooks/use-network';
 import { useAbstractMutation } from '@/hooks/use-abstract-mutation';
 import type { GetJobDataQuery } from '@/typings/gql';
 import NetworkRequest from '@/components/NetworkRequest';
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import IconButton from '@material-ui/core/IconButton';
-import CloseIcon from '@material-ui/icons/Close';
-import { makeStyles } from '@material-ui/core/styles';
+import AppBar from '@mui/material/AppBar';
+import Toolbar from '@mui/material/Toolbar';
+import IconButton from '@mui/material/IconButton';
+import CloseIcon from '@mui/icons-material/Close';
+import makeStyles from '@mui/styles/makeStyles';
 
 const useStyles = makeStyles((theme) => ({
   appBar: {
@@ -86,10 +86,15 @@ const DataEditor = () => {
             color="inherit"
             onClick={onClose}
             aria-label="close"
+            size="large"
           >
             <CloseIcon />
           </IconButton>
-          <Button className={classes.submitBtn} onClick={onSubmit}>
+          <Button
+            color="inherit"
+            className={classes.submitBtn}
+            onClick={onSubmit}
+          >
             Update data
           </Button>
         </Toolbar>
