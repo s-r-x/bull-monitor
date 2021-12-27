@@ -1,5 +1,5 @@
 import { DataSource } from 'apollo-datasource';
-import type { JobCounts, JobStatus, JobId, Job } from 'bull';
+import type { JobCounts, JobStatus, JobId, Job } from '../../../bull-adapters';
 import { JsonService } from '../../../services/json';
 import {
   CreateJobInput,
@@ -157,7 +157,8 @@ export class BullDataSource extends DataSource {
   public async getRedisInfo() {
     if (this._queuesMap.size > 0) {
       const firstQueue = this._queues[0];
-      const rawInfo = await firstQueue.client.info();
+      const client = await firstQueue.client;
+      const rawInfo = await client.info();
       return redisInfo.parse(rawInfo);
     }
     return null;

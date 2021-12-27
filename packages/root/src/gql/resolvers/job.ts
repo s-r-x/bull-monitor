@@ -1,4 +1,4 @@
-import { Job as BullJob } from 'bull';
+import { Job as BullJob } from '../../bull-adapters';
 import { JsonService } from '../../services/json';
 import type { TResolvers } from './typings';
 
@@ -28,7 +28,7 @@ export const JobResolver: TResolvers = {
       return JsonService.maybeStringify(job.returnvalue);
     },
     progress(job: BullJob) {
-      return job.progress();
+      return job.progress;
     },
     opts(job: BullJob) {
       return JsonService.maybeStringify(job.opts);

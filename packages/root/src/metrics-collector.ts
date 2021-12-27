@@ -1,4 +1,4 @@
-import type { JobCounts, JobId } from 'bull';
+import type { JobCounts, JobId } from './bull-adapters';
 import { MetricsConfig } from './typings/config';
 import { JsonService } from './services/json';
 import {
@@ -58,14 +58,17 @@ export class MetricsCollector {
     end = -1
   ): Promise<TMetrics[]> {
     const key = this._buildPersistKey(queue);
-    const metrics = await this._redisClient.lrange(key, start, end);
+    const client = await this._redisClient;
+    const metrics = await client.lrange(key, start, end);
     return metrics.map(JsonService.maybeParse).filter(Boolean);
   }
   public async clear(queue: string): Promise<void> {
-    await this._redisClient.del(this._buildPersistKey(queue));
+    const client = await this._redisClient;
+    await client.del(this._buildPersistKey(queue));
   }
   public async clearAll(): Promise<void> {
-    const pipeline = this._redisClient.pipeline();
+    const client = await this._redisClient;
+    const pipeline = client.pipeline();
     this._queues.forEach((queue) => {
       pipeline.del(this._buildPersistKey(queue.id));
     });
@@ -112,7 +115,7 @@ export class MetricsCollector {
     );
   }
   private async _persist(metrics: TMetrics[]) {
-    const client = this._redisClient;
+    const client = await this._redisClient;
     const lpopPipeline = client.pipeline();
     await Promise.all(
       metrics.map(async (metric) => {

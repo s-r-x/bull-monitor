@@ -1,5 +1,9 @@
-import type { Queue } from 'bull';
+import type { Queue as BullQueue } from 'bull';
+import type { Queue as BullMQQueue } from 'bullmq';
+import type { BullQueueAdapter, BullMQQueueAdapter } from '../bull-adapters';
 import { SimpleIntervalSchedule } from 'toad-scheduler';
+
+type Queue = BullQueue | BullMQQueue | BullQueueAdapter | BullMQQueueAdapter;
 
 export type MetricsConfig = {
   redisPrefix?: string;

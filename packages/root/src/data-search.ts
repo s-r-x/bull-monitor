@@ -1,4 +1,4 @@
-import type { Queue as BullQueue, JobStatus } from 'bull';
+import type { Queue as BullQueue, JobStatus } from './bull-adapters';
 import isempty from 'lodash/isEmpty';
 import { Readable } from 'stream';
 import jsonata from 'jsonata';
@@ -86,7 +86,8 @@ abstract class AbstractIterator {
     this._scanCount = config.scanCount || DEFAULT_DATA_SEARCH_SCAN_COUNT;
   }
   protected async _extractJobsData(ids: string[]): Promise<TJobExcerpt[]> {
-    const pipeline = this._queue.client.pipeline();
+    const client = await this._queue.client;
+    const pipeline = client.pipeline();
     ids.forEach((id) => pipeline.hmget(this._queue.toKey(id), 'data'));
     const data = await pipeline.exec();
     return data.reduce((acc, [error, [jobData]], idx) => {
@@ -108,7 +109,8 @@ class SetIterator extends AbstractIterator {
     super(queue, config);
   }
   async *generator() {
-    this._stream = this._queue.client.zscanStream(this._key, {
+    const client = await this._queue.client;
+    this._stream = client.zscanStream(this._key, {
       count: this._scanCount,
     });
     for await (const ids of this._stream) {
@@ -134,7 +136,8 @@ class ListIterator extends AbstractIterator {
     super(queue, config);
   }
   async *generator() {
-    this._ids = await this._queue.client.lrange(this._key, 0, -1);
+    const client =await this._queue.client;
+    this._ids = await client.lrange(this._key, 0, -1);
     while (true) {
       try {
         const ids = this._nextChunk;

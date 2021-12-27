@@ -31,7 +31,7 @@ export abstract class BullMonitor<TServer extends ApolloServerBase> {
     }
   }
   public abstract init(...args: any): Promise<any>;
-  public get queues() {
+  public get queues(): BullMonitorQueue[] {
     return this._queues;
   }
   public set queues(queues: Config['queues']) {
