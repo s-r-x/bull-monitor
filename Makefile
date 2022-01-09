@@ -12,7 +12,7 @@ lint:
 lint.fix:
 	npx eslint packages/$(pkg) --fix
 check-types:
-	cd packages/$(pkg) && npx tsc -noEmit
+	cd packages/$(pkg) && npx tsc -noEmit -p tsconfig.build.json
 add-dep:
 	npx lerna add $(dep) --scope=@bull-monitor/$(pkg)
 version:
