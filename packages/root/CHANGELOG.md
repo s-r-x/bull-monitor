@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0-alpha.0](https://github.com/s-r-x/bull-monitor/compare/v2.16.0...v3.0.0-alpha.0) (2022-01-10)
+
+
+### Features
+
+* bullmq support ([86fc69e](https://github.com/s-r-x/bull-monitor/commit/86fc69eddd08c129cf8a9154e2233e456413c43c))
+
+
+
+
+
 # [2.16.0](https://github.com/s-r-x/bull-monitor/compare/v2.15.1...v2.16.0) (2021-12-16)
 
 **Note:** Version bump only for package @bull-monitor/root
