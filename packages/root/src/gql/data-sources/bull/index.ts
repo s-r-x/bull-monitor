@@ -1,7 +1,13 @@
 import { DataSource } from 'apollo-datasource';
-import type { JobCounts, JobStatus, JobId, Job } from '../../../bull-adapters';
 import { JsonService } from '../../../services/json';
-import {
+import { OrderEnum } from '../../../typings/gql';
+import redisInfo from 'redis-info';
+import { DataSearcher } from '../../../data-search';
+import isNil from 'lodash/isNil';
+import { BullMonitorError } from '../../../errors';
+import { BullErrorEnum as ErrorEnum } from './errors-enum';
+import type { Queue, JobStatus, JobId, JobCounts, Job } from '../../../queue';
+import type {
   CreateJobInput,
   MutationCleanQueueArgs,
   MutationCloseQueueArgs,
@@ -18,15 +24,8 @@ import {
   MutationRetryJobArgs,
   MutationRetryJobsArgs,
   MutationUpdateJobDataArgs,
-  OrderEnum,
 } from '../../../typings/gql';
-import { Maybe } from '../../../typings/utils';
-import redisInfo from 'redis-info';
-import { DataSearcher } from '../../../data-search';
-import isNil from 'lodash/isNil';
-import { BullMonitorError } from '../../../errors';
-import { BullMonitorQueue as Queue } from '../../../queue';
-import { BullErrorEnum as ErrorEnum } from './errors-enum';
+import type { Maybe } from '../../../typings/utils';
 
 type Config = {
   textSearchScanCount?: number;

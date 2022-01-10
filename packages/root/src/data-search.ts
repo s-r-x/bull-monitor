@@ -1,9 +1,10 @@
-import type { Queue as BullQueue, JobStatus } from './bull-adapters';
 import isempty from 'lodash/isEmpty';
 import { Readable } from 'stream';
 import jsonata from 'jsonata';
 import { JsonService } from './services/json';
 import { DEFAULT_DATA_SEARCH_SCAN_COUNT } from './constants';
+import type { Queue as BullQueue, JobStatus } from './queue';
+import type { Maybe } from './typings/utils';
 
 type TSearchArgs = {
   status: JobStatus;
@@ -28,6 +29,7 @@ export class DataSearcher {
       return [];
     }
     const it = this._getIterator(args);
+    if (!it) return [];
     const start = args.offset;
     const end = args.limit + start;
     const acc: string[] = [];
@@ -49,7 +51,7 @@ export class DataSearcher {
     );
     return jobs;
   }
-  private _getIterator(args: TSearchArgs): AbstractIterator {
+  private _getIterator(args: TSearchArgs): Maybe<AbstractIterator> {
     const redisKey = this._queue.toKey(args.status);
     const config: TIteratorConfig = {
       scanCount: args.scanCount,
@@ -136,7 +138,7 @@ class ListIterator extends AbstractIterator {
     super(queue, config);
   }
   async *generator() {
-    const client =await this._queue.client;
+    const client = await this._queue.client;
     this._ids = await client.lrange(this._key, 0, -1);
     while (true) {
       try {

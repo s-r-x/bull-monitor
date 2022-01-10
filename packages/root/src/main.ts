@@ -7,7 +7,7 @@ import { typeDefs } from './gql/type-defs';
 import { resolvers } from './gql/resolvers';
 import { UI } from './ui';
 import { MetricsCollector } from './metrics-collector';
-import { BullMonitorQueue, patchBullQueue } from './queue';
+import { Queue } from './queue';
 import { DEFAULT_METRICS_CONFIG, DEFAULT_ROOT_CONFIG } from './constants';
 import type {
   ApolloServerBase,
@@ -16,9 +16,9 @@ import type {
 import type { Config, MetricsConfig } from './typings/config';
 
 export abstract class BullMonitor<TServer extends ApolloServerBase> {
-  private _queues: BullMonitorQueue[];
-  private _queuesMap: Map<string, BullMonitorQueue> = new Map();
-  private _readonlyQueuesMap: Map<string, BullMonitorQueue> = new Map();
+  private _queues: Queue[];
+  private _queuesMap: Map<string, Queue> = new Map();
+  private _readonlyQueuesMap: Map<string, Queue> = new Map();
   private _ui: UI;
   private _metricsCollector?: MetricsCollector;
 
@@ -31,7 +31,7 @@ export abstract class BullMonitor<TServer extends ApolloServerBase> {
     }
   }
   public abstract init(...args: any): Promise<any>;
-  public get queues(): BullMonitorQueue[] {
+  public get queues(): Queue[] {
     return this._queues;
   }
   public set queues(queues: Config['queues']) {
@@ -83,10 +83,10 @@ export abstract class BullMonitor<TServer extends ApolloServerBase> {
   }
 
   private _initQueues(rawQueues: Config['queues']) {
-    const queues = rawQueues.map((queue) =>
-      Array.isArray(queue) ? queue[0] : queue
+    this._queues = this._validateQueues(
+      rawQueues.map((queue) => (Array.isArray(queue) ? queue[0] : queue))
     );
-    this._queues = queues.map(patchBullQueue);
+    // TODO:: if queues.length !== validatedQueues.length there will be a problem with indexes
     this._queues.forEach((queue, idx) => {
       this._queuesMap.set(queue.id, queue);
       const rawQueue = rawQueues[idx];
@@ -94,6 +94,22 @@ export abstract class BullMonitor<TServer extends ApolloServerBase> {
         this._readonlyQueuesMap.set(queue.id, queue);
       }
     });
+  }
+  private _validateQueues(queues: Queue[]): Queue[] {
+    let hasInvalid = false;
+    const validated = queues.filter((queue) => {
+      const isValid = queue instanceof Queue;
+      if (!isValid) {
+        hasInvalid = true;
+      }
+      return isValid;
+    });
+    if (hasInvalid) {
+      console.error(
+        'Since version 3.0.0 every queue should be wrapped in bull or bullmq adapter. Check out the bull-monitor docs for more info - https://github.com/s-r-x/bull-monitor'
+      );
+    }
+    return validated;
   }
   private _normalizeConfig(config: Config): Required<Config> {
     return {

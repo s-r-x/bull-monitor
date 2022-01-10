@@ -1,4 +1,4 @@
-import { BullMonitorQueue as Queue } from '../../queue';
+import { Queue } from '../../queue';
 import type { TResolvers } from './typings';
 
 export const queueResolver: TResolvers = {

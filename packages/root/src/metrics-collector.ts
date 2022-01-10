@@ -1,15 +1,14 @@
-import type { JobCounts, JobId } from './bull-adapters';
-import { MetricsConfig } from './typings/config';
 import { JsonService } from './services/json';
 import {
   ToadScheduler as Scheduler,
   SimpleIntervalJob as SchedulerJob,
   AsyncTask as SchedulerTask,
 } from 'toad-scheduler';
-import { BullMonitorQueue } from './queue';
 import sum from 'lodash/sum';
 import isEmpty from 'lodash/isEmpty';
 import round from 'lodash/round';
+import type { Queue, JobCounts, JobId } from './queue';
+import type { MetricsConfig } from './typings/config';
 
 type TMetrics = {
   queue: string;
@@ -19,25 +18,15 @@ type TMetrics = {
   processingTimeMin?: number;
   processingTimeMax?: number;
 };
-type TJobCompletionCb = (
-  queue: BullMonitorQueue,
-  jobId: JobId
-) => Promise<void>;
-
-const COMPLETED_EV = 'global:completed';
 
 export class MetricsCollector {
-  private _completionCbs: TJobCompletionCb[] = [];
   private _processingTimeGauge: Map<string, number[]> = new Map();
-  private _queues: BullMonitorQueue[];
+  private _queues: Queue[];
   private _scheduler: Scheduler;
   private _schedulerJob: SchedulerJob;
   private _isActive = false;
 
-  constructor(
-    queues: BullMonitorQueue[],
-    private _config: Required<MetricsConfig>
-  ) {
+  constructor(queues: Queue[], private _config: Required<MetricsConfig>) {
     this._scheduler = new Scheduler();
     this._queues = queues.filter((q) => !_config.blacklist.includes(q.name));
   }
@@ -74,7 +63,7 @@ export class MetricsCollector {
     });
     await pipeline.exec();
   }
-  public set queues(queues: BullMonitorQueue[]) {
+  public set queues(queues: Queue[]) {
     this._queues = queues.filter(
       (q) => !this._config.blacklist.includes(q.name)
     );
@@ -132,20 +121,15 @@ export class MetricsCollector {
     this._detachCompletionCbs();
     for (const queue of this._queues) {
       const cb = this._onJobComplete.bind(this, queue);
-      this._completionCbs.push(cb);
-      queue.on(COMPLETED_EV, cb);
+      queue.onGlobalJobCompletion = cb;
     }
   }
   private _detachCompletionCbs() {
-    if (this._completionCbs.length > 0) {
-      for (const queue of this._queues) {
-        for (const cb of this._completionCbs) {
-          queue.off(COMPLETED_EV, cb);
-        }
-      }
+    for (const queue of this._queues) {
+      queue.onGlobalJobCompletion = null;
     }
   }
-  private async _onJobComplete(queue: BullMonitorQueue, jobId: JobId) {
+  private async _onJobComplete(queue: Queue, jobId: JobId) {
     const job = await queue.getJob(jobId);
     if (!job?.finishedOn || !job.processedOn) {
       return;

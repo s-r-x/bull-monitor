@@ -1,5 +1,5 @@
-import { Job as BullJob } from '../../bull-adapters';
 import { JsonService } from '../../services/json';
+import type { Job as BullJob } from '../../queue';
 import type { TResolvers } from './typings';
 
 export const JobResolver: TResolvers = {

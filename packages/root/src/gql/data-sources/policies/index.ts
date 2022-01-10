@@ -1,7 +1,8 @@
 import { DataSource } from 'apollo-datasource';
 import { BullMonitorError } from '../../../errors';
-import { BullMonitorQueue as Queue } from '../../../queue';
+import { Queue } from '../../../queue';
 import { PoliciesErrorEnum } from './errors-enum';
+
 export class PoliciesDataSource extends DataSource {
   constructor(private _readonlyQueues: Map<string, Queue>) {
     super();
