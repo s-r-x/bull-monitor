@@ -1,5 +1,5 @@
 import { BullMonitorExpress } from '@bull-monitor/express';
-import { BullQueueAdapter } from '@bull-monitor/root/bull-adapter';
+import { BullAdapter } from '@bull-monitor/root/bull-adapter';
 import express from 'express';
 import Queue from 'bull';
 
@@ -34,10 +34,10 @@ const prefixedQueues = Array.from(new Array(QUEUES_AMOUNT)).map(
 
 const monitor = new BullMonitorExpress({
   queues: [
-    ...queues.map((queue) => new BullQueueAdapter(queue as any)),
-    ...prefixedQueues.map((queue) => new BullQueueAdapter(queue as any)),
+    ...queues.map((queue) => new BullAdapter(queue as any)),
+    ...prefixedQueues.map((queue) => new BullAdapter(queue as any)),
     ...readonlyQueues.map(
-      (queue) => [new BullQueueAdapter(queue as any), { readonly: true }] as any
+      (queue) => [new BullAdapter(queue as any), { readonly: true }] as any
     ),
   ],
   gqlPlayground: true,

@@ -106,7 +106,7 @@ export class BullMQJobAdapter extends Job {
 }
 
 type InternalGlobalJobCompletionCb = (value: any) => void;
-export class BullMQQueueAdapter extends Queue {
+export class BullMQAdapter extends Queue {
   private _queueEvents?: QueueEvents;
   private _globalJobCompletionCb?: InternalGlobalJobCompletionCb;
   private _id: string;

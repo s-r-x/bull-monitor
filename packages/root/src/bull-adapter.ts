@@ -99,7 +99,7 @@ export class BullJobAdapter extends Job {
   }
 }
 
-export class BullQueueAdapter extends Queue {
+export class BullAdapter extends Queue {
   private _id: string;
   private _globalJobCompletionCb?: GlobalJobCompletionCb;
 
