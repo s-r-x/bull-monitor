@@ -7,7 +7,7 @@ import { useNetwork } from '@/hooks/use-network';
 import AddIcon from '@mui/icons-material/Add';
 import { useAbstractMutation } from '@/hooks/use-abstract-mutation';
 import { useRemoveJobsModalStore } from '@/stores/remove-jobs-modal';
-import { JobStatusClean } from '@/typings/gql';
+import { JobStatusClean, QueueProvider } from '@/typings/gql';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import IconButton from '@mui/material/IconButton';
@@ -167,7 +167,8 @@ export default function QueueActions() {
               dataSearch,
             });
           }}
-          size="large">
+          size="large"
+        >
           <SaveIcon />
         </IconButton>
       </Tooltip>
@@ -176,7 +177,8 @@ export default function QueueActions() {
         disabled={isReadonly}
         aria-controls="more-queue-actions-menu"
         aria-haspopup="true"
-        size="large">
+        size="large"
+      >
         <MoreIcon />
       </IconButton>
       <Menu
@@ -190,9 +192,11 @@ export default function QueueActions() {
             {isRefetchLocked ? 'Enable jobs polling' : 'Disable jobs polling'}
           </MenuItem>
         )}
-        <MenuItem onClick={openRemoveJobsModal}>
-          Remove jobs by pattern
-        </MenuItem>
+        {queueData?.provider === QueueProvider.Bull && (
+          <MenuItem onClick={openRemoveJobsModal}>
+            Remove jobs by pattern
+          </MenuItem>
+        )}
         {isQueuePaused ? (
           <MenuItem onClick={() => resumeMutation.mutate(sharedMutationArg)}>
             Resume

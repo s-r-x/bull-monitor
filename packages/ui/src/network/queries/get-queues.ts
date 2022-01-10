@@ -1,6 +1,6 @@
 import { gqlClient } from '@/network/gql-client';
-import type { GetQueuesQuery } from '@/typings/gql';
 import { gql } from 'graphql-request';
+import type { GetQueuesQuery } from '@/typings/gql';
 
 export const getQueues = (): Promise<GetQueuesQuery> =>
   gqlClient.request(
@@ -8,6 +8,7 @@ export const getQueues = (): Promise<GetQueuesQuery> =>
       query GetQueues {
         queues {
           id
+          provider
           readonly
           name
           keyPrefix

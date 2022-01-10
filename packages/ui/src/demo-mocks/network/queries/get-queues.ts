@@ -1,10 +1,12 @@
-import type { GetQueuesQuery } from '@/typings/gql';
+import { QueueProvider } from '@/typings/gql';
 import { networkMockData } from '../data';
+import type { GetQueuesQuery } from '@/typings/gql';
 
 export const getQueuesMock = (): Promise<GetQueuesQuery> => {
   return Promise.resolve({
     queues: networkMockData.queues.map((queue) => ({
       id: queue.id,
+      provider: QueueProvider.Bull,
       name: queue.name,
       isPaused: queue.isPaused,
       keyPrefix: queue.keyPrefix,

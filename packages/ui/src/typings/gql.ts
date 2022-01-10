@@ -262,6 +262,7 @@ export type QueryJobArgs = {
 
 export type Queue = {
   id: Scalars['String'];
+  provider: QueueProvider;
   name: Scalars['String'];
   readonly?: Maybe<Scalars['Boolean']>;
   keyPrefix?: Maybe<Scalars['String']>;
@@ -302,6 +303,11 @@ export type QueueMetrics = {
   processingTimeMin?: Maybe<Scalars['Float']>;
   processingTimeMax?: Maybe<Scalars['Float']>;
 };
+
+export enum QueueProvider {
+  Bull = 'bull',
+  Bullmq = 'bullmq'
+}
 
 export type RedisInfo = {
   redis_version: Scalars['String'];
@@ -548,7 +554,7 @@ export type GetQueuesQueryVariables = Exact<{ [key: string]: never; }>;
 
 
 export type GetQueuesQuery = { queues?: Maybe<Array<(
-    Pick<Queue, 'id' | 'readonly' | 'name' | 'keyPrefix' | 'isPaused'>
+    Pick<Queue, 'id' | 'provider' | 'readonly' | 'name' | 'keyPrefix' | 'isPaused'>
     & { jobsCounts: Pick<QueueJobsCounts, 'waiting' | 'active' | 'completed' | 'failed' | 'delayed' | 'paused'> }
   )>> };
 
