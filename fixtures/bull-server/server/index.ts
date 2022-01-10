@@ -1,4 +1,5 @@
 import { BullMonitorExpress } from '@bull-monitor/express';
+import { BullQueueAdapter } from '@bull-monitor/root/bull-adapter';
 import express from 'express';
 import Queue from 'bull';
 
@@ -16,8 +17,7 @@ const readonlyQueues = Array.from(new Array(READONLY_QUEUES_AMOUNT)).map(
 );
 const prefixedQueues = Array.from(new Array(QUEUES_AMOUNT)).map(
   (_v, idx) =>
-    new Queue(`queue:${idx}`, {
-      redis: redisUri,
+    new Queue(`queue:${idx}`, redisUri, {
       prefix: 'bull2',
     })
 );
@@ -34,9 +34,11 @@ const prefixedQueues = Array.from(new Array(QUEUES_AMOUNT)).map(
 
 const monitor = new BullMonitorExpress({
   queues: [
-    ...queues,
-    ...prefixedQueues,
-    ...readonlyQueues.map((queue) => [queue, { readonly: true }]),
+    ...queues.map((queue) => new BullQueueAdapter(queue as any)),
+    ...prefixedQueues.map((queue) => new BullQueueAdapter(queue as any)),
+    ...readonlyQueues.map(
+      (queue) => [new BullQueueAdapter(queue as any), { readonly: true }] as any
+    ),
   ],
   gqlPlayground: true,
   gqlIntrospection: true,
