@@ -13,6 +13,9 @@
   "author": "Ilya Strus <strax1990@gmail.com>",
   "license": "MIT",
   "types": "dist/index.d.ts",
+  "engines": {
+    "node": ">=10"
+  },
   "scripts": {
     "build": "npm run clean && npm run compile",
     "clean": "rm -rf ./dist",
