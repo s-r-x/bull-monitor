@@ -4,9 +4,11 @@ import type {
   JobStatusClean,
   QueueJobsCounts as JobCounts,
 } from './typings/gql';
+import { QueueProvider } from './typings/gql';
 import type { Maybe } from './typings/utils';
 
 export type { JobStatus, JobStatusClean, JobCounts };
+export { QueueProvider };
 export type RedisClient = Redis | Cluster;
 export type JobId = string;
 export type JobOptions = any;
@@ -44,6 +46,7 @@ export abstract class Job {
 }
 
 export abstract class Queue {
+  public abstract get provider(): QueueProvider;
   public abstract get client(): Promise<RedisClient>;
   public abstract get id(): string;
   public abstract get name(): string;

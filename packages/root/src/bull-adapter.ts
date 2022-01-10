@@ -1,5 +1,5 @@
 import type { Queue as BullQueue, Job as BullJob } from 'bull';
-import { Queue, Job } from './queue';
+import { Queue, Job, QueueProvider } from './queue';
 import type {
   JobId,
   JobStatus,
@@ -109,6 +109,9 @@ export class BullAdapter extends Queue {
   }
 
   // getters
+  public get provider(): QueueProvider {
+    return QueueProvider.Bull;
+  }
   public get client() {
     return Promise.resolve(this._queue.client);
   }

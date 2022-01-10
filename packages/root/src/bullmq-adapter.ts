@@ -1,5 +1,5 @@
 import { Queue as BullMQQueue, QueueEvents, Job as BullMQJob } from 'bullmq';
-import { Job, Queue } from './queue';
+import { Job, Queue, QueueProvider } from './queue';
 import type {
   JobId,
   JobStatus,
@@ -119,6 +119,9 @@ export class BullMQAdapter extends Queue {
   }
 
   // getters
+  public get provider(): QueueProvider {
+    return QueueProvider.Bullmq;
+  }
   private get queueEvents(): QueueEvents {
     if (!this._queueEvents) {
       this._queueEvents = new QueueEvents(this._queue.name, this._queue.opts);

@@ -262,6 +262,7 @@ export type QueryJobArgs = {
 
 export type Queue = {
   id: Scalars['String'];
+  provider: QueueProvider;
   name: Scalars['String'];
   readonly?: Maybe<Scalars['Boolean']>;
   keyPrefix?: Maybe<Scalars['String']>;
@@ -302,6 +303,11 @@ export type QueueMetrics = {
   processingTimeMin?: Maybe<Scalars['Float']>;
   processingTimeMax?: Maybe<Scalars['Float']>;
 };
+
+export enum QueueProvider {
+  Bull = 'bull',
+  Bullmq = 'bullmq'
+}
 
 export type RedisInfo = {
   redis_version: Scalars['String'];

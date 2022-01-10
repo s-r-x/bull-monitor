@@ -1,6 +1,10 @@
 import { gql } from 'apollo-server-core';
 
 export const queueTypeDef = gql`
+  enum QueueProvider {
+    bull
+    bullmq
+  }
   type QueueJobsCounts {
     waiting: Int!
     active: Int!
@@ -11,6 +15,7 @@ export const queueTypeDef = gql`
   }
   type Queue {
     id: String!
+    provider: QueueProvider!
     name: String!
     readonly: Boolean
     keyPrefix: String
