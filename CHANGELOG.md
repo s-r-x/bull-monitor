@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0-alpha.1](https://github.com/s-r-x/bull-monitor/compare/v3.0.0-alpha.0...v3.0.0-alpha.1) (2022-01-10)
+
+
+* feat!: compile to es2018 ([ac96e15](https://github.com/s-r-x/bull-monitor/commit/ac96e152967f8ff2c7f28030c92ea5ecaaa46cd3))
+
+
+### BREAKING CHANGES
+
+* drop support for node<10
+
+
+
+
+
 # [3.0.0-alpha.0](https://github.com/s-r-x/bull-monitor/compare/v2.16.0...v3.0.0-alpha.0) (2022-01-10)
 
 
