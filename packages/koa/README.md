@@ -13,15 +13,18 @@ npm i @bull-monitor/koa koa-router
 ```typescript
 import { BullMonitorKoa } from '@bull-monitor/koa';
 import Koa from 'koa';
+import { BullAdapter } from "@bull-monitor/root/dist/bull-adapter";
+// for BullMQ users
+// import { BullMQAdapter } from "@bull-monitor/root/dist/bullmq-adapter";
 import Queue from 'bull';
 
 (async () => {
   const app = new Koa();
   const monitor = new BullMonitorKoa({
     queues: [
-      new Queue('1', 'REDIS_URI'),
+      new BullAdapter(new Queue('1', 'REDIS_URI')),
       // readonly queue
-      [new Queue('2', 'REDIS_URI'), { readonly: true }],
+      [new BullAdapter(new Queue('2', 'REDIS_URI')), { readonly: true }],
     ],
     baseUrl: '/my/url',
     // enables graphql playground at /my/url/graphql. true by default

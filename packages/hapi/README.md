@@ -11,6 +11,9 @@ npm i @bull-monitor/hapi
 ```typescript
 import { BullMonitorHapi } from '@bull-monitor/hapi';
 import Hapi from '@hapi/hapi';
+import { BullAdapter } from "@bull-monitor/root/dist/bull-adapter";
+// for BullMQ users
+// import { BullMQAdapter } from "@bull-monitor/root/dist/bullmq-adapter";
 import Queue from 'bull';
 
 (async () => {
@@ -21,9 +24,9 @@ import Queue from 'bull';
   await server.start();
   const monitor = new BullMonitorHapi({
     queues: [
-      new Queue('1', 'REDIS_URI'),
+      new BullAdapter(new Queue('1', 'REDIS_URI')),
       // readonly queue
-      [new Queue('2', 'REDIS_URI'), { readonly: true }],
+      [new BullAdapter(new Queue('2', 'REDIS_URI')), { readonly: true }],
     ],
     baseUrl: '/my/url',
     // enables graphql playground at /my/url/graphql. true by default

@@ -10,6 +10,9 @@ npm i @bull-monitor/express
 
 ```typescript
 import { BullMonitorExpress } from '@bull-monitor/express';
+import { BullAdapter } from "@bull-monitor/root/dist/bull-adapter";
+// for BullMQ users
+// import { BullMQAdapter } from "@bull-monitor/root/dist/bullmq-adapter";
 import Express from 'express';
 import Queue from 'bull';
 
@@ -17,9 +20,9 @@ import Queue from 'bull';
   const app = Express();
   const monitor = new BullMonitorExpress({
     queues: [
-      new Queue('1', 'REDIS_URI'),
+      new BullAdapter(new Queue('1', 'REDIS_URI')),
       // readonly queue
-      [new Queue('2', 'REDIS_URI'), { readonly: true }],
+      [new BullAdapter(new Queue('2', 'REDIS_URI')), { readonly: true }],
     ],
     // enables graphql playground at /my/url/graphql. true by default
     gqlPlayground: true,

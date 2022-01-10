@@ -11,15 +11,18 @@ npm i @bull-monitor/fastify
 ```typescript
 import Fastify from 'fastify';
 import { BullMonitorFastify } from '@bull-monitor/fastify';
+import { BullAdapter } from "@bull-monitor/root/dist/bull-adapter";
+// for BullMQ users
+// import { BullMQAdapter } from "@bull-monitor/root/dist/bullmq-adapter";
 import Queue from 'bull';
 
 (async () => {
   const app = Fastify();
   const monitor = new BullMonitorFastify({
     queues: [
-      new Queue('1', 'REDIS_URI'),
+      new BullAdapter(new Queue('1', 'REDIS_URI')),
       // readonly queue
-      [new Queue('2', 'REDIS_URI'), { readonly: true }],
+      [new BullAdapter(new Queue('2', 'REDIS_URI')), { readonly: true }],
     ],
     // enables graphql playground at /my/url/graphql. true by default
     gqlPlayground: true,
