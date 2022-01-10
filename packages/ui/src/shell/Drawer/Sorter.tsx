@@ -16,35 +16,38 @@ export default function DrawerQueuesFilter(props: TProps) {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const { field: activeField, changeField } = useQueuesSortStore();
   const close = () => setAnchorEl(null);
-  return <>
-    <Tooltip title="Sort">
-      <IconButton
-        aria-controls="queues-sort-menu"
-        aria-haspopup="true"
-        className={props.className}
-        onClick={(e) => setAnchorEl(e.currentTarget)}
-        size="large">
-        <SortIcon />
-      </IconButton>
-    </Tooltip>
-    <Menu
-      anchorEl={anchorEl}
-      onClose={close}
-      open={Boolean(anchorEl)}
-      id="queues-sort-menu"
-    >
-      {AVAILABLE_SORT_FIELDS.map((field) => (
-        <MenuItem
-          selected={field === activeField}
-          key={field}
-          onClick={() => {
-            changeField(field);
-            close();
-          }}
+  return (
+    <>
+      <Tooltip title="Sort">
+        <IconButton
+          aria-controls="queues-sort-menu"
+          aria-haspopup="true"
+          className={props.className}
+          onClick={(e) => setAnchorEl(e.currentTarget)}
+          size="large"
         >
-          {field ? field + ' ⬇️' : 'none'}
-        </MenuItem>
-      ))}
-    </Menu>
-  </>;
+          <SortIcon />
+        </IconButton>
+      </Tooltip>
+      <Menu
+        anchorEl={anchorEl}
+        onClose={close}
+        open={Boolean(anchorEl)}
+        id="queues-sort-menu"
+      >
+        {AVAILABLE_SORT_FIELDS.map((field) => (
+          <MenuItem
+            selected={field === activeField}
+            key={field}
+            onClick={() => {
+              changeField(field);
+              close();
+            }}
+          >
+            {field ? field + ' ⬇️' : 'none'}
+          </MenuItem>
+        ))}
+      </Menu>
+    </>
+  );
 }

@@ -75,7 +75,8 @@ export default function TableToolbar({ queue, readonly }: TProps) {
                     jobs: Array.from(selectedJobs),
                   })
                 }
-                size="large">
+                size="large"
+              >
                 <ReplayIcon />
               </IconButton>
             </Tooltip>
@@ -90,7 +91,8 @@ export default function TableToolbar({ queue, readonly }: TProps) {
                 })
               }
               color="secondary"
-              size="large">
+              size="large"
+            >
               <DeleteIcon />
             </IconButton>
           </Tooltip>
@@ -102,7 +104,8 @@ export default function TableToolbar({ queue, readonly }: TProps) {
                   ids: Array.from(selectedJobs),
                 })
               }
-              size="large">
+              size="large"
+            >
               <SaveIcon />
             </IconButton>
           </Tooltip>
