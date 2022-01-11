@@ -24,7 +24,7 @@ import Queue from 'bull';
     queues: [
       new BullAdapter(new Queue('1', 'REDIS_URI')),
       // readonly queue
-      [new BullAdapter(new Queue('2', 'REDIS_URI')), { readonly: true }],
+      new BullAdapter(new Queue('2', 'REDIS_URI'), { readonly: true }),
     ],
     baseUrl: '/my/url',
     // enables graphql playground at /my/url/graphql. true by default

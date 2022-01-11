@@ -10,9 +10,8 @@ export type MetricsConfig = {
 export type QueueConfig = {
   readonly?: boolean;
 };
-export type QueueConfigTuple = [queue: Queue, config: QueueConfig];
 export type Config = {
-  queues: (Queue | QueueConfigTuple)[];
+  queues: Queue[];
   gqlPlayground?: boolean;
   gqlIntrospection?: boolean;
   baseUrl?: string;

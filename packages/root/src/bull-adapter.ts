@@ -6,6 +6,7 @@ import type {
   JobStatusClean,
   JobCounts,
   JobLogs,
+  QueueConfig,
   GlobalJobCompletionCb,
 } from './queue';
 import type { Maybe } from './typings/utils';
@@ -103,8 +104,8 @@ export class BullAdapter extends Queue {
   private _id: string;
   private _globalJobCompletionCb?: GlobalJobCompletionCb;
 
-  constructor(private _queue: BullQueue) {
-    super();
+  constructor(private _queue: BullQueue, config?: QueueConfig) {
+    super(_queue, config);
     this._id = Buffer.from(this._queue.clientName()).toString('base64');
   }
 

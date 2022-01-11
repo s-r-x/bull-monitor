@@ -1,5 +1,4 @@
 #!/usr/bin/env node
-
 import Queue from 'bull';
 import Express from 'express';
 import { BullMonitorExpress } from '@bull-monitor/express';
@@ -28,9 +27,10 @@ program.parse();
 const options = program.opts();
 
 (async () => {
+  const Adapter = require('@bull-monitor/root/dist/bull-adapter').BullAdapter;
   const monitor = new BullMonitorExpress({
     queues: options.queue.map((name: string) => {
-      return [new Queue(name, options.redisUri), { readonly: false }];
+      return new Adapter(new Queue(name, options.redisUri));
     }),
     metrics: {
       collectInterval: { seconds: options.metricsCollectIntervalSeconds },

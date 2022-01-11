@@ -68,15 +68,15 @@ const monitor = new BullMonitorExpress({
     ...queues.map((queue) => new BullAdapter(queue as any)),
     ...prefixedQueues.map((queue) => new BullAdapter(queue as any)),
     ...readonlyQueues.map(
-      (queue) => [new BullAdapter(queue as any), { readonly: true }] as any
+      (queue) => new BullAdapter(queue as any, { readonly: true })
     ),
   ],
   gqlPlayground: true,
   gqlIntrospection: true,
-  //metrics: {
-  //  collectInterval: { seconds: 30 },
-  //  maxMetrics: 10,
-  //},
+  // metrics: {
+  //   collectInterval: { seconds: 30 },
+  //   maxMetrics: 10,
+  // },
 });
 
 monitor.init().then(() => {

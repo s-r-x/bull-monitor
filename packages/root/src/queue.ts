@@ -17,6 +17,9 @@ export interface JobLogs {
   logs: string[];
   count: number;
 }
+export type QueueConfig = {
+  readonly?: boolean;
+};
 
 export abstract class Job {
   public abstract get queue(): Queue;
@@ -46,6 +49,10 @@ export abstract class Job {
 }
 
 export abstract class Queue {
+  constructor(_queue: any, protected _config?: QueueConfig) {}
+  public get readonly(): boolean {
+    return this._config?.readonly ?? false;
+  }
   public abstract get provider(): QueueProvider;
   public abstract get client(): Promise<RedisClient>;
   public abstract get id(): string;

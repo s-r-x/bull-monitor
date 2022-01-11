@@ -7,6 +7,7 @@ import type {
   JobCounts,
   JobLogs,
   GlobalJobCompletionCb,
+  QueueConfig,
 } from './queue';
 import type { Maybe } from './typings/utils';
 
@@ -111,8 +112,8 @@ export class BullMQAdapter extends Queue {
   private _globalJobCompletionCb?: InternalGlobalJobCompletionCb;
   private _id: string;
 
-  constructor(private _queue: BullMQQueue) {
-    super();
+  constructor(private _queue: BullMQQueue, config?: QueueConfig) {
+    super(_queue, config);
     this._id = Buffer.from(
       (this._queue.opts.prefix ?? 'bullmq') + this.name
     ).toString('base64');

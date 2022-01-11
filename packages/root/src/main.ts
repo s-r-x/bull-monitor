@@ -16,9 +16,8 @@ import type {
 import type { Config, MetricsConfig } from './typings/config';
 
 export abstract class BullMonitor<TServer extends ApolloServerBase> {
-  private _queues: Queue[];
+  private _queues: Queue[] = [];
   private _queuesMap: Map<string, Queue> = new Map();
-  private _readonlyQueuesMap: Map<string, Queue> = new Map();
   private _ui: UI;
   private _metricsCollector?: MetricsCollector;
 
@@ -56,7 +55,7 @@ export abstract class BullMonitor<TServer extends ApolloServerBase> {
           textSearchScanCount: this.config.textSearchScanCount,
         }),
         metrics: new MetricsDataSource(this._metricsCollector),
-        policies: new PoliciesDataSource(this._readonlyQueuesMap),
+        policies: new PoliciesDataSource(this._queuesMap),
       }),
     });
   }
@@ -83,16 +82,10 @@ export abstract class BullMonitor<TServer extends ApolloServerBase> {
   }
 
   private _initQueues(rawQueues: Config['queues']) {
-    this._queues = this._validateQueues(
-      rawQueues.map((queue) => (Array.isArray(queue) ? queue[0] : queue))
-    );
-    // TODO:: if queues.length !== validatedQueues.length there will be a problem with indexes
-    this._queues.forEach((queue, idx) => {
+    this._queues = this._validateQueues(rawQueues);
+    this._queuesMap.clear();
+    this._queues.forEach((queue) => {
       this._queuesMap.set(queue.id, queue);
-      const rawQueue = rawQueues[idx];
-      if (Array.isArray(rawQueue) && rawQueue[1].readonly) {
-        this._readonlyQueuesMap.set(queue.id, queue);
-      }
     });
   }
   private _validateQueues(queues: Queue[]): Queue[] {

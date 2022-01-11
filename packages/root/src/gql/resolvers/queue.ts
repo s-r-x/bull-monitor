@@ -6,9 +6,6 @@ export const queueResolver: TResolvers = {
     async count(parent: Queue, _, { dataSources: { bull } }) {
       return await bull.getQueueWaitingOrDelayedJobsCount(parent.id);
     },
-    async readonly(parent: Queue, _, { dataSources: { policies } }) {
-      return policies.isQueueReadonly(parent.id);
-    },
     async failedCount(parent: Queue, _, { dataSources: { bull } }) {
       return await bull.getQueueFailedCount(parent.id);
     },

@@ -21,8 +21,8 @@ import Queue from 'bull';
   const monitor = new BullMonitorFastify({
     queues: [
       new BullAdapter(new Queue('1', 'REDIS_URI')),
-      // readonly queue
-      [new BullAdapter(new Queue('2', 'REDIS_URI')), { readonly: true }],
+       // readonly queue
+      new BullAdapter(new Queue('2', 'REDIS_URI'), { readonly: true }),
     ],
     // enables graphql playground at /my/url/graphql. true by default
     gqlPlayground: true,
