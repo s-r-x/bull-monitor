@@ -31,7 +31,7 @@ export default function QueueJobsCount(props: TProps) {
     <div className={cls.root}>
       <ul className={cls.list}>
         {props.count.map(({ status, count }, idx) => (
-          <li key={idx} title={status}>
+          <li data-status={status} key={idx} title={status}>
             <JobStatusChip size="small" status={status} label={count} />
           </li>
         ))}

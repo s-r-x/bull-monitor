@@ -1,13 +1,18 @@
 import React, { useCallback } from 'react';
-import type { GetQueuesQuery } from '@/typings/gql';
 import List from '@mui/material/List';
 import ListSubheader from '@mui/material/ListSubheader';
 import { useDrawerState } from '@/stores/drawer';
 import Queue from './Queue';
 import { useAtom } from 'jotai';
-import { activeQueueAtom, activeQueueLabelAtom } from '@/atoms/workspaces';
+import {
+  activeQueueAtom,
+  activeQueueLabelAtom,
+  activeStatusAtom,
+} from '@/atoms/workspaces';
 import { useMaybeGroupQueuesByPrefix } from './hooks';
 import { useUpdateAtom } from 'jotai/utils';
+import type { GetQueuesQuery, JobStatus } from '@/typings/gql';
+import type { Maybe } from '@/typings/utils';
 
 type TProps = {
   queues: NonNullable<GetQueuesQuery['queues']>;
@@ -16,12 +21,19 @@ export default function DrawerQueuesList({ queues }: TProps) {
   const groupedQueues = useMaybeGroupQueuesByPrefix(queues);
   const [activeQueue, changeActiveQueue] = useAtom(activeQueueAtom);
   const changeActiveQueueLabel = useUpdateAtom(activeQueueLabelAtom);
+  const changeActiveStatus = useUpdateAtom(activeStatusAtom);
   const closeDrawer = useDrawerState((state) => state.close);
-  const onSelect = useCallback((queue: string, label: string) => {
-    changeActiveQueue(queue);
-    changeActiveQueueLabel(label);
-    closeDrawer();
-  }, []);
+  const onSelect = useCallback(
+    (queue: string, label: string, status?: Maybe<JobStatus>) => {
+      changeActiveQueue(queue);
+      changeActiveQueueLabel(label);
+      if (status) {
+        changeActiveStatus(status);
+      }
+      closeDrawer();
+    },
+    []
+  );
   const renderQueue = (queue: TProps['queues'][0]) => {
     return (
       <Queue
