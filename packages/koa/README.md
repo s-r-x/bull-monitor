@@ -50,5 +50,8 @@ import Queue from 'bull';
   });
   app.use(monitor.router.routes());
   app.listen(3000);
+
+  // replace queues
+  monitor.setQueues([new BullAdapter(new Queue('3', 'REDIS_URI'))]);
 })();
 ```

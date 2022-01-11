@@ -42,5 +42,8 @@ import Queue from 'bull';
   await monitor.init();
   await app.register(monitor.plugin);
   await app.listen(3000);
+
+  // replace queues
+  monitor.setQueues([new BullAdapter(new Queue('3', 'REDIS_URI'))]);
 })();
 ```

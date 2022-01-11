@@ -10,7 +10,7 @@ npm i @bull-monitor/express
 
 ```typescript
 import { BullMonitorExpress } from '@bull-monitor/express';
-import { BullAdapter } from "@bull-monitor/root/dist/bull-adapter";
+import { BullAdapter } from '@bull-monitor/root/dist/bull-adapter';
 // for BullMQ users
 // import { BullMQAdapter } from "@bull-monitor/root/dist/bullmq-adapter";
 import Express from 'express';
@@ -41,5 +41,8 @@ import Queue from 'bull';
   await monitor.init();
   app.use('/my/url', monitor.router);
   app.listen(3000);
+
+  // replace queues
+  monitor.setQueues([new BullAdapter(new Queue('3', 'REDIS_URI'))]);
 })();
 ```

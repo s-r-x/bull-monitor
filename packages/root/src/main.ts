@@ -30,11 +30,11 @@ export abstract class BullMonitor<TServer extends ApolloServerBase> {
       this._initMetricsCollector();
     }
   }
-  public abstract init(...args: any): Promise<any>;
   public get queues(): Queue[] {
     return this._queues;
   }
-  public set queues(queues: Config['queues']) {
+  public abstract init(...args: any): Promise<any>;
+  public setQueues(queues: Config['queues']): void {
     this._initQueues(queues);
     if (this._metricsCollector && this.config.metrics) {
       this._metricsCollector.queues = this._queues;
