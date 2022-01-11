@@ -1,6 +1,6 @@
 {
   "name": "@bull-monitor/cli",
-  "version": "3.0.0-alpha.1",
+  "version": "3.0.0-alpha.2",
   "description": "cli for bull-monitor",
   "keywords": [
     "bull"
@@ -24,7 +24,7 @@
   },
   "main": "dist/index.js",
   "dependencies": {
-    "@bull-monitor/express": "^3.0.0-alpha.1",
+    "@bull-monitor/express": "^3.0.0-alpha.2",
     "bull": "^4.0.0",
     "commander": "^8.3.0",
     "express": "^4.17.1"
