@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0-alpha.3](https://github.com/s-r-x/bull-monitor/compare/v3.0.0-alpha.2...v3.0.0-alpha.3) (2022-01-11)
+
+
+### Features
+
+* pass readonly param in queue adapter constructor instead ([46ea2cc](https://github.com/s-r-x/bull-monitor/commit/46ea2cc26b63e138088e919755e8bbe17576ecb4))
+
+
+### BREAKING CHANGES
+
+* replace "[new BullAdapter(queue), { readonly: true  }]"
+with "new BullAdapter(queue, { readonly: true })"
+
+
+
+
+
 # [3.0.0-alpha.2](https://github.com/s-r-x/bull-monitor/compare/v3.0.0-alpha.1...v3.0.0-alpha.2) (2022-01-11)
 
 **Note:** Version bump only for package @bull-monitor/cli
