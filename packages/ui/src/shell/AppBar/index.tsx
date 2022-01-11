@@ -48,7 +48,10 @@ export default memo(function AppBar() {
   } = useNetwork();
 
   const onRedisHover = useCallback(() => {
-    queryClient.prefetchQuery(QueryKeysConfig.redisInfo, getRedisInfo);
+    const oldData = queryClient.getQueryData(QueryKeysConfig.redisInfo);
+    if (!oldData) {
+      queryClient.prefetchQuery(QueryKeysConfig.redisInfo, getRedisInfo);
+    }
   }, []);
   const classes = useStyles();
   const toggleDrawer = useDrawerState((state) => state.toggle);
