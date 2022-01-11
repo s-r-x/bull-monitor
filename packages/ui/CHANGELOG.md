@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1.0](https://github.com/s-r-x/bull-monitor/compare/v3.0.0...v3.1.0) (2022-01-11)
+
+
+### Bug Fixes
+
+* **ui:** prefetch redis data on hover only when there is no cached data ([6617cfa](https://github.com/s-r-x/bull-monitor/commit/6617cfae551f59305baac71e96eaefa3498d8ce7))
+
+
+### Features
+
+* **ui:** change active queue status on status badge click in drawer ([fd0b928](https://github.com/s-r-x/bull-monitor/commit/fd0b92857131071a4a11e9463cd8f2574d2fc5ac))
+
+
+
+
+
 # [3.0.0](https://github.com/s-r-x/bull-monitor/compare/v3.0.0-alpha.3...v3.0.0) (2022-01-11)
 
 **Note:** Version bump only for package @bull-monitor/ui
