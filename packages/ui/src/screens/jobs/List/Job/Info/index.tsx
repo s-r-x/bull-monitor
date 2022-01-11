@@ -19,16 +19,13 @@ const useStyles = makeStyles((theme) => ({
     padding: 0,
     whiteSpace: 'nowrap',
   },
-  returnData: {
+  text: {
     marginTop: theme.spacing(2),
     maxWidth: '800px',
-    '& .CodeMirror': {
-      height: '200px',
-    },
   },
 }));
 type TProps = Pick<TJobProps, 'job'>;
-export default function Timeline({ job }: TProps) {
+export default function JobInfo({ job }: TProps) {
   const cls = useStyles();
   const queueDate = useFormatDateTime(job.timestamp);
   const processDate = useFormatDateTime(job.processedOn);
@@ -80,9 +77,10 @@ export default function Timeline({ job }: TProps) {
         </Step>
       </Stepper>
       {returnData && (
-        <div className={cls.returnData}>
-          <SimpleJsonView>{returnData}</SimpleJsonView>
-        </div>
+        <SimpleJsonView className={cls.text}>{returnData}</SimpleJsonView>
+      )}
+      {job.opts && (
+        <SimpleJsonView className={cls.text}>{job.opts}</SimpleJsonView>
       )}
     </Box>
   );

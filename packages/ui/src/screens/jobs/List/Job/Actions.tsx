@@ -4,6 +4,7 @@ import IconButton from '@mui/material/IconButton';
 import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
 import MoreIcon from '@mui/icons-material/MoreHoriz';
+import InfoIcon from '@mui/icons-material/Info';
 import Tooltip from '@mui/material/Tooltip';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
@@ -11,45 +12,25 @@ import { useDataEditorStore } from '@/stores/data-editor';
 import { useJobLogsStore } from '@/stores/job-logs';
 import { useAbstractMutation } from '@/hooks/use-abstract-mutation';
 import { useNetwork } from '@/hooks/use-network';
-import type { TJobProps } from './typings';
-import ScheduleIcon from '@mui/icons-material/Schedule';
 import Popover from '@mui/material/Popover';
-import SettingsIcon from '@mui/icons-material/Settings';
-import Timeline from './Timeline';
-import Options from './Options';
+import JobInfo from './Info';
 import { useExportJobsMutation } from '@/hooks/use-export-jobs-mutation';
-import makeStyles from '@mui/styles/makeStyles';
 import { useToggle } from '@/hooks/use-toggle';
 import { useShareJob } from '@/hooks/use-share';
-import type { TJobIdentity } from '@/typings';
 import { useCreateJobStore } from '@/stores/create-job';
-
-const useStyles = makeStyles((theme) => ({
-  popover: {
-    pointerEvents: 'none',
-  },
-  paper: {
-    pointerEvents: 'auto',
-    padding: theme.spacing(1),
-  },
-}));
+import type { TJobIdentity } from '@/typings';
+import type { TJobProps } from './typings';
 
 type TProps = Pick<TJobProps, 'job' | 'queue' | 'readonly'>;
 const JobActions = ({ job, queue, readonly }: TProps) => {
-  const cls = useStyles();
   const { mutations } = useNetwork();
   const openDataEditor = useDataEditorStore((state) => state.open);
   const openNewJobEditor = useCreateJobStore((state) => state.setInputAndOpen);
   const openJobLogs = useJobLogsStore((state) => state.open);
-  const tlPopoverId = `${job.id}-tl-popover`;
-  const optsPopoverId = `${job.id}-opts-popover`;
-  const tlPopoverAnchor = React.useRef<any>(null);
-  const optsPopoverAnchor = React.useRef<any>(null);
-  const [tlOpen, toggleTlOpen, setTlOpen] = useToggle();
-  const [optsOpen, toggleOptsOpen, setOptsOpen] = useToggle();
-  const closeTlPopover = () => setTlOpen(false);
-  const openOptsPopover = () => setOptsOpen(true);
-  const closeOptsPopover = () => setOptsOpen(false);
+  const infoPopoverId = `${job.id}-info-popover`;
+  const infoPopoverAnchor = React.useRef<any>(null);
+  const [infoOpen, toggleInfoOpen, setInfoOpen] = useToggle();
+  const closeInfoPopover = () => setInfoOpen(false);
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const shareJob = useShareJob();
 
@@ -115,18 +96,18 @@ const JobActions = ({ job, queue, readonly }: TProps) => {
       </Tooltip>
       <IconButton
         aria-haspopup="true"
-        aria-owns={tlPopoverId}
-        ref={tlPopoverAnchor}
-        onClick={toggleTlOpen}
+        aria-owns={infoPopoverId}
+        ref={infoPopoverAnchor}
+        onClick={toggleInfoOpen}
         size="small"
       >
-        <ScheduleIcon />
+        <InfoIcon />
       </IconButton>
       <Popover
-        id={tlPopoverId}
-        onClose={closeTlPopover}
-        open={tlOpen}
-        anchorEl={tlPopoverAnchor.current}
+        id={infoPopoverId}
+        onClose={closeInfoPopover}
+        open={infoOpen}
+        anchorEl={infoPopoverAnchor.current}
         anchorOrigin={{
           vertical: 'bottom',
           horizontal: 'center',
@@ -136,47 +117,9 @@ const JobActions = ({ job, queue, readonly }: TProps) => {
           horizontal: 'center',
         }}
       >
-        <Timeline job={job} />
+        <JobInfo job={job} />
       </Popover>
 
-      <IconButton
-        aria-haspopup="true"
-        aria-owns={optsPopoverId}
-        ref={optsPopoverAnchor}
-        onMouseEnter={openOptsPopover}
-        onClick={toggleOptsOpen}
-        onMouseLeave={closeOptsPopover}
-        size="small"
-      >
-        <SettingsIcon />
-      </IconButton>
-      <Popover
-        id={optsPopoverId}
-        disableScrollLock
-        onClose={closeOptsPopover}
-        disableRestoreFocus
-        className={cls.popover}
-        // uncomment to allow mouse events on popover
-        //classes={{
-        //  paper: cls.paper,
-        //}}
-        //PaperProps={{
-        //  onMouseEnter: openOptsPopover,
-        //  onMouseLeave: closeOptsPopover,
-        //}}
-        open={optsOpen}
-        anchorEl={optsPopoverAnchor.current}
-        anchorOrigin={{
-          vertical: 'bottom',
-          horizontal: 'center',
-        }}
-        transformOrigin={{
-          vertical: 'top',
-          horizontal: 'center',
-        }}
-      >
-        <Options options={job.opts} />
-      </Popover>
       <Tooltip title="More">
         <IconButton size="small" onClick={handleClickMore}>
           <MoreIcon />
