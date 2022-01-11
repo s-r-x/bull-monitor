@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.2.0](https://github.com/s-r-x/bull-monitor/compare/v3.1.0...v3.2.0) (2022-01-11)
+
+
+### Features
+
+* **ui:** combine "timeline" popover and "options" popover into a single "info" popover ([e9467b6](https://github.com/s-r-x/bull-monitor/commit/e9467b679fb6b3f663198c530dfa46acd17e91b7))
+
+
+
+
+
 # [3.1.0](https://github.com/s-r-x/bull-monitor/compare/v3.0.0...v3.1.0) (2022-01-11)
 
 
