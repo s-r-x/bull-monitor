@@ -9,7 +9,9 @@ export const getJobsForExportMock = (
 ): Promise<GetJobsForExportQuery> => {
   return Promise.resolve({
     jobs: networkMockData.jobs.filter(
-      (job) => job.queue === args.queue && args.ids?.includes(job.id)
+      (job) =>
+        job.queue === args.queue &&
+        (args.ids ? args.ids?.includes(job.id) : true)
     ),
   });
 };
