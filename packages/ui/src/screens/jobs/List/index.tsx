@@ -28,7 +28,7 @@ export default function Jobs() {
   return (
     <Paper>
       <NetworkRequest status={status} refetch={refetch} error={error}>
-        <TableToolbar queue={queue} readonly={readonly} />
+        <TableToolbar />
         <TableContainer>
           <Table size="medium">
             <TableHead jobs={data?.jobs} />

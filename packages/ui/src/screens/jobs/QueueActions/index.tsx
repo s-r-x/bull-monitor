@@ -1,16 +1,17 @@
-import React from 'react';
-import Paper from '@mui/material/Paper';
+import React, { memo } from 'react';
 import makeStyles from '@mui/styles/makeStyles';
 import { useCreateJobStore } from '@/stores/create-job';
-import Button from '@mui/material/Button';
 import { useNetwork } from '@/hooks/use-network';
 import AddIcon from '@mui/icons-material/Add';
+import PauseIcon from '@mui/icons-material/Pause';
+import PlayIcon from '@mui/icons-material/PlayArrow';
 import { useAbstractMutation } from '@/hooks/use-abstract-mutation';
 import { useRemoveJobsModalStore } from '@/stores/remove-jobs-modal';
 import { JobStatusClean, QueueProvider } from '@/typings/gql';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import IconButton from '@mui/material/IconButton';
+import DeleteIcon from '@mui/icons-material/Delete';
 import MoreIcon from '@mui/icons-material/MoreHoriz';
 import { useRefetchJobsLockStore } from '@/stores/refetch-jobs-lock';
 import shallow from 'zustand/shallow';
@@ -29,14 +30,15 @@ import { useQueueData } from '@/hooks/use-queue-data';
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    marginBottom: theme.spacing(1),
-    padding: theme.spacing(1),
     '& > *': {
       margin: theme.spacing(0.5),
     },
+    '& > button:first-child': {
+      marginLeft: 0,
+    },
   },
 }));
-export default function QueueActions() {
+const QueueActions = () => {
   const classes = useStyles();
   const [cleanAnchorEl, setCleanAnchorEl] = React.useState<null | HTMLElement>(
     null
@@ -121,25 +123,23 @@ export default function QueueActions() {
   const sharedMutationArg = { queue };
   const openCreateJob = useCreateJobStore((state) => state.open);
   return (
-    <Paper className={classes.root}>
-      <Button
-        onClick={openCreateJob}
-        variant="contained"
-        disabled={isReadonly}
-        startIcon={<AddIcon />}
-        color="primary"
-      >
-        Add job
-      </Button>
-      <Button
-        onClick={handleClickClean}
-        color="secondary"
-        disabled={isReadonly}
-        aria-controls="clean-queue-menu"
-        aria-haspopup="true"
-      >
-        clean
-      </Button>
+    <div className={classes.root}>
+      <Tooltip title="Add job">
+        <IconButton onClick={openCreateJob} disabled={isReadonly}>
+          <AddIcon />
+        </IconButton>
+      </Tooltip>
+      <Tooltip title="Clean">
+        <IconButton
+          onClick={handleClickClean}
+          color="secondary"
+          disabled={isReadonly}
+          aria-controls="clean-queue-menu"
+          aria-haspopup="true"
+        >
+          <DeleteIcon />
+        </IconButton>
+      </Tooltip>
       <Menu
         id="clean-queue-menu"
         anchorEl={cleanAnchorEl}
@@ -167,9 +167,22 @@ export default function QueueActions() {
               dataSearch,
             });
           }}
-          size="large"
         >
           <SaveIcon />
+        </IconButton>
+      </Tooltip>
+      <Tooltip title={isQueuePaused ? 'Resume' : 'Pause'}>
+        <IconButton
+          disabled={isReadonly}
+          onClick={() => {
+            if (isQueuePaused) {
+              resumeMutation.mutate(sharedMutationArg);
+            } else {
+              pauseMutation.mutate(sharedMutationArg);
+            }
+          }}
+        >
+          {isQueuePaused ? <PlayIcon /> : <PauseIcon />}
         </IconButton>
       </Tooltip>
       <IconButton
@@ -177,7 +190,6 @@ export default function QueueActions() {
         disabled={isReadonly}
         aria-controls="more-queue-actions-menu"
         aria-haspopup="true"
-        size="large"
       >
         <MoreIcon />
       </IconButton>
@@ -197,19 +209,12 @@ export default function QueueActions() {
             Remove jobs by pattern
           </MenuItem>
         )}
-        {isQueuePaused ? (
-          <MenuItem onClick={() => resumeMutation.mutate(sharedMutationArg)}>
-            Resume
-          </MenuItem>
-        ) : (
-          <MenuItem onClick={() => pauseMutation.mutate(sharedMutationArg)}>
-            Pause
-          </MenuItem>
-        )}
         <MenuItem onClick={() => emptyMutation.mutate(sharedMutationArg)}>
           Empty
         </MenuItem>
       </Menu>
-    </Paper>
+    </div>
   );
-}
+};
+
+export default memo(QueueActions);
