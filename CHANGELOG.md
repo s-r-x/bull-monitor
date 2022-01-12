@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.3.0](https://github.com/s-r-x/bull-monitor/compare/v3.2.0...v3.3.0) (2022-01-12)
+
+
+### Features
+
+* **ui:** redesign "queue actions" section ([2343f12](https://github.com/s-r-x/bull-monitor/commit/2343f12b2fc980d162ca36319c33a57409132813))
+
+
+
+
+
 # [3.2.0](https://github.com/s-r-x/bull-monitor/compare/v3.1.0...v3.2.0) (2022-01-11)
 
 
