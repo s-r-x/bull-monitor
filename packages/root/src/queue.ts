@@ -34,7 +34,7 @@ export abstract class Job {
   public abstract get opts(): any;
   public abstract get processedOn(): Maybe<number>;
   public abstract get finishedOn(): Maybe<number>;
-  public abstract get timestamp(): number;
+  public abstract get timestamp(): Maybe<number>;
 
   public abstract getState(): Promise<JobStatus>;
   public abstract moveToCompleted(returnValue?: unknown): Promise<unknown>;

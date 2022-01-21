@@ -34,7 +34,7 @@ export const jobTypeDef = gql`
     stacktrace: [String]!
     logs: JobLogs
     delay: Float
-    timestamp: Float!
+    timestamp: Float
     finishedOn: Float
     processedOn: Float
     processingTime: Float

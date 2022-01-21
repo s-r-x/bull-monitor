@@ -30,7 +30,7 @@ export default function JobInfo({ job }: TProps) {
   const queueDate = useFormatDateTime(job.timestamp);
   const processDate = useFormatDateTime(job.processedOn);
   const delay = job.delay;
-  const delayTimestamp = delay ? job.timestamp + delay : null;
+  const delayTimestamp = job.timestamp && delay ? job.timestamp + delay : null;
   const delayDate = useFormatDateTime(delayTimestamp);
   const finishDate = useFormatDateTime(job.finishedOn);
   const activeStep = useActiveStep({ job, delayTimestamp });

@@ -15,7 +15,7 @@ export const useActiveStep = ({ job, delayTimestamp }: TProps): number => {
   } else if (job.status === JobStatus.Active) {
     return hasDelay ? 2 : 1;
   } else if (job.status === JobStatus.Delayed) {
-    if (delayTimestamp) {
+    if (delayTimestamp && job.timestamp) {
       const now = day();
       return day(job.timestamp + delayTimestamp).isBefore(now) ? 2 : 1;
     } else {

@@ -1,5 +1,5 @@
 import { JsonService } from '../../services/json';
-import type { Job as BullJob } from '../../queue';
+import type { Job } from '../../queue';
 import type { TResolvers } from './typings';
 
 export const JobResolver: TResolvers = {
@@ -12,28 +12,28 @@ export const JobResolver: TResolvers = {
     paused: 'paused',
   },
   Job: {
-    data({ data }: BullJob) {
+    data({ data }: Job) {
       return JsonService.maybeStringify(data);
     },
-    delay({ opts }: BullJob) {
+    delay({ opts }: Job) {
       return opts.delay;
     },
-    processingTime(job: BullJob, _vars, { dataSources: { bull } }) {
+    processingTime(job: Job, _vars, { dataSources: { bull } }) {
       return bull.extractJobProcessingTime(job);
     },
-    logs(job: BullJob) {
+    logs(job: Job) {
       return job.queue.getJobLogs(job.id);
     },
-    returnValue(job: BullJob) {
+    returnValue(job: Job) {
       return JsonService.maybeStringify(job.returnvalue);
     },
-    progress(job: BullJob) {
+    progress(job: Job) {
       return job.progress;
     },
-    opts(job: BullJob) {
+    opts(job: Job) {
       return JsonService.maybeStringify(job.opts);
     },
-    status(job: BullJob) {
+    status(job: Job) {
       return job.getState();
     },
   },

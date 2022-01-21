@@ -56,16 +56,16 @@ export class BullJobAdapter extends Job {
     return this._job.opts;
   }
 
-  public get processedOn(): number | undefined {
-    return this._job.processedOn;
+  public get processedOn(): Maybe<number> {
+    return this._job.processedOn || undefined;
   }
 
-  public get finishedOn(): number | undefined {
-    return this._job.finishedOn;
+  public get finishedOn(): Maybe<number> {
+    return this._job.finishedOn || undefined;
   }
 
-  public get timestamp(): number {
-    return this._job.timestamp;
+  public get timestamp(): Maybe<number> {
+    return this._job.timestamp || undefined;
   }
 
   public async getState(): Promise<JobStatus> {

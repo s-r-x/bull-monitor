@@ -40,7 +40,7 @@ export type Job = {
   stacktrace: Array<Maybe<Scalars['String']>>;
   logs?: Maybe<JobLogs>;
   delay?: Maybe<Scalars['Float']>;
-  timestamp: Scalars['Float'];
+  timestamp?: Maybe<Scalars['Float']>;
   finishedOn?: Maybe<Scalars['Float']>;
   processedOn?: Maybe<Scalars['Float']>;
   processingTime?: Maybe<Scalars['Float']>;
