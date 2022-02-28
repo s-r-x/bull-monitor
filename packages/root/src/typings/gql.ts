@@ -34,7 +34,7 @@ export type Job = {
   data?: Maybe<Scalars['String']>;
   status: JobStatus;
   returnValue?: Maybe<Scalars['String']>;
-  progress: Scalars['Int'];
+  progress: Scalars['JSON'];
   attemptsMade: Scalars['Int'];
   failedReason?: Maybe<Scalars['String']>;
   stacktrace: Array<Maybe<Scalars['String']>>;

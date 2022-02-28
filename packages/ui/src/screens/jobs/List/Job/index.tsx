@@ -77,7 +77,7 @@ const Job = ({
           {job.processingTime ? ms(job.processingTime) : null}
         </TableCell>
         <TableCell>{job.attemptsMade}</TableCell>
-        <TableCell>{job.progress}</TableCell>
+        <TableCell>{JSON.stringify(job.progress)}</TableCell>
       </TableRow>
       {showExtra && (
         <TableRow>
