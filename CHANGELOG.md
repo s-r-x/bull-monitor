@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.4.0](https://github.com/s-r-x/bull-monitor/compare/v3.3.1...v3.4.0) (2022-03-01)
+
+
+### Features
+
+* **express:** init params to disable body parser, express5 specific configuration ([5069323](https://github.com/s-r-x/bull-monitor/commit/5069323bfdf17dbf9206a484e2d176bca18108e2))
+
+
+
+
+
 ## [3.3.1](https://github.com/s-r-x/bull-monitor/compare/v3.3.0...v3.3.1) (2022-01-21)
 
 
