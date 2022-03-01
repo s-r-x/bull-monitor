@@ -214,7 +214,7 @@ export class BullMQAdapter extends Queue {
     end?: number,
     asc?: boolean
   ): Promise<Job[]> {
-    const jobs = await this._queue.getJobs(types, start, end, asc);
+    const jobs = await this._queue.getJobs(types as any, start, end, asc);
     return jobs.map((job) => this.normalizeJob(job));
   }
 
