@@ -38,7 +38,10 @@ import Queue from 'bull';
       blacklist: ['1'],
     },
   });
-  await monitor.init();
+  await monitor.init({
+    // optional flag to turn off the express body parser
+    disableBodyParser: false,
+  });
   app.use('/my/url', monitor.router);
   app.listen(3000);
 
