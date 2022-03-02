@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.1.0](https://github.com/s-r-x/bull-monitor/compare/v4.0.0...v4.1.0) (2022-03-02)
+
+
+### Features
+
+* **cli:** bullmq support ([8bff4b9](https://github.com/s-r-x/bull-monitor/commit/8bff4b9f6e2f42df5443fb07fe05f188e18dc554))
+
+
+
+
+
 # [4.0.0](https://github.com/s-r-x/bull-monitor/compare/v3.5.0...v4.0.0) (2022-03-02)
 
 
