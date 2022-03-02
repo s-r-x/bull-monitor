@@ -4,7 +4,7 @@
     "declaration": false,
     "strictNullChecks": true,
     "esModuleInterop": true,
-    "target": "es6",
+    "target": "ES2020",
     "module": "commonjs",
     "moduleResolution": "node",
     "sourceMap": false,

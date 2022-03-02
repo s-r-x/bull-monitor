@@ -71,7 +71,6 @@ const monitor = new BullMonitorExpress({
       (queue) => new BullAdapter(queue as any, { readonly: true })
     ),
   ],
-  gqlPlayground: true,
   gqlIntrospection: true,
   // metrics: {
   //   collectInterval: { seconds: 30 },

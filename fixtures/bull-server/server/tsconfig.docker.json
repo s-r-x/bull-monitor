@@ -5,7 +5,7 @@
     "esModuleInterop": true,
     "moduleResolution": "node",
     "allowJs": true,
-    "target": "ES2017",
+    "target": "ES2020",
     "sourceMap": false,
     "lib": ["ESNext"],
     "paths": {

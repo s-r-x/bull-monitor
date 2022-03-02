@@ -3,7 +3,7 @@
     "declaration": false,
     "strictNullChecks": true,
     "esModuleInterop": true,
-    "target": "ES2018",
+    "target": "ES2020",
     "module": "commonjs",
     "moduleResolution": "node",
     "sourceMap": true,
