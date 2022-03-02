@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.5.0](https://github.com/s-r-x/bull-monitor/compare/v3.4.1...v3.5.0) (2022-03-02)
+
+
+### Features
+
+* **bullmq:** support object progress ([4d47b08](https://github.com/s-r-x/bull-monitor/commit/4d47b08cd0dc03a0e8546e0e2985369aa4f44de3))
+
+
+
+
+
 ## [3.4.1](https://github.com/s-r-x/bull-monitor/compare/v3.4.0...v3.4.1) (2022-03-01)
 
 **Note:** Version bump only for package @bull-monitor/root
