@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.0.0](https://github.com/s-r-x/bull-monitor/compare/v3.5.0...v4.0.0) (2022-03-02)
+
+
+### Features
+
+* bump apollo server to the latest version ([21e39e7](https://github.com/s-r-x/bull-monitor/commit/21e39e7b464f2f41006565ee282fb4fe23298a4e))
+* compile to ES2020 ([384d113](https://github.com/s-r-x/bull-monitor/commit/384d1133700dd91475db318b94217e438bd6bb51))
+
+
+### BREAKING CHANGES
+
+* app should be passed to monitor.init method when using
+fastify adapter
+* drop support for for node<12
+
+
+
+
+
 # [3.5.0](https://github.com/s-r-x/bull-monitor/compare/v3.4.1...v3.5.0) (2022-03-02)
 
 
