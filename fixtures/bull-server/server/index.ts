@@ -64,7 +64,7 @@ mqQueues.forEach((queue) => {
 
 const monitor = new BullMonitorExpress({
   queues: [
-    ...mqQueues.map((queue) => new BullMQAdapter(queue)),
+    ...mqQueues.map((queue) => new BullMQAdapter(queue as any)),
     ...queues.map((queue) => new BullAdapter(queue as any)),
     ...prefixedQueues.map((queue) => new BullAdapter(queue as any)),
     ...readonlyQueues.map(
