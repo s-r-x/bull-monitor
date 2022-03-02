@@ -10,6 +10,7 @@ import type {
   QueueConfig,
 } from './queue';
 import type { Maybe } from './typings/utils';
+import { JsonService } from './services/json';
 
 export class BullMQJobAdapter extends Job {
   constructor(private _job: BullMQJob, private _queue: Queue) {
@@ -37,12 +38,8 @@ export class BullMQJobAdapter extends Job {
     return this._job.returnvalue;
   }
 
-  public get progress(): number {
-    const progress = this._job.progress;
-    if (typeof progress === 'number') {
-      return progress;
-    }
-    return 0;
+  public get progress(): string {
+    return JsonService.maybeStringify(this._job.progress || '0', 0);
   }
 
   public get attemptsMade(): number {
@@ -73,6 +70,7 @@ export class BullMQJobAdapter extends Job {
     return this._job.timestamp || undefined;
   }
 
+  // public methods
   public async getState(): Promise<JobStatus> {
     const status = await this._job.getState();
     return status as JobStatus;

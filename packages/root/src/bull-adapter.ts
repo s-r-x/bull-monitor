@@ -36,8 +36,8 @@ export class BullJobAdapter extends Job {
     return this._job.returnvalue;
   }
 
-  public get progress(): number {
-    return this._job.progress();
+  public get progress(): string {
+    return String(this._job.progress()) || '0';
   }
 
   public get attemptsMade(): number {

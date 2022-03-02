@@ -27,7 +27,7 @@ export abstract class Job {
   public abstract get name(): string;
   public abstract get data(): any;
   public abstract get returnvalue(): unknown;
-  public abstract get progress(): number;
+  public abstract get progress(): string;
   public abstract get attemptsMade(): number;
   public abstract get failedReason(): Maybe<string>;
   public abstract get stacktrace(): string[];

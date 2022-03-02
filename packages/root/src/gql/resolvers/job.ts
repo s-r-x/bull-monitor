@@ -1,6 +1,7 @@
 import { JsonService } from '../../services/json';
 import type { Job } from '../../queue';
 import type { TResolvers } from './typings';
+import { Job as GqlJob } from '../../typings/gql';
 
 export const JobResolver: TResolvers = {
   JobStatus: {
@@ -12,28 +13,32 @@ export const JobResolver: TResolvers = {
     paused: 'paused',
   },
   Job: {
-    data({ data }: Job) {
+    data({ data }: Job): GqlJob['data'] {
       return JsonService.maybeStringify(data);
     },
-    delay({ opts }: Job) {
+    delay({ opts }: Job): GqlJob['delay'] {
       return opts.delay;
     },
-    processingTime(job: Job, _vars, { dataSources: { bull } }) {
+    processingTime(
+      job: Job,
+      _vars,
+      { dataSources: { bull } }
+    ): GqlJob['processingTime'] {
       return bull.extractJobProcessingTime(job);
     },
-    logs(job: Job) {
+    logs(job: Job): Promise<GqlJob['logs']> {
       return job.queue.getJobLogs(job.id);
     },
-    returnValue(job: Job) {
+    returnValue(job: Job): GqlJob['returnValue'] {
       return JsonService.maybeStringify(job.returnvalue);
     },
-    progress(job: Job) {
+    progress(job: Job): GqlJob['progress'] {
       return job.progress;
     },
-    opts(job: Job) {
+    opts(job: Job): GqlJob['opts'] {
       return JsonService.maybeStringify(job.opts);
     },
-    status(job: Job) {
+    status(job: Job): Promise<GqlJob['status']> {
       return job.getState();
     },
   },

@@ -28,7 +28,7 @@ export const jobTypeDef = gql`
     data: String
     status: JobStatus!
     returnValue: String
-    progress: Int!
+    progress: String!
     attemptsMade: Int!
     failedReason: String
     stacktrace: [String]!

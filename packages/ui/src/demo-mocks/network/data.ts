@@ -33,7 +33,7 @@ const generateData = () => {
       id: String(random(0, 1000000)),
       queue: sample(queues)?.id,
       status,
-      progress: 0,
+      progress: '0',
       attemptsMade: 0,
       returnValue: status === JobStatus.Completed ? 'some return value' : null,
       failedReason: status === JobStatus.Failed ? 'some failed reason' : null,
