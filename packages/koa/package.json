@@ -7,22 +7,20 @@
     "url": "https://github.com/s-r-x/bull-monitor.git",
     "directory": "packages/koa"
   },
-  "keywords": [
-    "bull"
-  ],
+  "keywords": ["bull"],
   "author": "Ilya Strus <strax1990@gmail.com>",
   "license": "MIT",
   "types": "dist/index.d.ts",
+  "main": "dist/index.js",
   "scripts": {
     "build": "npm run clean && npm run compile",
     "clean": "rm -rf ./dist",
-    "compile": "tsc -p tsconfig.build.json",
-    "dev": "tsc -p tsconfig.build.json --watch"
+    "compile": "tsc -p tsconfig.json",
+    "dev": "tsc --watch"
   },
-  "main": "dist/index.js",
   "dependencies": {
     "@bull-monitor/root": "^3.5.0",
-    "apollo-server-koa": "^2.22.2"
+    "apollo-server-koa": "^3.6.3"
   },
   "peerDependencies": {
     "koa": "2.x",

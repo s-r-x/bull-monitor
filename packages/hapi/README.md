@@ -11,7 +11,7 @@ npm i @bull-monitor/hapi
 ```typescript
 import { BullMonitorHapi } from '@bull-monitor/hapi';
 import Hapi from '@hapi/hapi';
-import { BullAdapter } from "@bull-monitor/root/dist/bull-adapter";
+import { BullAdapter } from '@bull-monitor/root/dist/bull-adapter';
 // for BullMQ users
 // import { BullMQAdapter } from "@bull-monitor/root/dist/bullmq-adapter";
 import Queue from 'bull';
@@ -21,7 +21,6 @@ import Queue from 'bull';
     port: 3000,
     host: 'localhost',
   });
-  await server.start();
   const monitor = new BullMonitorHapi({
     queues: [
       new BullAdapter(new Queue('1', 'REDIS_URI')),
@@ -29,8 +28,8 @@ import Queue from 'bull';
       new BullAdapter(new Queue('2', 'REDIS_URI'), { readonly: true }),
     ],
     baseUrl: '/my/url',
-    // enables graphql playground at /my/url/graphql. true by default
-    gqlPlayground: true,
+    // enables graphql introspection query. false by default if NODE_ENV == production, true otherwise
+    gqlIntrospection: true,
     // enable metrics collector. false by default
     // metrics are persisted into redis as a list
     // with keys in format "bull_monitor::metrics::{{queue}}"
@@ -45,6 +44,7 @@ import Queue from 'bull';
   });
   await monitor.init();
   await server.register(monitor.plugin);
+  await server.start();
 
   // replace queues
   monitor.setQueues([new BullAdapter(new Queue('3', 'REDIS_URI'))]);

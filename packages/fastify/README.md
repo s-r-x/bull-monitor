@@ -11,7 +11,7 @@ npm i @bull-monitor/fastify
 ```typescript
 import Fastify from 'fastify';
 import { BullMonitorFastify } from '@bull-monitor/fastify';
-import { BullAdapter } from "@bull-monitor/root/dist/bull-adapter";
+import { BullAdapter } from '@bull-monitor/root/dist/bull-adapter';
 // for BullMQ users
 // import { BullMQAdapter } from "@bull-monitor/root/dist/bullmq-adapter";
 import Queue from 'bull';
@@ -21,11 +21,11 @@ import Queue from 'bull';
   const monitor = new BullMonitorFastify({
     queues: [
       new BullAdapter(new Queue('1', 'REDIS_URI')),
-       // readonly queue
+      // readonly queue
       new BullAdapter(new Queue('2', 'REDIS_URI'), { readonly: true }),
     ],
-    // enables graphql playground at /my/url/graphql. true by default
-    gqlPlayground: true,
+    // enables graphql introspection query. false by default if NODE_ENV == production, true otherwise
+    gqlIntrospection: true,
     baseUrl: '/my/url',
     // enable metrics collector. false by default
     // metrics are persisted into redis as a list
@@ -39,7 +39,7 @@ import Queue from 'bull';
       blacklist: ['1'],
     },
   });
-  await monitor.init();
+  await monitor.init({ app });
   await app.register(monitor.plugin);
   await app.listen(3000);
 

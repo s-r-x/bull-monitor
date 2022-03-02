@@ -43,12 +43,14 @@ export abstract class BullMonitor<TServer extends ApolloServerBase> {
   protected gqlBasePath = '/graphql';
   protected config: Required<Config>;
   protected server: TServer;
-  protected createServer(Server: new (config: ApolloConfig) => TServer) {
+  protected createServer(
+    Server: new (config: ApolloConfig) => TServer,
+    plugins?: ApolloConfig['plugins']
+  ) {
     this.server = new Server({
       typeDefs,
-      // @ts-ignore
       resolvers,
-      playground: this.config.gqlPlayground,
+      plugins,
       introspection: this.config.gqlIntrospection,
       dataSources: () => ({
         bull: new BullDataSource(this._queues, this._queuesMap, {

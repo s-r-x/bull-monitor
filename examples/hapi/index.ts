@@ -7,13 +7,16 @@ const baseUrl = '/some/nested/url';
   const server = Hapi.server({
     port: 3000,
     host: 'localhost',
+    routes: {
+      cors: true,
+    },
   });
-  await server.start();
   const monitor = new BullMonitorHapi({
     queues: [],
     baseUrl,
   });
-  await monitor.init();
+  await monitor.init({ hapiServer: server });
   await server.register(monitor.plugin);
+  await server.start();
   console.log(`http://localhost:${port}${baseUrl}`);
 })();

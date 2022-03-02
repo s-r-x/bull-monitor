@@ -13,7 +13,7 @@ npm i @bull-monitor/koa koa-router
 ```typescript
 import { BullMonitorKoa } from '@bull-monitor/koa';
 import Koa from 'koa';
-import { BullAdapter } from "@bull-monitor/root/dist/bull-adapter";
+import { BullAdapter } from '@bull-monitor/root/dist/bull-adapter';
 // for BullMQ users
 // import { BullMQAdapter } from "@bull-monitor/root/dist/bullmq-adapter";
 import Queue from 'bull';
@@ -27,8 +27,8 @@ import Queue from 'bull';
       new BullAdapter(new Queue('2', 'REDIS_URI'), { readonly: true }),
     ],
     baseUrl: '/my/url',
-    // enables graphql playground at /my/url/graphql. true by default
-    gqlPlayground: true,
+    // enables graphql introspection query. false by default if NODE_ENV == production, true otherwise
+    gqlIntrospection: true,
     // enable metrics collector. false by default
     // metrics are persisted into redis as a list
     // with keys in format "bull_monitor::metrics::{{queue}}"

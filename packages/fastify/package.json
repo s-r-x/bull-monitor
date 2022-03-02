@@ -2,9 +2,7 @@
   "name": "@bull-monitor/fastify",
   "version": "3.5.0",
   "description": "bull-monitor for fastify",
-  "keywords": [
-    "bull"
-  ],
+  "keywords": ["bull"],
   "repository": {
     "type": "git",
     "url": "https://github.com/s-r-x/bull-monitor.git",
@@ -13,16 +11,16 @@
   "author": "Ilya Strus <strax1990@gmail.com>",
   "license": "MIT",
   "types": "dist/index.d.ts",
+  "main": "dist/index.js",
   "scripts": {
     "build": "npm run clean && npm run compile",
     "clean": "rm -rf ./dist",
-    "compile": "tsc -p tsconfig.build.json",
-    "dev": "tsc -p tsconfig.build.json --watch"
+    "compile": "tsc",
+    "dev": "tsc --watch"
   },
-  "main": "dist/index.js",
   "dependencies": {
     "@bull-monitor/root": "^3.5.0",
-    "apollo-server-fastify": "3.0.0-alpha.3"
+    "apollo-server-fastify": "^3.6.3"
   },
   "peerDependencies": {
     "fastify": "3.x"

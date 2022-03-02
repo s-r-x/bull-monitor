@@ -2,9 +2,7 @@
   "name": "@bull-monitor/cli",
   "version": "3.5.0",
   "description": "cli for bull-monitor",
-  "keywords": [
-    "bull"
-  ],
+  "keywords": ["bull"],
   "author": "Ilya Strus <strax1990@gmail.com>",
   "repository": {
     "type": "git",
@@ -19,12 +17,13 @@
   "scripts": {
     "build": "npm run clean && npm run compile",
     "clean": "rm -rf ./dist",
-    "compile": "tsc -p tsconfig.build.json",
-    "dev": "tsc -p tsconfig.build.json --watch"
+    "compile": "tsc",
+    "dev": "tsc --watch"
   },
   "main": "dist/index.js",
   "dependencies": {
     "@bull-monitor/express": "^3.5.0",
+    "@bull-monitor/root": "^3.5.0",
     "bull": "^4.0.0",
     "commander": "^8.3.0",
     "express": "^4.17.1"

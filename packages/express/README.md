@@ -24,8 +24,8 @@ import Queue from 'bull';
       // readonly queue
       new BullAdapter(new Queue('2', 'REDIS_URI'), { readonly: true }),
     ],
-    // enables graphql playground at /my/url/graphql. true by default
-    gqlPlayground: true,
+    // enables graphql introspection query. false by default if NODE_ENV == production, true otherwise
+    gqlIntrospection: true,
     // enable metrics collector. false by default
     // metrics are persisted into redis as a list
     // with keys in format "bull_monitor::metrics::{{queue}}"
@@ -38,10 +38,7 @@ import Queue from 'bull';
       blacklist: ['1'],
     },
   });
-  await monitor.init({
-    // optional flag to turn off the express body parser
-    disableBodyParser: false,
-  });
+  await monitor.init();
   app.use('/my/url', monitor.router);
   app.listen(3000);
 

@@ -12,7 +12,6 @@ export type QueueConfig = {
 };
 export type Config = {
   queues: Queue[];
-  gqlPlayground?: boolean;
   gqlIntrospection?: boolean;
   baseUrl?: string;
   textSearchScanCount?: number;

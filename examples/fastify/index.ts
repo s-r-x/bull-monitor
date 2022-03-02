@@ -9,7 +9,7 @@ const baseUrl = '/some/nested/url';
     queues: [],
     baseUrl,
   });
-  await monitor.init();
+  await monitor.init({ app });
   await app.register(monitor.plugin);
   await app.listen(3000);
   console.log(`http://localhost:${port}${baseUrl}`);

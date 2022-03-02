@@ -1,4 +1,4 @@
-import type { IResolvers } from 'graphql-tools';
+import type { IResolvers } from '@graphql-tools/utils';
 import type {
   BullDataSource,
   MetricsDataSource,

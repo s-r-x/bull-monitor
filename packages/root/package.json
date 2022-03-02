@@ -7,20 +7,18 @@
     "directory": "packages/root"
   },
   "description": "bull-monitor core",
-  "keywords": [
-    "bull"
-  ],
+  "keywords": ["bull"],
   "author": "Ilya Strus <strax1990@gmail.com>",
   "license": "MIT",
   "types": "dist/index.d.ts",
   "engines": {
-    "node": ">=10"
+    "node": ">=12"
   },
   "scripts": {
     "build": "npm run clean && npm run compile",
     "clean": "rm -rf ./dist",
-    "compile": "tsc -p tsconfig.build.json",
-    "dev": "tsc -p tsconfig.build.json --watch"
+    "compile": "tsc",
+    "dev": "tsc --watch"
   },
   "main": "dist/index.js",
   "dependencies": {
@@ -38,7 +36,7 @@
     "@types/bull": "^3.15.0",
     "@types/lodash": "^4.14.169",
     "@types/redis-info": "^3.0.0",
-    "apollo-server-core": "^2.23.0",
+    "apollo-server-core": "^3.6.3",
     "bull": "^3.27.0",
     "bullmq": "^1.57.2",
     "typescript": "^4.5.3"
