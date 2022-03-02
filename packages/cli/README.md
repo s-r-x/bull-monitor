@@ -11,14 +11,16 @@ npm i -g @bull-monitor/cli
 ## Usage
 
 ```sh
-Usage: bull-monitor [options]
+Usage: bull-monitor -q queue1 queue2
 
 Options:
-  --redis-uri <uri>                            Redis URI (default: "redis://localhost:6379")
-  -q, --queue <queues...>                      Queue names
-  --metrics-collect-interval-seconds <number>  Metric collection interval in seconds (default: 3600(1 hour))
-  -p, --port <number>                          port number (default: "3000")
-  --max-metrics <number>                       Max metrics (default: "100")
-  -h, --help                                   display help for command
-
+  --redis-uri <uri>            redis uri (default: "redis://localhost:6379")
+  -q, --queue <queues...>      queue names
+  --bullmq                     use bullmq instead of bull
+  -p, --port <number>          server's port (default: "3000")
+  --host <string>              server's host (default: "localhost")
+  -m, --metrics                enable metrics collector
+  --max-metrics <number>       max metrics (default: "100")
+  --metrics-interval <number>  metrics collection interval in seconds (default: "3600")
+  -h, --help                   display help for command
 ```
