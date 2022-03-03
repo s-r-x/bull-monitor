@@ -1,7 +1,7 @@
 import { JsonService } from '../../services/json';
 import type { Job } from '../../queue';
 import type { TResolvers } from './typings';
-import { Job as GqlJob } from '../../typings/gql';
+import type { Job as GqlJob } from '../../typings/gql';
 
 export const JobResolver: TResolvers = {
   JobStatus: {
