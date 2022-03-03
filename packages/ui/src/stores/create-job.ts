@@ -1,6 +1,7 @@
 import type { Maybe } from '@/typings/utils';
 import createStore from 'zustand';
-import _ from 'lodash';
+import omit from 'lodash/omit';
+import isObject from 'lodash/isObject';
 import { JsonService } from '@/services/json';
 
 const DEFAULT_DATA = '{}';
@@ -43,8 +44,8 @@ export const useCreateJobStore = createStore<TState>((set) => ({
   setInputAndOpen: (input) => {
     const parsedOptions = JsonService.maybeParse(input.options);
     const finalOptions =
-      parsedOptions && _.isObject(parsedOptions)
-        ? JsonService.maybeStringify(_.omit(parsedOptions, 'timestamp', 2))
+      parsedOptions && isObject(parsedOptions)
+        ? JsonService.maybeStringify(omit(parsedOptions, 'timestamp', 2))
         : '';
     set({
       name: input.name || '',
