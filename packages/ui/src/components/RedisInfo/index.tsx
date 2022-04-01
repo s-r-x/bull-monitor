@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
@@ -16,6 +16,9 @@ import NetworkRequest from '../NetworkRequest';
 import { QueryKeysConfig } from '@/config/query-keys';
 import ms from 'ms';
 import { getPollingInterval } from '@/stores/network-settings';
+import isNil from 'lodash/isNil';
+
+type TKVPairs = [key: string, value: string][];
 
 const useStyles = makeStyles({
   root: {
@@ -61,29 +64,32 @@ const RedisInfo = () => {
       select: (data) => data?.redisInfo,
     }
   );
+  const pairs: TKVPairs = useMemo(() => {
+    if (!data) return [];
+    return [
+      ['Used memory', data.used_memory_human],
+      ['Peak Used memory', data.used_memory_peak_human],
+      ['Total memory', data.total_system_memory_human],
+      ['Connected clients', data.connected_clients],
+      ['Blocked clients', data.blocked_clients],
+      ['Uptime', ms(Number(data.uptime_in_seconds) * 1000, { long: true })],
+      ['CPU time (minutes)', data.used_cpu_sys],
+      ['Fragmentation ratio', data.mem_fragmentation_ratio],
+      ['Version', data.redis_version],
+      ['Mode', data.redis_mode],
+      ['OS', data.os],
+      ['Port', data.tcp_port],
+    ].filter(([, v]) => !isNil(v)) as TKVPairs;
+  }, [data]);
   return (
     <>
       <DialogContent className={cls.root}>
         <NetworkRequest status={status} refetch={refetch}>
-          {data && (
-            <List dense>
-              <KV k="Used memory" v={data.used_memory_human} />
-              <KV k="Peak Used memory" v={data.used_memory_peak_human} />
-              <KV k="Total memory" v={data.total_system_memory_human} />
-              <KV k="Connected clients" v={data.connected_clients} />
-              <KV k="Blocked clients" v={data.blocked_clients} />
-              <KV
-                k="Uptime"
-                v={ms(Number(data.uptime_in_seconds) * 1000, { long: true })}
-              />
-              <KV k="CPU time (minutes)" v={data.used_cpu_sys} />
-              <KV k="Fragmentation ratio" v={data.mem_fragmentation_ratio} />
-              <KV k="Version" v={data.redis_version} />
-              <KV k="Mode" v={data.redis_mode} />
-              <KV k="OS" v={data.os} />
-              <KV k="Port" v={data.tcp_port} />
-            </List>
-          )}
+          <List dense>
+            {pairs.map(([k, v], idx) => (
+              <KV key={idx} k={k} v={v} />
+            ))}
+          </List>
         </NetworkRequest>
       </DialogContent>
       <DialogActions>

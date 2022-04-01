@@ -11,14 +11,7 @@ export type Scalars = {
   Float: number;
   /** The `JSON` scalar type represents JSON values as specified by [ECMA-404](http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf). */
   JSON: any;
-  /** The `Upload` scalar type represents a file upload. */
-  Upload: any;
 };
-
-export enum CacheControlScope {
-  Public = 'PUBLIC',
-  Private = 'PRIVATE'
-}
 
 export type CreateJobInput = {
   queue: Scalars['String'];
@@ -310,28 +303,27 @@ export enum QueueProvider {
 }
 
 export type RedisInfo = {
-  redis_version: Scalars['String'];
-  used_memory: Scalars['String'];
-  used_memory_human: Scalars['String'];
-  used_memory_peak: Scalars['String'];
-  used_memory_peak_human: Scalars['String'];
-  used_memory_peak_perc: Scalars['String'];
-  used_memory_overhead: Scalars['String'];
-  used_memory_startup: Scalars['String'];
-  total_system_memory: Scalars['String'];
-  total_system_memory_human: Scalars['String'];
-  maxmemory: Scalars['String'];
-  maxmemory_human: Scalars['String'];
-  mem_fragmentation_ratio: Scalars['String'];
-  mem_fragmentation_bytes: Scalars['String'];
-  connected_clients: Scalars['String'];
-  blocked_clients: Scalars['String'];
-  redis_mode: Scalars['String'];
-  os: Scalars['String'];
-  arch_bits: Scalars['String'];
-  uptime_in_seconds: Scalars['String'];
-  uptime_in_days: Scalars['String'];
-  used_cpu_sys: Scalars['String'];
-  tcp_port: Scalars['String'];
+  redis_version?: Maybe<Scalars['String']>;
+  used_memory?: Maybe<Scalars['String']>;
+  used_memory_human?: Maybe<Scalars['String']>;
+  used_memory_peak?: Maybe<Scalars['String']>;
+  used_memory_peak_human?: Maybe<Scalars['String']>;
+  used_memory_peak_perc?: Maybe<Scalars['String']>;
+  used_memory_overhead?: Maybe<Scalars['String']>;
+  used_memory_startup?: Maybe<Scalars['String']>;
+  total_system_memory?: Maybe<Scalars['String']>;
+  total_system_memory_human?: Maybe<Scalars['String']>;
+  maxmemory?: Maybe<Scalars['String']>;
+  maxmemory_human?: Maybe<Scalars['String']>;
+  mem_fragmentation_ratio?: Maybe<Scalars['String']>;
+  mem_fragmentation_bytes?: Maybe<Scalars['String']>;
+  connected_clients?: Maybe<Scalars['String']>;
+  blocked_clients?: Maybe<Scalars['String']>;
+  redis_mode?: Maybe<Scalars['String']>;
+  os?: Maybe<Scalars['String']>;
+  arch_bits?: Maybe<Scalars['String']>;
+  uptime_in_seconds?: Maybe<Scalars['String']>;
+  uptime_in_days?: Maybe<Scalars['String']>;
+  used_cpu_sys?: Maybe<Scalars['String']>;
+  tcp_port?: Maybe<Scalars['String']>;
 };
-
