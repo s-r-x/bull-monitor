@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.1.1](https://github.com/s-r-x/bull-monitor/compare/v4.1.0...v4.1.1) (2022-04-01)
+
+
+### Bug Fixes
+
+* make all RedisInfo fields nullable in order to support the redis environments with no support for any of them ([377381a](https://github.com/s-r-x/bull-monitor/commit/377381aed578e49b40b5f912a58e0051e17d25e4))
+
+
+
+
+
 # [4.1.0](https://github.com/s-r-x/bull-monitor/compare/v4.0.0...v4.1.0) (2022-03-02)
 
 **Note:** Version bump only for package @bull-monitor/root

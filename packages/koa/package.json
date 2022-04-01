@@ -1,6 +1,6 @@
 {
   "name": "@bull-monitor/koa",
-  "version": "4.1.0",
+  "version": "4.1.1",
   "description": "bull-monitor for koa",
   "repository": {
     "type": "git",
@@ -21,7 +21,7 @@
     "dev": "tsc --watch"
   },
   "dependencies": {
-    "@bull-monitor/root": "^4.1.0",
+    "@bull-monitor/root": "^4.1.1",
     "apollo-server-koa": "^3.6.3"
   },
   "peerDependencies": {
