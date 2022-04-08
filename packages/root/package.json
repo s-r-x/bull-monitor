@@ -1,6 +1,6 @@
 {
   "name": "@bull-monitor/root",
-  "version": "4.1.1",
+  "version": "5.0.0",
   "repository": {
     "type": "git",
     "url": "https://github.com/s-r-x/bull-monitor.git",
