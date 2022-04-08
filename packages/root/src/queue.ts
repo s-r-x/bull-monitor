@@ -35,6 +35,7 @@ export abstract class Job {
   public abstract get processedOn(): Maybe<number>;
   public abstract get finishedOn(): Maybe<number>;
   public abstract get timestamp(): Maybe<number>;
+  public abstract get rawJob(): any;
 
   public abstract getState(): Promise<JobStatus>;
   public abstract moveToCompleted(returnValue?: unknown): Promise<unknown>;
@@ -80,6 +81,7 @@ export abstract class Queue {
   public abstract isPaused(): Promise<boolean>;
 
   public abstract getJob(id: JobId): Promise<Maybe<Job>>;
+  public abstract jobFromJSON(json: any, jobId: JobId): Job;
   public abstract getJobs(
     types: JobStatus | JobStatus[],
     start?: number,

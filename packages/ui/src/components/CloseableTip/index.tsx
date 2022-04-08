@@ -4,7 +4,7 @@ import { StorageConfig } from '@/config/storage';
 
 type TProps = {
   className?: string;
-  tip: string;
+  tip: any;
   persistKey: string;
 };
 export default function CloseableTip(props: TProps) {

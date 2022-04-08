@@ -16,7 +16,7 @@ const DataSearch = ({ className }: TProps) => {
       className={className}
       value={search}
       onChange={onChange}
-      label="Data search"
+      label="Search"
       variant="outlined"
       id="jobs-filters_data-search-key"
       autoComplete="off"

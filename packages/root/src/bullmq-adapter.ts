@@ -18,6 +18,10 @@ export class BullMQJobAdapter extends Job {
   }
 
   // getters
+  public get rawJob(): BullMQJob {
+    return this._job;
+  }
+
   public get queue(): Queue {
     return this._queue;
   }
@@ -205,7 +209,9 @@ export class BullMQAdapter extends Queue {
       return this.normalizeJob(job);
     }
   }
-
+  public jobFromJSON(json: any, jobId: JobId): Job {
+    return this.normalizeJob(BullMQJob.fromJSON(this._queue, json, jobId));
+  }
   public async getJobs(
     types: JobStatus | JobStatus[],
     start?: number,

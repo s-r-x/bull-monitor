@@ -2,7 +2,7 @@ import { DataSource } from 'apollo-datasource';
 import { JsonService } from '../../../services/json';
 import { OrderEnum } from '../../../typings/gql';
 import redisInfo from 'redis-info';
-import { DataSearcher } from '../../../data-search';
+import { PowerSearch } from '../../../data-search';
 import isNil from 'lodash/isNil';
 import { BullMonitorError } from '../../../errors';
 import { BullErrorEnum as ErrorEnum } from './errors-enum';
@@ -85,7 +85,7 @@ export class BullDataSource extends DataSource {
       return job ? [job] : [];
     } else if (dataSearch) {
       if (status) {
-        const searcher = new DataSearcher(bullQueue);
+        const searcher = new PowerSearch(bullQueue);
         return await searcher
           .search({
             status,

@@ -10,10 +10,17 @@ import type {
   GlobalJobCompletionCb,
 } from './queue';
 import type { Maybe } from './typings/utils';
+// this is required due to bad bull typings
+import * as Bull from 'bull';
 
 export class BullJobAdapter extends Job {
   constructor(private _job: BullJob, private _queue: Queue) {
     super();
+  }
+
+  // getters
+  public get rawJob(): BullJob {
+    return this._job;
   }
 
   public get queue(): Queue {
@@ -68,6 +75,7 @@ export class BullJobAdapter extends Job {
     return this._job.timestamp || undefined;
   }
 
+  // public methods
   public async getState(): Promise<JobStatus> {
     return this._job.getState() as any;
   }
@@ -188,6 +196,10 @@ export class BullAdapter extends Queue {
     if (job) {
       return this.normalizeJob(job);
     }
+  }
+  public jobFromJSON(json: any, jobId: JobId): Job {
+    // @ts-ignore
+    return this.normalizeJob(Bull.Job.fromJSON(this._queue, json, jobId));
   }
 
   public async getJobs(

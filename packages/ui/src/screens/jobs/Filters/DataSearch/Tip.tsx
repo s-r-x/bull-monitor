@@ -5,11 +5,27 @@ type TProps = {
   className?: string;
 };
 const DataSearchTip = ({ className }: TProps) => {
+  const text = (
+    <>
+      Search is powered by{' '}
+      <a target="__blank" href="https://docs.jsonata.org/overview.html">
+        jsonata
+      </a>
+      . Check out the{' '}
+      <a
+        target="__blank"
+        href="https://github.com/s-r-x/bull-monitor/blob/main/search-examples.md"
+      >
+        examples
+      </a>
+      .
+    </>
+  );
   return (
     <CloseableTip
       className={className}
-      persistKey="data-text-search-v2"
-      tip='Data search is powered by jsonata(https://docs.jsonata.org/overview.html). Example query for data {"user": {"profile": {"name": "ilya", "age": 30}}} -> user.profile[name="ilya" and age>=30]'
+      persistKey="data-text-search-v3"
+      tip={text}
     />
   );
 };

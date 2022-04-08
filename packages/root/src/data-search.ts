@@ -1,9 +1,8 @@
 import isempty from 'lodash/isEmpty';
 import { Readable } from 'stream';
 import jsonata from 'jsonata';
-import { JsonService } from './services/json';
 import { DEFAULT_DATA_SEARCH_SCAN_COUNT } from './constants';
-import type { Queue as BullQueue, JobStatus } from './queue';
+import type { Queue, JobStatus, Job } from './queue';
 import type { Maybe } from './typings/utils';
 
 type TSearchArgs = {
@@ -14,14 +13,11 @@ type TSearchArgs = {
   scanCount?: number;
 };
 
-type TJobExcerpt = {
-  data: string;
-  id: string;
-};
+type TJobsList = Job[];
 
-export class DataSearcher {
-  constructor(private _queue: BullQueue) {}
-  async search(args: TSearchArgs) {
+export class PowerSearch {
+  constructor(private _queue: Queue) {}
+  async search(args: TSearchArgs): Promise<TJobsList> {
     let expr: jsonata.Expression;
     try {
       expr = jsonata(args.search);
@@ -32,13 +28,12 @@ export class DataSearcher {
     if (!it) return [];
     const start = args.offset;
     const end = args.limit + start;
-    const acc: string[] = [];
+    const acc: TJobsList = [];
     // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/label
     mainLoop: for await (const jobs of it.generator()) {
       for (const job of jobs) {
-        const matched = this._matchData(job.data, expr);
-        if (matched) {
-          acc.push(job.id);
+        if (this._evalSearch(job, expr)) {
+          acc.push(job);
         }
         if (acc.length >= end) {
           break mainLoop;
@@ -46,10 +41,7 @@ export class DataSearcher {
       }
     }
     it.destroy();
-    const jobs = await Promise.all(
-      acc.slice(start, end).map((id) => this._queue.getJob(id))
-    );
-    return jobs;
+    return acc.slice(start, end);
   }
   private _getIterator(args: TSearchArgs): Maybe<AbstractIterator> {
     const redisKey = this._queue.toKey(args.status);
@@ -67,9 +59,9 @@ export class DataSearcher {
         return new ListIterator(this._queue, redisKey, config);
     }
   }
-  private _matchData(data: string, expr: jsonata.Expression): boolean {
+  private _evalSearch(job: Job, expr: jsonata.Expression): boolean {
     try {
-      const result = expr.evaluate(JsonService.maybeParse(data));
+      const result = expr.evaluate(job.rawJob);
       if (!result) return false;
       return typeof result === 'object' ? !isempty(result) : !!result;
     } catch (_e) {
@@ -84,30 +76,28 @@ type TIteratorConfig = {
 
 abstract class AbstractIterator {
   protected _scanCount: number;
-  constructor(protected _queue: BullQueue, config: TIteratorConfig) {
+  constructor(protected _queue: Queue, config: TIteratorConfig) {
     this._scanCount = config.scanCount || DEFAULT_DATA_SEARCH_SCAN_COUNT;
   }
-  protected async _extractJobsData(ids: string[]): Promise<TJobExcerpt[]> {
+  protected async _extractJobs(ids: string[]): Promise<TJobsList> {
     const client = await this._queue.client;
     const pipeline = client.pipeline();
-    ids.forEach((id) => pipeline.hmget(this._queue.toKey(id), 'data'));
-    const data = await pipeline.exec();
-    return data.reduce((acc, [error, [jobData]], idx) => {
-      if (!error && jobData && jobData !== '{}' && jobData !== '[]') {
-        acc.push({
-          data: jobData,
-          id: ids[idx],
-        });
+    ids.forEach((id) => pipeline.hgetall(this._queue.toKey(id)));
+    const jobs = await pipeline.exec();
+
+    return jobs.reduce((acc, [error, job], idx) => {
+      if (!error && job) {
+        acc.push(this._queue.jobFromJSON(job, ids[idx]));
       }
       return acc;
-    }, [] as TJobExcerpt[]);
+    }, [] as TJobsList);
   }
-  abstract generator(): AsyncGenerator<TJobExcerpt[]>;
+  abstract generator(): AsyncGenerator<TJobsList>;
   abstract destroy(): void;
 }
 class SetIterator extends AbstractIterator {
   private _stream: Readable;
-  constructor(queue: BullQueue, private _key: string, config: TIteratorConfig) {
+  constructor(queue: Queue, private _key: string, config: TIteratorConfig) {
     super(queue, config);
   }
   async *generator() {
@@ -120,8 +110,8 @@ class SetIterator extends AbstractIterator {
       const filteredIds = (ids as string[]).filter(
         (_k: string, idx) => !(idx % 2)
       );
-      const data = await this._extractJobsData(filteredIds);
-      yield data;
+      const jobs = await this._extractJobs(filteredIds);
+      yield jobs;
       this._stream.resume();
     }
   }
@@ -134,7 +124,7 @@ class SetIterator extends AbstractIterator {
 class ListIterator extends AbstractIterator {
   private _ids: string[];
   private _cursor = 0;
-  constructor(queue: BullQueue, private _key: string, config: TIteratorConfig) {
+  constructor(queue: Queue, private _key: string, config: TIteratorConfig) {
     super(queue, config);
   }
   async *generator() {
@@ -146,9 +136,9 @@ class ListIterator extends AbstractIterator {
         if (isempty(ids)) {
           return;
         }
-        const data = await this._extractJobsData(ids);
-        this._incCursor(data.length);
-        yield data;
+        const jobs = await this._extractJobs(ids);
+        this._incCursor(jobs.length);
+        yield jobs;
       } catch (e) {
         console.error(e);
         return;
