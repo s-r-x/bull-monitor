@@ -85,8 +85,12 @@ export class MetricsCollector {
     }
   }
   private _taskFn = async () => {
-    const metrics = await this._collect();
-    await this._persist(metrics);
+    try {
+      const metrics = await this._collect();
+      await this._persist(metrics);
+    } catch (e) {
+      console.error('[bull-monitor] metrics collector error: ', e);
+    }
   };
   private async _collect(): Promise<TMetrics[]> {
     const timestamp = Date.now();
