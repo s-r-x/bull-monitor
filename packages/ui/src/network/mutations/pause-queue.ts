@@ -1,11 +1,10 @@
-import { gqlClient } from '@/network/gql-client';
 import type {
   PauseQueueMutation,
   PauseQueueMutationVariables,
 } from '@/typings/gql';
-import { gql } from 'graphql-request';
+import { gql, GraphQLClient } from 'graphql-request';
 
-export const pauseQueue = (
+export const pauseQueue = (gqlClient: GraphQLClient) => (
   args: PauseQueueMutationVariables
 ): Promise<PauseQueueMutation> =>
   gqlClient.request(

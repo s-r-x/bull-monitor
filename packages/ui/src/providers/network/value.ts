@@ -54,39 +54,40 @@ import { clearAllMetricsMock } from '@/demo-mocks/network/mutations/clear-all-me
 import { clearMetricsMock } from '@/demo-mocks/network/mutations/clear-metrics';
 
 import { EnvConfig } from '@/config/env';
+import type { GraphQLClient } from 'graphql-request';
 
 const { useMocks: m } = EnvConfig;
 
-const queries = {
-  getJobsForExport: m ? getJobsForExportMock : getJobsForExport,
-  getRedisInfo: m ? getRedisInfoMock : getRedisInfo,
-  getJobData: m ? getJobDataMock : getJobData,
-  getJobLogs: m ? getJobLogsMock : getJobLogs,
-  getJobs: m ? getJobsMock : getJobs,
-  getJobById: m ? getJobByIdMock : getJobById,
-  getQueues: m ? getQueuesMock : getQueues,
-  getQueueMetrics: m ? getQueueMetricsMock : getQueueMetrics,
-};
-const mutations = {
-  createJob: m ? createJobMock : createJob,
-  createJobLog: m ? createJobLogMock : createJobLog,
-  discardJob: m ? discardJobMock : discardJob,
-  moveJobToCompleted: m ? moveJobToCompletedMock : moveJobToCompleted,
-  moveJobToFailed: m ? moveJobToFailedMock : moveJobToFailed,
-  promoteJob: m ? promoteJobMock : promoteJob,
-  removeJob: m ? removeJobMock : removeJob,
-  retryJob: m ? retryJobMock : retryJob,
-  updateJobData: m ? updateJobDataMock : updateJobData,
-  pauseQueue: m ? pauseQueueMock : pauseQueue,
-  resumeQueue: m ? resumeQueueMock : resumeQueue,
-  emptyQueue: m ? emptyQueueMock : emptyQueue,
-  closeQueue: m ? closeQueueMock : closeQueue,
-  removeJobsByPattern: m ? removeJobsByPatternMock : removeJobsByPattern,
-  cleanQueue: m ? cleanQueueMock : cleanQueue,
-  retryJobs: m ? retryJobsMock : retryJobs,
-  removeJobs: m ? removeJobsMock : removeJobs,
-  clearMetrics: m ? clearMetricsMock : clearMetrics,
-  clearAllMetrics: m ? clearAllMetricsMock : clearAllMetrics,
-};
-
-export const networkContextValue = { mutations, queries };
+export const networkContextValue = (gqlClient: GraphQLClient) => ({
+  queries: {
+    getJobsForExport: m ? getJobsForExportMock : getJobsForExport(gqlClient),
+    getRedisInfo: m ? getRedisInfoMock : getRedisInfo(gqlClient),
+    getJobData: m ? getJobDataMock : getJobData(gqlClient),
+    getJobLogs: m ? getJobLogsMock : getJobLogs(gqlClient),
+    getJobs: m ? getJobsMock : getJobs(gqlClient),
+    getJobById: m ? getJobByIdMock : getJobById(gqlClient),
+    getQueues: m ? getQueuesMock : getQueues(gqlClient),
+    getQueueMetrics: m ? getQueueMetricsMock : getQueueMetrics(gqlClient),
+  },
+  mutations: {
+    createJob: m ? createJobMock : createJob(gqlClient),
+    createJobLog: m ? createJobLogMock : createJobLog(gqlClient),
+    discardJob: m ? discardJobMock : discardJob(gqlClient),
+    moveJobToCompleted: m ? moveJobToCompletedMock : moveJobToCompleted(gqlClient),
+    moveJobToFailed: m ? moveJobToFailedMock : moveJobToFailed(gqlClient),
+    promoteJob: m ? promoteJobMock : promoteJob(gqlClient),
+    removeJob: m ? removeJobMock : removeJob(gqlClient),
+    retryJob: m ? retryJobMock : retryJob(gqlClient),
+    updateJobData: m ? updateJobDataMock : updateJobData(gqlClient),
+    pauseQueue: m ? pauseQueueMock : pauseQueue(gqlClient),
+    resumeQueue: m ? resumeQueueMock : resumeQueue(gqlClient),
+    emptyQueue: m ? emptyQueueMock : emptyQueue(gqlClient),
+    closeQueue: m ? closeQueueMock : closeQueue(gqlClient),
+    removeJobsByPattern: m ? removeJobsByPatternMock : removeJobsByPattern(gqlClient),
+    cleanQueue: m ? cleanQueueMock : cleanQueue(gqlClient),
+    retryJobs: m ? retryJobsMock : retryJobs(gqlClient),
+    removeJobs: m ? removeJobsMock : removeJobs(gqlClient),
+    clearMetrics: m ? clearMetricsMock : clearMetrics(gqlClient),
+    clearAllMetrics: m ? clearAllMetricsMock : clearAllMetrics(gqlClient),
+  }
+});

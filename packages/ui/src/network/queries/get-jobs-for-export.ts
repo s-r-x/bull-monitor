@@ -2,10 +2,9 @@ import type {
   GetJobsForExportQuery,
   GetJobsForExportQueryVariables,
 } from '@/typings/gql';
-import { gqlClient } from '@/network/gql-client';
-import { gql } from 'graphql-request';
+import { gql, GraphQLClient } from 'graphql-request';
 
-export const getJobsForExport = (
+export const getJobsForExport = (gqlClient: GraphQLClient) => (
   args: GetJobsForExportQueryVariables
 ): Promise<GetJobsForExportQuery> =>
   gqlClient.request(

@@ -1,8 +1,7 @@
 import type { GetRedisInfoQuery } from '@/typings/gql';
-import { gqlClient } from '@/network/gql-client';
-import { gql } from 'graphql-request';
+import { gql, GraphQLClient } from 'graphql-request';
 
-export const getRedisInfo = (): Promise<GetRedisInfoQuery> =>
+export const getRedisInfo = (gqlClient: GraphQLClient) => (): Promise<GetRedisInfoQuery> =>
   gqlClient.request(
     gql`
       query GetRedisInfo {

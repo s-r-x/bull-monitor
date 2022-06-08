@@ -1,11 +1,10 @@
 import type { GetJobLogsQuery, GetJobLogsQueryVariables } from '@/typings/gql';
-import { gqlClient } from '@/network/gql-client';
-import { gql } from 'graphql-request';
+import { gql, GraphQLClient } from 'graphql-request';
 
-export const getJobLogs = (
+export const getJobLogs = (gqlClient: GraphQLClient) => (
   args: GetJobLogsQueryVariables
-): Promise<GetJobLogsQuery> =>
-  gqlClient.request(
+): Promise<GetJobLogsQuery> => {
+  return gqlClient.request(
     gql`
       query GetJobLogs($queue: ID!, $id: ID!) {
         job(queue: $queue, id: $id) {
@@ -18,3 +17,4 @@ export const getJobLogs = (
     `,
     args
   );
+};

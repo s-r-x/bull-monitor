@@ -1,11 +1,10 @@
-import { gqlClient } from '@/network/gql-client';
 import type {
   CleanQueueMutation,
   CleanQueueMutationVariables,
 } from '@/typings/gql';
-import { gql } from 'graphql-request';
+import { gql, GraphQLClient } from 'graphql-request';
 
-export const cleanQueue = (
+export const cleanQueue = (gqlClient: GraphQLClient) => (
   args: CleanQueueMutationVariables
 ): Promise<CleanQueueMutation> =>
   gqlClient.request(

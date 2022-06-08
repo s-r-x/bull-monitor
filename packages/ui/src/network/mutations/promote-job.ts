@@ -1,11 +1,10 @@
-import { gqlClient } from '@/network/gql-client';
 import type {
   PromoteJobMutation,
   PromoteJobMutationVariables,
 } from '@/typings/gql';
-import { gql } from 'graphql-request';
+import { gql, GraphQLClient } from 'graphql-request';
 
-export const promoteJob = (
+export const promoteJob = (gqlClient: GraphQLClient) => (
   args: PromoteJobMutationVariables
 ): Promise<PromoteJobMutation> =>
   gqlClient.request(

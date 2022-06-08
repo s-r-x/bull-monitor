@@ -1,11 +1,10 @@
-import { gqlClient } from '@/network/gql-client';
 import type {
   RetryJobsMutation,
   RetryJobsMutationVariables,
 } from '@/typings/gql';
-import { gql } from 'graphql-request';
+import { gql, GraphQLClient } from 'graphql-request';
 
-export const retryJobs = (
+export const retryJobs = (gqlClient: GraphQLClient) => (
   args: RetryJobsMutationVariables
 ): Promise<RetryJobsMutation> =>
   gqlClient.request(

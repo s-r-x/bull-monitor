@@ -1,8 +1,7 @@
-import { gqlClient } from '@/network/gql-client';
 import type { ClearAllMetricsMutation } from '@/typings/gql';
-import { gql } from 'graphql-request';
+import { gql, GraphQLClient } from 'graphql-request';
 
-export const clearAllMetrics = (): Promise<ClearAllMetricsMutation> =>
+export const clearAllMetrics = (gqlClient: GraphQLClient) => (): Promise<ClearAllMetricsMutation> =>
   gqlClient.request(
     gql`
       mutation ClearAllMetrics {

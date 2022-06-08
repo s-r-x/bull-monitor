@@ -10,6 +10,7 @@ import { useDrawerState } from '@/stores/drawer';
 import { useAtomValue } from 'jotai/utils';
 import { activeQueueAtom } from '@/atoms/workspaces';
 import WorkspacePicker from './WorkspacePicker';
+import { useKeycloak } from '@react-keycloak/web';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -29,11 +30,17 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Shell: React.FC = (props) => {
+const Shell: React.FC = (props) => {  
   const classes = useStyles();
   useCreateFirstWorkspace();
   const drawerWidth = useDrawerState((state) => state.defaultWidth);
   const activeQueue = useAtomValue(activeQueueAtom);
+  const {keycloak, initialized} = useKeycloak();
+
+  if(!initialized || !keycloak.authenticated) {
+    return (<button onClick={() => keycloak.login()}>Login</button>);
+  }
+
   const rootStyle = {
     '--drawer-width': drawerWidth + 'px',
   } as React.CSSProperties;

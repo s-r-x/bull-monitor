@@ -1,11 +1,10 @@
-import { gqlClient } from '@/network/gql-client';
 import type {
   EmptyQueueMutation,
   EmptyQueueMutationVariables,
 } from '@/typings/gql';
-import { gql } from 'graphql-request';
+import { gql, GraphQLClient } from 'graphql-request';
 
-export const emptyQueue = (
+export const emptyQueue = (gqlClient: GraphQLClient) =>  (
   args: EmptyQueueMutationVariables
 ): Promise<EmptyQueueMutation> =>
   gqlClient.request(

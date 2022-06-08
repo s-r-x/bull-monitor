@@ -1,9 +1,8 @@
 import type { GetJobByIdQuery, GetJobByIdQueryVariables } from '@/typings/gql';
-import { gqlClient } from '@/network/gql-client';
-import { gql } from 'graphql-request';
+import { gql, GraphQLClient } from 'graphql-request';
 import { COMMON_JOB_FIELDS_FRAG } from '../fragments/common-page-fields';
 
-export const getJobById = (
+export const getJobById = (gqlClient: GraphQLClient) => (
   args: GetJobByIdQueryVariables
 ): Promise<GetJobByIdQuery> =>
   gqlClient.request(

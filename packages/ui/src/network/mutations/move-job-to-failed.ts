@@ -1,11 +1,10 @@
-import { gqlClient } from '@/network/gql-client';
 import type {
   MoveJobToFailedMutation,
   MoveJobToFailedMutationVariables,
 } from '@/typings/gql';
-import { gql } from 'graphql-request';
+import { gql, GraphQLClient } from 'graphql-request';
 
-export const moveJobToFailed = (
+export const moveJobToFailed = (gqlClient: GraphQLClient) => (
   args: MoveJobToFailedMutationVariables
 ): Promise<MoveJobToFailedMutation> =>
   gqlClient.request(

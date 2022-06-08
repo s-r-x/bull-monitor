@@ -2,10 +2,9 @@ import type {
   GetQueueMetricsQuery,
   GetQueueMetricsQueryVariables,
 } from '@/typings/gql';
-import { gqlClient } from '@/network/gql-client';
-import { gql } from 'graphql-request';
+import { gql, GraphQLClient } from 'graphql-request';
 
-export const getQueueMetrics = (
+export const getQueueMetrics = (gqlClient: GraphQLClient) => (
   args: GetQueueMetricsQueryVariables
 ): Promise<GetQueueMetricsQuery> =>
   gqlClient.request(

@@ -1,11 +1,10 @@
-import { gqlClient } from '@/network/gql-client';
 import type {
   RemoveJobsMutation,
   RemoveJobsMutationVariables,
 } from '@/typings/gql';
-import { gql } from 'graphql-request';
+import { gql, GraphQLClient } from 'graphql-request';
 
-export const removeJobs = (
+export const removeJobs = (gqlClient: GraphQLClient) => (
   args: RemoveJobsMutationVariables
 ): Promise<RemoveJobsMutation> =>
   gqlClient.request(

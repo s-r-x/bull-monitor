@@ -1,11 +1,10 @@
-import { gqlClient } from '@/network/gql-client';
 import type {
   UpdateJobDataMutation,
   UpdateJobDataMutationVariables,
 } from '@/typings/gql';
-import { gql } from 'graphql-request';
+import { gql, GraphQLClient } from 'graphql-request';
 
-export const updateJobData = (
+export const updateJobData = (gqlClient: GraphQLClient) => (
   args: UpdateJobDataMutationVariables
 ): Promise<UpdateJobDataMutation> =>
   gqlClient.request(

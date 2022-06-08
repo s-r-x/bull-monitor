@@ -1,13 +1,12 @@
-import { gqlClient } from '@/network/gql-client';
 import type {
   ClearMetricsMutation,
   ClearMetricsMutationVariables,
 } from '@/typings/gql';
-import { gql } from 'graphql-request';
+import { gql, GraphQLClient } from 'graphql-request';
 
-export const clearMetrics = (
+export const clearMetrics = (gqlClient: GraphQLClient) => (
   args: ClearMetricsMutationVariables
-): Promise<ClearMetricsMutation> =>
+): Promise<ClearMetricsMutation> => 
   gqlClient.request(
     gql`
       mutation ClearMetrics($queue: ID!) {

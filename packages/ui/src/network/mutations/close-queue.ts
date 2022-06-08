@@ -1,11 +1,10 @@
-import { gqlClient } from '@/network/gql-client';
 import type {
   CloseQueueMutation,
   CloseQueueMutationVariables,
 } from '@/typings/gql';
-import { gql } from 'graphql-request';
+import { gql, GraphQLClient } from 'graphql-request';
 
-export const closeQueue = (
+export const closeQueue = (gqlClient: GraphQLClient) => (
   args: CloseQueueMutationVariables
 ): Promise<CloseQueueMutation> =>
   gqlClient.request(
