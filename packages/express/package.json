@@ -1,6 +1,6 @@
 {
-  "name": "@bull-monitor/express",
-  "version": "5.0.1",
+  "name": "@ataboo/bull-monitor-express",
+  "version": "5.0.2-alpha.6.0",
   "description": "bull-monitor for express",
   "keywords": [
     "bull"
@@ -21,7 +21,7 @@
   },
   "main": "dist/index.js",
   "dependencies": {
-    "@bull-monitor/root": "^5.0.1",
+    "@ataboo/bull-monitor-root": "5.0.2-alpha.6.0",
     "apollo-server-express": "^3.6.3"
   },
   "peerDependencies": {

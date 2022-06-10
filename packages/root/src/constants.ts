@@ -10,6 +10,7 @@ export const DEFAULT_ROOT_CONFIG: Required<Config> = {
   gqlIntrospection: DEV,
   textSearchScanCount: DEFAULT_DATA_SEARCH_SCAN_COUNT,
   metrics: false,
+  keycloak: null
 };
 export const DEFAULT_METRICS_CONFIG: Required<MetricsConfig> = {
   redisPrefix: 'bull_monitor::metrics::',

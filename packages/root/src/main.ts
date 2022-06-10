@@ -59,13 +59,14 @@ export abstract class BullMonitor<TServer extends ApolloServerBase> {
         metrics: new MetricsDataSource(this._metricsCollector),
         policies: new PoliciesDataSource(this._queuesMap),
       }),
+      context: this.config.keycloak?.gqlcontext
     });
   }
   protected async startServer() {
     return await this.server.start();
   }
   protected renderUi() {
-    return this._ui.render();
+    return this._ui.render(this.config);
   }
   protected get baseUrl() {
     return this.config.baseUrl;

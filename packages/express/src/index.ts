@@ -1,4 +1,4 @@
-import { BullMonitor } from '@bull-monitor/root';
+import { BullMonitor } from '@ataboo/bull-monitor-root';
 import { ApolloServer } from 'apollo-server-express';
 import Express from 'express';
 import { ApolloServerPluginDrainHttpServer } from 'apollo-server-core';

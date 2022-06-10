@@ -1,14 +1,23 @@
+import { Config } from "./typings/config";
+
 const pkg = require('../package.json');
 
 export class UI {
-  private uiVersion = pkg.version;
-  private pkgName = '@bull-monitor/ui';
+  private uiVersion = '5.0.2-alpha.2.0';
+  private pkgName = '@ataboo/bull-monitor-ui';
   private cdnRoot = `https://cdn.jsdelivr.net/npm/${this.pkgName}@${this.uiVersion}`;
   private resourcesRoot = this.cdnRoot + '/build';
   private buildCdnUrl(resource: string) {
     return this.resourcesRoot + resource;
   }
-  public render() {
+  public render(config: Config) {
+    const keyCloakBlock = config.keycloak ? `
+      <script>
+        window.BULL_KEYCLOAK_REALM='${config.keycloak?.realm}';
+        window.BULL_KEYCLOAK_URL='${config.keycloak.url}';
+        window.BULL_KEYCLOAK_CLIENT='${config.keycloak.client}';
+      </script>` : '';
+
     return `
     <!DOCTYPE html>
     <html lang="en">
@@ -20,6 +29,7 @@ export class UI {
         rel="stylesheet"
         href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
       />
+      ${keyCloakBlock}
       <link rel="stylesheet" href="${this.buildCdnUrl('/style.css')}"/>
       <script type="module" src="${this.buildCdnUrl('/main.js')}"></script>
     </head>
