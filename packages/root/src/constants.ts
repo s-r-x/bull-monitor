@@ -8,6 +8,7 @@ export const DEFAULT_ROOT_CONFIG: Required<Config> = {
   queues: [],
   baseUrl: '',
   gqlIntrospection: DEV,
+  gqlCache: false,
   textSearchScanCount: DEFAULT_DATA_SEARCH_SCAN_COUNT,
   metrics: false,
 };

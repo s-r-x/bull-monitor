@@ -13,6 +13,9 @@ import type {
   ApolloServerBase,
   Config as ApolloConfig,
 } from 'apollo-server-core';
+import { KeyValueCache } from '@apollo/utils.keyvaluecache';
+import { KeyvAdapter } from '@apollo/utils.keyvadapter';
+import Keyv from 'keyv';
 import type { Config, MetricsConfig } from './typings/config';
 
 export abstract class BullMonitor<TServer extends ApolloServerBase> {
@@ -43,15 +46,21 @@ export abstract class BullMonitor<TServer extends ApolloServerBase> {
   protected gqlBasePath = '/graphql';
   protected config: Required<Config>;
   protected server: TServer;
+  protected cache: KeyValueCache | 'bounded';
   protected createServer(
     Server: new (config: ApolloConfig) => TServer,
     plugins?: ApolloConfig['plugins']
   ) {
+    if (this.config.gqlCache) {
+      this.cache = 'bounded'
+      if (typeof this.config.gqlCache === 'object' && this.config.gqlCache !== null && this.config.gqlCache.adapter) this.cache = new KeyvAdapter(new Keyv({ store: this.config.gqlCache.adapter }))
+    }
     this.server = new Server({
       typeDefs,
       resolvers,
       plugins,
       introspection: this.config.gqlIntrospection,
+      ...(this.config.gqlCache && { cache: this.cache }),
       dataSources: () => ({
         bull: new BullDataSource(this._queues, this._queuesMap, {
           textSearchScanCount: this.config.textSearchScanCount,
