@@ -17,10 +17,12 @@ Options:
   --redis-uri <uri>            redis uri (default: "redis://localhost:6379")
   -q, --queue <queues...>      queue names
   --bullmq                     use bullmq instead of bull
+  --prefix <string>            bull prefix (default: "bull")
   -p, --port <number>          server's port (default: "3000")
   --host <string>              server's host (default: "localhost")
   -m, --metrics                enable metrics collector
   --max-metrics <number>       max metrics (default: "100")
   --metrics-interval <number>  metrics collection interval in seconds (default: "3600")
   -h, --help                   display help for command
+
 ```
