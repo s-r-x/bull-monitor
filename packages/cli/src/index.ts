@@ -16,6 +16,7 @@ program
   )
   .requiredOption('-q, --queue <queues...>', 'queue names')
   .option('--bullmq', 'use bullmq instead of bull')
+  .option('--prefix <string>', 'bull/bullmq prefix', 'bull')
   .option('-p, --port <number>', "server's port", '3000')
   .option('--host <string>', "server's host", 'localhost')
   .option('-m, --metrics', 'enable metrics collector')
@@ -29,6 +30,7 @@ program
 program.parse();
 
 const options = program.opts();
+const prefix = options.prefix;
 
 (async () => {
   const connection = options.bullmq
@@ -45,12 +47,13 @@ const options = program.opts();
         return new Adapter(
           new BullMqQueue(name, {
             connection,
+            prefix,
           })
         );
       } else {
         const Adapter =
           require('@bull-monitor/root/dist/bull-adapter').BullAdapter;
-        return new Adapter(new BullQueue(name, options.redisUri));
+        return new Adapter(new BullQueue(name, options.redisUri, {prefix}));
       }
     }),
     metrics: options.metrics && {
@@ -64,6 +67,7 @@ const options = program.opts();
   const app = Express();
   app.use(monitor.router);
   app.listen(options.port, options.host, () => {
+    console.log(`options: ${JSON.stringify(options)}`)
     console.log(`Ready on http://${options.host}:${options.port}/`);
   });
 })();
