@@ -1,5 +1,5 @@
 {
-  "name": "@bull-monitor/cli",
+  "name": "@jinpy666/bull-monitor-cli",
   "version": "5.0.1",
   "description": "cli for bull-monitor",
   "keywords": [
@@ -8,7 +8,7 @@
   "author": "Ilya Strus <strax1990@gmail.com>",
   "repository": {
     "type": "git",
-    "url": "https://github.com/s-r-x/bull-monitor.git",
+    "url": "https://github.com/jinpy666/bull-monitor.git",
     "directory": "packages/cli"
   },
   "license": "MIT",
