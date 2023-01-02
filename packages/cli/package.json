@@ -1,6 +1,6 @@
 {
   "name": "@jinpy666/bull-monitor-cli",
-  "version": "5.0.1",
+  "version": "5.0.2",
   "description": "cli for bull-monitor",
   "keywords": [
     "bull"
