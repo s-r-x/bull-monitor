@@ -9,3 +9,4 @@ packages/ui/build
 examples/nest/dist
 fixtures/bull-server/server/index.js
 ./docs
+lerna-debug.log
