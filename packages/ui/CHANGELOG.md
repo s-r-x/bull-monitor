@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.0.2](https://github.com/s-r-x/bull-monitor/compare/v5.0.1...v5.0.2) (2023-01-10)
+
+
+### Bug Fixes
+
+* add "unknown" to JobStatus enum ([b381ad1](https://github.com/s-r-x/bull-monitor/commit/b381ad1c468508c18af2c57e5082930cff782512))
+
+
+
+
+
 ## [5.0.1](https://github.com/s-r-x/bull-monitor/compare/v5.0.0...v5.0.1) (2022-05-11)
 
 **Note:** Version bump only for package @bull-monitor/ui
