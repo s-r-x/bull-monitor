@@ -9,6 +9,7 @@ export const jobTypeDef = gql`
     failed
     paused
     stuck
+    unknown
   }
   enum JobStatusClean {
     completed

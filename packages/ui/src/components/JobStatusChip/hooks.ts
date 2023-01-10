@@ -9,6 +9,7 @@ const palette: Record<JobStatus, string> = {
   [JobStatus.Paused]: grey[600],
   [JobStatus.Active]: cyan[500],
   [JobStatus.Stuck]: grey[400],
+  [JobStatus.Unknown]: grey[300],
 };
 export const useJobStatusesPalette = () => palette;
 export const useJobStatusColor = (status: JobStatus): string => {

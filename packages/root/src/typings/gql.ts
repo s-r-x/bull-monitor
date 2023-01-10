@@ -52,7 +52,8 @@ export enum JobStatus {
   Delayed = 'delayed',
   Failed = 'failed',
   Paused = 'paused',
-  Stuck = 'stuck'
+  Stuck = 'stuck',
+  Unknown = 'unknown'
 }
 
 export enum JobStatusClean {

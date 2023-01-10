@@ -12,7 +12,12 @@ export const useCount = (): number => {
   const status = useAtomValue(activeStatusAtom);
   const activeQueue = useAtomValue(activeQueueAtom) as string;
   const jobsCounts = useQueueData(activeQueue)?.jobsCounts;
-  if (!jobsCounts || jobId || status === JobStatus.Stuck) {
+  if (
+    !jobsCounts ||
+    jobId ||
+    status === JobStatus.Stuck ||
+    status === JobStatus.Unknown
+  ) {
     return 0;
   }
   if (status in jobsCounts) {
