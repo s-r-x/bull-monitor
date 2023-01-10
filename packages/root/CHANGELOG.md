@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.0.3](https://github.com/s-r-x/bull-monitor/compare/v5.0.2...v5.0.3) (2023-01-10)
+
+
+### Bug Fixes
+
+* set persistedQueries to false in the apollo server constructor to suppress cache related apollo warning in production ([acf9ba0](https://github.com/s-r-x/bull-monitor/commit/acf9ba0108595213cb913fe3df15a8100fec91ed))
+
+
+
+
+
 ## [5.0.2](https://github.com/s-r-x/bull-monitor/compare/v5.0.1...v5.0.2) (2023-01-10)
 
 
