@@ -48,6 +48,7 @@ export abstract class BullMonitor<TServer extends ApolloServerBase> {
     plugins?: ApolloConfig['plugins']
   ) {
     this.server = new Server({
+      persistedQueries: false,
       typeDefs,
       resolvers,
       plugins,
