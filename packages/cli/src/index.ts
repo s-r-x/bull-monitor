@@ -18,6 +18,7 @@ program
   .option('--bullmq', 'use bullmq instead of bull')
   .option('-p, --port <number>', "server's port", '3000')
   .option('--host <string>', "server's host", 'localhost')
+  .option('--prefix <string>', 'redis key prefix', undefined)
   .option('-m, --metrics', 'enable metrics collector')
   .option('--max-metrics <number>', 'max metrics', '100')
   .option(
@@ -44,13 +45,16 @@ const options = program.opts();
           require('@bull-monitor/root/dist/bullmq-adapter').BullMQAdapter;
         return new Adapter(
           new BullMqQueue(name, {
+            ...(options.prefix ? {prefix: options.prefix}: {}),
             connection,
           })
         );
       } else {
         const Adapter =
           require('@bull-monitor/root/dist/bull-adapter').BullAdapter;
-        return new Adapter(new BullQueue(name, options.redisUri));
+        return new Adapter(new BullQueue(name, options.redisUri, {
+          ...(options.prefix ? {prefix: options.prefix}: {})
+        }));
       }
     }),
     metrics: options.metrics && {
