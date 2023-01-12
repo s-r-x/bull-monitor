@@ -19,6 +19,7 @@ Options:
   --bullmq                     use bullmq instead of bull
   -p, --port <number>          server's port (default: "3000")
   --host <string>              server's host (default: "localhost")
+  --prefix <string>            redis key prefix (bull/bullmq)
   -m, --metrics                enable metrics collector
   --max-metrics <number>       max metrics (default: "100")
   --metrics-interval <number>  metrics collection interval in seconds (default: "3600")
