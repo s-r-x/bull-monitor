@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.2.0](https://github.com/s-r-x/bull-monitor/compare/v5.1.0...v5.2.0) (2023-08-01)
+
+
+### Features
+
+* add support for prioritized jobs ([1092d9a](https://github.com/s-r-x/bull-monitor/commit/1092d9a60c55d356f9afbc9a870185710a79444b))
+
+
+
+
+
 # [5.1.0](https://github.com/s-r-x/bull-monitor/compare/v5.0.3...v5.1.0) (2023-01-13)
 
 **Note:** Version bump only for package @bull-monitor/fastify
