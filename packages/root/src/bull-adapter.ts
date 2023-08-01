@@ -1,14 +1,14 @@
-import type { Queue as BullQueue, Job as BullJob } from 'bull';
 import { Queue, Job, QueueProvider } from './queue';
 import type {
   JobId,
-  JobStatus,
   JobStatusClean,
   JobCounts,
   JobLogs,
   QueueConfig,
   GlobalJobCompletionCb,
 } from './queue';
+import { JobStatus } from './queue';
+import type { Queue as BullQueue, Job as BullJob } from 'bull';
 import type { Maybe } from './typings/utils';
 // this is required due to bad bull typings
 import * as Bull from 'bull';

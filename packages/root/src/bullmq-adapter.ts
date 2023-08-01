@@ -1,16 +1,21 @@
-import { Queue as BullMQQueue, QueueEvents, Job as BullMQJob } from 'bullmq';
+import {
+  Queue as BullMQQueue,
+  QueueEvents,
+  Job as BullMQJob,
+  JobType,
+} from 'bullmq';
 import { Job, Queue, QueueProvider } from './queue';
+import { JobStatus } from './queue';
+import { JsonService } from './services/json';
+import type { Maybe } from './typings/utils';
 import type {
   JobId,
-  JobStatus,
   JobStatusClean,
   JobCounts,
   JobLogs,
   GlobalJobCompletionCb,
   QueueConfig,
 } from './queue';
-import type { Maybe } from './typings/utils';
-import { JsonService } from './services/json';
 
 export class BullMQJobAdapter extends Job {
   constructor(private _job: BullMQJob, private _queue: Queue) {
@@ -223,14 +228,16 @@ export class BullMQAdapter extends Queue {
   }
 
   public async getJobCounts(): Promise<JobCounts> {
-    const counts = await this._queue.getJobCounts(
+    const statuses = [
       'active',
       'completed',
       'failed',
       'delayed',
       'waiting',
-      'paused'
-    );
+      'paused',
+      'getPrioritizedCount' in this._queue && 'prioritized',
+    ].filter(Boolean) as JobType[];
+    const counts = await this._queue.getJobCounts(...statuses);
     return counts as unknown as JobCounts;
   }
 

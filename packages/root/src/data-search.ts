@@ -52,6 +52,7 @@ export class PowerSearch {
       case 'completed':
       case 'failed':
       case 'delayed':
+      case 'prioritized':
         return new SetIterator(this._queue, redisKey, config);
       case 'active':
       case 'waiting':

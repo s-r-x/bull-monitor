@@ -4,6 +4,8 @@ import { useQueueData } from '@/hooks/use-queue-data';
 import { activeQueueAtom, activeStatusAtom } from '@/atoms/workspaces';
 import { useAtomValue } from 'jotai/utils';
 import { useAtom } from 'jotai';
+import omitBy from 'lodash/omitBy';
+import isNil from 'lodash/isNil';
 
 export const useQueueCounts = () => {
   const activeQueue = useAtomValue(activeQueueAtom) as string;
@@ -13,11 +15,13 @@ export const useQueueCounts = () => {
     if (!queueData?.jobsCounts) {
       return [];
     }
-    return Object.entries(queueData.jobsCounts).map(([status, count]) => ({
-      label: status,
-      value: count,
-      onClick: () => changeStatus(status as JobStatus),
-      isActive: status === activeStatus,
-    }));
+    return Object.entries(omitBy(queueData.jobsCounts, isNil)).map(
+      ([status, count]) => ({
+        label: status,
+        value: count,
+        onClick: () => changeStatus(status as JobStatus),
+        isActive: status === activeStatus,
+      })
+    );
   }, [queueData, activeStatus]);
 };

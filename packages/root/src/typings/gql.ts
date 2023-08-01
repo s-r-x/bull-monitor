@@ -53,7 +53,8 @@ export enum JobStatus {
   Failed = 'failed',
   Paused = 'paused',
   Stuck = 'stuck',
-  Unknown = 'unknown'
+  Unknown = 'unknown',
+  Prioritized = 'prioritized'
 }
 
 export enum JobStatusClean {
@@ -288,6 +289,7 @@ export type QueueJobsCounts = {
   failed: Scalars['Int'];
   delayed: Scalars['Int'];
   paused: Scalars['Int'];
+  prioritized?: Maybe<Scalars['Int']>;
 };
 
 export type QueueMetrics = {

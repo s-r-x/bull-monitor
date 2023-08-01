@@ -20,6 +20,7 @@ export const getQueues = (): Promise<GetQueuesQuery> =>
             failed
             delayed
             paused
+            prioritized
           }
         }
       }

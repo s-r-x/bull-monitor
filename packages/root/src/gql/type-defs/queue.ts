@@ -12,6 +12,7 @@ export const queueTypeDef = gql`
     failed: Int!
     delayed: Int!
     paused: Int!
+    prioritized: Int
   }
   type Queue {
     id: String!

@@ -2,13 +2,15 @@ import { usePreferencesStore } from '@/stores/preferences';
 import type { GetQueuesQuery, JobStatus, QueueJobsCounts } from '@/typings/gql';
 import { useMemo } from 'react';
 import groupBy from 'lodash/groupBy';
+import omitBy from 'lodash/omitBy';
+import isNil from 'lodash/isNil';
 
 type QueueFromQuery = NonNullable<GetQueuesQuery['queues']>[0];
 export const useJobsCountArray = (count: QueueJobsCounts) => {
   return useMemo(() => {
-    return Object.entries(count).map(([status, count]) => ({
+    return Object.entries(omitBy(count, isNil)).map(([status, count]) => ({
       status: status as JobStatus,
-      count,
+      count: count as number,
     }));
   }, [count]);
 };

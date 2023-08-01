@@ -53,7 +53,8 @@ export enum JobStatus {
   Failed = 'failed',
   Paused = 'paused',
   Stuck = 'stuck',
-  Unknown = 'unknown'
+  Unknown = 'unknown',
+  Prioritized = 'prioritized'
 }
 
 export enum JobStatusClean {
@@ -288,6 +289,7 @@ export type QueueJobsCounts = {
   failed: Scalars['Int'];
   delayed: Scalars['Int'];
   paused: Scalars['Int'];
+  prioritized?: Maybe<Scalars['Int']>;
 };
 
 export type QueueMetrics = {
@@ -548,7 +550,7 @@ export type GetQueuesQueryVariables = Exact<{ [key: string]: never; }>;
 
 export type GetQueuesQuery = { queues?: Maybe<Array<(
     Pick<Queue, 'id' | 'provider' | 'readonly' | 'name' | 'keyPrefix' | 'isPaused'>
-    & { jobsCounts: Pick<QueueJobsCounts, 'waiting' | 'active' | 'completed' | 'failed' | 'delayed' | 'paused'> }
+    & { jobsCounts: Pick<QueueJobsCounts, 'waiting' | 'active' | 'completed' | 'failed' | 'delayed' | 'paused' | 'prioritized'> }
   )>> };
 
 export type GetRedisInfoQueryVariables = Exact<{ [key: string]: never; }>;

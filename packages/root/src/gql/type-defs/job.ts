@@ -10,6 +10,7 @@ export const jobTypeDef = gql`
     paused
     stuck
     unknown
+    prioritized
   }
   enum JobStatusClean {
     completed

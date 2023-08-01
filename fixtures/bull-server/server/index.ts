@@ -6,7 +6,6 @@ import Queue from 'bull';
 import {
   Queue as BullMqQueue,
   Worker as MqWorker,
-  QueueScheduler as MqQueueScheduler,
   ConnectionOptions,
 } from 'bullmq';
 
@@ -47,9 +46,6 @@ const mqQueues = [
     connection: mqConnOptions,
   }),
 ];
-new MqQueueScheduler(mqQueues[0].name, {
-  connection: mqConnOptions,
-});
 mqQueues.forEach((queue) => {
   new MqWorker(
     queue.name,

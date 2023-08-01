@@ -1,13 +1,14 @@
+import { QueueProvider } from './typings/gql';
+import { JobStatus } from './typings/gql';
 import type { Redis, Cluster } from 'ioredis';
 import type {
-  JobStatus,
   JobStatusClean,
   QueueJobsCounts as JobCounts,
 } from './typings/gql';
-import { QueueProvider } from './typings/gql';
 import type { Maybe } from './typings/utils';
 
-export type { JobStatus, JobStatusClean, JobCounts };
+export type { JobStatusClean, JobCounts };
+export { JobStatus };
 export { QueueProvider };
 export type RedisClient = Redis | Cluster;
 export type JobId = string;
