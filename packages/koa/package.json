@@ -22,7 +22,9 @@
   },
   "dependencies": {
     "@bull-monitor/root": "^5.2.0",
-    "apollo-server-koa": "^3.6.3"
+	  "@as-integrations/koa": "^1.1.1",
+	  "@apollo/server": "^4.9.1",
+	  "graphql": "^16.7.1"
   },
   "peerDependencies": {
     "koa": "2.x",

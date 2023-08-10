@@ -52,9 +52,9 @@
     "zustand": "^3.5.2"
   },
   "devDependencies": {
-    "@graphql-codegen/cli": "^1.21.3",
-    "@graphql-codegen/typescript": "^1.21.1",
-    "@graphql-codegen/typescript-operations": "^1.17.15",
+	  "@graphql-codegen/cli": "^2.16.5",
+	  "@graphql-codegen/typescript": "^2.8.8",
+	  "@graphql-codegen/typescript-operations": "^2.5.13",
     "@types/file-saver": "^2.0.2",
     "@types/ms": "^0.7.31",
     "@types/react": "^17.0.0",

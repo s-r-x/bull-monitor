@@ -22,7 +22,9 @@
   "main": "dist/index.js",
   "dependencies": {
     "@bull-monitor/root": "^5.2.0",
-    "apollo-server-hapi": "^3.6.3"
+	  "@as-integrations/hapi": "^2.0.1",
+	  "@apollo/server": "^4.9.1",
+	  "graphql": "^16.7.1"
   },
   "peerDependencies": {
     "@hapi/hapi": "20.x"

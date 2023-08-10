@@ -1,4 +1,3 @@
-import { DataSource } from 'apollo-datasource';
 import { JsonService } from '../../../services/json';
 import { OrderEnum } from '../../../typings/gql';
 import redisInfo from 'redis-info';
@@ -30,14 +29,12 @@ import type { Maybe } from '../../../typings/utils';
 type Config = {
   textSearchScanCount?: number;
 };
-export class BullDataSource extends DataSource {
+export class BullDataSource {
   constructor(
     private _queues: Queue[],
     private _queuesMap: Map<string, Queue>,
     private _config: Config
-  ) {
-    super();
-  }
+  ) {}
 
   // queries
   public getQueueById(id: string, throwIfNotFound?: boolean) {
