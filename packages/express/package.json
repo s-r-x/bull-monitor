@@ -22,7 +22,8 @@
   "main": "dist/index.js",
   "dependencies": {
     "@bull-monitor/root": "^5.2.0",
-    "apollo-server-express": "^3.6.3"
+	"@apollo/server": "^4.0.0",
+	  "graphql": "^16.7.1"
   },
   "peerDependencies": {
     "express": "4.x"

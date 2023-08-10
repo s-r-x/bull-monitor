@@ -9,13 +9,14 @@ import { UI } from './ui';
 import { MetricsCollector } from './metrics-collector';
 import { Queue } from './queue';
 import { DEFAULT_METRICS_CONFIG, DEFAULT_ROOT_CONFIG } from './constants';
-import type {
-  ApolloServerBase,
-  Config as ApolloConfig,
-} from 'apollo-server-core';
 import type { Config, MetricsConfig } from './typings/config';
+import { ApolloServer, ApolloServerOptions, BaseContext } from '@apollo/server';
+import { startStandaloneServer } from '@apollo/server/standalone';
 
-export abstract class BullMonitor<TServer extends ApolloServerBase> {
+export abstract class BullMonitor<
+  TServer extends ApolloServer,
+  TContext extends BaseContext
+> {
   private _queues: Queue[] = [];
   private _queuesMap: Map<string, Queue> = new Map();
   private _ui: UI;
@@ -44,8 +45,8 @@ export abstract class BullMonitor<TServer extends ApolloServerBase> {
   protected config: Required<Config>;
   protected server: TServer;
   protected createServer(
-    Server: new (config: ApolloConfig) => TServer,
-    plugins?: ApolloConfig['plugins']
+    Server: new (config: ApolloServerOptions<TContext>) => TServer,
+    plugins?: ApolloServerOptions<TContext>['plugins']
   ) {
     this.server = new Server({
       persistedQueries: false,
@@ -53,17 +54,23 @@ export abstract class BullMonitor<TServer extends ApolloServerBase> {
       resolvers,
       plugins,
       introspection: this.config.gqlIntrospection,
-      dataSources: () => ({
-        bull: new BullDataSource(this._queues, this._queuesMap, {
-          textSearchScanCount: this.config.textSearchScanCount,
-        }),
-        metrics: new MetricsDataSource(this._metricsCollector),
-        policies: new PoliciesDataSource(this._queuesMap),
-      }),
     });
   }
+
   protected async startServer() {
-    return await this.server.start();
+    return await startStandaloneServer(this.server, {
+      context: async () => {
+        return {
+          dataSources: () => ({
+            bull: new BullDataSource(this._queues, this._queuesMap, {
+              textSearchScanCount: this.config.textSearchScanCount,
+            }),
+            metrics: new MetricsDataSource(this._metricsCollector),
+            policies: new PoliciesDataSource(this._queuesMap),
+          }),
+        };
+      },
+    });
   }
   protected renderUi() {
     return this._ui.render();

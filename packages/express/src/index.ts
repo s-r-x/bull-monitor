@@ -1,8 +1,10 @@
 import { BullMonitor } from '@bull-monitor/root';
-import { ApolloServer } from 'apollo-server-express';
 import Express from 'express';
-import { ApolloServerPluginDrainHttpServer } from 'apollo-server-core';
 import type { Server as HttpServer } from 'http';
+import { ApolloServer } from '@apollo/server';
+import { startStandaloneServer } from '@apollo/server/standalone';
+import { expressMiddleware } from '@apollo/server/express4';
+import { ApolloServerPluginDrainHttpServer } from '@apollo/server/plugin/drainHttpServer';
 
 const expressVersion = require('express/package.json').version;
 const defaultInitParams = {
@@ -14,7 +16,7 @@ export type InitParams = {
   httpServer?: HttpServer;
 };
 
-export class BullMonitorExpress extends BullMonitor<ApolloServer> {
+export class BullMonitorExpress extends BullMonitor<ApolloServer, any> {
   public router: Express.Router;
   async init({
     disableBodyParser,
@@ -30,11 +32,10 @@ export class BullMonitorExpress extends BullMonitor<ApolloServer> {
       ApolloServer,
       httpServer && [ApolloServerPluginDrainHttpServer({ httpServer })]
     );
-    await this.server.start();
-    this.server.applyMiddleware({
-      app: router as Express.Express,
-      bodyParserConfig,
-    });
+    await startStandaloneServer(this.server);
+
+    (router as Express.Express).use('/', expressMiddleware(this.server, {}));
+
     this.router = router;
   }
 }

@@ -86,12 +86,14 @@ abstract class AbstractIterator {
     ids.forEach((id) => pipeline.hgetall(this._queue.toKey(id)));
     const jobs = await pipeline.exec();
 
-    return jobs.reduce((acc, [error, job], idx) => {
-      if (!error && job) {
-        acc.push(this._queue.jobFromJSON(job, ids[idx]));
-      }
-      return acc;
-    }, [] as TJobsList);
+    return (
+      jobs?.reduce((acc, [error, job], idx) => {
+        if (!error && job) {
+          acc.push(this._queue.jobFromJSON(job, ids[idx]));
+        }
+        return acc;
+      }, [] as TJobsList) ?? []
+    );
   }
   abstract generator(): AsyncGenerator<TJobsList>;
   abstract destroy(): void;

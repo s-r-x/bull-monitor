@@ -12,4 +12,4 @@ type DataSources = {
     policies: PoliciesDataSource;
   };
 };
-export type TResolvers = IResolvers<any, DataSources>;
+export type TResolvers = IResolvers<any, any>;
