@@ -6,11 +6,12 @@ import Actions from './Actions';
 import type { TJobProps } from './typings';
 import Checkbox from '@mui/material/Checkbox';
 import JobStatusChip from '@/components/JobStatusChip';
-import SimpleJsonView from '@/components/SimpleJsonView';
 import isempty from 'lodash/isEmpty';
 import makeStyles from '@mui/styles/makeStyles';
 import { useRemoveJobSelectionOnUnmount } from './hooks';
 import ms from 'ms';
+import AccordionJsonView from '@/components/AccordionJsonView';
+import { usePreferencesStore } from '@/stores/preferences';
 
 const useStyles = makeStyles((theme) => ({
   rowWithExtra: {
@@ -45,6 +46,7 @@ const Job = ({
   removeSelected,
   readonly,
 }: TJobProps) => {
+  const prefs = usePreferencesStore();
   const date = useFormatDateTime(job.timestamp);
   const cls = useStyles();
   useRemoveJobSelectionOnUnmount(job.id, isSelected, removeSelected);
@@ -53,7 +55,8 @@ const Job = ({
   );
   const hasData = !!job.data && job.data !== '{}';
   const hasStacktrace = !isempty(job.stacktrace);
-  const showExtra = hasData || hasStacktrace;
+  const hasReturnValue = !isempty(job.returnValue);
+  const showExtra = hasData || hasStacktrace || hasReturnValue;
   return (
     <>
       <TableRow className={showExtra ? cls.rowWithExtra : undefined}>
@@ -84,14 +87,36 @@ const Job = ({
           <TableCell className={cls.extraCell} colSpan={12}>
             <div
               className={
-                hasData && hasStacktrace ? cls.extraTwoCol : cls.extraOneCol
+                [hasData, hasStacktrace, hasReturnValue].filter(Boolean)
+                  .length > 1
+                  ? cls.extraTwoCol
+                  : cls.extraOneCol
               }
             >
-              {hasData && <SimpleJsonView>{job.data}</SimpleJsonView>}
+              {hasData && (
+                <AccordionJsonView
+                  defaultExpanded={prefs.expandJobData}
+                  header="Job Data"
+                >
+                  {job.data}
+                </AccordionJsonView>
+              )}
+              {hasReturnValue && (
+                <AccordionJsonView
+                  defaultExpanded={prefs.expandJobReturnValue}
+                  header="Return Value"
+                >
+                  {job.returnValue}
+                </AccordionJsonView>
+              )}
               {hasStacktrace && (
-                <SimpleJsonView className={cls.stacktrace}>
+                <AccordionJsonView
+                  defaultExpanded={prefs.expandJobStackTrace}
+                  textClassName={cls.stacktrace}
+                  header="Stacktrace"
+                >
                   {job.stacktrace.join('\n\n')}
-                </SimpleJsonView>
+                </AccordionJsonView>
               )}
             </div>
           </TableCell>
