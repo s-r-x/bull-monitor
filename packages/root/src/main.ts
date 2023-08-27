@@ -39,6 +39,19 @@ export abstract class BullMonitor<TServer extends ApolloServerBase> {
       this._metricsCollector.queues = this._queues;
     }
   }
+  public startMetricsCollector() {
+    if (this._metricsCollector) {
+      this._metricsCollector.stopCollecting();
+      this._metricsCollector.startCollecting();
+    } else {
+      console.warn(
+        'Metrics collector is not initialized. Please pass the metrics config while initializing bull-monitor: { metrics: { collectInterval: { hours: 1 } } }'
+      );
+    }
+  }
+  public stopMetricsCollector() {
+    this._metricsCollector?.stopCollecting();
+  }
 
   protected gqlBasePath = '/graphql';
   protected config: Required<Config>;
