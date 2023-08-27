@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.3.0](https://github.com/s-r-x/bull-monitor/compare/v5.2.0...v5.3.0) (2023-08-27)
+
+
+### Features
+
+* show job's return value in more convenient way \ hide data and stacktrace behind accordions ([41c703f](https://github.com/s-r-x/bull-monitor/commit/41c703f7c51506ee13918c51e63780cb281e7488))
+
+
+
+
+
 # [5.2.0](https://github.com/s-r-x/bull-monitor/compare/v5.1.0...v5.2.0) (2023-08-01)
 
 
