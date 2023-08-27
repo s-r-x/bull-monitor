@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.4.0](https://github.com/s-r-x/bull-monitor/compare/v5.3.0...v5.4.0) (2023-08-27)
+
+
+### Features
+
+* stopMetricsCollector and startMetricsCollector public methods ([8bd48e7](https://github.com/s-r-x/bull-monitor/commit/8bd48e75355d0aa28642709948305a314b0a19f2))
+
+
+
+
+
 # [5.3.0](https://github.com/s-r-x/bull-monitor/compare/v5.2.0...v5.3.0) (2023-08-27)
 
 **Note:** Version bump only for package @bull-monitor/root

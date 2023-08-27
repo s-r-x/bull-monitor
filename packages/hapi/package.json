@@ -1,6 +1,6 @@
 {
   "name": "@bull-monitor/hapi",
-  "version": "5.3.0",
+  "version": "5.4.0",
   "description": "bull-monitor for hapi",
   "keywords": [
     "bull"
@@ -21,7 +21,7 @@
   },
   "main": "dist/index.js",
   "dependencies": {
-    "@bull-monitor/root": "^5.3.0",
+    "@bull-monitor/root": "^5.4.0",
     "apollo-server-hapi": "^3.6.3"
   },
   "peerDependencies": {
